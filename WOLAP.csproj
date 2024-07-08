@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
-    <AssemblyName>APWOL</AssemblyName>
-    <Description>West of Loathing Archipelago Randomizer</Description>
+    <AssemblyName>lucasvdm.westofloathing.aprandomizer</AssemblyName>
+    <Description>WOLAP - West of Loathing Archipelago Randomizer</Description>
     <Version>0.1.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
