@@ -1,10 +1,14 @@
 ﻿using BepInEx;
 
-namespace APWOL
+namespace WOLAP
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     public class Plugin : BaseUnityPlugin
     {
+        internal const string PluginGuid = "lucasvdm.westofloathing.aprandomizer";
+        internal const string PluginName = "West of Loathing Archipelago Randomizer";
+        internal const string PluginVersion = "0.1.0";
+
         private void Awake()
         {
             // Plugin startup logic
