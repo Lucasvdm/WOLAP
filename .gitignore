@@ -41,7 +41,6 @@ lib/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
-*.csproj
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
