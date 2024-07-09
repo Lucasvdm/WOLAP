@@ -1,4 +1,6 @@
 ﻿using BepInEx;
+using HarmonyLib;
+using System.Reflection;
 
 namespace WOLAP
 {
@@ -13,6 +15,8 @@ namespace WOLAP
         {
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Harmony harmony = new Harmony(PluginGuid);
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 }
