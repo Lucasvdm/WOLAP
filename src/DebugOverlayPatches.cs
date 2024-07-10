@@ -18,12 +18,25 @@ namespace WOLAP
 
         [HarmonyPatch(typeof(DebugOverlay), "Update")]
         [HarmonyPostfix]
-        static void DebugOverlayOpenKeyPatch()
+        static void DebugOverlayUpdatePatch(DebugOverlay __instance)
+        {
+            UpdateOverlayToggle();
+            //UpdateFPSInfo(__instance);
+            Traverse traverse = Traverse.Create(__instance);
+            traverse.Method("UpdateClutterInfo").GetValue(); //Shift + C
+            traverse.Method("UpdateDebugInfo").GetValue(); // Ctrl + Shift + I
+            traverse.Method("UpdateFpsInfo").GetValue(); // F
+            traverse.Method("UpdateBugNotification").GetValue();
+            //traverse.Method("UpdateDomeLights").GetValue(); // Ctrl + L -- Not implemented
+        }
+
+        static void UpdateOverlayToggle()
         {
             if (Controls.dev.GetKeycodeDown(DebugOverlay.TOGGLE_VISIBLE_KEY))
             {
                 GameStateMachine gsm = WestOfLoathing.instance.state_machine;
                 string debugState = DebugOverlayState.NAME;
+
                 if (gsm.IsState(debugState))
                 {
                     gsm.Pop(debugState);
