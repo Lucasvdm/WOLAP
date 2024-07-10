@@ -10,7 +10,7 @@ using UnityEngine;
 namespace WOLAP
 {
     [HarmonyPatch]
-    internal class TestPatch
+    internal class DebugOverlayPatches
     {
         [HarmonyPatch(typeof(Controls), "allowDevKeys", MethodType.Getter)]
         [HarmonyPostfix]
@@ -22,7 +22,16 @@ namespace WOLAP
         {
             if (Controls.dev.GetKeycodeDown(DebugOverlay.TOGGLE_VISIBLE_KEY))
             {
-                WestOfLoathing.instance.state_machine.Push(new DebugOverlayState());
+                GameStateMachine gsm = WestOfLoathing.instance.state_machine;
+                string debugState = DebugOverlayState.NAME;
+                if (gsm.IsState(debugState))
+                {
+                    gsm.Pop(debugState);
+                }
+                else
+                {
+                    gsm.Push(new DebugOverlayState());
+                }
             }
         }
     }
