@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
-using UnityEngine;
 
 namespace WOLAP
 {
@@ -21,7 +20,6 @@ namespace WOLAP
         static void DebugOverlayUpdatePatch(DebugOverlay __instance)
         {
             UpdateOverlayToggle();
-            //UpdateFPSInfo(__instance);
             Traverse traverse = Traverse.Create(__instance);
             traverse.Method("UpdateClutterInfo").GetValue(); //Shift + C
             traverse.Method("UpdateDebugInfo").GetValue(); // Ctrl + Shift + I
@@ -39,10 +37,12 @@ namespace WOLAP
 
                 if (gsm.IsState(debugState))
                 {
+                    WolapPlugin.Log.LogInfo("Closing debug overlay.");
                     gsm.Pop(debugState);
                 }
                 else
                 {
+                    WolapPlugin.Log.LogInfo("Opening debug overlay.");
                     gsm.Push(new DebugOverlayState());
                 }
             }
