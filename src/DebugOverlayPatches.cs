@@ -35,7 +35,7 @@ namespace WOLAP
                 GameStateMachine gsm = WestOfLoathing.instance.state_machine;
                 string debugState = DebugOverlayState.NAME;
 
-                if (gsm.IsState(debugState))
+                if (gsm.HasState(debugState))
                 {
                     WolapPlugin.Log.LogInfo("Closing debug overlay.");
                     gsm.Pop(debugState);
@@ -45,7 +45,35 @@ namespace WOLAP
                     WolapPlugin.Log.LogInfo("Opening debug overlay.");
                     gsm.Push(new DebugOverlayState());
                 }
+
+                gsm.LogStates();
             }
+        }
+
+        [HarmonyPatch(typeof(DebugOverlayState), "OnUpdate")]
+        [HarmonyPrefix]
+        static bool DebugOverlayStateUpdatePatch()
+        {
+            return false;
+        }
+
+        //TODO: Move to another class
+        [HarmonyPatch(typeof(GameStateMachine), "LogStates")]
+        [HarmonyPrefix]
+        static void LogStatesPatch(GameStateMachine __instance)
+        {
+            WolapPlugin.Log.LogInfo("-- Current game states --");
+
+            List<GameState> states = Traverse.Create(__instance).Field<List<GameState>>("m_aryState").Value;
+
+            if (states.Count == 0) return;
+
+            for (int i = 0; i < states.Count; i++)
+            {
+                WolapPlugin.Log.LogInfo($"State {i}: {states[i].name}");
+            }
+
+            return;
         }
     }
 }

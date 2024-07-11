@@ -13,9 +13,9 @@
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
     <PackageReference Include="HarmonyX" Version="2.13.0" />
-    <PackageReference Include="UnityEngine.Modules" Version="2019.4.2.2143332" IncludeAssets="compile" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.2" IncludeAssets="compile" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>lib\Assembly-CSharp.dll</HintPath>
+      <HintPath>ref\Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   
