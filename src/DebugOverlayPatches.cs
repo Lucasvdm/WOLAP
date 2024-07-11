@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace WOLAP
 {
@@ -47,6 +49,25 @@ namespace WOLAP
                 }
 
                 gsm.LogStates();
+            }
+        }
+
+        //Add listener so command input is only submitted when Enter is pressed, not when focus is lost
+        [HarmonyPatch(typeof(DebugOverlay), "Awake")]
+        [HarmonyPostfix]
+        static void SubmitInputControlPatch(DebugOverlay __instance)
+        {
+            __instance.commandLine.onEndEdit.AddListener(delegate { SubmitCommandOnEnter(__instance); });
+        }
+
+        static void SubmitCommandOnEnter(DebugOverlay __instance)
+        {
+            InputField commandLine = __instance.commandLine;
+            if (commandLine != null && commandLine.text.Length > 0 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+            {
+                WolapPlugin.Log.LogInfo($"Running debug command '{commandLine.text}'");
+                __instance.RunString(commandLine.text);
+                __instance.commandLine.text = "";
             }
         }
 
