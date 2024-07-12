@@ -71,9 +71,61 @@ namespace WOLAP
             }
         }
 
+        [HarmonyPatch(typeof(DebugOverlay), "RunSlashCommand")]
+        [HarmonyPrefix]
+        static bool SlashCommandOverridePatch(string strCommandOrig)
+        {
+            string[] args = strCommandOrig.Split(new char[]{' '});
+            switch (args[0])
+            {
+                case "tp":
+                case "teleport":
+                    TryTeleportCommand(args);
+                    break;
+                default:
+                    WolapPlugin.Log.LogWarning($"'/{strCommandOrig}' is not a recognized command.");
+                    break;
+            }
+            return false;
+        }
+
+        //TODO: Add help info, printed out on "/tp help" or when no arguments provided. Similar for other commands. Just another method for each or some centralized help text location?
+        static void TryTeleportCommand(string[] args)
+        {
+            if (args.Length < 2)
+            {
+                WolapPlugin.Log.LogWarning("Teleport command failed: No target provided.");
+                return;
+            }
+
+            string target = String.Join(" ", args.Skip(1));
+
+            MWaa mwaa;
+            if (!ModelManager.Instance.waas.TryGetValue(target, out mwaa)) //Search by ID
+            {
+                foreach (MWaa waa in ModelManager.Instance.waas.Values) //Try searching by readable name
+                {
+                    if (waa.name == target)
+                    {
+                        mwaa = waa;
+                        break;
+                    }
+                }
+
+                if (mwaa == null)
+                {
+                    WolapPlugin.Log.LogWarning($"Teleport command failed: Target '{target}' could not be found.");
+                    return;
+                }
+            }
+
+            WolapPlugin.Log.LogInfo($"Teleporting to {target}...");
+            Waa.TeleportToWaa(mwaa.id);
+        }
+
         [HarmonyPatch(typeof(DebugOverlayState), "OnUpdate")]
         [HarmonyPrefix]
-        static bool DebugOverlayStateUpdatePatch()
+        static bool DebugOverlayStateOnUpdateOverridePatch()
         {
             return false;
         }
