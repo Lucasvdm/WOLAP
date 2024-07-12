@@ -123,6 +123,7 @@ namespace WOLAP
             Waa.TeleportToWaa(mwaa.id);
         }
 
+        //Overrides this OnUpdate and instead handles closing in the toggle (DebugOverlay Update) so the opening and closing don't conflict
         [HarmonyPatch(typeof(DebugOverlayState), "OnUpdate")]
         [HarmonyPrefix]
         static bool DebugOverlayStateOnUpdateOverridePatch()
