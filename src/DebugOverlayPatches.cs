@@ -48,7 +48,7 @@ namespace WOLAP
                     gsm.Push(new DebugOverlayState());
                 }
 
-                gsm.LogStates();
+                //gsm.LogStates();
             }
         }
 
