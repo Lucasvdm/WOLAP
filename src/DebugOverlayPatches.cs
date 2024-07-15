@@ -25,8 +25,9 @@ namespace WOLAP
             Traverse traverse = Traverse.Create(__instance);
             traverse.Method("UpdateClutterInfo").GetValue(); //Shift + C
             traverse.Method("UpdateDebugInfo").GetValue(); // Ctrl + Shift + I
-            traverse.Method("UpdateFpsInfo").GetValue(); // F
             traverse.Method("UpdateBugNotification").GetValue();
+
+            //traverse.Method("UpdateFpsInfo").GetValue(); // F
             //traverse.Method("UpdateDomeLights").GetValue(); // Ctrl + L -- Not implemented
         }
 
