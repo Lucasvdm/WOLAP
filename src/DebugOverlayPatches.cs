@@ -74,11 +74,38 @@ namespace WOLAP
 
         [HarmonyPatch(typeof(DebugOverlay), "RunSlashCommand")]
         [HarmonyPrefix]
-        static bool SlashCommandOverridePatch(string strCommandOrig)
+        static bool SlashCommandOverridePatch(DebugOverlay __instance, string strCommandOrig)
         {
             string[] args = strCommandOrig.Split(new char[]{' '});
             switch (args[0])
             {
+                case "flags":
+                    PrintStandardFlags();
+                    break;
+                case "dailyflags":
+                    PrintDailyFlags();
+                    break;
+                case "permaflags":
+                    PrintPermaFlags();
+                    break;
+                case "flag":
+                    PrintStandardFlag(args);
+                    break;
+                case "dailyflag":
+                    PrintDailyFlag(args);
+                    break;
+                case "permaflag":
+                    PrintPermaFlag(args);
+                    break;
+                case "setflag":
+                    SetStandardFlag(args);
+                    break;
+                case "setdailyflag":
+                    SetDailyFlag(args);
+                    break;
+                case "setpermaflag":
+                    SetPermaFlag(args);
+                    break;
                 case "tp":
                 case "teleport":
                     TryTeleportCommand(args);
@@ -90,12 +117,103 @@ namespace WOLAP
             return false;
         }
 
+        static void PrintStandardFlags()
+        {
+            PrintFlags("Standard", MPlayer.instance.data);
+        }
+
+        static void PrintDailyFlags()
+        {
+            PrintFlags("Daily", MPlayer.instance.dailyflags.data);
+        }
+
+        static void PrintPermaFlags()
+        {
+            PrintFlags("Perma", MPlayer.instance.permaflags.data);
+        }
+
+        static void PrintFlags(string flagType, Dictionary<string, string> flags)
+        {
+            WolapPlugin.Log.LogInfo($"-- {flagType} Flags --");
+            foreach (KeyValuePair<string, string> flag in flags)
+            {
+                WolapPlugin.Log.LogInfo($"{flag.Key}: {flag.Value}");
+            }
+        }
+
+        static void PrintStandardFlag(string[] args)
+        {
+            PrintFlag(args, MPlayer.instance.data);
+        }
+
+        static void PrintDailyFlag(string[] args)
+        {
+            PrintFlag(args, MPlayer.instance.dailyflags.data);
+        }
+
+        static void PrintPermaFlag(string[] args)
+        {
+            PrintFlag(args, MPlayer.instance.permaflags.data);
+        }
+
+        static void PrintFlag(string[] args, Dictionary<string, string> flags)
+        {
+            if (args.Length < 2)
+            {
+                WolapPlugin.Log.LogError("Print flag command failed: No flag provided.");
+                return;
+            }
+
+            string flag = String.Join(" ", args.Skip(1)); //Should be unnecessary for flags, they should all be one 'word' -- but useful if only for the failure log
+
+            if (MPlayer.instance.data.TryGetValue(flag, out string value))
+            {
+                WolapPlugin.Log.LogInfo($"{flag}: {value}");
+            }
+            else
+            {
+                WolapPlugin.Log.LogWarning($"Print flag command failed: Could not find flag '{flag}'.");
+            }
+        }
+
+        static void SetStandardFlag(string[] args)
+        {
+            SetFlag(args, MPlayer.instance.data);
+        }
+
+        static void SetDailyFlag(string[] args)
+        {
+            SetFlag(args, MPlayer.instance.dailyflags.data);
+        }
+
+        static void SetPermaFlag(string[] args)
+        {
+            SetFlag(args, MPlayer.instance.permaflags.data);
+        }
+
+        static void SetFlag(string[] args, Dictionary<string, string> flags)
+        {
+            if (args.Length < 3 || args.Length > 3)
+            {
+                WolapPlugin.Log.LogError("Set flag command failed: Should be in the form '/<setcommand> <flag> <value>'");
+                return;
+            }
+
+            string flag = args[1];
+            string value = args[2];
+
+            if (flags.ContainsKey(flag)) flags[flag] = value;
+            else flags.Add(flag, value);
+
+            WolapPlugin.Log.LogInfo($"Set flag '{flag}' to value: {value}");
+        }
+
         //TODO: Add help info, printed out on "/tp help" or when no arguments provided. Similar for other commands. Just another method for each or some centralized help text location?
         static void TryTeleportCommand(string[] args)
         {
             if (args.Length < 2)
             {
-                WolapPlugin.Log.LogWarning("Teleport command failed: No target provided.");
+                WolapPlugin.Log.LogError("Teleport command failed: No target provided.");
                 return;
             }
 
@@ -115,7 +233,7 @@ namespace WOLAP
 
                 if (mwaa == null)
                 {
-                    WolapPlugin.Log.LogWarning($"Teleport command failed: Target '{target}' could not be found.");
+                    WolapPlugin.Log.LogError($"Teleport command failed: Target '{target}' could not be found.");
                     return;
                 }
             }
