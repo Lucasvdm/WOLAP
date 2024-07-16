@@ -287,6 +287,7 @@ namespace WOLAP
         static void ClearConsole()
         {
             console.text = "";
+            WolapPlugin.Log.LogInfo("Cleared debug console.");
         }
 
         static void LogDebugConsoleMessage(string message, LogLevel logLevel)
