@@ -13,9 +13,37 @@ namespace WOLAP
     [HarmonyPatch]
     internal class DebugOverlayPatches
     {
+        const int MaxOutputLines = 50;
+
+        internal enum LogLevel
+        {
+            Info,
+            Warning,
+            Error,
+            Command
+        }
+
+        static Dictionary<LogLevel, string> logColors = new Dictionary<LogLevel, string>()
+        {
+            [LogLevel.Command] = "grey",
+            [LogLevel.Info] = "black",
+            [LogLevel.Warning] = "orange",
+            [LogLevel.Error] = "red"
+        };
+
+        static Text console;
+
         [HarmonyPatch(typeof(Controls), "allowDevKeys", MethodType.Getter)]
         [HarmonyPostfix]
         static bool DevKeyAllowancePatch(bool allowed) => true;
+
+        [HarmonyPatch(typeof(DebugOverlay), "Awake")]
+        [HarmonyPostfix]
+        static void DebugOverlayAwakePatch(DebugOverlay __instance)
+        {
+            console = __instance.consoleGroup.GetComponentInChildren<Text>();
+            console.supportRichText = true;
+        }
 
         [HarmonyPatch(typeof(DebugOverlay), "Update")]
         [HarmonyPostfix]
@@ -67,6 +95,7 @@ namespace WOLAP
             if (commandLine != null && commandLine.text.Length > 0 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
             {
                 WolapPlugin.Log.LogInfo($"Running debug command '{commandLine.text}'");
+                console.text += $"<b><color={logColors[LogLevel.Command]}>> {commandLine.text}</color></b>\n";
                 __instance.RunString(commandLine.text);
                 __instance.commandLine.text = "";
             }
@@ -111,7 +140,7 @@ namespace WOLAP
                     TryTeleportCommand(args);
                     break;
                 default:
-                    WolapPlugin.Log.LogWarning($"'/{strCommandOrig}' is not a recognized command.");
+                    LogDebugConsoleMessage($"'/{strCommandOrig}' is not a recognized command.", LogLevel.Warning);
                     break;
             }
             return false;
@@ -134,10 +163,18 @@ namespace WOLAP
 
         static void PrintFlags(string flagType, Dictionary<string, string> flags)
         {
-            WolapPlugin.Log.LogInfo($"-- {flagType} Flags --");
+            LogDebugConsoleMessage($"-- {flagType} Flags --", LogLevel.Info);
+            int count = 0;
             foreach (KeyValuePair<string, string> flag in flags)
             {
-                WolapPlugin.Log.LogInfo($"{flag.Key}: {flag.Value}");
+                LogDebugConsoleMessage($"{flag.Key}: {flag.Value}", LogLevel.Info);
+
+                count++;
+                if (count == MaxOutputLines)
+                {
+                    LogDebugConsoleMessage("Output too long for this basic debug console, for full output see the terminal window...", LogLevel.Warning);
+                    break;
+                }
             }
         }
 
@@ -160,7 +197,7 @@ namespace WOLAP
         {
             if (args.Length < 2)
             {
-                WolapPlugin.Log.LogError("Print flag command failed: No flag provided.");
+                LogDebugConsoleMessage("Print flag command failed: No flag provided.", LogLevel.Error);
                 return;
             }
 
@@ -168,11 +205,11 @@ namespace WOLAP
 
             if (MPlayer.instance.data.TryGetValue(flag, out string value))
             {
-                WolapPlugin.Log.LogInfo($"{flag}: {value}");
+                LogDebugConsoleMessage($"{flag}: {value}", LogLevel.Info);
             }
             else
             {
-                WolapPlugin.Log.LogWarning($"Print flag command failed: Could not find flag '{flag}'.");
+                LogDebugConsoleMessage($"Print flag command failed: Could not find flag '{flag}'.", LogLevel.Warning);
             }
         }
 
@@ -195,7 +232,7 @@ namespace WOLAP
         {
             if (args.Length < 3 || args.Length > 3)
             {
-                WolapPlugin.Log.LogError("Set flag command failed: Should be in the form '/<setcommand> <flag> <value>'");
+                LogDebugConsoleMessage("Set flag command failed: Should be in the form '/<setcommand> <flag> <value>'", LogLevel.Error);
                 return;
             }
 
@@ -205,7 +242,7 @@ namespace WOLAP
             if (flags.ContainsKey(flag)) flags[flag] = value;
             else flags.Add(flag, value);
 
-            WolapPlugin.Log.LogInfo($"Set flag '{flag}' to value: {value}");
+            LogDebugConsoleMessage($"Set flag '{flag}' to value: {value}", LogLevel.Info);
         }
 
         //TODO: Add help info, printed out on "/tp help" or when no arguments provided. Similar for other commands. Just another method for each or some centralized help text location?
@@ -213,7 +250,7 @@ namespace WOLAP
         {
             if (args.Length < 2)
             {
-                WolapPlugin.Log.LogError("Teleport command failed: No target provided.");
+                LogDebugConsoleMessage("Teleport command failed: No target provided.", LogLevel.Error);
                 return;
             }
 
@@ -233,13 +270,44 @@ namespace WOLAP
 
                 if (mwaa == null)
                 {
-                    WolapPlugin.Log.LogError($"Teleport command failed: Target '{target}' could not be found.");
+                    LogDebugConsoleMessage($"Teleport command failed: Target '{target}' could not be found.", LogLevel.Error);
                     return;
                 }
             }
 
-            WolapPlugin.Log.LogInfo($"Teleporting to {target}...");
+            LogDebugConsoleMessage($"Teleporting to {target}...", LogLevel.Info);
             Waa.TeleportToWaa(mwaa.id);
+        }
+
+        static void LogDebugConsoleMessage(string message, LogLevel logLevel)
+        {
+            int characterLimit = 3000; //Approximate character limit due to Unity UI Text vertex limit
+
+            string richText = $"<color={logColors[logLevel]}>{message}</color>\n";
+
+            if ((console.text + richText).Length > characterLimit) 
+            {
+                string[] lines = console.text.Trim().Split(new char[]{'\n'});
+                string currentCommand = lines[lines.Length - 1];
+                console.text = "";
+                LogDebugConsoleMessage($"Console cleared automatically due to {characterLimit} character limit...", LogLevel.Warning);
+                console.text += currentCommand + "\n";
+            }
+
+            console.text += richText;
+
+            switch (logLevel)
+            {
+                case LogLevel.Info:
+                    WolapPlugin.Log.LogInfo(message);
+                    break;
+                case LogLevel.Warning:
+                    WolapPlugin.Log.LogWarning(message);
+                    break;
+                case LogLevel.Error:
+                    WolapPlugin.Log.LogError(message);
+                    break;
+            }
         }
 
         //Overrides this OnUpdate and instead handles closing in the toggle (DebugOverlay Update) so the opening and closing don't conflict
