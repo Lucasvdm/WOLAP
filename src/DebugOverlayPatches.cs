@@ -139,6 +139,11 @@ namespace WOLAP
                 case "teleport":
                     TryTeleportCommand(args);
                     break;
+                case "cls": //"Legacy" command, included for consistency because it's listed in the debug console reference bucket in data.json
+                case "clr":
+                case "clear":
+                    ClearConsole();
+                    break;
                 default:
                     LogDebugConsoleMessage($"'/{strCommandOrig}' is not a recognized command.", LogLevel.Warning);
                     break;
@@ -277,6 +282,11 @@ namespace WOLAP
 
             LogDebugConsoleMessage($"Teleporting to {target}...", LogLevel.Info);
             Waa.TeleportToWaa(mwaa.id);
+        }
+
+        static void ClearConsole()
+        {
+            console.text = "";
         }
 
         static void LogDebugConsoleMessage(string message, LogLevel logLevel)
