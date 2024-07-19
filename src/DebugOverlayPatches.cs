@@ -102,6 +102,7 @@ namespace WOLAP
             }
         }
 
+        //JSON script commands and more can be run without a slash, refer to MCommand.Op in the WOL code -- TODO: Have a "help" or "commands" command to list all of these
         [HarmonyPatch(typeof(DebugOverlay), "RunSlashCommand")]
         [HarmonyPrefix]
         static bool SlashCommandOverridePatch(DebugOverlay __instance, string strCommandOrig)
@@ -295,6 +296,24 @@ namespace WOLAP
         {
             console.text = "";
             WolapPlugin.Log.LogInfo("Cleared debug console.");
+        }
+
+        [HarmonyPatch(typeof(MEvalContext), "LogErrorStatic")]
+        [HarmonyPostfix]
+        static void LogCommandErrorStaticPatch(string strMessage)
+        {
+            string richTextFormattedMessage = strMessage.Replace('<', '(').Replace('>', ')');
+
+            LogDebugConsoleMessage(richTextFormattedMessage, LogLevel.Error);
+        }
+
+        [HarmonyPatch(typeof(MEvalContext), "LogError")]
+        [HarmonyPostfix]
+        static void LogCommandErrorPatch(string strMessage)
+        {
+            string richTextFormattedMessage = strMessage.Replace('<', '(').Replace('>', ')');
+
+            LogDebugConsoleMessage(richTextFormattedMessage, LogLevel.Error);
         }
 
         static void LogDebugConsoleMessage(string message, LogLevel logLevel)
