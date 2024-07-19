@@ -172,14 +172,20 @@ namespace WOLAP
             int count = 0;
             foreach (KeyValuePair<string, string> flag in flags)
             {
-                LogDebugConsoleMessage($"{flag.Key}: {flag.Value}", LogLevel.Info);
-
-                count++;
+                if (count <= MaxOutputLines)
+                {
+                    LogDebugConsoleMessage($"{flag.Key}: {flag.Value}", LogLevel.Info);
+                }
+                else
+                {
+                    WolapPlugin.Log.LogInfo($"{flag.Key}: {flag.Value}");
+                }
+                
                 if (count == MaxOutputLines)
                 {
                     LogDebugConsoleMessage("Output too long for this basic debug console, for full output see the terminal window...", LogLevel.Warning);
-                    break;
                 }
+                count++;
             }
         }
 
