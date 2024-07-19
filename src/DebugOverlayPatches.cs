@@ -98,6 +98,7 @@ namespace WOLAP
                 console.text += $"<b><color={logColors[LogLevel.Command]}>> {commandLine.text}</color></b>\n";
                 __instance.RunString(commandLine.text);
                 __instance.commandLine.text = "";
+                __instance.commandLine.ActivateInputField(); //Keep focus after entering a command
             }
         }
 
