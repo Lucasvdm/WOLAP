@@ -32,6 +32,10 @@ namespace WOLAP
         };
 
         static Text console;
+        static InputField commandLine;
+        public static bool IsOverlayOpen { get; private set; }
+        static List<string> commandHistory;
+        static int commandHistoryIndex = -1;
 
         [HarmonyPatch(typeof(Controls), "allowDevKeys", MethodType.Getter)]
         [HarmonyPostfix]
@@ -43,6 +47,8 @@ namespace WOLAP
         {
             console = __instance.consoleGroup.GetComponentInChildren<Text>();
             console.supportRichText = true;
+            commandLine = __instance.commandLine;
+            commandHistory = new List<string>();
         }
 
         [HarmonyPatch(typeof(DebugOverlay), "Update")]
@@ -50,6 +56,7 @@ namespace WOLAP
         static void DebugOverlayUpdatePatch(DebugOverlay __instance)
         {
             UpdateOverlayToggle();
+            ProcessCommandLineControls(__instance);
             Traverse traverse = Traverse.Create(__instance);
             traverse.Method("UpdateClutterInfo").GetValue(); //Shift + C
             traverse.Method("UpdateDebugInfo").GetValue(); // Ctrl + Shift + I
@@ -70,14 +77,41 @@ namespace WOLAP
                 {
                     WolapPlugin.Log.LogInfo("Closing debug overlay.");
                     gsm.Pop(debugState);
+                    IsOverlayOpen = false;
                 }
                 else
                 {
                     WolapPlugin.Log.LogInfo("Opening debug overlay.");
                     gsm.Push(new DebugOverlayState());
+                    IsOverlayOpen = true;
                 }
 
                 //gsm.LogStates();
+            }
+        }
+
+        static void ProcessCommandLineControls(DebugOverlay __instance)
+        {
+            if (IsOverlayOpen)
+            {
+                ProcessCommandHistoryInput();
+            }
+        }
+
+        static void ProcessCommandHistoryInput()
+        {
+            if (commandHistory.Count != 0 && commandLine.isFocused)
+            {
+                if (Controls.dev.GetKeycodeDown(KeyCode.UpArrow) && commandHistoryIndex > 0)
+                {
+                    commandHistoryIndex--;
+                    commandLine.text = commandHistory.ElementAt(commandHistoryIndex);
+                }
+                else if (Controls.dev.GetKeycodeDown(KeyCode.DownArrow) && commandHistoryIndex < (commandHistory.Count - 1))
+                {
+                    commandHistoryIndex++;
+                    commandLine.text = commandHistory.ElementAt(commandHistoryIndex);
+                }
             }
         }
 
@@ -86,19 +120,20 @@ namespace WOLAP
         [HarmonyPostfix]
         static void SubmitInputControlPatch(DebugOverlay __instance)
         {
-            __instance.commandLine.onEndEdit.AddListener(delegate { SubmitCommandOnEnter(__instance); });
+            commandLine.onEndEdit.AddListener(delegate { SubmitCommandOnEnter(__instance); });
         }
 
         static void SubmitCommandOnEnter(DebugOverlay __instance)
         {
-            InputField commandLine = __instance.commandLine;
-            if (commandLine != null && commandLine.text.Length > 0 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+            if (commandLine.text.Length > 0 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
             {
                 WolapPlugin.Log.LogInfo($"Running debug command '{commandLine.text}'");
                 console.text += $"<b><color={logColors[LogLevel.Command]}>> {commandLine.text}</color></b>\n";
                 __instance.RunString(commandLine.text);
-                __instance.commandLine.text = "";
-                __instance.commandLine.ActivateInputField(); //Keep focus after entering a command
+                commandHistory.Add(commandLine.text);
+                commandHistoryIndex = commandHistory.Count;
+                commandLine.text = "";
+                commandLine.ActivateInputField(); //Keep focus after entering a command
             }
         }
 
