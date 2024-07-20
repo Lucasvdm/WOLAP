@@ -172,6 +172,12 @@ namespace WOLAP
                 case "setpermaflag":
                     SetPermaFlag(args);
                     break;
+                case "properties":
+                    PrintProperties();
+                    break;
+                case "removeproperty":
+                    RemoveProperty(args);
+                    break;
                 case "tp":
                 case "teleport":
                     TryTeleportCommand(args);
@@ -182,7 +188,14 @@ namespace WOLAP
                     ClearConsole();
                     break;
                 default:
-                    LogDebugConsoleMessage($"'/{strCommandOrig}' is not a recognized command.", LogLevel.Warning);
+                    if (MCommand.StringToOp(args[0]) != MCommand.Op.INVALID)
+                    {
+                        __instance.RunString(strCommandOrig); //Re-runs the same command without the slash
+                    }
+                    else
+                    {
+                        LogDebugConsoleMessage($"'{strCommandOrig}' is not a recognized command.", LogLevel.Warning);
+                    }
                     break;
             }
             return false;
@@ -209,19 +222,21 @@ namespace WOLAP
             int count = 0;
             foreach (KeyValuePair<string, string> flag in flags)
             {
-                if (count <= MaxOutputLines)
-                {
-                    LogDebugConsoleMessage($"{flag.Key}: {flag.Value}", LogLevel.Info);
-                }
-                else
-                {
-                    WolapPlugin.Log.LogInfo($"{flag.Key}: {flag.Value}");
-                }
-                
                 if (count == MaxOutputLines)
                 {
                     LogDebugConsoleMessage("Output too long for this basic debug console, for full output see the terminal window...", LogLevel.Warning);
                 }
+
+                string outputLine = $"{flag.Key}: {flag.Value}";
+                if (count < MaxOutputLines)
+                {
+                    LogDebugConsoleMessage(outputLine, LogLevel.Info);
+                }
+                else
+                {
+                    WolapPlugin.Log.LogInfo(outputLine);
+                }
+                
                 count++;
             }
         }
@@ -245,7 +260,7 @@ namespace WOLAP
         {
             if (args.Length < 2)
             {
-                LogDebugConsoleMessage("Print flag command failed: No flag provided.", LogLevel.Error);
+                LogDebugConsoleMessage("Print flag command failed: No flag provided", LogLevel.Error);
                 return;
             }
 
@@ -257,7 +272,7 @@ namespace WOLAP
             }
             else
             {
-                LogDebugConsoleMessage($"Print flag command failed: Could not find flag '{flag}'.", LogLevel.Warning);
+                LogDebugConsoleMessage($"Print flag command failed: Could not find flag '{flag}'", LogLevel.Warning);
             }
         }
 
@@ -290,7 +305,57 @@ namespace WOLAP
             if (flags.ContainsKey(flag)) flags[flag] = value;
             else flags.Add(flag, value);
 
-            LogDebugConsoleMessage($"Set flag '{flag}' to value: {value}", LogLevel.Info);
+            LogDebugConsoleMessage($"Set flag '{flag}' to value: '{value}'", LogLevel.Info);
+        }
+
+        static void PrintProperties()
+        {
+            LogDebugConsoleMessage($"-- Properties --", LogLevel.Info);
+            int count = 0;
+            foreach (string property in MPlayer.instance.propertyNames)
+            {
+                if (count == MaxOutputLines)
+                {
+                    LogDebugConsoleMessage("Output too long for this basic debug console, for full output see the terminal window...", LogLevel.Warning);
+                }
+
+                if (MPlayer.instance.data.TryGetValue(property, out string value))
+                {
+                    string outputLine = $"{property}: {value}";
+                    if (count < MaxOutputLines) LogDebugConsoleMessage(outputLine, LogLevel.Info);
+                    else WolapPlugin.Log.LogInfo(outputLine);
+                }
+                else
+                {
+                    string outputLine = $"Could not find a value for property '{property}'";
+                    if (count < MaxOutputLines) LogDebugConsoleMessage(outputLine, LogLevel.Warning);
+                    else WolapPlugin.Log.LogWarning(outputLine);
+                }
+
+                count++;
+            }
+        }
+
+        static void RemoveProperty(string[] args)
+        {
+            if (args.Length < 2)
+            {
+                LogDebugConsoleMessage("Remove property command failed: No property provided", LogLevel.Error);
+                return;
+            }
+
+            string property = String.Join(" ", args.Skip(1));
+            MPlayer mPlayer = MPlayer.instance;
+            if (!mPlayer.propertyNames.Contains(property))
+            {
+                LogDebugConsoleMessage($"Could not find property '{property}' to remove", LogLevel.Warning);
+            }
+            else
+            {
+                mPlayer.data.Remove(property);
+                mPlayer.propertyNames.Remove(property);
+                LogDebugConsoleMessage($"Removed property '{property}'", LogLevel.Info);
+            }
         }
 
         //TODO: Add help info, printed out on "/tp help" or when no arguments provided. Similar for other commands. Just another method for each or some centralized help text location?
@@ -298,7 +363,7 @@ namespace WOLAP
         {
             if (args.Length < 2)
             {
-                LogDebugConsoleMessage("Teleport command failed: No target provided.", LogLevel.Error);
+                LogDebugConsoleMessage("Teleport command failed: No target provided", LogLevel.Error);
                 return;
             }
 
@@ -318,7 +383,7 @@ namespace WOLAP
 
                 if (mwaa == null)
                 {
-                    LogDebugConsoleMessage($"Teleport command failed: Target '{target}' could not be found.", LogLevel.Error);
+                    LogDebugConsoleMessage($"Teleport command failed: Target '{target}' could not be found", LogLevel.Error);
                     return;
                 }
             }
@@ -330,7 +395,7 @@ namespace WOLAP
         static void ClearConsole()
         {
             console.text = "";
-            WolapPlugin.Log.LogInfo("Cleared debug console.");
+            WolapPlugin.Log.LogInfo("Cleared debug console");
         }
 
         [HarmonyPatch(typeof(MEvalContext), "LogErrorStatic")]
