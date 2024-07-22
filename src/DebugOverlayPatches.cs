@@ -372,7 +372,7 @@ namespace WOLAP
             MWaa mwaa;
             if (!ModelManager.Instance.waas.TryGetValue(target, out mwaa)) //Search by ID
             {
-                foreach (MWaa waa in ModelManager.Instance.waas.Values) //Try searching by readable name
+                foreach (MWaa waa in ModelManager.Instance.waas.Values) //Try searching by readable name -- TODO: This name isn't unique, so account for cases where there are multiple and log an error or something
                 {
                     if (waa.name == target)
                     {
