@@ -8,14 +8,16 @@ namespace WOLAP
     {
         public string Name { get; set; }
         public MCommand ScriptCommand { get; set; }
-        public List<ScriptPath> JsonCheckPaths { get; set; }
-        public List<ScriptPath> JsonMissPaths { get; set; }
+        public ScriptPath[] JsonCheckPaths { get; set; }
+        public ScriptPath[] JsonMissPaths { get; set; }
+        public bool IsDLC { get; set; }
 
-        public CheckLocation(string name, List<ScriptPath> checkPaths, List<ScriptPath> missPaths) { 
+        public CheckLocation(string name, ScriptPath[] checkPaths, ScriptPath[] missPaths, bool isDlc) { 
             this.Name = name;
             this.ScriptCommand = new MCommand(MCommand.Op.STATESHARE, [name]); //STATESHARE is a Stadia-exclusive command which has no use, seems like the best dangling MCommand.Op value to hijack
             this.JsonCheckPaths = checkPaths;
             this.JsonMissPaths = missPaths;
+            this.IsDLC = isDlc;
         }
     }
 
