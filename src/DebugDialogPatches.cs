@@ -60,7 +60,7 @@ namespace WOLAP
 
             __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught in this case
             
-            //TODO: Callback logic for checklogic commands
+            //TODO: Callback logic for checklocation commands
         }
     }
 }
