@@ -7,7 +7,466 @@
   "emitters": {},
   "projectiles": {},
   "items": {},
-  "scripts": {},
+  "scripts": {
+    "cre_brotoybox": {
+      "popup": [
+        [
+          "say",
+          "It's your kid brother's toybox."
+        ],
+        [
+          "option",
+          "getpuz",
+          "Look inside"
+        ]
+      ],
+      "getpuz": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Heh.  He loves stuff like this."
+        ],
+        [
+          "checklocation",
+          "Your Family's Farm - Rufus' Toybox"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "cre_dadconvo": {
+      "start": [
+        [
+          "if",
+          "hasflag(cre_dad)"
+        ],
+        [
+          "goto",
+          "didalready"
+        ],
+        [
+          "say",
+          "Your father morosely jabs at the haystack."
+        ],
+        [
+          "sayoption",
+          "hat",
+          "That hat doesn't fit you, Dad."
+        ],
+        [
+          "sayoption",
+          "leaving",
+          "Time for me to leave, Dad."
+        ]
+      ],
+      "hat": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "That hat doesn't fit you, Dad."
+        ],
+        [
+          "rightpicture",
+          "portrait_dad"
+        ],
+        [
+          "rightspeak",
+          "I'll grow into it."
+        ],
+        [
+          "sayoption",
+          "leaving",
+          "It's time for me to leave."
+        ]
+      ],
+      "leaving": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "His lip quivers a little."
+        ],
+        [
+          "if",
+          "player.class==1"
+        ],
+        [
+          "addstate",
+          "heirloom,your grandmother's brass knuckles"
+        ],
+        [
+          "if",
+          "player.class==2"
+        ],
+        [
+          "addstate",
+          "heirloom,your grandmother's favorite can of beans"
+        ],
+        [
+          "if",
+          "player.class==3"
+        ],
+        [
+          "addstate",
+          "heirloom,your grandmother's briefcase full of snakes"
+        ],
+        [
+          "rightpicture",
+          "portrait_dad"
+        ],
+        [
+          "rightspeak",
+          "Listen, I... want you to have this.  It's $heirloom$."
+        ],
+        [
+          "checklocation",
+          "Your Family's Farm - Father's Gift"
+        ],
+        [
+          "addflag",
+          "cre_dad,1"
+        ],
+        [
+          "option",
+          "thankyou",
+          "Thank him"
+        ]
+      ],
+      "thankyou": [
+        [
+          "leftspeak",
+          "Thanks, Dad."
+        ],
+        [
+          "rightspeak",
+          "Good...  good luck out there.  Be sure to say goodbye to your mother."
+        ],
+        [
+          "if",
+          "hasflag(cre_momtalk)"
+        ],
+        [
+          "sayoption",
+          "done",
+          "I did. Goodbye, Dad."
+        ],
+        [
+          "if",
+          "hasflag(cre_momtalk)==0"
+        ],
+        [
+          "sayoption",
+          "done",
+          "I will. Goodbye, Dad."
+        ]
+      ],
+      "didalready": [
+        [
+          "say",
+          "He's just barely holding it together.  It's probably best for him if you just go."
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ],
+      "done": [
+        [
+          "exit"
+        ]
+      ]
+    },
+    "cre_initsouvenirshelf": {
+      "start": [
+        [
+          "if",
+          "hasflag(cre_gotsouvenirs)"
+        ],
+        [
+          "exit"
+        ],
+        [
+          "changeelementproperty",
+          "souvenirshelf,decal,decal_gmshotglass,20,53"
+        ],
+        [
+          "changeelementproperty",
+          "souvenirshelf,decal1,decal_spiderring,-25,50"
+        ]
+      ]
+    },
+    "cre_mother": { // Your Family's Farm - Mother's Gift
+      "start": [
+        [
+          "addstate",
+          "roll,=rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(cre_momtalk)"
+        ],
+        [
+          "goto",
+          "anotherhug"
+        ],
+        [
+          "say",
+          "Your mom smiles warmly as you approach."
+        ],
+        [
+          "sayoption",
+          "mom2",
+          "I'm leaving now, Mom."
+        ]
+      ],
+      "mom2": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "I'm leaving now, Mom."
+        ],
+        [
+          "rightpicture",
+          "portrait_mom"
+        ],
+        [
+          "rightspeak",
+          "We're gonna miss you, kiddo.  Oh, and before you leave, I got you a present."
+        ],
+        [
+          "sayoption",
+          "mom3",
+          "A present?"
+        ]
+      ],
+      "mom3": [
+        [
+          "leftspeak",
+          "A present?"
+        ],
+        [
+          "rightspeak",
+          "Yep!  It's that book you wanted for Crimbo.  I know it's early, but..."
+        ],
+        [
+          "sayoption",
+          "book",
+          "The one about picking locks?  Oh boy!"
+        ]
+      ],
+      "book": [
+        [
+          "leftspeak",
+          "The one about picking locks?  Oh boy!"
+        ],
+        [
+          "rightspeak",
+          "That's the one!  Enjoy it."
+        ],
+        [ //TODO: Implement the checklocation/STATESHARE command (MCommand Execute)
+          "checklocation",
+          "Your Family's Farm - Mother's Gift"
+        ],
+        [ //TODO: Move these to their shops' inits, replace books with check pickups
+          "addnpcstoreitem",
+          "buttonwillow,book_foragin,1,1500"
+        ],
+        [
+          "addnpcstoreitem",
+          "breadwood,book_dickerin,1,2500"
+        ],
+        [
+          "goto",
+          "end"
+        ]
+      ],
+      "end": [
+        [
+          "addflag",
+          "cre_momtalk"
+        ],
+        [
+          "rightspeak",
+          "Please be careful out there.  Write us a letter when you can."
+        ],
+        [
+          "say",
+          "She hugs you."
+        ],
+        [
+          "sayoption",
+          "done",
+          "I will, Mom.  Goodbye."
+        ]
+      ],
+      "anotherhug": [
+        [
+          "say",
+          "Your mom raises her eyebrow."
+        ],
+        [
+          "sayoption",
+          "hug2",
+          "I just wanted one more hug before I leave."
+        ]
+      ],
+      "hug2": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "I just wanted one more hug before I leave."
+        ],
+        [
+          "say",
+          "She smiles and hugs you again."
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ],
+      "done": [
+        [
+          "exit"
+        ]
+      ]
+    },
+    "cre_souvenirshelf": {
+      "popup": [
+        [
+          "say",
+          "It's our shelf full of souvenirs from old family vacations."
+        ],
+        [
+          "option",
+          "e",
+          "Plunder those memories"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addflag",
+          "cre_gotsouvenirs"
+        ],
+        [
+          "checklocation",
+          "Your Family's Farm - Souvenir Shelf (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Your Family's Farm - Souvenir Shelf (Item 2)"
+        ]
+      ]
+    },
+    "cre_yourbooks": {
+      "popup": [
+        [
+          "goto",
+          "firstread"
+        ]
+      ],
+      "firstread": [
+        [
+          "incflag",
+          "cre_yourbookshelf,1"
+        ],
+        [
+          "if",
+          "hasflag(cre_yourbookshelf)==7"
+        ],
+        [
+          "goto",
+          "coolbook"
+        ],
+        [
+          "say",
+          "You read the spine of one of your books."
+        ],
+        [
+          "say",
+          "\"%adventurebook_title%\"."
+        ],
+        [
+          "say",
+          "%adventurebook_comment%"
+        ],
+        [
+          "option",
+          "read",
+          "Read another title"
+        ]
+      ],
+      "read": [
+        [
+          "cls"
+        ],
+        [
+          "incflag",
+          "cre_yourbookshelf,1"
+        ],
+        [
+          "if",
+          "hasflag(cre_yourbookshelf)==7"
+        ],
+        [
+          "goto",
+          "coolbook"
+        ],
+        [
+          "say",
+          "\"%adventurebook_title%\"."
+        ],
+        [
+          "say",
+          "%adventurebook_comment%"
+        ],
+        [
+          "option",
+          "read",
+          "Read another title"
+        ]
+      ],
+      "coolbook": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Oh hey, this one might come in handy."
+        ],
+        [
+          "checklocation",
+          "Your Family's Farm - Your Bookcase"
+        ]
+      ]
+    }
+  },
   "skills": {},
   "waas": {}
 }
