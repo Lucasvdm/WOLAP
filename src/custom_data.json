@@ -9,17 +9,6 @@
   "items": {},
   "scripts": {
     "cre_brotoybox": {
-      "popup": [
-        [
-          "say",
-          "It's your kid brother's toybox."
-        ],
-        [
-          "option",
-          "getpuz",
-          "Look inside"
-        ]
-      ],
       "getpuz": [
         [
           "cls"
@@ -38,53 +27,6 @@
       ]
     },
     "cre_dadconvo": {
-      "start": [
-        [
-          "if",
-          "hasflag(cre_dad)"
-        ],
-        [
-          "goto",
-          "didalready"
-        ],
-        [
-          "say",
-          "Your father morosely jabs at the haystack."
-        ],
-        [
-          "sayoption",
-          "hat",
-          "That hat doesn't fit you, Dad."
-        ],
-        [
-          "sayoption",
-          "leaving",
-          "Time for me to leave, Dad."
-        ]
-      ],
-      "hat": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftspeak",
-          "That hat doesn't fit you, Dad."
-        ],
-        [
-          "rightpicture",
-          "portrait_dad"
-        ],
-        [
-          "rightspeak",
-          "I'll grow into it."
-        ],
-        [
-          "sayoption",
-          "leaving",
-          "It's time for me to leave."
-        ]
-      ],
       "leaving": [
         [
           "leftportrait",
@@ -143,50 +85,6 @@
           "thankyou",
           "Thank him"
         ]
-      ],
-      "thankyou": [
-        [
-          "leftspeak",
-          "Thanks, Dad."
-        ],
-        [
-          "rightspeak",
-          "Good...  good luck out there.  Be sure to say goodbye to your mother."
-        ],
-        [
-          "if",
-          "hasflag(cre_momtalk)"
-        ],
-        [
-          "sayoption",
-          "done",
-          "I did. Goodbye, Dad."
-        ],
-        [
-          "if",
-          "hasflag(cre_momtalk)==0"
-        ],
-        [
-          "sayoption",
-          "done",
-          "I will. Goodbye, Dad."
-        ]
-      ],
-      "didalready": [
-        [
-          "say",
-          "He's just barely holding it together.  It's probably best for him if you just go."
-        ],
-        [
-          "option",
-          "done",
-          "Leave"
-        ]
-      ],
-      "done": [
-        [
-          "exit"
-        ]
       ]
     },
     "cre_initsouvenirshelf": {
@@ -209,52 +107,6 @@
       ]
     },
     "cre_mother": { // Your Family's Farm - Mother's Gift
-      "start": [
-        [
-          "addstate",
-          "roll,=rand(1,2)"
-        ],
-        [
-          "if",
-          "hasflag(cre_momtalk)"
-        ],
-        [
-          "goto",
-          "anotherhug"
-        ],
-        [
-          "say",
-          "Your mom smiles warmly as you approach."
-        ],
-        [
-          "sayoption",
-          "mom2",
-          "I'm leaving now, Mom."
-        ]
-      ],
-      "mom2": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftspeak",
-          "I'm leaving now, Mom."
-        ],
-        [
-          "rightpicture",
-          "portrait_mom"
-        ],
-        [
-          "rightspeak",
-          "We're gonna miss you, kiddo.  Oh, and before you leave, I got you a present."
-        ],
-        [
-          "sayoption",
-          "mom3",
-          "A present?"
-        ]
-      ],
       "mom3": [
         [
           "leftspeak",
@@ -295,74 +147,9 @@
           "goto",
           "end"
         ]
-      ],
-      "end": [
-        [
-          "addflag",
-          "cre_momtalk"
-        ],
-        [
-          "rightspeak",
-          "Please be careful out there.  Write us a letter when you can."
-        ],
-        [
-          "say",
-          "She hugs you."
-        ],
-        [
-          "sayoption",
-          "done",
-          "I will, Mom.  Goodbye."
-        ]
-      ],
-      "anotherhug": [
-        [
-          "say",
-          "Your mom raises her eyebrow."
-        ],
-        [
-          "sayoption",
-          "hug2",
-          "I just wanted one more hug before I leave."
-        ]
-      ],
-      "hug2": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftspeak",
-          "I just wanted one more hug before I leave."
-        ],
-        [
-          "say",
-          "She smiles and hugs you again."
-        ],
-        [
-          "option",
-          "done",
-          "Leave"
-        ]
-      ],
-      "done": [
-        [
-          "exit"
-        ]
       ]
     },
     "cre_souvenirshelf": {
-      "popup": [
-        [
-          "say",
-          "It's our shelf full of souvenirs from old family vacations."
-        ],
-        [
-          "option",
-          "e",
-          "Plunder those memories"
-        ]
-      ],
       "e": [
         [
           "cls"
@@ -385,73 +172,6 @@
       ]
     },
     "cre_yourbooks": {
-      "popup": [
-        [
-          "goto",
-          "firstread"
-        ]
-      ],
-      "firstread": [
-        [
-          "incflag",
-          "cre_yourbookshelf,1"
-        ],
-        [
-          "if",
-          "hasflag(cre_yourbookshelf)==7"
-        ],
-        [
-          "goto",
-          "coolbook"
-        ],
-        [
-          "say",
-          "You read the spine of one of your books."
-        ],
-        [
-          "say",
-          "\"%adventurebook_title%\"."
-        ],
-        [
-          "say",
-          "%adventurebook_comment%"
-        ],
-        [
-          "option",
-          "read",
-          "Read another title"
-        ]
-      ],
-      "read": [
-        [
-          "cls"
-        ],
-        [
-          "incflag",
-          "cre_yourbookshelf,1"
-        ],
-        [
-          "if",
-          "hasflag(cre_yourbookshelf)==7"
-        ],
-        [
-          "goto",
-          "coolbook"
-        ],
-        [
-          "say",
-          "\"%adventurebook_title%\"."
-        ],
-        [
-          "say",
-          "%adventurebook_comment%"
-        ],
-        [
-          "option",
-          "read",
-          "Read another title"
-        ]
-      ],
       "coolbook": [
         [
           "cls"
