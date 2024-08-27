@@ -185,6 +185,359 @@
           "Your Family's Farm - Your Bookcase"
         ]
       ]
+    },
+    "dirtwater_bartender": {
+      "piano2": [
+        [
+          "leftsay",
+          "Hmm... Maybe my info's too old. I found a note from some travelers that passed through here about eight years ago."
+        ],
+        [
+          "rightsay",
+          "Ohhh. Yeah, that was the <i>previous</i> bartender. He had a, uh, a little trick he used to offer to show people. It's what got him fired, eventually. That senator's wife wasn't amused."
+        ],
+        [
+          "say",
+          "He rummages around under the bar for a minute, then blows the dust off a tiny piano, about nine inches tall."
+        ],
+        [
+          "rightsay",
+          "Here, you can keep the piano, so long as you don't ask me about the trick."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Saloon - Bartender's Mini Piano"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks!"
+        ]
+      ]
+    },
+    "dirtwater_chef": {
+      "give2": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "removeitem",
+          "quest_chefpepper"
+        ],
+        [
+          "rightsay",
+          "Ah, a nice big one. That'll last a while. Good going."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addxp",
+          "xpreward_a"
+        ],
+        [
+          "addflag",
+          "dirtwater_chefquest,3"
+        ],
+        [
+          "rightsay",
+          "Okay, so, if you're still looking for stuff to do, I need someone to go check my mail. I ordered a new sauté knife, but I haven't got time to go fetch it myself. Here's the key to my post office box."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Saloon - Chef's Mail Key"
+        ],
+        [
+          "sayoption",
+          "done",
+          "All right."
+        ]
+      ],
+      "give4": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "removeitem",
+          "quest_secretsauce"
+        ],
+        [
+          "rightsay",
+          "Hey, thanks a million, buddy!  Now my slop will be world-famous!"
+        ],
+        [
+          "addflag",
+          "dirtwater_chefquest,5"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addxp",
+          "xpreward_a"
+        ],
+        [
+          "rightsay",
+          "Here, let me give you a little something for all your trouble. It fell in the slop, but it's still good."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Saloon - Chef's Quest Complete"
+        ],
+        [
+          "sayoption",
+          "done",
+          "All in a day's work!"
+        ]
+      ]
+    },
+    "dirtwater_flowergirl": {
+      "popup": [
+        [
+          "if",
+          "hasflag(dirtwater_boughtflowers)"
+        ],
+        [
+          "goto",
+          "no"
+        ],
+        [
+          "say",
+          "This little girl is selling flowers."
+        ],
+        [
+          "if",
+          "meat>=50"
+        ],
+        [
+          "option",
+          "e",
+          "Buy some [50 Meat]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "erf",
+          "Buy some [50 Meat]"
+        ]
+      ],
+      "e": [
+        [
+          "addflag",
+          "dirtwater_boughtflowers"
+        ],
+        [
+          "addmeat",
+          "-50"
+        ],
+        [
+          "checklocation",
+          "Dirtwater - Flower Girl"
+        ],
+        [
+          "speechbubble",
+          "flowergirl,0,60",
+          "Thank you @mister@!"
+        ]
+      ]
+    },
+    "dirtwater_poboxes": {
+      "popup": [
+        [
+          "if",
+          "hasitem(quest_chefkey)"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "dirtwater_poboxes_open"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "if",
+          "hasitem(quest_fort3key)"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "dirtwater_poboxes_open"
+        ],
+        [
+          "say",
+          "A big cabinet of locked post-office boxes."
+        ]
+      ]
+    },
+    "dirtwater_poboxes_open": {
+      "start": [
+        [
+          "if",
+          "hasitem(quest_chefkey)"
+        ],
+        [
+          "say",
+          "You find P. O. box 441, the one that belongs to the chef at the Jewel."
+        ],
+        [
+          "if",
+          "hasitem(quest_fort3key)"
+        ],
+        [
+          "say",
+          "You find P. O. box 114, for which you found the key at Fort Treason."
+        ],
+        [
+          "if",
+          "hasitem(quest_chefkey)"
+        ],
+        [
+          "option",
+          "open441",
+          "Open box 441"
+        ],
+        [
+          "if",
+          "hasitem(quest_fort3key)"
+        ],
+        [
+          "option",
+          "open114",
+          "Open box 114"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ],
+      "open441": [
+        [
+          "say",
+          "You open the box and a torrent of junk mail falls out to reveal a knife, just sitting loose in the box."
+        ],
+        [
+          "say",
+          "You pick it up."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Post Office - P.O. Box 441"
+        ],
+        [
+          "option",
+          "done",
+          "Back to the chef!"
+        ]
+      ],
+      "open114": [
+        [
+          "say",
+          "You open the box.  It's empty except for a single sheet of card stock with columns of numbers on it in tiny print."
+        ],
+        [
+          "removeitem",
+          "quest_fort3key"
+        ],
+        [
+          "checklocation",
+          "Dirtwater Post Office - P.O. Box 114"
+        ],
+        [
+          "option",
+          "done",
+          "Hmm"
+        ]
+      ]
+    },
+    "dirtwater_postmaster": {
+      "codes2": [
+        [
+          "say",
+          "After a couple of minutes, she comes back with a sheet of note paper."
+        ],
+        [
+          "rightsay",
+          "Okay, so each map has a code number on it, y'see? Based on region an' direction a' travel..."
+        ],
+        [
+          "say",
+          "She explains how to work out the code you need, and gives you a cheat sheet for reference."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Post Office - Postal Codes"
+        ],
+        [
+          "delflag",
+          "postalstation_needcode"
+        ],
+        [
+          "option",
+          "done",
+          "Thank her and leave"
+        ]
+      ]
+    },
+    "dirtwater_spittoon": {
+      "seven": [
+        [
+          "say",
+          "You found something. You found a tacky, filth-covered, porcelain cow figurine. A useless, disgusting thing that will make a great heirloom for your children, assuming you're still able to have any, and you hate them."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Dirtwater - Spittoon"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "option",
+          "done",
+          "Hooray!"
+        ]
+      ]
+    },
+    "dirtwater_yourtable": {
+      "take": [
+        [
+          "addflag",
+          "room_postcard"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Dirtwater Guest Room - Table"
+        ]
+      ]
     }
   },
   "skills": {},
