@@ -1,7 +1,9 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using System.IO;
 using System.Reflection;
+using UnityEngine;
 
 namespace WOLAP
 {
@@ -12,7 +14,8 @@ namespace WOLAP
         internal const string PluginName = "West of Loathing Archipelago Randomizer";
         internal const string PluginVersion = "0.1.0";
 
-        internal static ManualLogSource Log; //For access from other classes
+        internal static ManualLogSource Log;
+        internal static AssetBundle WolapAssets;
 
         private void Awake()
         {
@@ -21,6 +24,18 @@ namespace WOLAP
             Log.LogInfo($"Plugin {PluginGuid} is loaded!");
             Harmony harmony = new Harmony(PluginGuid);
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+            LoadAssets();
+        }
+
+        private void LoadAssets()
+        {
+            var assembly = typeof(WolapPlugin).Assembly;
+            var assetsStream = assembly.GetManifestResourceStream("WOLAP.assets.wolap_assets");
+            WolapAssets = AssetBundle.LoadFromStream(assetsStream); //Should probably do asynchronously, but using this for testing for now as the bundle is small
+
+            if (WolapAssets == null) Log.LogError("Failed to load WOLAP asset bundle!");
+            else Log.LogInfo("WOLAP asset bundle loaded!");
         }
     }
 }
