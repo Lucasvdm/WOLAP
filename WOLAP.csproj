@@ -28,5 +28,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="assets\wolap_assets" />
+    <EmbeddedResource Include="src\custom_data.json" />
   </ItemGroup>
 </Project>

@@ -1,9 +1,11 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using System;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace WOLAP
 {
@@ -14,6 +16,7 @@ namespace WOLAP
         internal const string PluginName = "West of Loathing Archipelago Randomizer";
         internal const string PluginVersion = "0.1.0";
 
+        internal static Harmony Harmony;
         internal static ManualLogSource Log;
         internal static AssetBundle WolapAssets;
 
@@ -22,10 +25,22 @@ namespace WOLAP
             // Plugin startup logic
             Log = Logger;
             Log.LogInfo($"Plugin {PluginGuid} is loaded!");
-            Harmony harmony = new Harmony(PluginGuid);
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            Harmony = new Harmony(PluginGuid);
+            Harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+            ProcessManualPatches();
 
             LoadAssets();
+        }
+
+        private static void ProcessManualPatches()
+        {
+            //Have to do this patch manually with reflection because it's an overloaded method with one of its parameters being a private enum type
+            Type loadFlagsType = typeof(SavedGame).GetNestedType("LoadFlags", BindingFlags.NonPublic);
+            var methodParams = new[] { typeof(string), loadFlagsType, typeof(string).MakeByRefType() };
+            var savedGameLoadInternal = typeof(SavedGame).GetMethod("LoadInternal", BindingFlags.NonPublic | BindingFlags.Static, Type.DefaultBinder, methodParams, null);
+            var loadInternalPostfix = typeof(SavedGamePatches).GetMethod("LoadInternalPatch", BindingFlags.NonPublic | BindingFlags.Static);
+            Harmony.Patch(savedGameLoadInternal, postfix: new HarmonyMethod(loadInternalPostfix));
         }
 
         private void LoadAssets()

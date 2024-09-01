@@ -14,7 +14,8 @@ namespace WOLAP
             if (scripts.Keys.Contains(newScript.id))
             {
                 MScript origScript = scripts[newScript.id];
-                foreach (string stateID in origScript.states.Keys)
+                var stateIDs = origScript.states.Keys.ToArray();
+                foreach (string stateID in stateIDs)
                 {
                     if (newScript.states.Keys.Contains(stateID))
                     {

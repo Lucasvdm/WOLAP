@@ -29,7 +29,10 @@
           "say",
           "Opened!"
         ],
-        //TODO: Send out the check here
+        [
+          "say",
+          "Do the check here (in JSON)"
+        ],
         [
           "option",
           "done",
@@ -143,7 +146,7 @@
         ]
       ]
     },
-    "cre_mother": { // Your Family's Farm - Mother's Gift
+    "cre_mother": {
       "mom3": [
         [
           "leftspeak",
@@ -168,11 +171,11 @@
           "rightspeak",
           "That's the one!  Enjoy it."
         ],
-        [ //TODO: Implement the checklocation/STATESHARE command (MCommand Execute)
+        [
           "checklocation",
           "Your Family's Farm - Mother's Gift"
         ],
-        [ //TODO: Move these to their shops' inits, replace books with check pickups
+        [
           "addnpcstoreitem",
           "buttonwillow,book_foragin,1,1500"
         ],
