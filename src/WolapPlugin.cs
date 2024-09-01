@@ -61,7 +61,7 @@ namespace WOLAP
 
             //AssetBundleInfo struct is private, need to use reflection to initialize and set values (and add it to the dictionary)
             Type assetBundleInfoType = typeof(AssetBundleManager).GetNestedType("AssetBundleInfo", BindingFlags.NonPublic);
-            var assetBundleInfo = Activator.CreateInstance(assetBundleInfoType);
+            var assetBundleInfo = Activator.CreateInstance(assetBundleInfoType); //Have to use this instead of Harmony's Type.CreateInstance ("assetBundleInfoType.CreateInstance"), that creates errors on current version
             assetBundleInfoType.GetField("pathPrefix").SetValue(assetBundleInfo, PluginAssetsPath);
             assetBundleInfoType.GetField("isScene").SetValue(assetBundleInfo, false);
             assetBundleInfoType.GetField("assbun").SetValue(assetBundleInfo, WolapAssets);
