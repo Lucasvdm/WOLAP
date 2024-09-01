@@ -13,7 +13,7 @@
       "enchantments": [],
       "category": "miscellaneous",
       "description": "Placeholder item for consumable archipelago checks, namely shop items (put information about the corresponding multiworld item here?)",
-      "icon": "icon_package",
+      "icon": "icon_archipelagopow",
       "uselink": "Open it",
       "usescript": "archipelago_opencheckbox",
       "sellvalue": 0.0,

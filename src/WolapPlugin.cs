@@ -2,6 +2,7 @@
 using BepInEx.Logging;
 using HarmonyLib;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
@@ -14,7 +15,9 @@ namespace WOLAP
     {
         internal const string PluginGuid = "lucasvdm.westofloathing.aprandomizer";
         internal const string PluginName = "West of Loathing Archipelago Randomizer";
+        internal const string PluginNameShort = "WOLAP";
         internal const string PluginVersion = "0.1.0";
+        internal const string PluginAssetsPath = "assets/wolap_assets";
 
         internal static Harmony Harmony;
         internal static ManualLogSource Log;
@@ -49,8 +52,24 @@ namespace WOLAP
             var assetsStream = assembly.GetManifestResourceStream("WOLAP.assets.wolap_assets");
             WolapAssets = AssetBundle.LoadFromStream(assetsStream); //Should probably do asynchronously, but using this for testing for now as the bundle is small
 
-            if (WolapAssets == null) Log.LogError("Failed to load WOLAP asset bundle!");
+            if (WolapAssets == null)
+            {
+                Log.LogError("Failed to load WOLAP asset bundle!");
+                return;
+            }
             else Log.LogInfo("WOLAP asset bundle loaded!");
+
+            //AssetBundleInfo struct is private, need to use reflection to initialize and set values (and add it to the dictionary)
+            Type assetBundleInfoType = typeof(AssetBundleManager).GetNestedType("AssetBundleInfo", BindingFlags.NonPublic);
+            var assetBundleInfo = Activator.CreateInstance(assetBundleInfoType);
+            assetBundleInfoType.GetField("pathPrefix").SetValue(assetBundleInfo, PluginAssetsPath);
+            assetBundleInfoType.GetField("isScene").SetValue(assetBundleInfo, false);
+            assetBundleInfoType.GetField("assbun").SetValue(assetBundleInfo, WolapAssets);
+
+            Traverse traverse = Traverse.Create(AssetBundleManager.instance);
+            var assetBundleInfoDict = traverse.Field("m_mpStrAbi").GetValue();
+            var dictItemProp = assetBundleInfoDict.GetType().GetProperty("Item");
+            dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, new[] { PluginNameShort });
         }
     }
 }
