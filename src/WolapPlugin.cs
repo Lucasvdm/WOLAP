@@ -2,7 +2,7 @@
 using BepInEx.Logging;
 using HarmonyLib;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
@@ -33,7 +33,7 @@ namespace WOLAP
 
             ProcessManualPatches();
 
-            LoadAssets();
+            StartCoroutine(LoadAssets());
         }
 
         private static void ProcessManualPatches()
@@ -46,16 +46,18 @@ namespace WOLAP
             Harmony.Patch(savedGameLoadInternal, postfix: new HarmonyMethod(loadInternalPostfix));
         }
 
-        private void LoadAssets()
+        private IEnumerator LoadAssets()
         {
             var assembly = typeof(WolapPlugin).Assembly;
             var assetsStream = assembly.GetManifestResourceStream("WOLAP.assets.wolap_assets");
-            WolapAssets = AssetBundle.LoadFromStream(assetsStream); //Should probably do asynchronously, but using this for testing for now as the bundle is small
+            var bundleLoadRequest = AssetBundle.LoadFromStreamAsync(assetsStream);
+            yield return new WaitUntil(() => bundleLoadRequest.isDone);
 
+            WolapAssets = bundleLoadRequest.assetBundle;
             if (WolapAssets == null)
             {
                 Log.LogError("Failed to load WOLAP asset bundle!");
-                return;
+                yield break;
             }
             else Log.LogInfo("WOLAP asset bundle loaded!");
 
