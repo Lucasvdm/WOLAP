@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 namespace WOLAP
 {
-    [HarmonyPatch]
-    internal class DebugDialogPatches
+    [HarmonyPatch(typeof(Dialog))]
+    internal class DialogPatches
     {
         private static KeyCode TOGGLE_DIALOG_DEBUG = KeyCode.Backslash;
 
-        [HarmonyPatch(typeof(Dialog), "Update")]
+        [HarmonyPatch("Update")]
         [HarmonyPrefix]
         static void DialogUpdatePatch(Dialog __instance)
         {
@@ -32,7 +32,18 @@ namespace WOLAP
             }
         }
 
-        [HarmonyPatch(typeof(Dialog), "SetDebugObjectsVisible")]
+        [HarmonyPatch("OnCommand")]
+        [HarmonyPostfix]
+        static void OnCommandPatch(Dialog __instance, MEvalContext ectx, MCommand cmd, ref bool __result)
+        {
+            if (cmd.op != MCommand.Op.STATESHARE) return;
+
+            __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught in this case
+
+            //TODO: Callback logic for checklocation commands
+        }
+
+        [HarmonyPatch("SetDebugObjectsVisible")]
         [HarmonyPrefix]
         static bool SetDialogDebugObjectsVisiblePatch(Dialog __instance, bool fVisible)
         {
@@ -50,17 +61,6 @@ namespace WOLAP
         {
             debugInfoRoot.transform.position = debugInfoRoot.transform.position.WithY(0f);
             debugInfoRoot.SetActive(visible);
-        }
-
-        [HarmonyPatch(typeof(Dialog), "OnCommand")]
-        [HarmonyPostfix]
-        static void OnCommandPatch(Dialog __instance, MEvalContext ectx, MCommand cmd, ref bool __result)
-        {
-            if (cmd.op != MCommand.Op.STATESHARE) return;
-
-            __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught in this case
-            
-            //TODO: Callback logic for checklocation commands
         }
     }
 }
