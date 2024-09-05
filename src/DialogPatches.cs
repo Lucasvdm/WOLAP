@@ -36,13 +36,17 @@ namespace WOLAP
         [HarmonyPostfix]
         static void OnCommandPatch(Dialog __instance, MEvalContext ectx, MCommand cmd, ref bool __result)
         {
-            __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught in this case
-
-            if (cmd.op == MCommand.Op.STATESHARE)
+            switch (cmd.op)
             {
-                var locationName = cmd.StrArg(0);
-                WolapPlugin.Archipelago.SendLocationCheck(locationName);
+                case MCommand.Op.STATESHARE:
+                    var locationName = cmd.StrArg(0);
+                    WolapPlugin.Archipelago.SendLocationCheck(locationName);
+                    break;
+                default:
+                    return;
             }
+
+            __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught before this patch
         }
 
         [HarmonyPatch("SetDebugObjectsVisible")]
