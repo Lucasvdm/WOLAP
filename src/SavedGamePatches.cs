@@ -17,6 +17,7 @@ namespace WOLAP
         private static void LoadInternalPatch(string strLoadName, object lflags, ref string strWaaTeleport)
         {
             //TODO: Check if save is modded, via a flag set on save file creation
+            //If modded save and data not loaded, load it. If unmodded save and data IS loaded, unload it/reload vanilla data.
 
             if (!ModDataLoaded && MPlayer.instance.data.Keys.Count > 0) LoadWOLAPData();
         }

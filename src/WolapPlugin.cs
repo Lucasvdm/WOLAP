@@ -22,6 +22,7 @@ namespace WOLAP
         internal static Harmony Harmony;
         internal static ManualLogSource Log;
         internal static AssetBundle WolapAssets;
+        internal static ArchipelagoClient Archipelago;
 
         private void Awake()
         {
@@ -34,6 +35,8 @@ namespace WOLAP
             ProcessManualPatches();
 
             StartCoroutine(LoadAssets());
+
+            Archipelago = new ArchipelagoClient("localhost");
         }
 
         private static void ProcessManualPatches()
@@ -46,7 +49,7 @@ namespace WOLAP
             Harmony.Patch(savedGameLoadInternal, postfix: new HarmonyMethod(loadInternalPostfix));
         }
 
-        private IEnumerator LoadAssets()
+        private static IEnumerator LoadAssets()
         {
             var assembly = typeof(WolapPlugin).Assembly;
             var assetsStream = assembly.GetManifestResourceStream("WOLAP.assets.wolap_assets");
