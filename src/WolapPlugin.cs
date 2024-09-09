@@ -39,6 +39,12 @@ namespace WOLAP
             Archipelago = new ArchipelagoClient("localhost");
         }
 
+        private void Update()
+        {
+            //Don't want to run this yet, not ready for testing, just putting it in place
+            //Archipelago.Update();
+        }
+
         private static void ProcessManualPatches()
         {
             //Have to do this patch manually with reflection because it's an overloaded method with one of its parameters being a private enum type

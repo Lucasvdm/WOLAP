@@ -1,5 +1,6 @@
 ﻿using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Enums;
+using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using BepInEx;
 using System;
@@ -16,24 +17,37 @@ namespace WOLAP
         public Dictionary<string, object> SlotData { get; private set; }
         public bool IsConnected { get { return Session != null && Session.Socket.Connected; } }
 
-        private const string GAMENAME = "West Of Loathing";
+        private const string GAME_NAME = "West Of Loathing";
+        private const string ITEM_RECEIVED_FLAG_PREFIX = "received_item_";
 
         private string hostname;
         private int port;
         private string password;
         private string slot;
         private ConcurrentQueue<ItemInfo> incomingItems;
-        private List<long> outgoingLocations;
+        private List<string> outgoingLocations;
 
         public ArchipelagoClient()
         {
             incomingItems = new ConcurrentQueue<ItemInfo>();
-            outgoingLocations = new List<long>();
+            outgoingLocations = new List<string>();
         }
 
         public ArchipelagoClient(string hostname, int port = 38281) : this()
         {
             CreateSession(hostname, port);
+        }
+
+        public void Update()
+        {
+            if (!IsConnected) return;
+
+            //Could handle this whole queue all at once in a separate asynchronous method, but one item per frame should be fine
+            if (incomingItems.Count > 0)
+            {
+                incomingItems.TryDequeue(out var item);
+                HandleReceivedItem(item);
+            }
         }
 
         public void CreateSession()
@@ -59,6 +73,10 @@ namespace WOLAP
                 hostname = newHostname;
                 port = newPort;
                 WolapPlugin.Log.LogInfo("Archipelago session created.");
+
+                Session.Items.ItemReceived += (receivedItemsHelper) => {
+                    incomingItems.Enqueue(receivedItemsHelper.DequeueItem());
+                };
             }
         }
 
@@ -84,7 +102,7 @@ namespace WOLAP
             LoginResult result;
             try
             {
-                result = Session.TryConnectAndLogin(GAMENAME, slot, ItemsHandlingFlags.AllItems, requestSlotData: true, password: password);
+                result = Session.TryConnectAndLogin(GAME_NAME, slot, ItemsHandlingFlags.AllItems, requestSlotData: true, password: password);
             }
             catch (Exception ex)
             {
@@ -132,7 +150,24 @@ namespace WOLAP
             //Resetting/clearing item lists, queues, and other vars for the multiworld slot data
             incomingItems.Clear();
             outgoingLocations.Clear();
-            Session.Locations.AllLocationsChecked.First();
+        }
+
+        private void HandleReceivedItem(ItemInfo item)
+        {
+            if (item == null) return;
+
+            var flags = MPlayer.instance.data;
+
+            if (flags.ContainsKey(ITEM_RECEIVED_FLAG_PREFIX + item.ItemName))
+            {
+                WolapPlugin.Log.LogInfo("Skipping incoming item " + item.ItemName + " in queue because it's already been received.");
+                return;
+            }
+            else
+            {
+                //TODO: Give the item to the player. Probably need special case handling/callbacks for if it's received during various states, e.g. dialogue or when paused.
+                flags.Add(ITEM_RECEIVED_FLAG_PREFIX + item.ItemName, "1");
+            }
         }
 
         public void SendLocationCheck(string locationName)
@@ -145,7 +180,9 @@ namespace WOLAP
             else
             {
                 WolapPlugin.Log.LogInfo("Sending check for this location (but not really): " + locationName); //Temporary
+
                 //TODO: Logic for error handling and handling checks while disconnected (probably queuing them until reconnected)
+                outgoingLocations.Add(locationName);
             }
         }
          
