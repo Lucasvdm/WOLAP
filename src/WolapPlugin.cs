@@ -41,8 +41,7 @@ namespace WOLAP
 
         private void Update()
         {
-            //Don't want to run this yet, not ready for testing, just putting it in place
-            //Archipelago.Update();
+            Archipelago.Update();
         }
 
         private static void ProcessManualPatches()

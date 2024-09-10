@@ -13,13 +13,36 @@ namespace WOLAP
     {
         private static bool ModDataLoaded = false;
 
+        private const string MODDED_SAVE_PROPERTY = "archipelago_save";
+
+        [HarmonyPatch("NewGame")]
+        [HarmonyPostfix]
+        private static void NewGamePatch(string strNameFirst, string strNameLast, string strNameFull, bool fIsCowgirl, int meatReward, string strAnimal, ref string __result)
+        {
+            WolapPlugin.Log.LogInfo("Created new modded Archipelago save file.");
+            MPlayer.instance.AddProperty(MODDED_SAVE_PROPERTY, "1");
+
+            Traverse traverse = Traverse.Create(typeof(SavedGame));
+            traverse = traverse.Method("SaveInternal", new[] { typeof(string), typeof(string) });
+            __result = traverse.GetValue<string>(new[] { "create_character", null });
+        }
+
         //Patching handled in WolapPlugin rather than with attributes because of LoadInternal's weird signature (overloaded with a private enum parameter type)
         private static void LoadInternalPatch(string strLoadName, object lflags, ref string strWaaTeleport)
         {
-            //TODO: Check if save is modded, via a flag set on save file creation
-            //If modded save and data not loaded, load it. If unmodded save and data IS loaded, unload it/reload vanilla data.
+            if (WestOfLoathing.instance.state_machine.IsState(GameplayState.NAME))
+            {
+                bool isModdedSave = MPlayer.instance.data.TryGetValue(MODDED_SAVE_PROPERTY, out _);
+                WolapPlugin.Log.LogInfo((isModdedSave? "Modded" : "Unmodded") + " save loaded.");
 
-            if (!ModDataLoaded && MPlayer.instance.data.Keys.Count > 0) LoadWOLAPData();
+                if (!ModDataLoaded && isModdedSave) LoadWOLAPData();
+                else if (ModDataLoaded && !isModdedSave)
+                {
+                    ModelLoader.Instance.LoadLocal();
+                    ModDataLoaded = false;
+                    WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
+                }
+            }
         }
 
         private static async void LoadWOLAPData()
