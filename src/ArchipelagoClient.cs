@@ -174,16 +174,17 @@ namespace WOLAP
 
         public void SendLocationCheck(string locationName)
         {
-            if (locationName != null && IsConnected)
+            if (locationName == null) return;
+
+            if (IsConnected)
             {
                 var locationId = Session.Locations.GetLocationIdFromName(Session.ConnectionInfo.Game, locationName);
                 Session.Locations.CompleteLocationChecks(locationId);
             }
             else
             {
-                WolapPlugin.Log.LogInfo("Sending check for this location (but not really): " + locationName); //Temporary
+                WolapPlugin.Log.LogInfo($"Tried to send check for location {locationName} but not connected to Archipelago, adding to outgoing list.");
 
-                //TODO: Logic for error handling and handling checks while disconnected (probably queuing them until reconnected)
                 outgoingLocations.Add(locationName);
             }
         }
