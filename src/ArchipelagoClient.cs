@@ -42,12 +42,14 @@ namespace WOLAP
         {
             if (!IsConnected) return;
 
-            //Could handle this whole queue all at once in a separate asynchronous method, but one item per frame should be fine
+            //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
             if (incomingItems.Count > 0)
             {
                 incomingItems.TryDequeue(out var item);
                 HandleReceivedItem(item);
             }
+
+            if (outgoingLocations.Count > 0) SendOutgoingChecks();
         }
 
         public void CreateSession()
@@ -184,6 +186,16 @@ namespace WOLAP
                 //TODO: Logic for error handling and handling checks while disconnected (probably queuing them until reconnected)
                 outgoingLocations.Add(locationName);
             }
+        }
+
+        private void SendOutgoingChecks()
+        {
+            var ids = new long[outgoingLocations.Count];
+            for (int i = 0; i < ids.Length; i++)
+            {
+                ids[i] = Session.Locations.GetLocationIdFromName(Session.ConnectionInfo.Game, outgoingLocations[i]);
+            }
+            Session.Locations.CompleteLocationChecks(ids);
         }
          
         public List<string> GetStartingInventory()
