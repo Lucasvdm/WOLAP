@@ -27,34 +27,28 @@ namespace WOLAP
                 WolapPlugin.Log.LogError("Failed to transpile ParseScripts! Could not find the m_fOverwriteOk check.");
                 return instructions;
             }
-            else
+
+            int loadTextIdx = insts.FindIndex(ifOverwriteIdx, inst => inst.opcode == OpCodes.Ldloc_1);
+            if (loadTextIdx == -1)
             {
-                int loadTextIdx = insts.FindIndex(ifOverwriteIdx, inst => inst.opcode == OpCodes.Ldloc_1);
-                if (loadTextIdx == -1)
-                {
-                    WolapPlugin.Log.LogError("Failed to transpile ParseScripts! Could not find the ldloc.1 load.");
-                    return instructions;
-                }
-                else
-                {
-                    insts.RemoveAt(loadTextIdx); //Remove load for local variable "text", don't need it
-                    int assignmentIdx = insts.FindIndex(loadTextIdx, inst => inst.opcode == OpCodes.Callvirt);
-                    if (assignmentIdx == -1)
-                    {
-                        WolapPlugin.Log.LogError("Failed to transpile ParseScripts! Could not find the set_Item callvirt.");
-                        return instructions;
-                    }
-                    else
-                    {
-                        insts.RemoveAt(assignmentIdx); //Remove call to set_Item assignment (this.scripts[text] = mscript)
-
-                        //Insert instruction to call ModelManagerPatches.OverwriteScriptStates(this.scripts, mscript);
-                        insts.Insert(assignmentIdx, new CodeInstruction(OpCodes.Call, m_OverwriteScriptStates));
-
-                        return insts;
-                    }
-                }
+                WolapPlugin.Log.LogError("Failed to transpile ParseScripts! Could not find the ldloc.1 load.");
+                return instructions;
             }
+
+            insts.RemoveAt(loadTextIdx); //Remove load for local variable "text", don't need it
+            int assignmentIdx = insts.FindIndex(loadTextIdx, inst => inst.opcode == OpCodes.Callvirt);
+            if (assignmentIdx == -1)
+            {
+                WolapPlugin.Log.LogError("Failed to transpile ParseScripts! Could not find the set_Item callvirt.");
+                return instructions;
+            }
+
+            insts.RemoveAt(assignmentIdx); //Remove call to set_Item assignment (this.scripts[text] = mscript)
+
+            //Insert instruction to call ModelManagerPatches.OverwriteScriptStates(this.scripts, mscript);
+            insts.Insert(assignmentIdx, new CodeInstruction(OpCodes.Call, m_OverwriteScriptStates));
+
+            return insts;
         }
     }
 }
