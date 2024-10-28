@@ -17,7 +17,7 @@ namespace WOLAP
         public Dictionary<string, object> SlotData { get; private set; }
         public bool IsConnected { get { return Session != null && Session.Socket.Connected; } }
 
-        private const string GAME_NAME = "West Of Loathing";
+        private const string GAME_NAME = "West of Loathing";
         private const string ITEM_RECEIVED_FLAG_PREFIX = "received_item_";
 
         private string hostname;
@@ -59,7 +59,7 @@ namespace WOLAP
 
         public void CreateSession(string newHostname, int newPort)
         {
-            WolapPlugin.Log.LogInfo($"Trying to create an Archipelago session with hostname {newHostname} and port {newPort}");
+            WolapPlugin.Log.LogInfo($"Trying to create an Archipelago session with hostname {newHostname} and port {newPort}.");
             if (newHostname.IsNullOrWhiteSpace() || newPort == 0)
             {
                 WolapPlugin.Log.LogError("A valid hostname and port are required to create an Archipelago session.");
