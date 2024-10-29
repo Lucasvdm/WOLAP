@@ -202,6 +202,7 @@ namespace WOLAP
             new CheckLocation("Circus Lost & Found - Item 2", false),
             new CheckLocation("Circus Lost & Found - Item 3", false),
             new CheckLocation("Circus Lost & Found - Item 4", false),
+            new CheckLocation("Circus - Stole the Slide Whistle", false),
             new CheckLocation("Circus - Slide Whistle Reward", false),
             new CheckLocation("Circus Kid - Lucky Cap Trade", false),
             new CheckLocation("Circus - Survived the Main Act", false),
