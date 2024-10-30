@@ -167,6 +167,8 @@ namespace WOLAP
             }
             else
             {
+                WolapPlugin.Log.LogInfo($"Received {item.ItemDisplayName} from {item.Player} at {item.LocationDisplayName}");
+
                 //TODO: Give the item to the player. Probably need special case handling/callbacks for if it's received during various states, e.g. dialogue or when paused.
                 flags.Add(ITEM_RECEIVED_FLAG_PREFIX + item.ItemName, "1");
             }
