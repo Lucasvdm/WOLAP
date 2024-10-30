@@ -4,7 +4,7 @@ using System.Text;
 using UnityEngine.XR;
 using UnityEngine;
 
-namespace WOLAP.src
+namespace WOLAP
 {
     internal class ArchipelagoItemManager
     {

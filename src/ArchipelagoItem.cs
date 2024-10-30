@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WOLAP.src
+namespace WOLAP
 {
     internal class ArchipelagoItem
     {
