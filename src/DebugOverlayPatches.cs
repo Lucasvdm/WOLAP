@@ -142,7 +142,7 @@ namespace WOLAP
         [HarmonyPrefix]
         static bool SlashCommandOverridePatch(DebugOverlay __instance, string strCommandOrig)
         {
-            string[] args = strCommandOrig.Split(new char[]{' '});
+            string[] args = strCommandOrig.Split([' ']);
             switch (args[0])
             {
                 case "flags":
@@ -424,7 +424,7 @@ namespace WOLAP
 
             if ((console.text + richText).Length > characterLimit) 
             {
-                string[] lines = console.text.Trim().Split(new char[]{'\n'});
+                string[] lines = console.text.Trim().Split(['\n']);
                 string currentCommand = lines[lines.Length - 1];
                 console.text = "";
                 LogDebugConsoleMessage($"Console cleared automatically due to {characterLimit} character limit...", LogLevel.Warning);

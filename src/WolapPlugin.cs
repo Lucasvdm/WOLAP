@@ -84,7 +84,7 @@ namespace WOLAP
             Traverse traverse = Traverse.Create(AssetBundleManager.instance);
             var assetBundleInfoDict = traverse.Field("m_mpStrAbi").GetValue();
             var dictItemProp = assetBundleInfoDict.GetType().GetProperty("Item");
-            dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, new[] { PluginNameShort });
+            dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, [PluginNameShort]);
         }
     }
 }

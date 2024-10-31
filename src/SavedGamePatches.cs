@@ -23,8 +23,8 @@ namespace WOLAP
             MPlayer.instance.AddProperty(MODDED_SAVE_PROPERTY, "1");
 
             Traverse traverse = Traverse.Create(typeof(SavedGame));
-            traverse = traverse.Method("SaveInternal", new[] { typeof(string), typeof(string) });
-            __result = traverse.GetValue<string>(new[] { "create_character", null });
+            traverse = traverse.Method("SaveInternal", [typeof(string), typeof(string)]);
+            __result = traverse.GetValue<string>(["create_character", null]);
         }
 
         //Patching handled in WolapPlugin rather than with attributes because of LoadInternal's weird signature (overloaded with a private enum parameter type)

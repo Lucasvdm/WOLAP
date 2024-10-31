@@ -12,7 +12,7 @@ namespace WOLAP
 
         public CheckLocation(string name, bool isDlc) { 
             this.Name = name;
-            this.ScriptCommand = new MCommand(MCommand.Op.STATESHARE, new[]{name}); //STATESHARE is a Stadia-exclusive command which has no use, seems like the best dangling MCommand.Op value to hijack
+            this.ScriptCommand = new MCommand(MCommand.Op.STATESHARE, [name]); //STATESHARE is a Stadia-exclusive command which has no use, seems like the best dangling MCommand.Op value to hijack
             this.IsDLC = isDlc;
         }
     }
