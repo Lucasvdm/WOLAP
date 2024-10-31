@@ -36,11 +36,16 @@ namespace WOLAP
 
             StartCoroutine(LoadAssets());
 
-            Archipelago = new ArchipelagoClient("localhost");
+            Archipelago = new ArchipelagoClient("archipelago.gg", 55753);
         }
 
         private void Update()
         {
+            if (Archipelago.IsConnected && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
+            {
+                Archipelago.Disconnect();
+            }
+
             Archipelago.Update();
         }
 

@@ -32,17 +32,24 @@ namespace WOLAP
         {
             if (WestOfLoathing.instance.state_machine.IsState(GameplayState.NAME))
             {
-                bool isModdedSave = MPlayer.instance.data.TryGetValue(MODDED_SAVE_PROPERTY, out _);
-                WolapPlugin.Log.LogInfo((isModdedSave? "Modded" : "Unmodded") + " save loaded.");
-
-                if (!ModDataLoaded && isModdedSave) LoadWOLAPData();
-                else if (ModDataLoaded && !isModdedSave)
-                {
-                    ModelLoader.Instance.LoadLocal();
-                    ModDataLoaded = false;
-                    WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
-                }
+                ProcessSaveLoaded();
             }
+        }
+
+        private static void ProcessSaveLoaded()
+        {
+            bool isModdedSave = MPlayer.instance.data.TryGetValue(MODDED_SAVE_PROPERTY, out _);
+            WolapPlugin.Log.LogInfo((isModdedSave ? "Modded" : "Unmodded") + " save loaded.");
+
+            if (!ModDataLoaded && isModdedSave) LoadWOLAPData();
+            else if (ModDataLoaded && !isModdedSave)
+            {
+                ModelLoader.Instance.LoadLocal();
+                ModDataLoaded = false;
+                WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
+            }
+
+            WolapPlugin.Archipelago.Connect("Lucas_WOL");
         }
 
         private static async void LoadWOLAPData()

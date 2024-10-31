@@ -26,11 +26,13 @@ namespace WOLAP
         private string slot;
         private ConcurrentQueue<ItemInfo> incomingItems;
         private List<string> outgoingLocations;
+        private ArchipelagoItemManager itemManager;
 
         public ArchipelagoClient()
         {
             incomingItems = new ConcurrentQueue<ItemInfo>();
             outgoingLocations = new List<string>();
+            itemManager = new ArchipelagoItemManager();
         }
 
         public ArchipelagoClient(string hostname, int port = 38281) : this()
@@ -40,7 +42,7 @@ namespace WOLAP
 
         public void Update()
         {
-            if (!IsConnected) return;
+            if (!IsConnected) return; //TODO: Attempt reconnection?
 
             //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
             if (incomingItems.Count > 0)
@@ -82,7 +84,7 @@ namespace WOLAP
             }
         }
 
-        public void Connect(string slot, string password)
+        public void Connect(string slot, string password = "")
         {
             if (IsConnected) return;
 
@@ -145,6 +147,8 @@ namespace WOLAP
             }
 
             ClearConnectionData();
+
+            WolapPlugin.Log.LogInfo("Disconnected from Archipelago server.");
         }
 
         private void ClearConnectionData()
@@ -159,8 +163,9 @@ namespace WOLAP
             if (item == null) return;
 
             var flags = MPlayer.instance.data;
+            string itemReceivedFlag = ITEM_RECEIVED_FLAG_PREFIX + item.ItemName.Replace(" ", "") + "_" + item.LocationId;
 
-            if (flags.ContainsKey(ITEM_RECEIVED_FLAG_PREFIX + item.ItemName))
+            if (flags.ContainsKey(itemReceivedFlag))
             {
                 WolapPlugin.Log.LogInfo("Skipping incoming item " + item.ItemName + " in queue because it's already been received.");
                 return;
@@ -169,8 +174,10 @@ namespace WOLAP
             {
                 WolapPlugin.Log.LogInfo($"Received {item.ItemDisplayName} from {item.Player} at {item.LocationDisplayName}");
 
-                //TODO: Give the item to the player. Probably need special case handling/callbacks for if it's received during various states, e.g. dialogue or when paused.
-                flags.Add(ITEM_RECEIVED_FLAG_PREFIX + item.ItemName, "1");
+                //TODO: Special case handling/callbacks for if it's received during various states, e.g. dialogue or when paused.
+                bool received = itemManager.ProcessItem(item.ItemName);
+
+                flags.Add(itemReceivedFlag, "1");
             }
         }
 

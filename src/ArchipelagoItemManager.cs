@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine.XR;
 using UnityEngine;
+using BepInEx;
 
 namespace WOLAP
 {
@@ -11,6 +12,54 @@ namespace WOLAP
         public static List<ArchipelagoItem> ItemList { get { return itemList; } }
 
         public ArchipelagoItemManager() { }
+
+        //TODO: Handle items being received during dialogue, while paused, etc.
+        public bool ProcessItem(string itemName)
+        {
+            if (itemName.IsNullOrWhiteSpace()) return false;
+
+            ArchipelagoItem item = itemList.Find(item => item.Name == itemName);
+            if (item == null) return false;
+
+            switch (itemName)
+            {
+                case "Progressive Nex-Mex Skillbook":
+                    //TODO: Track which have been granted, give each of the 7 books in order (might have an AP setting to randomize order later)
+                    return true;
+                case "English-Goblintongue Dictionary":
+                    //TODO: Special handling, grant goblintongue
+                    return true;
+                case "Ghost Coach To Gun Manor":
+                    //TODO: Special handling, a flag or something
+                    return true;
+                default:
+                    return GiveItem(item);
+            }
+        }
+
+        public bool GiveItem(ArchipelagoItem item)
+        {
+            if (item == null) return false;
+
+            for (int i = 0; i < item.IDs.Length; i++)
+            {
+                string id = item.IDs[i];
+                int quantity = item.Quantities[i];
+
+                WolapPlugin.Log.LogInfo("Giving the player " + id + " x " + quantity);
+
+                MCommand cmd = new MCommand(MCommand.Op.ADDITEM, [id]);
+                if (quantity > 1) cmd.AddArg(quantity.ToString());
+                MScript script = new MScript("script_additem", new Dictionary<string, string>());
+                MScript.State state = script.NewState("state_additem");
+                state.AddCommand(cmd);
+                state.Execute();
+
+                //cmd.Execute(new Action<MCommand>(ectx.CommandCallback));
+            }
+
+            return true;
+        }
 
         private static List<ArchipelagoItem> itemList = new List<ArchipelagoItem>
         {
