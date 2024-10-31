@@ -45,7 +45,7 @@ namespace WOLAP
 
             insts.RemoveAt(assignmentIdx); //Remove call to set_Item assignment (this.scripts[text] = mscript)
 
-            //Insert instruction to call ModelManagerPatches.OverwriteScriptStates(this.scripts, mscript);
+            //Insert instruction to call InjectedHelpers.OverwriteScriptStates(this.scripts, mscript);
             insts.Insert(assignmentIdx, new CodeInstruction(OpCodes.Call, m_OverwriteScriptStates));
 
             return insts;
