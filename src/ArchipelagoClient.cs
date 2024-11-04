@@ -27,6 +27,11 @@ namespace WOLAP
         private ConcurrentQueue<ItemInfo> incomingItems;
         private List<string> outgoingLocations;
         private ArchipelagoItemManager itemManager;
+        private List<string> itemGrantableStateNames = [
+            //CombatState.NAME,
+            GameplayState.NAME,
+            InventoryState.NAME
+        ];
 
         public ArchipelagoClient()
         {
@@ -45,7 +50,7 @@ namespace WOLAP
             if (!IsConnected) return; //TODO: Attempt reconnection?
 
             //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
-            if (incomingItems.Count > 0)
+            if (incomingItems.Count > 0 && IsInItemGrantableState())
             {
                 incomingItems.TryDequeue(out var item);
                 HandleReceivedItem(item);
@@ -156,6 +161,12 @@ namespace WOLAP
             //Resetting/clearing item lists, queues, and other vars for the multiworld slot data
             incomingItems.Clear();
             outgoingLocations.Clear();
+        }
+
+        private bool IsInItemGrantableState()
+        {
+            string name = WestOfLoathing.instance.state_machine.state.name;
+            return name != null && itemGrantableStateNames.Contains(name);
         }
 
         private void HandleReceivedItem(ItemInfo item)
