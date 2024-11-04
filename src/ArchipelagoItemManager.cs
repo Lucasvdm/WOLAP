@@ -48,8 +48,9 @@ namespace WOLAP
 
                 WolapPlugin.Log.LogInfo("Giving the player " + id + " x " + quantity);
 
-                MCommand cmd = new MCommand(MCommand.Op.ADDITEM, [id]);
-                if (quantity > 1) cmd.AddArg(quantity.ToString());
+                string arg = id;
+                if (quantity > 1) arg += "," + quantity;
+                MCommand cmd = new MCommand(MCommand.Op.ADDITEM, [arg]);
                 MScript script = new MScript("script_additem", new Dictionary<string, string>());
                 MScript.State state = script.NewState("state_additem");
                 state.AddCommand(cmd);
