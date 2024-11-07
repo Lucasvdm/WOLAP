@@ -11,7 +11,37 @@ namespace WOLAP
     {
         public static List<ArchipelagoItem> ItemList { get { return itemList; } }
 
-        public ArchipelagoItemManager() { }
+        private int nexmexFound;
+        private string nexmexFlag = "nexmex_books_found";
+        private ArchipelagoItem[] nexmexBooks = [
+            new ArchipelagoItem("Introductory Nex-Mex", ["book_nexmex1"]),
+            new ArchipelagoItem("Fundamentals of Nex-Mex", ["book_nexmex2"]),
+            new ArchipelagoItem("Intermediate Nex-Mex", ["book_nexmex3"]),
+            new ArchipelagoItem("Frightening Topics In Nex-Mex", ["book_nexmex4"]),
+            new ArchipelagoItem("Horrifying Concepts Of Nex-Mex", ["book_nexmex5"]),
+            new ArchipelagoItem("Dangerously Advanced Nex-Mex", ["book_nexmex6"]),
+            new ArchipelagoItem("Dark Forbidden Secrets Of Nex-Mex", ["book_nexmex7"])
+        ];
+
+        public ArchipelagoItemManager() {
+            nexmexFound = GetNexMexCount();
+        }
+
+        private int GetNexMexCount()
+        {
+            if (nexmexFound > 0) return nexmexFound;
+
+            if (MPlayer.instance.data.TryGetValue(nexmexFlag, out string value))
+            {
+                if (Int32.TryParse(value, out int val)) return val;
+                else
+                {
+                    WolapPlugin.Log.LogError("Could not parse the nexmex_books_found flag count to an int.");
+                    return 0;
+                }
+            }
+            else return 0;
+        }
 
         //TODO: Handle items being received during dialogue, while paused, etc.
         public bool ProcessItem(string itemName)
@@ -24,8 +54,11 @@ namespace WOLAP
             switch (itemName)
             {
                 case "Progressive Nex-Mex Skillbook":
-                    //TODO: Track which have been granted, give each of the 7 books in order (might have an AP setting to randomize order later)
-                    return true;
+                    //Might have an AP setting to randomize order later
+                    bool result = GiveItem(nexmexBooks[nexmexFound]);
+                    nexmexFound++;
+                    MPlayer.instance.data[nexmexFlag] = nexmexFound.ToString();
+                    return result;
                 case "English-Goblintongue Dictionary":
                     //TODO: Special handling, grant goblintongue
                     return true;

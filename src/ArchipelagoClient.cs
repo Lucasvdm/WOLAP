@@ -173,21 +173,16 @@ namespace WOLAP
         {
             if (item == null) return;
 
+            //All previously collected items are received every time you connect, so filter out old items
             var flags = MPlayer.instance.data;
-            string itemReceivedFlag = ITEM_RECEIVED_FLAG_PREFIX + item.ItemName.Replace(" ", "") + "_" + item.LocationId;
+            int index = Session.Items.AllItemsReceived.IndexOf(item);
+            string itemReceivedFlag = ITEM_RECEIVED_FLAG_PREFIX + item.ItemName.Replace(" ", "") + "_" + index;
 
-            if (flags.ContainsKey(itemReceivedFlag))
-            {
-                WolapPlugin.Log.LogInfo("Skipping incoming item " + item.ItemName + " in queue because it's already been received.");
-                return;
-            }
-            else
+            if (!flags.ContainsKey(itemReceivedFlag))
             {
                 WolapPlugin.Log.LogInfo($"Received {item.ItemDisplayName} from {item.Player} at {item.LocationDisplayName}");
 
-                //TODO: Special case handling/callbacks for if it's received during various states, e.g. dialogue or when paused.
                 bool received = itemManager.ProcessItem(item.ItemName);
-
                 flags.Add(itemReceivedFlag, "1");
             }
         }
