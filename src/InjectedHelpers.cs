@@ -14,14 +14,10 @@ namespace WOLAP
             if (scripts.Keys.Contains(newScript.id))
             {
                 MScript origScript = scripts[newScript.id];
-                var stateIDs = origScript.states.Keys.ToArray();
+                var stateIDs = newScript.states.Keys.ToArray();
                 foreach (string stateID in stateIDs)
                 {
-                    if (newScript.states.Keys.Contains(stateID))
-                    {
-                        origScript.states[stateID].Clear();
-                        origScript.states[stateID] = newScript.states[stateID];
-                    }
+                    origScript.states[stateID] = newScript.states[stateID];
                 }
             }
             else
