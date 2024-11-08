@@ -63,6 +63,8 @@ namespace WOLAP
 
         private static IEnumerator LoadAssets()
         {
+            yield return new WaitUntil(() => WestOfLoathing.instance != null && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME));
+
             var assembly = typeof(WolapPlugin).Assembly;
             var assetsStream = assembly.GetManifestResourceStream("WOLAP.assets.wolap_assets");
             var bundleLoadRequest = AssetBundle.LoadFromStreamAsync(assetsStream);
