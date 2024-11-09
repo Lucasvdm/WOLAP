@@ -131,7 +131,7 @@
       "start": [
         [
           "if",
-          "hasflag(cre_gotsouvenirs)"
+          "!hasflag(dlc_enabled) || hasflag(cre_gotsouvenirs)"
         ],
         [
           "exit"
