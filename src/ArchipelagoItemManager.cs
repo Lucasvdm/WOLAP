@@ -43,7 +43,6 @@ namespace WOLAP
             else return 0;
         }
 
-        //TODO: Handle items being received during dialogue, while paused, etc.
         public bool ProcessItem(string itemName)
         {
             if (itemName.IsNullOrWhiteSpace()) return false;
@@ -88,8 +87,6 @@ namespace WOLAP
                 MScript.State state = script.NewState("state_additem");
                 state.AddCommand(cmd);
                 state.Execute();
-
-                //cmd.Execute(new Action<MCommand>(ectx.CommandCallback));
             }
 
             return true;
