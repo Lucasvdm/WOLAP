@@ -578,6 +578,39 @@
           "Dirtwater Guest Room - Table"
         ]
       ]
+    },
+    "house_macready": {
+      "seven": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Kind a' him to bury me, though. Guess he weren't all bad."
+        ],
+        [
+          "leftsay",
+          "Do you... do you want to see Felicity again? I could take you to her ghost."
+        ],
+        [
+          "rightsay",
+          "...Nah. I reckon I'll just go back to sleep. Ain't right, a dead fella walkin' 'round. Just tell her sorry for me, alright? Here, you can give 'er my pocketwatch, she'll recognize it."
+        ],
+        [
+          "checklocation",
+          "Desert House - Macready's Grave"
+        ],
+        [
+          "addflag",
+          "house_ghost_lawyer_duggrave"
+        ],
+        [
+          "sayoption",
+          "eight",
+          "All right. Bye, Macready."
+        ]
+      ]
     }
   },
   "skills": {},
