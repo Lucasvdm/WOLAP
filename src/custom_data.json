@@ -611,6 +611,46 @@
           "All right. Bye, Macready."
         ]
       ]
+    },
+    "bandit1_door": {
+      "getgearrough": [
+        [
+          "leftspeak",
+          "Toss out your weapons and I won't rough you up."
+        ],
+        [
+          "say",
+          "You hear a quiet but heated discussion inside.  Eventually a voice says \"All right,\" and some pistols fall out the window."
+        ],
+        [
+          "checklocation",
+          "Desert House - Gang Shakedown"
+        ],
+        [
+          "sayoption",
+          "getgear2",
+          "Just kidding, I'm still going to rough you up a little."
+        ]
+      ],
+      "getgear": [
+        [
+          "leftspeak",
+          "Toss out your weapons and I won't arrest you."
+        ],
+        [
+          "say",
+          "You hear a quiet but heated discussion inside.  Eventually a voice says \"All right,\" and some pistols fall out the window."
+        ],
+        [
+          "checklocation",
+          "Desert House - Gang Shakedown"
+        ],
+        [
+          "sayoption",
+          "getgear2",
+          "Just kidding, I'm still going to arrest you."
+        ]
+      ]
     }
   },
   "skills": {},
