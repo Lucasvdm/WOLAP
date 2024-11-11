@@ -1107,6 +1107,28 @@
         ]
       ]
     },
+    "ranch1_jethrosbones": {
+      "search": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You find a charred locket among the blackened bones."
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch - Jethro's Bones"
+        ],
+        [
+          "addflag",
+          "ranch1_gotlocket"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "ranch1_outhouse": {
       "win": [
         [
