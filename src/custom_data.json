@@ -725,6 +725,36 @@
         ]
       ]
     },
+    "daveyard_stone1": {
+      "digup": [
+        [
+          "addflag",
+          "cemetery1_dugboots"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "You dig up the grave, just to check the veracity of the epitaph."
+        ],
+        [
+          "say",
+          "Sure enough -- boots but no pants!"
+        ],
+        [
+          "checklocation",
+          "The Daveyard - First Grave"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "daveyard_stone3": {
       "popup": [
         [
