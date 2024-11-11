@@ -272,6 +272,26 @@
         ]
       ]
     },
+    "clowns_tannery_toolbox": {
+      "openit": [
+        [
+          "say",
+          "Besides the miscellaneous scraps and junk that naturally accumulate in toolboxes, you find a handful of nails and a pair of sizeable, sharp, and serious-looking scissors."
+        ],
+        [
+          "checklocation",
+          "Danny's Tannery - Toolbox (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Danny's Tannery - Toolbox (Item 2)"
+        ],
+        [
+          "addflag",
+          "clowns_tantoolbox,1"
+        ]
+      ]
+    },
     "cre_brotoybox": {
       "getpuz": [
         [
