@@ -805,6 +805,36 @@
         ]
       ]
     },
+    "daveyard_wastedcultist": {
+      "digthru": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You dig through the rags and find a few things that look like they're worth keeping."
+        ],
+        [
+          "checklocation",
+          "The Daveyard Mausoleum - Rag Pile (Item 1)"
+        ],
+        [
+          "checklocation",
+          "The Daveyard Mausoleum - Rag Pile (Item 2)"
+        ],
+        [
+          "checklocation",
+          "The Daveyard Mausoleum - Rag Pile (Item 3)"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ]
+    },
     "dirtwater_bartender": {
       "piano2": [
         [
