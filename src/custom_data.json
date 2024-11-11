@@ -1086,6 +1086,54 @@
         ]
       ]
     },
+    "ranch1_altar": {
+      "getblood": [
+        [
+          "say",
+          "A chill runs down your spine as you touch the goblet."
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch Cellar - Blood Altar"
+        ],
+        [
+          "addflag",
+          "ranch1_altar,1"
+        ],
+        [
+          "option",
+          "done",
+          "Ugh."
+        ]
+      ],
+      "smash": [
+        [
+          "say",
+          "You don't know what this is, but you know it's abominable.  You grab the goblet and smash it against the altar."
+        ],
+        [
+          "say",
+          "Everywhere the blood lands, cracks appear.  The altar groans as it crumbles into ruin.  In the rubble, something catches your eye, previously hidden beneath the unholy shrine."
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch Cellar - Blood Altar"
+        ],
+        [
+          "addflag",
+          "ranch1_altar,2"
+        ],
+        [
+          "addxp",
+          "50"
+        ],
+        [
+          "option",
+          "done",
+          "And how."
+        ]
+      ]
+    },
     "ranch1_flower": {
       "pick": [
         [
