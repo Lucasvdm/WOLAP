@@ -272,6 +272,354 @@
         ]
       ]
     },
+    "bandit2_bartendercorpse": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "He had a jaw harp in his pocket!"
+        ],
+        [
+          "say",
+          "Maybe they killed him for playing the jaw harp too much."
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon Bar - Bartender's Bones"
+        ]
+      ]
+    },
+    "bandit2_bones": {
+      "popup": [
+        [
+          "say",
+          "The remains of a group of outlaws, tragically killed by a giant spider."
+        ],
+        [
+          "if",
+          "!hasflag(bandit2_bountygot) && !hasflag(bandit2_gotremains)"
+        ],
+        [
+          "say",
+          "There's a tattooed tooth in one of the skulls."
+        ],
+        [
+          "if",
+          "!hasflag(bandit2_bountygot) && !hasflag(bandit2_gotremains)"
+        ],
+        [
+          "option",
+          "take",
+          "Take it"
+        ]
+      ],
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It comes out real easy like.  The spider venom must've loosened things up."
+        ],
+        [
+          "additem",
+          "quest_bandit2remains"
+        ],
+        [
+          "say",
+          "Also, though the rest of the bones are picked clean, the gang's stripey hats lie nearby.  Apparently even the spider was disgusted by them.  You take one."
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon - Stripey Hat Gang Killed"
+        ],
+        [
+          "addflag",
+          "bandit2_gotremains"
+        ]
+      ]
+    },
+    "bandit2_boozeshelf": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You grab 'em."
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon Bar - Behind the Bar"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "bandit2_fighttrigger": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "bandit2_resolved,2"
+        ],
+        [
+          "addflag",
+          "bandit2_spiderscene"
+        ],
+        [
+          "changewaaproperty",
+          "sneak,0"
+        ],
+        [
+          "say",
+          "You put an end to the Stripey Hat Gang's reign of bad taste."
+        ],
+        [
+          "addxp",
+          "xpreward_a*3"
+        ],
+        [
+          "say",
+          "You take the leader's tattooed tooth, as a means of identifying him."
+        ],
+        [
+          "additem",
+          "quest_bandit2remains"
+        ],
+        [
+          "say",
+          "You also take one of those horrible hats, as a souvenir."
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon - Stripey Hat Gang Killed"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "bandit2_lootpile1": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You dig through the crate.  It's mostly full of packing straw, but you find a pretty fancy knife at the bottom!"
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon Spider Cave - Weapens Box"
+        ],
+        [
+          "say",
+          "You hear a sudden chittering coming from that big hole behind you."
+        ],
+        [
+          "addflag",
+          "bandit2_wokespider"
+        ]
+      ]
+    },
+    "bandit2_lootpile2": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You dig through the crate."
+        ],
+        [
+          "additem",
+          "potion_laudanum,2"
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon Spider Cave - Medisun Box"
+        ],
+        [
+          "say",
+          "You hear a sudden chittering coming from that big hole behind you."
+        ],
+        [
+          "addflag",
+          "bandit2_wokespider"
+        ]
+      ]
+    },
+    "bandit2_lootpile3": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You open the crate to find a single bottle of booze.  It's not the fanciest in the world, but for these parts, it's pretty fancy."
+        ],
+        [
+          "checklocation",
+          "Cavern Canyon Spider Cave - Booze Box"
+        ],
+        [
+          "say",
+          "You hear a sudden chittering coming from that big hole behind you."
+        ],
+        [
+          "addflag",
+          "bandit2_wokespider"
+        ]
+      ]
+    },
     "clowns_tannery_bonepile": {
       "search": [
         [
