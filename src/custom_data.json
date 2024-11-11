@@ -1340,6 +1340,29 @@
         ]
       ]
     },
+    "ranch1_shelf": {
+      "inv": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Your deft fingers find a hidden catch, and the back panel of the shelf slides away to reveal a secret compartment."
+        ],
+        [
+          "say",
+          "There's a book inside!"
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch House - Burnt Bookshelf"
+        ],
+        [
+          "addflag",
+          "ranch1_marydiary"
+        ]
+      ]
+    },
     "shaggydogcave_beaniron1": {
       "popup": [
         [
