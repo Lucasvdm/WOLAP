@@ -272,6 +272,22 @@
         ]
       ]
     },
+    "clowns_tannery_bonepile": {
+      "search": [
+        [
+          "say",
+          "You poke around in the tattered shreds of his clothes and find an old key."
+        ],
+        [
+          "addflag",
+          "clowns_tannerybones,1"
+        ],
+        [
+          "checklocation",
+          "Danny's Tannery - Center Skeleton"
+        ]
+      ]
+    },
     "clowns_tannery_invis1.6": {
       "win2": [
         [
