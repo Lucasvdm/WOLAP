@@ -877,6 +877,33 @@
         ]
       ]
     },
+    "silversmith_foodshelf": {
+      "get": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You find a couple of things that still look edible."
+        ],
+        [
+          "checklocation",
+          "Silversmith's House - Shelf (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Silversmith's House - Shelf (Item 2)"
+        ],
+        [
+          "option",
+          "done",
+          "Excellent."
+        ]
+      ]
+    },
     "silversmith_safe": {
       "open": [
         [
