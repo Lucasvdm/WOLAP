@@ -1086,6 +1086,27 @@
         ]
       ]
     },
+    "ranch1_flower": {
+      "pick": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Ow ow ow!"
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch - Smoking Flower"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "shaggydogcave_beaniron1": {
       "popup": [
         [
