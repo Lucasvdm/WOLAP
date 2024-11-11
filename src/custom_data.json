@@ -700,6 +700,60 @@
         ]
       ]
     },
+    "daveyard_davegrave": {
+      "dig3": [
+        [
+          "say",
+          "You finally manage to reach all the way to the bottom of the bag, and retrieve a sodden lump from the bottom."
+        ],
+        [
+          "say",
+          "You unglob the wad and dry it off, then wash your arm in a nearby ditch."
+        ],
+        [
+          "say",
+          "This better be worth it."
+        ],
+        [
+          "checklocation",
+          "The Daveyard - Dave J's Grave"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ]
+    },
+    "daveyard_stone3": {
+      "popup": [
+        [
+          "say",
+          "HERE LIES<p>DAVE J<p>1826-1884<p><i>Ra-pa-pa-pow!</i>"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_chefquest)==4 && hasitem(shovel)"
+        ],
+        [
+          "option",
+          "dig",
+          "Dig up the grave [shovel]"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_chefquest)==4 && !hasitem(shovel)"
+        ],
+        [
+          "grayoption",
+          "pig",
+          "Dig up the grave [Requires shovel]"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "dirtwater_bartender": {
       "piano2": [
         [
