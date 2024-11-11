@@ -1340,6 +1340,28 @@
         ]
       ]
     },
+    "ranch1_safe": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "opensafe"
+        ],
+        [
+          "say",
+          "You open the safe.  Somebody in the Stearns family was quite the investor, it appears!"
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch Cellar - Safe"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "ranch1_shelf": {
       "inv": [
         [
