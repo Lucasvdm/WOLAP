@@ -876,6 +876,30 @@
           "Shaggy Dog Cave - Bean-Iron Deposit"
         ]
       ]
+    },
+    "silversmith_spittoon": {
+      "nine": [
+        [
+          "say",
+          "You found a filthy slime-covered old brooch, are you happy? I bet you're going to put it on without even washing it first."
+        ],
+        [
+          "checklocation",
+          "Silversmith's House - Spittoon"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "option",
+          "done",
+          "Maybe I will! So there!"
+        ]
+      ]
     }
   },
   "skills": {},
