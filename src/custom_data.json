@@ -1104,6 +1104,20 @@
         ]
       ]
     },
+    "mine1_pickpile": {
+      "get": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Snakepit Mine - The Pick in the Stone"
+        ]
+      ]
+    },
     "ranch1_altar": {
       "getblood": [
         [
