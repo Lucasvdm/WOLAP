@@ -877,6 +877,25 @@
         ]
       ]
     },
+    "silversmith_safe": {
+      "open": [
+        [
+          "playsound",
+          "opensafe"
+        ],
+        [
+          "say",
+          "You open the safe!"
+        ],
+        [
+          "checklocation",
+          "Silversmith's House - Safe"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "silversmith_spittoon": {
       "nine": [
         [
