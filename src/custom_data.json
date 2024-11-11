@@ -288,6 +288,48 @@
         ]
       ]
     },
+    "clowns_tannery_hidingguy": {
+      "cowsbane": [
+        [
+          "addflag",
+          "clowns_tannery_gotbane,1"
+        ],
+        [
+          "leftsay",
+          "What's cowsbane?"
+        ],
+        [
+          "rightsay",
+          "It's an herb used for tanning leather. You can't grow it in large batches any more because cows show up and wreck the place, so there's other stuff we generally use for pig leather and so on. It's not as good though."
+        ],
+        [
+          "leftsay",
+          "Cows wreck your herb gardens?"
+        ],
+        [
+          "rightsay",
+          "Yeah, if you're growing more than about a flowerpot's worth, they get wind of it somehow. They hate the stuff. Can't figure why. Here, I've got a few extra seeds you can have. Be careful with them."
+        ],
+        [
+          "checklocation",
+          "Danny's Tannery (St. Rage Shed) - Grady's Cowsbane Seeds"
+        ],
+        [
+          "addflag",
+          "clowns_knowscowsbane"
+        ],
+        [
+          "sayoption",
+          "howlong",
+          "How long have you been in here?"
+        ],
+        [
+          "sayoption",
+          "rescued",
+          "Well, I took care of the clowns and the cows..."
+        ]
+      ]
+    },
     "clowns_tannery_invis1.6": {
       "win2": [
         [
