@@ -700,6 +700,27 @@
         ]
       ]
     },
+    "daveyard_bonepile": {
+      "dig": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "It's mostly just boring broken bones, but you do find a skull with a weird tag on it..."
+        ],
+        [
+          "checklocation",
+          "The Daveyard - Far-Right Bone PIle"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "daveyard_davegrave": {
       "dig3": [
         [
