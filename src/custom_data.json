@@ -48,6 +48,230 @@
         ]
       ]
     },
+    "bandit1_door": {
+      "getgearrough": [
+        [
+          "leftspeak",
+          "Toss out your weapons and I won't rough you up."
+        ],
+        [
+          "say",
+          "You hear a quiet but heated discussion inside.  Eventually a voice says \"All right,\" and some pistols fall out the window."
+        ],
+        [
+          "checklocation",
+          "Desert House - Gang Shakedown"
+        ],
+        [
+          "sayoption",
+          "getgear2",
+          "Just kidding, I'm still going to rough you up a little."
+        ]
+      ],
+      "getgear": [
+        [
+          "leftspeak",
+          "Toss out your weapons and I won't arrest you."
+        ],
+        [
+          "say",
+          "You hear a quiet but heated discussion inside.  Eventually a voice says \"All right,\" and some pistols fall out the window."
+        ],
+        [
+          "checklocation",
+          "Desert House - Gang Shakedown"
+        ],
+        [
+          "sayoption",
+          "getgear2",
+          "Just kidding, I'm still going to arrest you."
+        ]
+      ]
+    },
+    "bandit1_fight": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "Justice has been served to the old House gang."
+        ],
+        [
+          "addxp",
+          "@xpreward_a@*3"
+        ],
+        [
+          "addflag",
+          "bandit1_killed"
+        ],
+        [
+          "addflag",
+          "bandit1_resolved,2"
+        ],
+        [
+          "changewaaproperty",
+          "sneak,0"
+        ],
+        [
+          "additem",
+          "quest_bandit1remainskill"
+        ],
+        [
+          "checklocation",
+          "Desert House - Gang Killed"
+        ],
+        [
+          "if",
+          "itemroll(40) && !hasitem(hat_black)"
+        ],
+        [
+          "additem",
+          "hat_black"
+        ],
+        [
+          "if",
+          "itemroll(20) && !hasitem(boots_black)"
+        ],
+        [
+          "additem",
+          "boots_black"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "cre_brotoybox": {
       "getpuz": [
         [
@@ -612,231 +836,662 @@
         ]
       ]
     },
-    "bandit1_door": {
-      "getgearrough": [
+    "shaggydogcave_beaniron1": {
+      "popup": [
         [
-          "leftspeak",
-          "Toss out your weapons and I won't rough you up."
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
         ],
         [
           "say",
-          "You hear a quiet but heated discussion inside.  Eventually a voice says \"All right,\" and some pistols fall out the window."
-        ],
-        [
-          "checklocation",
-          "Desert House - Gang Shakedown"
-        ],
-        [
-          "sayoption",
-          "getgear2",
-          "Just kidding, I'm still going to rough you up a little."
+          "Unfortunately, you are sans pickaxe."
         ]
       ],
-      "getgear": [
+      "pickit": [
         [
-          "leftspeak",
-          "Toss out your weapons and I won't arrest you."
+          "cls"
         ],
         [
           "say",
-          "You hear a quiet but heated discussion inside.  Eventually a voice says \"All right,\" and some pistols fall out the window."
+          "There we go!"
+        ],
+        [
+          "markused"
         ],
         [
           "checklocation",
-          "Desert House - Gang Shakedown"
-        ],
-        [
-          "sayoption",
-          "getgear2",
-          "Just kidding, I'm still going to arrest you."
-        ]
-      ]
-    },
-    "bandit1_fight": {
-      "win": [
-        [
-          "addstate",
-          "winbutton,Hooray!"
-        ],
-        [
-          "say",
-          "Justice has been served to the old House gang."
-        ],
-        [
-          "addxp",
-          "@xpreward_a@*3"
-        ],
-        [
-          "addflag",
-          "bandit1_killed"
-        ],
-        [
-          "addflag",
-          "bandit1_resolved,2"
-        ],
-        [
-          "changewaaproperty",
-          "sneak,0"
-        ],
-        [
-          "additem",
-          "quest_bandit1remainskill"
-        ],
-        [
-          "checklocation",
-          "Desert House - Gang Killed"
-        ],
-        [
-          "if",
-          "itemroll(40) && !hasitem(hat_black)"
-        ],
-        [
-          "additem",
-          "hat_black"
-        ],
-        [
-          "if",
-          "itemroll(20) && !hasitem(boots_black)"
-        ],
-        [
-          "additem",
-          "boots_black"
-        ],
-        [
-          "incflag",
-          "ending_fightswon"
-        ],
-        [
-          "if",
-          "hasflag(cowfight)"
-        ],
-        [
-          "incflag",
-          "ending_cowskilled,hasflag(cowfight)"
-        ],
-        [
-          "if",
-          "hasflag(undeadfight)"
-        ],
-        [
-          "incflag",
-          "ending_undeadkilled,hasflag(undeadfight)"
-        ],
-        [
-          "if",
-          "!susie"
-        ],
-        [
-          "goto",
-          "aftersusie"
-        ],
-        [
-          "if",
-          "!hasflag(cowfight)"
-        ],
-        [
-          "goto",
-          "aftersusie"
-        ],
-        [
-          "incflag",
-          "susie_xp,hasflag(cowfight)"
-        ],
-        [
-          "addstate",
-          "rankup,0"
-        ],
-        [
-          "say",
-          "%pardner_susienotch%"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
-        ],
-        [
-          "addstate",
-          "rankup,1"
-        ],
-        [
-          "if",
-          "$rankup$==0"
-        ],
-        [
-          "goto",
-          "aftersusie"
-        ],
-        [
-          "incflag",
-          "pardnerrank,1"
-        ],
-        [
-          "say",
-          "Cow-hate flashes in her eyes.  Her resolve intensifies."
-        ],
-        [
-          "say",
-          "<b>Susie has become stronger!</b>"
-        ],
-        [
-          "addstate",
-          "winbutton,Way to go!"
-        ],
-        [
-          "goto",
-          "aftersusie"
+          "Shaggy Dog Cave - Bean-Iron Deposit"
         ]
       ]
     }
   },
   "skills": {},
-  "waas": {}
+  "waas": {
+    "shaggydogcave_interior": {
+      "name": "Shaggy Dog Cave (Inside)",
+      "width": "9.300",
+      "ground": "",
+      "sky": "",
+      "startxy": "205,123",
+      "horizon": "wallcave_tile1",
+      "foregroundparallax": "foreground_caveleft1,foreground_cavemiddle1,foreground_cavemiddle5,foreground_cavemiddle3,foreground_cavemiddle2,foreground_cavemiddle1,foreground_cavemiddle4,foreground_caveright1",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "cluttercount": 100.0,
+      "cluttersprites": "rocks1,rocks2,rocks3,rocks4",
+      "clutterseed": 1.0,
+      "cluttersolid": 1.0,
+      "cluttershadow": 1.0,
+      "music": "music_cavemine",
+      "ambientsound1": "Cave_ambience_loop",
+      "basewaa": "shaggydogcave",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 4391.0,
+          "z": 332.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "shaggydogcave_beaniron1",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "exit": {
+          "asset": "caveopening2",
+          "usedasset": null,
+          "x": 101.0,
+          "z": 255.0,
+          "height": 525.0,
+          "width": 536.0,
+          "condition": "",
+          "script": "autoscript__shaggydogcave_interior__exit__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "monolith": {
+          "asset": "elvmonolith_off",
+          "usedasset": "elvmonolith_on",
+          "x": 389.0,
+          "z": 69.0,
+          "height": 446.0,
+          "width": 392.0,
+          "condition": "hasflag(shaggydogcave_cache)",
+          "script": "elv_monolith",
+          "proximity": 0.0,
+          "elvibrato": 1.0,
+          "": "Maybe write a usedscript popup for this?"
+        },
+        "monolithnotice": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 325.0,
+          "z": 88.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "!hasflag(shaggydogcave_cache)",
+          "script": "shaggydogcave_elvcache",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "extendback": 1.0,
+          "noclip": 1.0
+        },
+        "p01": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 512.0,
+          "z": 313.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p02": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 1024.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p03": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 1537.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p04": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 2048.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p05": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 2600.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p06": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 3096.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p07": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 3700.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p08": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 4100.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p09": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 5050.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p10": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 5600.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p11": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 6150.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p12": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 6800.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p13": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 7300.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p14": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 7900.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p15": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 8450.0,
+          "z": 313.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "p16": {
+          "asset": "plaque",
+          "usedasset": null,
+          "x": 9392.0,
+          "z": 313.0,
+          "height": 212.0,
+          "width": 274.0,
+          "condition": "",
+          "script": "shaggydog_plaque",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "pardner": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 338.0,
+          "z": 225.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "pardner",
+          "proximity": 0.0
+        },
+        "rock1": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 377.0,
+          "z": 83.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock2": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 374.0,
+          "z": 51.0,
+          "height": 42.0,
+          "width": 102.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock3": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 503.0,
+          "z": 87.0,
+          "height": 42.0,
+          "width": 102.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock4": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 505.0,
+          "z": 50.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rocks1": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 89.0,
+          "z": 250.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 256.0,
+          "z": 253.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "flip": 1.0
+        },
+        "s1": {
+          "asset": "stalag1",
+          "usedasset": null,
+          "x": 1000.0,
+          "z": 50.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s10": {
+          "asset": "stalag2",
+          "usedasset": null,
+          "x": 2955.0,
+          "z": 74.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s11": {
+          "asset": "stalag3",
+          "usedasset": null,
+          "x": 2500.0,
+          "z": 90.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s12": {
+          "asset": "stalag4",
+          "usedasset": null,
+          "x": 4500.0,
+          "z": 65.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s13": {
+          "asset": "stalag5",
+          "usedasset": null,
+          "x": 4900.0,
+          "z": 200.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s14": {
+          "asset": "stalag6",
+          "usedasset": null,
+          "x": 4069.0,
+          "z": 89.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s15": {
+          "asset": null,
+          "usedasset": null,
+          "x": 6000.0,
+          "z": 120.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s16": {
+          "asset": "stalagcluster1",
+          "usedasset": null,
+          "x": 6984.0,
+          "z": 46.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s17": {
+          "asset": "stalagcluster3",
+          "usedasset": null,
+          "x": 650.0,
+          "z": 170.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s18": {
+          "asset": "stalagcluster2",
+          "usedasset": null,
+          "x": 8000.0,
+          "z": 0.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s19": {
+          "asset": "stalagcluster1",
+          "usedasset": null,
+          "x": 5500.0,
+          "z": 25.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s2": {
+          "asset": "stalag2",
+          "usedasset": null,
+          "x": 2500.0,
+          "z": 95.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s20": {
+          "asset": "stalagcluster3",
+          "usedasset": null,
+          "x": 1200.0,
+          "z": 200.0,
+          "height": 278.0,
+          "width": 196.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s21": {
+          "asset": "stalagcluster1",
+          "usedasset": null,
+          "x": 1950.0,
+          "z": 130.0,
+          "height": 562.0,
+          "width": 258.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s22": {
+          "asset": "stalag7",
+          "usedasset": null,
+          "x": 7500.0,
+          "z": 200.0,
+          "height": 477.0,
+          "width": 138.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s23": {
+          "asset": "stalag3",
+          "usedasset": null,
+          "x": 8500.0,
+          "z": 150.0,
+          "height": 580.0,
+          "width": 141.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s3": {
+          "asset": "stalag3",
+          "usedasset": null,
+          "x": 1500.0,
+          "z": 60.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s4": {
+          "asset": "stalag5",
+          "usedasset": null,
+          "x": 3000.0,
+          "z": 100.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s5": {
+          "asset": "stalag4",
+          "usedasset": null,
+          "x": 3500.0,
+          "z": 170.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s6": {
+          "asset": "stalag6",
+          "usedasset": null,
+          "x": 6500.0,
+          "z": 100.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s7": {
+          "asset": null,
+          "usedasset": null,
+          "x": 0.0,
+          "z": 210.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s8": {
+          "asset": "stalag7",
+          "usedasset": null,
+          "x": 6000.0,
+          "z": 65.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "s9": {
+          "asset": "stalag1",
+          "usedasset": null,
+          "x": 3896.0,
+          "z": 241.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "treasurehole": {
+          "asset": "bighole",
+          "usedasset": null,
+          "x": 9319.0,
+          "z": 91.0,
+          "height": 88.0,
+          "width": 378.0,
+          "condition": "",
+          "script": "shaggydogcave_hole",
+          "proximity": 0.0
+        }
+      },
+      "parentwaa": "shaggydogcave"
+    }
+  }
 }
