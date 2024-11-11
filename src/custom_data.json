@@ -1129,6 +1129,39 @@
         ]
       ]
     },
+    "ranch1_lockbox": {
+      "picklock": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You pick the lock and open the box."
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "say",
+          "Ooh, a document!"
+        ],
+        [
+          "checklocation",
+          "Stearns Ranch House - Lockbox"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "ranch1_outhouse": {
       "win": [
         [
