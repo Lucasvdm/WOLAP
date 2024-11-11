@@ -1696,6 +1696,1122 @@
         ]
       ]
     },
+    "fort1_generalgob": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "fort1_generalgob,1"
+        ],
+        [
+          "say",
+          "You put an end to that pie-shooting goblin's reign of terror.  All the world's pies thank you."
+        ],
+        [
+          "addxp",
+          "@xpreward_a@*3"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Hat"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Pistol"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "hat": [
+        [
+          "leftsay",
+          "Wait. Leaving a gun and hat here. They will not safe being."
+        ],
+        [
+          "rightspeak",
+          "Yes. Good. You protecting them for me."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Hat"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Pistol"
+        ],
+        [
+          "goto",
+          "heleaves"
+        ]
+      ],
+      "hatgun": [
+        [
+          "leftsay",
+          "You should leaving a hat and gun. Having a fresh start."
+        ],
+        [
+          "rightspeak",
+          "Yes, correct being. I will fighting each pie as if it is first pie being."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Hat"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Pistol"
+        ],
+        [
+          "goto",
+          "heleaves"
+        ]
+      ],
+      "gun": [
+        [
+          "leftsay",
+          "Leaving the gun and hat. Fighting a pie with honor, with fists and face."
+        ],
+        [
+          "rightspeak",
+          "Yes, you are correct. Truly a pie must be with my own strength fighting."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Hat"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - General Gob's Pistol"
+        ],
+        [
+          "goto",
+          "heleaves"
+        ]
+      ]
+    },
+    "fort1_messtable": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "Bless this mess."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Mess Hall - Table (Item 1)"
+        ],
+        [
+          "if",
+          "itemroll(40)"
+        ],
+        [
+          "additem",
+          "booze_armywhiskey"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Mess Hall - Table (Item 2)"
+        ],
+        [
+          "if",
+          "itemroll(40)"
+        ],
+        [
+          "additem",
+          "food_hardtack"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort1_nursedesk": {
+      "papers": [
+        [
+          "say",
+          "The papers are mostly just boring medical records.  Dental daguerrotypes, lamentations that antibiotics haven't been discovered yet, that kind of thing."
+        ],
+        [
+          "if",
+          "!hasflag(fort1_deskbreadcrumb)"
+        ],
+        [
+          "say",
+          "Hey wait, what's this?  This looks like it might be important."
+        ],
+        [
+          "if",
+          "!hasflag(fort1_deskbreadcrumb)"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Math Tent - Desk Papers"
+        ],
+        [
+          "if",
+          "!hasflag(fort1_deskbreadcrumb)"
+        ],
+        [
+          "addflag",
+          "fort1_deskbreadcrumb"
+        ],
+        [
+          "goto",
+          "options"
+        ]
+      ]
+    },
+    "fort1_nursesafe": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "opensafe"
+        ],
+        [
+          "say",
+          "You open the safe and put the controlled substances under your own control."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Math Tent - Safe"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "fort1_nurseshelf": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You bolster your supply of medical goods at the expense of the shelf's."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Math Tent - Shelves"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort1_piesafe": {
+      "yep": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There's a single pie inside, shot to pieces."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Back Office - Pie Safe"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "fort1_spicecabinet": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_chefquest)==1 && !hasflag(fort1_lootedspicerack)"
+        ],
+        [
+          "goto",
+          "givepeter"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_chefquest)==1 && hasflag(fort1_lootedspicerack)"
+        ],
+        [
+          "say",
+          "One of those things is enough."
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_chefquest)>1"
+        ],
+        [
+          "say",
+          "This spice cabinet has provided all the value it's going to provide."
+        ],
+        [
+          "if",
+          "!hasflag(dirtwater_chefquest)"
+        ],
+        [
+          "say",
+          "It's just a bunch of unlabeled green shakers.  Better leave them alone -- they might be poison instead of spices, for all you know."
+        ]
+      ],
+      "givepeter": [
+        [
+          "say",
+          "Little green unlabelled jars. Hopefully, this is the stuff the chef was looking for."
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Mess Hall - Spice Rack"
+        ],
+        [
+          "addflag",
+          "fort1_lootedspicerack"
+        ]
+      ]
+    },
+    "fort1_tentdoor1": {
+      "start": [
+        [
+          "if",
+          "hasflag(fort1_tentdoor1)"
+        ],
+        [
+          "goto",
+          "done"
+        ],
+        [
+          "say",
+          "You hear the sounds of several goblins snoring inside this tent."
+        ],
+        [
+          "option",
+          "fight",
+          "Go in guns blazing [Fight]"
+        ],
+        [
+          "if",
+          "hasitem(fungusbomb)"
+        ],
+        [
+          "option",
+          "bomb",
+          "Set off a fungicide bomb"
+        ],
+        [
+          "option",
+          "stayout",
+          "Leave them alone"
+        ]
+      ],
+      "bomb": [
+        [
+          "addflag",
+          "fort1_tentdoor1"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "say",
+          "You wait until Gary is looking the other way, sidling closer to the entrance as you whistle nonchalantly."
+        ],
+        [
+          "say",
+          "You press the cap on the fungus bomb, toss it into the tent, and hold the flaps closed until the popping and sizzling noises stop.  You should be safe in there now."
+        ],
+        [
+          "addxp",
+          "20"
+        ],
+        [
+          "option",
+          "done",
+          "Head inside"
+        ]
+      ]
+    },
+    "fort1_tent1locker1": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "booze_armywhiskey"
+        ],
+        [
+          "pushrandom",
+          "combat_armyfirstaid"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletfire"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletpoison"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletsilver"
+        ],
+        [
+          "pushrandom",
+          "food_hardtack"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_canteen"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice First Tent - Back-Left Footlocker"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "additem",
+          "weapon_armysaber"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "additem",
+          "ring_army"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "additem",
+          "lapel_medals"
+        ],
+        [
+          "incflag",
+          "containers_army,1"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort1_tent1locker2": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "booze_armywhiskey"
+        ],
+        [
+          "pushrandom",
+          "combat_armyfirstaid"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletfire"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletpoison"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletsilver"
+        ],
+        [
+          "pushrandom",
+          "food_hardtack"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_canteen"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice First Tent - Front-Right Footlocker"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "additem",
+          "weapon_armysaber"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "additem",
+          "ring_army"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "additem",
+          "lapel_medals"
+        ],
+        [
+          "incflag",
+          "containers_army,1"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort1_tent1locker3": {
+      "picklock": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You pick the lock!"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "booze_armywhiskey"
+        ],
+        [
+          "pushrandom",
+          "combat_armyfirstaid"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletfire"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletpoison"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletsilver"
+        ],
+        [
+          "pushrandom",
+          "food_hardtack"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_canteen"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice First Tent - Back-Right Footlocker"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "additem",
+          "weapon_armysaber"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "additem",
+          "ring_army"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "additem",
+          "lapel_medals"
+        ],
+        [
+          "incflag",
+          "containers_army,1"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort1_triangle": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won the fight!  Go you!"
+        ],
+        [
+          "addstate",
+          "mult,1"
+        ],
+        [
+          "if",
+          "hasflag(fort1_2ndgoblin)==1"
+        ],
+        [
+          "incstate",
+          "mult,1"
+        ],
+        [
+          "if",
+          "hasflag(fort1_3rdgoblin)==1"
+        ],
+        [
+          "incstate",
+          "mult,1"
+        ],
+        [
+          "addxp",
+          "@xpreward_a@*$mult$"
+        ],
+        [
+          "additem",
+          "pickone(food_goblinsandwich,potion_goblinchicory,booze_goblinmescal)"
+        ],
+        [
+          "if",
+          "itemroll(10)"
+        ],
+        [
+          "additem",
+          "pickone(food_goblinsandwich,potion_goblinchicory,booze_goblinmescal)"
+        ],
+        [
+          "if",
+          "!hasflag(gotspyglasscheck)"
+        ],
+        [
+          "checklocation",
+          "Fort Cowardice Goblin Caves - First Victory"
+        ],
+        [
+          "if",
+          "hasflag(gotspyglasscheck)"
+        ],
+        [
+          "addstate",
+          "item1,pickone(pistol_goblin,pants_goblin,hat_goblin)"
+        ],
+        [
+          "if",
+          "hasflag(gotspyglasscheck)"
+        ],
+        [
+          "addstate",
+          "item2,pickone(pistol_goblin,pants_goblin,hat_goblin)"
+        ],
+        [
+          "if",
+          "hasflag(gotspyglasscheck) && itemroll(70)"
+        ],
+        [
+          "additem",
+          "$item1$"
+        ],
+        [
+          "if",
+          "hasflag(gotspyglasscheck) && itemroll(20)"
+        ],
+        [
+          "additem",
+          "$item2$"
+        ],
+        [
+          "if",
+          "!hasflag(gotspyglasscheck)"
+        ],
+        [
+          "addflag",
+          "gotspyglasscheck"
+        ],
+        [
+          "incflag",
+          "fort1_goblinwins,1"
+        ],
+        [
+          "delflag",
+          "fort1_2ndgoblin"
+        ],
+        [
+          "delflag",
+          "fort1_3rdgoblin"
+        ],
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "house_macready": {
       "seven": [
         [
