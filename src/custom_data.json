@@ -2812,6 +2812,874 @@
         ]
       ]
     },
+    "goblin1_destroyedcrate": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You very, very slowly gather up the dynamite in the crate."
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Destroyed - Dynamite Crate"
+        ]
+      ]
+    },
+    "goblin1_house3": {
+      "goin2": [
+        [
+          "say",
+          "You enter what turns out to be a delicatessen, and help yourself to what turn out to be sandwiches. Probably."
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch - Deli Hut"
+        ],
+        [
+          "addflag",
+          "goblin1_house3"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
+    "goblin1_house4": {
+      "menu": [
+        [
+          "if",
+          "hasflag(goblin1_sparekeyloc) && !hasflag(goblin1_gotsparekey)"
+        ],
+        [
+          "option",
+          "getkey",
+          "Look in drawer #69105"
+        ],
+        [
+          "option",
+          "rand1",
+          "Look in a random drawer"
+        ],
+        [
+          "option",
+          "rand1",
+          "Look in a more random drawer"
+        ],
+        [
+          "option",
+          "rand1",
+          "Look in an even randomer drawer"
+        ],
+        [
+          "option",
+          "done",
+          "Stop looking"
+        ]
+      ],
+      "rand1": [
+        [
+          "incflag",
+          "goblin1_drawergrabs"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==1"
+        ],
+        [
+          "say",
+          "There's nothing in the drawer, but you find an old lollipop stuck to the bottom of the drawer above it."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==1"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Storage Hut - Random Item"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==2"
+        ],
+        [
+          "say",
+          "This drawer has a sandwich in it.  It must've been filed under sandwich."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==2"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Storage Hut - More Random Item"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==3"
+        ],
+        [
+          "say",
+          "This one contains a rolled-up pair of terrible pants."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==3"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Storage Hut - Even Randomer Item"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==4"
+        ],
+        [
+          "say",
+          "You don't find anything else interesting."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==5"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==6"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==7"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==8"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==9"
+        ],
+        [
+          "say",
+          "Wait, what's this?  Nope, nothing, false alarm."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==10"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==11"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==12"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==13"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==14"
+        ],
+        [
+          "say",
+          "Still nothing."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==15"
+        ],
+        [
+          "say",
+          "Eureka!"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==15"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Storage Hut - Randomest Item (Eureka)"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)==15"
+        ],
+        [
+          "say",
+          "That's definitely the last one."
+        ],
+        [
+          "if",
+          "hasflag(goblin1_drawergrabs)>15"
+        ],
+        [
+          "say",
+          "I mean it.  There's nothing left in here."
+        ],
+        [
+          "option",
+          "menu",
+          "Keep looking"
+        ],
+        [
+          "option",
+          "done",
+          "Quit looking"
+        ]
+      ],
+      "getkey": [
+        [
+          "checklocation",
+          "Gustavson Gulch Storage Hut - Secret Item"
+        ],
+        [
+          "addflag",
+          "goblin1_gotsparekey"
+        ],
+        [
+          "option",
+          "menu",
+          "Keep digging around"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ]
+    },
+    "goblin1_house7": {
+      "start": [
+        [
+          "if",
+          "hasflag(goblin1_house7)"
+        ],
+        [
+          "goto",
+          "alreadydone"
+        ],
+        [
+          "if",
+          "hasflag(goblin1_secret1)"
+        ],
+        [
+          "goto",
+          "alreadylistened"
+        ],
+        [
+          "if",
+          "hasskill(goblintongue)"
+        ],
+        [
+          "goto",
+          "speakstart"
+        ],
+        [
+          "say",
+          "You hear some dramatic-sounding nonsense through the door."
+        ],
+        [
+          "option",
+          "fight",
+          "You want some drama [Fight]"
+        ],
+        [
+          "option",
+          "done",
+          "You don't want no drama"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You close the curtains on the goblin's final performance."
+        ],
+        [
+          "addxp",
+          "xpreward_b"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch - Theatre Combat"
+        ],
+        [
+          "addflag",
+          "goblin1_house7"
+        ],
+        [
+          "addstate",
+          "winbutton,The rest... is silence."
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "speakstart": [
+        [
+          "say",
+          "You press your ear to the door and hear somebody delivering what sound like lines from Hamlet, except in Goblintongue."
+        ],
+        [
+          "say",
+          "From this vantage point, you also notice a sign next to the door reading \"Backstage Entrance Here It Being!\" with an arrow pointing to the back of the building."
+        ],
+        [
+          "option",
+          "fight",
+          "Go in and break a leg [Fight]"
+        ],
+        [
+          "option",
+          "backstage",
+          "Head backstage"
+        ],
+        [
+          "option",
+          "done",
+          "Take off"
+        ]
+      ],
+      "back2": [
+        [
+          "say",
+          "You watch for a while. The bits where the actor has to do a swordfight with themselves are pretty entertaining."
+        ],
+        [
+          "addflag",
+          "goblin1_secret1"
+        ],
+        [
+          "addflag",
+          "goblin1_house7"
+        ],
+        [
+          "addxp",
+          "@xpreward_c@"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "alreadylistened": [
+        [
+          "say",
+          "Through the door you hear the actor mumbling to themselves and rehearsing some lines over and over."
+        ],
+        [
+          "option",
+          "fight",
+          "They're not the only one that's gonna butcher Hamlet [Fight]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave them be"
+        ]
+      ]
+    },
+    "goblin1_house8": {
+      "goin2": [
+        [
+          "say",
+          "You enter what turns out to be a café, and reconstruct a few cups of chicory from the leavings in various dirty cups and sinks."
+        ],
+        [
+          "if",
+          "hasskill(goblintongue)"
+        ],
+        [
+          "say",
+          "You stop to wonder why a café wouldn't be open at this time of day.  You see a schedule posted on the wall and sure enough, it says somebody named Gene is supposed to be working this shift."
+        ],
+        [
+          "if",
+          "hasskill(goblintongue)"
+        ],
+        [
+          "say",
+          "He always was a shiftless layabout, that Gene."
+        ],
+        [
+          "if",
+          "hasskill(goblintongue)"
+        ],
+        [
+          "addflag",
+          "goblin1_secret3"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch - Cafe Hut"
+        ],
+        [
+          "addflag",
+          "goblin1_house8"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
+    "goblin1_house9": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You win! That'd show them, if they weren't dead now!"
+        ],
+        [
+          "addxp",
+          "xpreward_b*3"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch - Guard Barracks"
+        ],
+        [
+          "addmeat",
+          "rand(40,50),1"
+        ],
+        [
+          "additem",
+          "pickone(food_goblinsandwich,potion_goblinchicory,booze_goblinmescal)"
+        ],
+        [
+          "if",
+          "itemroll(20)"
+        ],
+        [
+          "additem",
+          "pickone(hat_goblin,pants_goblin,pistol_goblin)"
+        ],
+        [
+          "if",
+          "itemroll(20)"
+        ],
+        [
+          "additem",
+          "pickone(hat_goblin,pants_goblin,pistol_goblin)"
+        ],
+        [
+          "addflag",
+          "goblin1_house9"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "bomb": [
+        [
+          "removeitem",
+          "fungusbomb"
+        ],
+        [
+          "say",
+          "You open the door a crack and toss the bomb in.  A few minutes later, after the fumes settle, you enter the shack and survey the carnage."
+        ],
+        [
+          "say",
+          "It's a very profitable carnage! Three whole goblins worth of carnage!"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch - Guard Barracks"
+        ],
+        [
+          "addmeat",
+          "rand(40,50),1"
+        ],
+        [
+          "additem",
+          "pickone(food_goblinsandwich,potion_goblinchicory,booze_goblinmescal)"
+        ],
+        [
+          "if",
+          "itemroll(20)"
+        ],
+        [
+          "additem",
+          "pickone(hat_goblin,pants_goblin,pistol_goblin)"
+        ],
+        [
+          "if",
+          "itemroll(20)"
+        ],
+        [
+          "additem",
+          "pickone(hat_goblin,pants_goblin,pistol_goblin)"
+        ],
+        [
+          "addflag",
+          "goblin1_house9"
+        ],
+        [
+          "option",
+          "done",
+          "Sweet!"
+        ]
+      ]
+    },
+    "goblin1_maptable": {
+      "look": [
+        [
+          "say",
+          "Hey! Wow! It contains an entire year's supply of dynamite! Nice!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addflag",
+          "goblin1_gotdynamite"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Treasure Cave - Middle Chest"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "goblin1_treasure3": {
+      "picklock": [
+        [
+          "cls"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "It's full of jewelry!"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Treasure Cave - Bottom Chest (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Gustavson Gulch Treasure Cave - Bottom Chest (Item 2)"
+        ]
+      ]
+    },
     "house_macready": {
       "seven": [
         [
