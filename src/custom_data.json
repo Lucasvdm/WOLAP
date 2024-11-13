@@ -620,6 +620,28 @@
         ]
       ]
     },
+    "bandit4_officesafe": {
+      "crack": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "opensafe"
+        ],
+        [
+          "say",
+          "The safe contains an extremely broad-brimmed hat."
+        ],
+        [
+          "checklocation",
+          "Old Millinery - Office Safe"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "cemetery2_alcove1": {
       "take": [
         [
