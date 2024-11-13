@@ -5148,6 +5148,62 @@
         ]
       ]
     },
+    "silverplater_platerhimself": {
+      "barbedwire": [
+        [
+          "addmeat",
+          "-1000"
+        ],
+        [
+          "rightsay",
+          "Lookin' ta keep some cows off yer property, eh? Good thinkin'."
+        ],
+        [
+          "say",
+          "He takes the coil of barbed wire, and gives it back a short time later, shiny and gleaming."
+        ],
+        [
+          "removeitem",
+          "quest_barbedwire"
+        ],
+        [
+          "checklocation",
+          "The Silver Plater - Plated Barbed Wire"
+        ],
+        [
+          "option",
+          "done",
+          "Awesome!"
+        ]
+      ],
+      "turnip": [
+        [
+          "addmeat",
+          "-$turnipprice$"
+        ],
+        [
+          "say",
+          "He takes the turnip, and gives it back a short time later, shiny and gleaming."
+        ],
+        [
+          "rightsay",
+          "Hadda hollow it out in the middle, so it wouldn't rot inside. But ya can wear it as a hat now!"
+        ],
+        [
+          "removeitem",
+          "food_turnip"
+        ],
+        [
+          "checklocation",
+          "The Silver Plater - Plated the Turnip"
+        ],
+        [
+          "option",
+          "done",
+          "Neat!"
+        ]
+      ]
+    },
     "silversmith_foodshelf": {
       "get": [
         [
