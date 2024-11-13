@@ -3745,6 +3745,85 @@
         ]
       ]
     },
+    "mine2_beaniron1": {
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Kole Ridge Mine (Level 2) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine2_bonepile": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Kole Ridge Mine (Level 3) - Pick-Head"
+        ]
+      ]
+    },
+    "mine2_curlyhole": {
+      "dig": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "Weird.  There was a compass buried there."
+        ],
+        [
+          "checklocation",
+          "Kole Ridge Mine (Level 2) - Triangular Stones"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "mine2_locker": {
+      "open1": [
+        [
+          "addflag",
+          "mine2_locker1"
+        ],
+        [
+          "say",
+          "The locker contains one of those mining helmets with a lamp on it and a bottle of laudanum."
+        ],
+        [
+          "checklocation",
+          "Kole Ridge Mine - First Locker (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Kole Ridge Mine - First Locker (Item 2)"
+        ],
+        [
+          "option",
+          "done",
+          "Okay"
+        ]
+      ]
+    },
     "professor_talk": {
       "intro3": [
         [
@@ -4587,6 +4666,281 @@
         }
       },
       "parentwaa": "mine1"
+    },
+    "mine2_interior2": {
+      "name": "Kole Ridge Mine (Deeper)",
+      "width": "1.700",
+      "ground": null,
+      "sky": "",
+      "startxy": "1080,100",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_minesupport,foreground_mineceiling1,foreground_mineceiling2",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "cluttercount": 10.0,
+      "cluttersprites": "rocks5,rocks6,rocks7,rocks8,rocks9",
+      "clutterseed": 69420.0,
+      "cluttershadow": 1.0,
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "mine2",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 808.0,
+          "z": 323.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine2_beaniron1",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "cart1": {
+          "asset": "minecart_full",
+          "usedasset": "minecart_empty",
+          "x": 1643.0,
+          "z": 23.0,
+          "height": 234.0,
+          "width": 221.0,
+          "condition": "",
+          "script": "mine2_cart2",
+          "proximity": 0.0
+        },
+        "curlyhole": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 743.0,
+          "z": 114.0,
+          "height": 10.0,
+          "width": 100.0,
+          "condition": "hasflag(quest_curly)==2",
+          "script": "mine2_curlyhole",
+          "proximity": 0.0
+        },
+        "elvchest": {
+          "asset": "elv_chest_locked",
+          "usedasset": "elv_chest_open",
+          "x": 1349.0,
+          "z": 218.0,
+          "height": 135.0,
+          "width": 278.0,
+          "condition": "hasflag(mine2_cache)",
+          "script": "elv_chest",
+          "proximity": 0.0,
+          "elvibrato": 1.0,
+          "": "usedscript maybe"
+        },
+        "elvchest_notice": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1271.0,
+          "z": 209.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "!hasflag(mine2_cache)",
+          "script": "mine2_elvcache",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "extendback": 1.0,
+          "noclip": 1.0
+        },
+        "exitdown": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 1523.0,
+          "z": 249.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine2_interior2__exitdown__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "exitup": {
+          "asset": "minedoor_rope2",
+          "usedasset": null,
+          "x": 224.0,
+          "z": 252.0,
+          "height": 486.0,
+          "width": 546.0,
+          "condition": "",
+          "script": "mine2_doorupto1",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "rock1": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 1345.0,
+          "z": 230.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock2": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 1417.0,
+          "z": 206.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock3": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 1349.0,
+          "z": 205.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock4": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 1414.0,
+          "z": 228.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rocks1": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 218.0,
+          "z": 251.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks10",
+          "usedasset": null,
+          "x": 380.0,
+          "z": 251.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "rocks3": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 1519.0,
+          "z": 248.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "rocks4": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 1678.0,
+          "z": 248.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "triangle1": {
+          "asset": "trianglerock2",
+          "usedasset": null,
+          "x": 766.0,
+          "z": 135.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "mine2_elvmarker",
+          "proximity": 0.0
+        },
+        "triangle2": {
+          "asset": "trianglerock1",
+          "usedasset": null,
+          "x": 710.0,
+          "z": 87.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "mine2_elvmarker",
+          "proximity": 0.0
+        },
+        "triangle3": {
+          "asset": "trianglerock3",
+          "usedasset": null,
+          "x": 833.0,
+          "z": 88.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "mine2_elvmarker",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "vein1": {
+          "asset": "meatvein1",
+          "usedasset": null,
+          "x": 130.0,
+          "z": 287.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "meatvein",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "vein2": {
+          "asset": "meatvein2",
+          "usedasset": null,
+          "x": 1085.0,
+          "z": 315.0,
+          "height": 144.0,
+          "width": 318.0,
+          "condition": "",
+          "script": "meatvein",
+          "proximity": 0.0,
+          "flip": 1.0,
+          "notilt": 1.0
+        },
+        "vein3": {
+          "asset": "meatvein3",
+          "usedasset": null,
+          "x": 1363.0,
+          "z": 54.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "meatvein",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        }
+      },
+      "parentwaa": "mine2"
     },
     "shaggydogcave_interior": {
       "name": "Shaggy Dog Cave (Inside)",
