@@ -1215,6 +1215,25 @@
         ]
       ]
     },
+    "clowns_crimescene_knapsack": {
+      "searchit": [
+        [
+          "say",
+          "Most of the contents are trashed from being stomped on. You do find a dented can of \"potted meat\", though.<p>You also notice that the knapsack has a knife sheath strapped to the side, but you don't see the knife anywhere."
+        ],
+        [
+          "checklocation",
+          "Destroyed Campsite - Knapsack"
+        ],
+        [
+          "addflag",
+          "clowns_knapsack,1"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "clowns_tannery_bonepile": {
       "search": [
         [
