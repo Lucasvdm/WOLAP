@@ -4389,6 +4389,26 @@
           "Maybe I will! So there!"
         ]
       ]
+    },
+    "snakespring_timerift": {
+      "grab": [
+        [
+          "addflag",
+          "snakespring_rift"
+        ],
+        [
+          "say"
+        ],
+        [
+          "checklocation",
+          "Snake Spring - Temporal Rift"
+        ],
+        [
+          "option",
+          "done",
+          "Strange"
+        ]
+      ]
     }
   },
   "skills": {},
