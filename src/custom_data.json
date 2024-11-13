@@ -3745,6 +3745,35 @@
         ]
       ]
     },
+    "professor_talk": {
+      "intro3": [
+        [
+          "removeitem",
+          "elv_introitem"
+        ],
+        [
+          "rightsay",
+          "Aha! As I suspected, this is one of their transponders. It detects other El Vibrato technology and homes in, you see. That'll be why it led you here, I've got a thing I've been trying to repair."
+        ],
+        [
+          "say",
+          "He tinkers around with the transponder for a bit and then plugs a strange stone marble into a socket on it."
+        ],
+        [
+          "rightsay",
+          "There you go! Good as new! Just swipe up or down to turn it on or off."
+        ],
+        [
+          "checklocation",
+          "The Perfessor's House - Show the Stone Arrow"
+        ],
+        [
+          "sayoption",
+          "intro4",
+          "'Swipe'?"
+        ]
+      ]
+    },
     "ranch1_altar": {
       "getblood": [
         [
