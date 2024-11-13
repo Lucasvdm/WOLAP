@@ -1215,6 +1215,198 @@
         ]
       ]
     },
+    "clowns_camp_fightwin": {
+      "dig": [
+        [
+          "say",
+          "You poke around their campsite for a bit, but don't find anything of value apart from the leader's knife and a ticket to the circus. Well, the harmonica maybe, but that clown had his lips all over it. <i>*shudder*</i>"
+        ],
+        [
+          "checklocation",
+          "Clown Campsite - Clowns Killed (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Clown Campsite - Clowns Killed (Item 2)"
+        ],
+        [
+          "say",
+          "You also find a note (in one of the lead clown's pockets... eww). It seems to be orders to check out an abandoned tannery not far from Dirtwater. It's probably a bad idea to let these guys wander around near town, so maybe you should investigate."
+        ],
+        [
+          "if",
+          "!hasflag(map_tannery)"
+        ],
+        [
+          "mapunlock",
+          "tannery,Danny's Tannery"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "addflag",
+          "clowns_knowsclowns,2"
+        ],
+        [
+          "addflag",
+          "clowns_campcleared,1"
+        ],
+        [
+          "addflag",
+          "clowns_killedcamp,1"
+        ],
+        [
+          "addflag",
+          "clowns_suspicion,0"
+        ],
+        [
+          "addstate",
+          "winbutton,<i>shudder</i>"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "clowns_crimescene_knapsack": {
       "searchit": [
         [
