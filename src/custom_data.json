@@ -3853,6 +3853,40 @@
         ]
       ]
     },
+    "railcamp_rockremains": {
+      "popup": [
+        [
+          "say",
+          "The remains of your triumph over that crazy rock pile / guy."
+        ],
+        [
+          "if",
+          "hasflag(geologistquest)>3 && !hasflag(geologistquest_golem)"
+        ],
+        [
+          "option",
+          "e",
+          "Grab a rock for Dr. Morton"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You grab a rock, which you hope is sufficiently interesting."
+        ],
+        [
+          "checklocation",
+          "Railroad Camp (East) - Rock Monster's Remains (Dr. Morton's Quest)"
+        ],
+        [
+          "addflag",
+          "geologistquest_golem"
+        ]
+      ]
+    },
     "ranch1_altar": {
       "getblood": [
         [
@@ -4200,37 +4234,71 @@
         ]
       ]
     },
-    "railcamp_rockremains": {
-      "popup": [
+    "ranch3_getmilk": {
+      "get": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
         [
           "say",
-          "The remains of your triumph over that crazy rock pile / guy."
+          "You manage to gather up three jars worth."
         ],
         [
-          "if",
-          "hasflag(geologistquest)>3 && !hasflag(geologistquest_golem)"
-        ],
-        [
-          "option",
-          "e",
-          "Grab a rock for Dr. Morton"
+          "checklocation",
+          "Butterfield Ranch Barn - Milk Shelf"
         ]
-      ],
+      ]
+    },
+    "ranch3_hearth": {
       "e": [
         [
           "cls"
         ],
         [
           "say",
-          "You grab a rock, which you hope is sufficiently interesting."
+          "Ow ow ow!"
         ],
         [
           "checklocation",
-          "Railroad Camp (East) - Rock Monster's Remains (Dr. Morton's Quest)"
+          "Butterfield Ranch - Fireplace"
         ],
         [
-          "addflag",
-          "geologistquest_golem"
+          "markused"
+        ]
+      ]
+    },
+    "ranch3_ropefence": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Butterfield Ranch - Rope on Fence"
+        ]
+      ]
+    },
+    "ranch3_toybox": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It's full of toy skeletons!"
+        ],
+        [
+          "checklocation",
+          "Butterfield Ranch Barn - Toybox"
+        ],
+        [
+          "markused"
         ]
       ]
     },
