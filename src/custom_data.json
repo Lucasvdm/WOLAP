@@ -2524,6 +2524,67 @@
         ]
       ]
     },
+    "elvibrato2_batterybox": {
+      "take": [
+        [
+          "say",
+          "You grab the device.  The Perfessor will want to see this."
+        ],
+        [
+          "checklocation",
+          "El Vibrato Chamber (Lost Dutch Oven Mine) - Leftmost Box"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "option",
+          "done",
+          "Yup"
+        ]
+      ]
+    },
+    "elvibrato2_fusetable": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "elvibrato2_fusetable"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Ruin - Cylinder"
+        ]
+      ]
+    },
+    "elvibrato2_hatchest": {
+      "open": [
+        [
+          "removeitem",
+          "elv_key"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "particleburstwaa",
+          "hatchest,burst_elvdespawnup,50,15"
+        ],
+        [
+          "say",
+          "There's a strange cloth loop inside. At least it feels more or less like cloth."
+        ],
+        [
+          "checklocation",
+          "El Vibrato Chamber (Lost Dutch Oven Mine) - Locked Box"
+        ]
+      ]
+    },
     "fort1_generalgob": {
       "win": [
         [
@@ -4649,6 +4710,101 @@
           "option",
           "done",
           "Okay"
+        ]
+      ]
+    },
+    "mine3_emerald": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "Pick pick pick!"
+        ],
+        [
+          "checklocation",
+          "Lost Dutch Oven Mine (Pit) - Emerald Rock"
+        ],
+        [
+          "addflag",
+          "mine3_gotgem"
+        ]
+      ]
+    },
+    "mine3_lockers": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Lost Dutch Oven Mine (Level 1) - Lockers (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Lost Dutch Oven Mine (Level 1) - Lockers (Item 2)"
+        ],
+        [
+          "say",
+          "Heh.  Could've used this five minutes ago."
+        ]
+      ]
+    },
+    "mine3_sluice": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You tighten the loose screws, and some ore gets jarred loose from upsluice."
+        ],
+        [
+          "checklocation",
+          "Lost Dutch Oven Mine - Sluice"
+        ],
+        [
+          "addxp",
+          "5"
+        ]
+      ]
+    },
+    "mine3_spittoon": {
+      "seven": [
+        [
+          "say",
+          "You pull the world's most disgusting pair of pants out of the spittoon, and jump back as the hole at the spittoon's bottom, now unplugged, begins to leak steaming filth."
+        ],
+        [
+          "say",
+          "Congratulations. You are now the proud owner of the worst object I've ever been paid to think about, narrowly defeating a leather bondage harness made from the skin of a clown."
+        ],
+        [
+          "checklocation",
+          "Lost Dutch Oven Mine (Level 1) - Spittoon"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "option",
+          "done",
+          "Hooray!"
         ]
       ]
     },
