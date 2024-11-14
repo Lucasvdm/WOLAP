@@ -5607,6 +5607,142 @@
         ]
       ]
     },
+    "ranch2_hippy1": {
+      "opts": [
+        [
+          "if",
+          "hasflag(ranch2_boughtremedy)"
+        ],
+        [
+          "goto",
+          "alreadybought"
+        ],
+        [
+          "if",
+          "meat>15"
+        ],
+        [
+          "option",
+          "buy",
+          "Buy one [15 Meat]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "booy",
+          "Buy one [Requires 15 Meat]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ],
+      "buy": [
+        [
+          "rightsay",
+          "Hey, groovy. Thanks."
+        ],
+        [
+          "addmeat",
+          "-15"
+        ],
+        [
+          "checklocation",
+          "Lazy-A Dude Ranch - Purchased Herbal Remedy"
+        ],
+        [
+          "addflag",
+          "ranch2_boughtremedy"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "alreadybought": [
+        [
+          "say",
+          "You don't feel the need to buy anything else."
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ]
+    },
+    "ranch2_hippy2": {
+      "yesbane": [
+        [
+          "rightsay",
+          "I sure do, man! Baled it up for ya and everything!"
+        ],
+        [
+          "checklocation",
+          "Lazy-A Dude Ranch - Cowsbane Harvest"
+        ],
+        [
+          "addflag",
+          "ranch2_fencequest,3"
+        ],
+        [
+          "leftsay",
+          "Great, thanks!"
+        ],
+        [
+          "rightsay",
+          "Boom shanka, man."
+        ],
+        [
+          "option",
+          "done",
+          "Uh-huh!"
+        ]
+      ],
+      "yeshat": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightportrait",
+          "hippy2_nohat"
+        ],
+        [
+          "rightsay",
+          "Nice, man! Barter is like, commerce, man, except <i>natural</i>, can you dig it?"
+        ],
+        [
+          "checklocation",
+          "Lazy-A Dude Ranch - Dreads Dude Hat Trade"
+        ],
+        [
+          "removeitem",
+          "hat_oldmilitary"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addflag",
+          "ranch2_gothat,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Yeah, groovy."
+        ]
+      ]
+    },
     "ranch3_getmilk": {
       "get": [
         [
