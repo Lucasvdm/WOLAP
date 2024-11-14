@@ -2153,6 +2153,371 @@
         ]
       ]
     },
+    "clowns_circus_ticketbooth": {
+      "handstamp": [
+        [
+          "if",
+          "hasflag(clowns_suspicion)<=1"
+        ],
+        [
+          "say",
+          "The ticket booth clown recognizes you and waves you toward the circus entrance."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)==2"
+        ],
+        [
+          "say",
+          "The ticket booth clown eyes you warily and waves you through the circus entrance."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)==3"
+        ],
+        [
+          "say",
+          "The ticket booth clown kind of gives you the stink-eye, but he waves you through the circus entrance anyway."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)>3"
+        ],
+        [
+          "say",
+          "The ticket booth clown just sort of glares at you."
+        ],
+        [
+          "if",
+          "!hasflag(circus_ticketbooth_gotcheck) && !hasflag(circus_ticketbooth_checkintro)"
+        ],
+        [
+          "sayoption",
+          "buycheckintro",
+          "I'd like to buy another ticket."
+        ],
+        [
+          "if",
+          "!hasflag(circus_ticketbooth_gotcheck) && hasflag(circus_ticketbooth_checkintro)"
+        ],
+        [
+          "sayoption",
+          "buycheckretry",
+          "I wanna buy that thing."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Leave him alone"
+        ]
+      ],
+      "buycheckintro": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "I'd like to buy another ticket."
+        ],
+        [
+          "say",
+          "The clown cocks an eyebrow and looks back and forth between you and @pardnername@."
+        ],
+        [
+          "rightportrait",
+          "clown"
+        ],
+        [
+          "rightsay",
+          "Only one ticket per person, and I already told you pardners get in free."
+        ],
+        [
+          "leftsay",
+          "Okay, but like, you must have something else I can buy?  I really need to buy something here."
+        ],
+        [
+          "rightsay",
+          "...@maam@, this is a ticket booth."
+        ],
+        [
+          "say",
+          "He glances around his stand before bending over, grabbing something from beneath the booth."
+        ],
+        [
+          "rightsay",
+          "Alright look, you could buy this thing?  No idea where it came from or who it belongs to.  You could have it for... let's say 1,000 Meat?"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_checkintro"
+        ],
+        [
+          "sayoption",
+          "buycheck",
+          "Buy the \"thing\" [1,000 Meat]"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Maybe later"
+        ]
+      ],
+      "buycheckretry": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "I wanna buy that thing."
+        ],
+        [
+          "say",
+          "The clown shrugs."
+        ],
+        [
+          "rightportrait",
+          "clown"
+        ],
+        [
+          "rightsay",
+          "Sure, it's your money."
+        ],
+        [
+          "sayoption",
+          "buycheck",
+          "Buy the \"thing\" [1,000 Meat]"
+        ],
+        [
+          "sayoption",
+          "done",
+          "On second thought, maybe not"
+        ]
+      ],
+      "buycheck": [
+        [
+          "say",
+          "You drop the Meat on the booth and he pushes the \"thing\" over to you."
+        ],
+        [
+          "rightsay",
+          "Pleasure doing business with you, I guess."
+        ],
+        [
+          "addmeat",
+          "-1000"
+        ],
+        [
+          "checklocation",
+          "Circus - Ticket Booth"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_gotcheck"
+        ],
+        [
+          "option",
+          "done",
+          "Thanks."
+        ]
+      ],
+      "done": [
+        [
+          "exit"
+        ]
+      ]
+    },
+    "clowns_circus_tickettalk": {
+      "buyfihun": [
+        [
+          "addmeat",
+          "-500"
+        ],
+        [
+          "leftsay",
+          "All right."
+        ],
+        [
+          "rightsay",
+          "Let me just stamp your hand for re-entry... there you go. Enjoy the show!"
+        ],
+        [
+          "checklocation",
+          "Circus - Ticket Booth"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_gotcheck"
+        ],
+        [
+          "leftsay",
+          "What about my pardner?"
+        ],
+        [
+          "rightsay",
+          "Pardners get in free."
+        ],
+        [
+          "option",
+          "done",
+          "Thanks."
+        ]
+      ],
+      "buyit": [
+        [
+          "leftsay",
+          "Ugh, fine."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)<2"
+        ],
+        [
+          "say",
+          "You unload 5,000 Meat onto the counter. The clown looks surprised."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)==2"
+        ],
+        [
+          "say",
+          "You unload 7,500 Meat onto the counter. The clown looks surprised."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)>2"
+        ],
+        [
+          "say",
+          "You unload 10,000 Meat onto the counter. The clown looks surprised."
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)<2"
+        ],
+        [
+          "addmeat",
+          "-5000"
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)==2"
+        ],
+        [
+          "addmeat",
+          "-7500"
+        ],
+        [
+          "if",
+          "hasflag(clowns_suspicion)>2"
+        ],
+        [
+          "addmeat",
+          "-10000"
+        ],
+        [
+          "rightsay",
+          "Well, uh... okay! I guess you've bought yourself a ticket! Let me just stamp your hand for re-entry... there we go. Enjoy the show!"
+        ],
+        [
+          "leftsay",
+          "What about my pardner?"
+        ],
+        [
+          "rightsay",
+          "Pardners get in free."
+        ],
+        [
+          "checklocation",
+          "Circus - Ticket Booth"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_gotcheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
+        ]
+      ],
+      "outfox5": [
+        [
+          "leftsay",
+          "I don't know, this still seems shady to me. I'm pretty sure you're hiding something. Maybe something you wouldn't want the marshals to find out about..."
+        ],
+        [
+          "rightsay",
+          "Hey, wow, jeez @mister@! Fine, you win -- look, it's on the house, okay? Just gimme your hand so I can stamp you for re-entry. ...There. Good grief."
+        ],
+        [
+          "leftsay",
+          "Thanks!"
+        ],
+        [
+          "rightsay",
+          "Yeah, don't mention it. Literally, do not mention it."
+        ],
+        [
+          "checklocation",
+          "Circus - Ticket Booth"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_gotcheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "option",
+          "done",
+          "Leave the ticket booth"
+        ]
+      ],
+      "hornswoggle4": [
+        [
+          "leftsay",
+          "That's still outside the normal price range."
+        ],
+        [
+          "rightsay",
+          "Hey, come on, we had to travel a long way to get here, we've got expenses and... stuff."
+        ],
+        [
+          "leftsay",
+          "I would hate to discover that you were hiding anything from me."
+        ],
+        [
+          "rightsay",
+          "Of course not! Of course not. Look, I tell you what, you're a VIP, you get the VIP ticket -- on the house. Lemme just stamp your hand for re-entry... Okay! Enjoy the show!"
+        ],
+        [
+          "checklocation",
+          "Circus - Ticket Booth"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_gotcheck"
+        ],
+        [
+          "leftsay",
+          "Thank you."
+        ],
+        [
+          "rightsay",
+          "No problem! No problem!"
+        ],
+        [
+          "option",
+          "done",
+          "Leave the ticket booth"
+        ]
+      ]
+    },
     "clowns_crimescene_knapsack": {
       "searchit": [
         [
