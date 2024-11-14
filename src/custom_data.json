@@ -3248,6 +3248,78 @@
         ]
       ]
     },
+    "elvibrato1_beaniron1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Humming Cave - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "elvibrato1_gettransceiver": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Bizarre Ruin - Half-Buried Pedestal"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "elvibrato1_purplegrass": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Humming Cave - Grass Outside"
+        ]
+      ]
+    },
     "elvibrato2_batterybox": {
       "take": [
         [
@@ -5716,6 +5788,29 @@
       ]
     },
     "mine1_beaniron1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
       "pickit": [
         [
           "cls"
@@ -5748,6 +5843,29 @@
       ]
     },
     "mine2_beaniron1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
       "pickit": [
         [
           "cls"
@@ -6536,6 +6654,29 @@
       ]
     },
     "shaggydogcave_beaniron1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
       "pickit": [
         [
           "cls"
@@ -6702,6 +6843,315 @@
   },
   "skills": {},
   "waas": {
+    "elvibrato1_cave": {
+      "name": "Humming Cave (Inside)",
+      "width": "2.000",
+      "ground": null,
+      "sky": "",
+      "startxy": "205,123",
+      "horizon": "wallcave_tile1",
+      "foregroundparallax": "foreground_caveleft1,foreground_cavemiddle1,foreground_cavemiddle5,foreground_cavemiddle1,foreground_cavemiddle3,foreground_cavemiddle2,foreground_caveright1",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "cluttercount": 10.0,
+      "cluttersprites": "rocks1,rocks2,rocks1,rocks2,rocks3",
+      "clutterseed": 19285.0,
+      "cluttersolid": 1.0,
+      "cluttershadow": 1.0,
+      "music": "music_cavemine",
+      "ambientsound1": "Cave_ambience_loop",
+      "basewaa": "elvibrato1",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1181.0,
+          "z": 313.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "elvibrato1_beaniron1",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "boulder": {
+          "asset": "canyonrock2",
+          "usedasset": null,
+          "x": 754.0,
+          "z": 253.0,
+          "height": 664.0,
+          "width": 304.0,
+          "condition": "!hasflag(elvibrato1_rolledboulder)",
+          "script": "elvibrato1_boulder",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "boulder_rolled": {
+          "asset": "canyonrock2_overturned",
+          "usedasset": null,
+          "x": 831.0,
+          "z": 253.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(elvibrato1_rolledboulder)",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "elvchest": {
+          "asset": "elv_chest_locked",
+          "usedasset": "elv_chest_open",
+          "x": 1363.0,
+          "z": 215.0,
+          "height": 135.0,
+          "width": 278.0,
+          "condition": "hasflag(elvibrato1_cache)",
+          "script": "elv_chest",
+          "proximity": 0.0,
+          "elvibrato": 1.0,
+          "": "usedscript maybe"
+        },
+        "elvchest_notice": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1289.0,
+          "z": 210.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "!hasflag(elvibrato1_cache)",
+          "script": "elvibrato1_elvcache",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "extendback": 1.0,
+          "noclip": 1.0
+        },
+        "exit": {
+          "asset": "caveopening",
+          "usedasset": null,
+          "x": 85.0,
+          "z": 253.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__elvibrato1_cave__exit__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "rock1": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 1361.0,
+          "z": 228.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock2": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 1362.0,
+          "z": 197.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock3": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 1423.0,
+          "z": 225.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock4": {
+          "asset": "rocks7",
+          "usedasset": null,
+          "x": 1427.0,
+          "z": 197.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rocks1": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 983.0,
+          "z": 254.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks10",
+          "usedasset": null,
+          "x": 860.0,
+          "z": 254.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "rocks3": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 77.0,
+          "z": 252.0,
+          "height": 52.0,
+          "width": 104.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "rocks4": {
+          "asset": "rock1",
+          "usedasset": null,
+          "x": 219.0,
+          "z": 252.0,
+          "height": 40.0,
+          "width": 78.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "snakehole": {
+          "asset": "caveopening5",
+          "usedasset": null,
+          "x": 872.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(elvibrato1_snakehole)",
+          "script": "elvibrato1_snakehole",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "extendforward": 1.0,
+          "prop": "eyes_creepy_03,50,50",
+          "noshadow": 1.0
+        },
+        "snakehole_empty": {
+          "asset": "caveopening5",
+          "usedasset": null,
+          "x": 872.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(elvibrato1_snakehole)",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "stalag1": {
+          "asset": "stalagcluster3",
+          "usedasset": null,
+          "x": 492.0,
+          "z": 128.0,
+          "height": 278.0,
+          "width": 196.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stalag2": {
+          "asset": "stalagcluster1",
+          "usedasset": null,
+          "x": 1263.0,
+          "z": 12.0,
+          "height": 562.0,
+          "width": 258.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stalag3": {
+          "asset": "stalag4",
+          "usedasset": null,
+          "x": 1629.0,
+          "z": 223.0,
+          "height": 335.0,
+          "width": 96.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stalag4": {
+          "asset": "stalag2",
+          "usedasset": null,
+          "x": 1581.0,
+          "z": 194.0,
+          "height": 198.0,
+          "width": 125.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "teleporter": {
+          "asset": "elv_teleporter2",
+          "usedasset": null,
+          "x": 1797.0,
+          "z": 127.0,
+          "height": 466.0,
+          "width": 501.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0,
+          "elvibrato": 1.0,
+          "interesting": 1.0,
+          "ambientsound": "el_vibrato_monolith_loop, 180"
+        },
+        "teleportervolume": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1811.0,
+          "z": 126.0,
+          "height": 10.0,
+          "width": 130.0,
+          "condition": "",
+          "script": "elvibrato1_teleporter1",
+          "proximity": 0.0,
+          "shootableheight": 150.0
+        },
+        "teleprompt": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1637.0,
+          "z": 130.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "",
+          "script": "elvibrato1_teleprompt",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "extendback": 1.0,
+          "noclip": 1.0
+        }
+      },
+      "parentwaa": "elvibrato1"
+    },
     "mine1_interior1": {
       "name": "Snakepit Mine (Inside)",
       "width": "2.250",
