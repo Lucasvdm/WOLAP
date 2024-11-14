@@ -642,6 +642,730 @@
         ]
       ]
     },
+    "bandit5_ghost1": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost1,2"
+        ],
+        [
+          "say",
+          "Thanks to your unrivaled peacemaking abilities, that ghost is definitely at peace now."
+        ],
+        [
+          "addxp",
+          "@xpreward_c@*5"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains1"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Cukes Room - Ghost Put To Rest"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "fix": [
+        [
+          "rightspeak",
+          "It's...  It's finally done.  Thank you."
+        ],
+        [
+          "say",
+          "The ghost smiles as he fades away.  A few bones hit the ground below it."
+        ],
+        [
+          "additem",
+          "quest_bandit5remains1"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Cukes Room - Ghost Put To Rest"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost1,1"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "option",
+          "done",
+          "Rest in peace, poor guy"
+        ]
+      ]
+    },
+    "bandit5_ghost2": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost2,2"
+        ],
+        [
+          "say",
+          "You've put that unfortunate bandit to rest.  Maybe now he'll have less of a salty attitude."
+        ],
+        [
+          "addxp",
+          "@xpreward_c@*5"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains2"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Salt Room - Ghost Put To Rest"
+        ],
+        [
+          "addstate",
+          "winbutton,Rest easy, salty guy."
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "fix": [
+        [
+          "rightspeak",
+          "It's...  It's finally done.  Thank you."
+        ],
+        [
+          "say",
+          "The ghost smiles as he fades away.  A few bones hit the ground below it."
+        ],
+        [
+          "additem",
+          "quest_bandit5remains2"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Salt Room - Ghost Put To Rest"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost2,1"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "option",
+          "done",
+          "Rest in peace"
+        ]
+      ]
+    },
+    "bandit5_ghost3": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost3,2"
+        ],
+        [
+          "say",
+          "You set that ghostly fellow to rights, all right."
+        ],
+        [
+          "addxp",
+          "@xpreward_c@*5"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains3"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Vinegar Room - Ghost Put To Rest"
+        ],
+        [
+          "say",
+          "Weird.  He didn't even have legs."
+        ],
+        [
+          "addstate",
+          "winbutton,Rest in peace, poor guy."
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "fix": [
+        [
+          "rightspeak",
+          "It's...  It's finally done.  Thank you."
+        ],
+        [
+          "say",
+          "The ghost smiles as he fades away.  A few bones hit the ground below it."
+        ],
+        [
+          "additem",
+          "quest_bandit5remains3"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Vinegar Room - Ghost Put To Rest"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost3,1"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "option",
+          "done",
+          "Rest in peace"
+        ]
+      ]
+    },
+    "bandit5_picklelever": {
+      "success": [
+        [
+          "addflag",
+          "bandit5_usedfactory"
+        ],
+        [
+          "say",
+          "You pull the lever and there is a deafening roar as the old machinery springs into life."
+        ],
+        [
+          "say",
+          "After a while, a load of pickles is deposited in the receptacle to the left of the switch."
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory - Puzzle Solved"
+        ],
+        [
+          "say",
+          "Huh.  All that work for three pickles?  No wonder this place went out of business."
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains1)"
+        ],
+        [
+          "say",
+          "The ghost from the cucumber room drifts through the door, gives you a grateful look, then clatters to the floor as it is replaced with a pile of bones."
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains1)"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost1,1"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains1)"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Cukes Room - Ghost Put To Rest"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains1)"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains1"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains2)"
+        ],
+        [
+          "say",
+          "The ghost from the salt room drifts through the door, gives you a grateful look, then collapses into a pile of remains."
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains2)"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost2,1"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains2)"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Salt Room - Ghost Put To Rest"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains2)"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains2"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains3)"
+        ],
+        [
+          "say",
+          "The ghost from the vinegar room drifts through the door, gives you a grateful look, then vanishes in a puff of bones."
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains3)"
+        ],
+        [
+          "addflag",
+          "bandit5_ghost3,1"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains3)"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Vinegar Room - Ghost Put To Rest"
+        ],
+        [
+          "if",
+          "!hasitem(quest_bandit5remains3)"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains3"
+        ],
+        [
+          "option",
+          "done",
+          "Yep"
+        ]
+      ]
+    },
+    "bandit5_shovelbin": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Abandoned Pickle Factory Vinegar Room - Coal Cart"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "cemetery2_alcove1": {
       "take": [
         [
