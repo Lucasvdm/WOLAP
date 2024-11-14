@@ -3701,6 +3701,395 @@
         ]
       ]
     },
+    "fort2_bigpit": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You brush yourself off, collect your loot, and climb back out of the pit."
+        ],
+        [
+          "incflag",
+          "fort2_pitkills"
+        ],
+        [
+          "addstate",
+          "kills,@fort2_pitkills@"
+        ],
+        [
+          "if",
+          "$kills$>3 && !hasflag(fort2_gotgravehat)"
+        ],
+        [
+          "checklocation",
+          "Fort Alldead - Mass Grave Item"
+        ],
+        [
+          "if",
+          "$kills$>3 && !hasflag(fort2_gotgravehat)"
+        ],
+        [
+          "addflag",
+          "fort2_gotgravehat"
+        ],
+        [
+          "if",
+          "$kills$<=3 && itemroll(20) && !hasflag(fort2_gotgravehat)"
+        ],
+        [
+          "addflag",
+          "temphatflag"
+        ],
+        [
+          "if",
+          "hasflag(temphatflag)"
+        ],
+        [
+          "checklocation",
+          "Fort Alldead - Mass Grave Item"
+        ],
+        [
+          "if",
+          "hasflag(temphatflag)"
+        ],
+        [
+          "addflag",
+          "fort2_gotgravehat"
+        ],
+        [
+          "if",
+          "hasflag(temphatflag)"
+        ],
+        [
+          "delflag",
+          "temphatflag"
+        ],
+        [
+          "additem",
+          "pickone(booze_armywhiskey,combat_armyfirstaid,combat_bulletfire,combat_bulletpoison,combat_bulletsilver,food_instantgrits,food_hardtack,combat_smellingsalts,combat_canteen)"
+        ],
+        [
+          "if",
+          "$kills$>rand(2,4)"
+        ],
+        [
+          "additem",
+          "pickone(booze_armywhiskey,combat_armyfirstaid,combat_bulletfire,combat_bulletpoison,combat_bulletsilver,food_instantgrits,food_hardtack,combat_smellingsalts,combat_canteen)"
+        ],
+        [
+          "if",
+          "$kills$>9"
+        ],
+        [
+          "addstate",
+          "kills,9"
+        ],
+        [
+          "addxp",
+          "@xpreward_c@*$kills$"
+        ],
+        [
+          "teleportplayer",
+          "2870,70"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "fort2_cavpin": {
+      "get": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Fort Alldead Privy - Bottom-Right Corner"
+        ]
+      ]
+    },
+    "fort2_footlocker6": {
+      "picklock": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "say",
+          "You pick the lock, revealing the footlocker to be full of... human bones!"
+        ],
+        [
+          "checklocation",
+          "Fort Alldead Barracks - Bottom-Right Footlocker"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort2_knapsack2": {
+      "start": [
+        [
+          "if",
+          "hasflag(fort2_knapsack)"
+        ],
+        [
+          "goto",
+          "alreadylooted"
+        ],
+        [
+          "say",
+          "You dig through the knapsack."
+        ],
+        [
+          "checklocation",
+          "Fort Alldead - Knapsack (Item 1)"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ],
+      "node3": [
+        [
+          "checklocation",
+          "Fort Alldead - Knapsack (Item 2)"
+        ],
+        [
+          "say",
+          "The last thing is a little diary, which you decide to leave in there in case the owner comes back looking for it."
+        ],
+        [
+          "goto",
+          "diaryoptions"
+        ]
+      ]
+    },
+    "fort2_toilet3": {
+      "popup": [
+        [
+          "say",
+          "It's a toilet."
+        ],
+        [
+          "if",
+          "hasflag(fort2_poisonidea)==1"
+        ],
+        [
+          "say",
+          "And the flusher is broken.  Yuck."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "The flush handle is missing, though."
+        ],
+        [
+          "option",
+          "get",
+          "Fish around in it"
+        ]
+      ],
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You grab the contents of the toilet, you sicko."
+        ],
+        [
+          "if",
+          "!hasflag(fort2_poisonidea)>=1"
+        ],
+        [
+          "say",
+          "Hey... This gave you an idea.  If the undead produce waste, maybe it can make them unundead."
+        ],
+        [
+          "addflag",
+          "fort2_poisonidea,2"
+        ],
+        [
+          "checklocation",
+          "Fort Alldead Privy - Broken Toilet"
+        ]
+      ]
+    },
+    "fort2_trashcan": {
+      "e": [
+        [
+          "if",
+          "player.stenchresist>=100"
+        ],
+        [
+          "goto",
+          "nope"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "Oh good, a disgusting old hat."
+        ],
+        [
+          "checklocation",
+          "Fort Alldead - Trash Can"
+        ]
+      ]
+    },
     "goblin1_destroyedcrate": {
       "e": [
         [
