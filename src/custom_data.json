@@ -2153,6 +2153,1170 @@
         ]
       ]
     },
+    "clowns_circus_balloonatalk": {
+      "start": [
+        [
+          "if",
+          "hasflag(circus_boughtballoon)"
+        ],
+        [
+          "goto",
+          "talk"
+        ],
+        [
+          "rightportrait",
+          "balloonclown"
+        ],
+        [
+          "rightsay",
+          "Howdy there, @miss@! Interest ya in a toy balloon?"
+        ],
+        [
+          "sayoption",
+          "howmuch",
+          "How much are they?"
+        ],
+        [
+          "sayoption",
+          "colors",
+          "What colors do you have?"
+        ],
+        [
+          "sayoption",
+          "float",
+          "How do you make them float like that?"
+        ],
+        [
+          "sayoption",
+          "done",
+          "No thanks. Bye."
+        ]
+      ],
+      "buyit": [
+        [
+          "leftsay",
+          "I'll take one."
+        ],
+        [
+          "rightsay",
+          "All righty then! Here you go!"
+        ],
+        [
+          "addmeat",
+          "-30"
+        ],
+        [
+          "checklocation",
+          "Circus - Balloon Vendor"
+        ],
+        [
+          "addflag",
+          "circus_boughtballoon"
+        ],
+        [
+          "addflag",
+          "clowns_balconvoflag,1"
+        ],
+        [
+          "goto",
+          "talk"
+        ]
+      ]
+    },
+    "clowns_circus_bobshow": {
+      "cont11": [
+        [
+          "say",
+          "You bow to the cheering crowd, carefully keeping your eyes on Barnaby Bob. He bows as well, removing his hat with an elaborate flourish, and then he takes a slip of paper out of it."
+        ],
+        [
+          "rightsay",
+          "And as a token of appreciation, I'd like to give our star volunteer a gift: a year's supply of dynamite! Use it in good health!"
+        ],
+        [
+          "say",
+          "As he hands you the coupon, the clown leans in close to your ear and whispers:"
+        ],
+        [
+          "rightsay",
+          "This was the only warning you'll get, @boy@."
+        ],
+        [
+          "checklocation",
+          "Circus - Survived the Main Act"
+        ],
+        [
+          "say",
+          "Barnaby Bob waves and blows kisses to the crowd as you climb down from the stage, and then he disappears through the backstage curtain. The audience gradually disperses."
+        ],
+        [
+          "addflag",
+          "clowns_showover,1"
+        ],
+        [
+          "if",
+          "hasflag(clowns_knowsclowns)<2"
+        ],
+        [
+          "option",
+          "uhoh",
+          "Welp"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "done",
+          "Phew"
+        ]
+      ]
+    },
+    "clowns_circus_destroyedsafe": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "The dial looks pretty complex and has weird squiggles instead of numbers. Fortunately, the impact knocked it wide open, so that doesn't matter."
+        ],
+        [
+          "say",
+          "It contains a few scorched and blackened fragments of what you think might be eggshell, and a pretty nice pair of boots that seem undamaged."
+        ],
+        [
+          "checklocation",
+          "Circus - Barnaby Bob's Safe"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "clowns_circus_foodatalk": {
+      "takecap": [
+        [
+          "checklocation",
+          "Circus Lost & Found - Item 1"
+        ],
+        [
+          "addflag",
+          "clowns_capsearch,2"
+        ],
+        [
+          "leftsay",
+          "Yep, that's the one. Thanks!"
+        ],
+        [
+          "rightsay",
+          "No problem, @maam@."
+        ],
+        [
+          "option",
+          "leave",
+          "Leave"
+        ]
+      ],
+      "takeknife": [
+        [
+          "checklocation",
+          "Circus Lost & Found - Item 2"
+        ],
+        [
+          "addflag",
+          "clowns_tookknife,1"
+        ],
+        [
+          "leftsay",
+          "Thanks!"
+        ],
+        [
+          "rightsay",
+          "Sure, no problem."
+        ],
+        [
+          "option",
+          "leave",
+          "Leave"
+        ]
+      ],
+      "takehanky": [
+        [
+          "checklocation",
+          "Circus Lost & Found - Item 3"
+        ],
+        [
+          "addflag",
+          "clowns_tookhanky,1"
+        ],
+        [
+          "leftsay",
+          "Thanks!"
+        ],
+        [
+          "rightsay",
+          "Sure, no problem."
+        ],
+        [
+          "option",
+          "leave",
+          "Leave"
+        ]
+      ],
+      "takesalts": [
+        [
+          "checklocation",
+          "Circus Lost & Found - Item 4"
+        ],
+        [
+          "addflag",
+          "clowns_tooksalts,1"
+        ],
+        [
+          "leftsay",
+          "Thanks!"
+        ],
+        [
+          "rightsay",
+          "Sure, no problem."
+        ],
+        [
+          "option",
+          "leave",
+          "Leave"
+        ]
+      ]
+    },
+    "clowns_circus_foodc": {
+      "popup": [
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "say",
+          "\"Cotton candy.\" says the clown behind this food stand. \"Come try this... cotton candy.\""
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "\"Cotton candy!\" calls the clown behind this food stand, and then makes a <i>fweeee-oooot!</i> noise with a slide-whistle. \"Come try this just-invented confectionary delight!\""
+        ],
+        [
+          "option",
+          "talk",
+          "Talk to the vendor"
+        ]
+      ]
+    },
+    "clowns_circus_foodctalk": {
+      "start": [
+        [
+          "if",
+          "!hasflag(circus_stolewhistle)"
+        ],
+        [
+          "say",
+          "The clown blows his slide-whistle again as you approach."
+        ],
+        [
+          "rightportrait",
+          "foodclown3"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "Step right up, @miss@. Step up and try one of the world's newest candy ...things."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "<i>Fwoooo-eeeet!</i> Step right up, @miss@! Step up and try one of the world's newest candy sensations!"
+        ],
+        [
+          "sayoption",
+          "what",
+          "What is it?"
+        ],
+        [
+          "if",
+          "hasflag(clowns_whatcotton)==1"
+        ],
+        [
+          "goto",
+          "questions"
+        ]
+      ],
+      "what": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "What is it?"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "Cotton candy. The finest spun sugar, created through a revolutionary new process. It's so light and sweet and fluffy, it's... well, it's really great."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Cotton candy! The finest -- in several senses of the word -- spun sugar, created through a revolutionary new process! It's so light and sweet and fluffy, it's like eating butterfly dreams and kitten wishes! <i>Fwoooooo-eeeeeet!</i>"
+        ],
+        [
+          "addflag",
+          "clowns_whatcotton,1"
+        ],
+        [
+          "goto",
+          "questions"
+        ]
+      ],
+      "cotton": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "So it isn't actually made of cotton?"
+        ],
+        [
+          "rightsay",
+          "What? No. Cotton is indigestible, no matter how much chocolate you cover it with."
+        ],
+        [
+          "leftsay",
+          "Found that out the hard way, did you?"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "...I don't want to talk about it."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "<i>Fweeeeee-oooooot!</i>"
+        ],
+        [
+          "sayoption",
+          "howmade",
+          "How do you make it?"
+        ],
+        [
+          "sayoption",
+          "howmuch",
+          "How much does it cost?"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "No thanks."
+        ]
+      ],
+      "invented": [
+        [
+          "leftsay",
+          "You invented it?"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "No, some dentists down south were the first ones. But after hearing about it, I managed to figure out how it works, pretty much."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Not as such -- couple dentists down south were the first ones. Dentists! Go figure! <i>Fweeeeeeee-oooooot!</i> But after hearing about it, I managed to figure out how it works. Made a few improvements with my design, too!"
+        ],
+        [
+          "sayoption",
+          "please",
+          "Now I'm really curious."
+        ],
+        [
+          "sayoption",
+          "howmuch",
+          "How much does it cost?"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "No thanks."
+        ]
+      ],
+      "please": [
+        [
+          "leftsay",
+          "Now I'm really curious."
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "Nope. These secrets in this box are for nobody's eyes but my own. I can sell you some cotton candy, though."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Sorry, @miss@! These secrets in this box are for nobody's eyes but my own! <i>Fweeee-oooot!</i> I'll be happy to sell you some cotton candy, though!"
+        ],
+        [
+          "addflag",
+          "clowns_wantcottonsecret,1"
+        ],
+        [
+          "sayoption",
+          "howmuch",
+          "How much does it cost?"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "No thanks."
+        ]
+      ],
+      "howmuch": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "How much does it cost?"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "Just 300 Meat! ...or my slide-whistle, if you happen to find it. I really miss my slide-whistle."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Just 300 Meat! <i>Fwooooo-eeeeeet!</i>"
+        ],
+        [
+          "if",
+          "player.meat>=300 || (hasflag(circus_stolewhistle) && hasitem(quest_slidewhistle))"
+        ],
+        [
+          "sayoption",
+          "buy",
+          "I'll take one."
+        ],
+        [
+          "if",
+          "player.meat<300 && !hasitem(quest_slidewhistle) && hasflag(clowns_whistlebox)<1"
+        ],
+        [
+          "graysayoption",
+          "buy",
+          "I'll take one. [Requires 300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<300 && hasflag(clowns_whistlebox)==1"
+        ],
+        [
+          "graysayoption",
+          "buy",
+          "I'll take one. [Requires 300 Meat or slide-whistle]"
+        ],
+        [
+          "if",
+          "hasflag(clowns_whistlebox)==1"
+        ],
+        [
+          "sayoption",
+          "sawwhistle",
+          "You know, I think I saw a slide-whistle..."
+        ],
+        [
+          "sayoption",
+          "leave",
+          "Never mind."
+        ]
+      ],
+      "buy": [
+        [
+          "leftsay",
+          "I'll take one."
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "rightsay",
+          "Okay, that'll be 300 Meat."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Alrighty! That'll be 300 Meat! <i>Fwooooo-eeeeeeeet!</i>"
+        ],
+        [
+          "if",
+          "player.meat>=300"
+        ],
+        [
+          "sayoption",
+          "paymeat",
+          "Okay. [300 Meat]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "paymeat",
+          "Okay. [Requires 300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat>=300 && hasflag(clowns_stealwhistle)==1 && hasflag(clowns_wantcottonsecret)==1"
+        ],
+        [
+          "sayoption",
+          "stealwhistle",
+          "Okay. [300 Meat; Steal his whistle]"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle) && hasitem(quest_slidewhistle)"
+        ],
+        [
+          "sayoption",
+          "paywhistle",
+          "I found this slide-whistle. Is it yours?"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "Hmm, never mind."
+        ]
+      ],
+      "stealwhistle": [
+        [
+          "leftsay",
+          "Okay."
+        ],
+        [
+          "addmeat",
+          "-300"
+        ],
+        [
+          "say",
+          "The clown puts his slide whistle down on the counter and ducks underneath; you quickly snatch the whistle and slip it into your pocket."
+        ],
+        [
+          "checklocation",
+          "Circus - Stole the Slide Whistle"
+        ],
+        [
+          "addflag",
+          "circus_stolewhistle"
+        ],
+        [
+          "option",
+          "stealwhistle2",
+          "Nice."
+        ]
+      ],
+      "front": [
+        [
+          "say",
+          "You quickly shut the box and dart back to the front of the counter just before the clown returns. He gives you a momentary suspicious look, but is quickly distracted by the joy of getting his slide-whistle back."
+        ],
+        [
+          "addflag",
+          "clowns_stealwhistle,2"
+        ],
+        [
+          "addflag",
+          "clowns_whistlebox,0"
+        ],
+        [
+          "delflag",
+          "circus_stolewhistle"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "rightsay",
+          "<i>Fwoooooo-eeeeeeeet!</i> You were right! Thank you so much!"
+        ],
+        [
+          "say",
+          "The clown carefully puts his slide whistle in his shirt pocket, ducks underneath the counter, and comes back up with a paper cone, which he holds in the mouth of the metal box. He pulls down a lever and the box emits a thin squealing sound as something resembling glittering white spun sugar collects around the paper cone in a fluffy cloud."
+        ],
+        [
+          "rightsay",
+          "Here you go! Enjoy! <i>Fwooooo-eeeeeeeeet!</i>"
+        ],
+        [
+          "checklocation",
+          "Circus - Slide Whistle Reward"
+        ],
+        [
+          "incflag",
+          "clowns_discovery,1"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "...Thanks."
+        ]
+      ],
+      "paymeat": [
+        [
+          "leftsay",
+          "Okay."
+        ],
+        [
+          "addmeat",
+          "-300"
+        ],
+        [
+          "if",
+          "hasflag(clowns_stealwhistle)==2"
+        ],
+        [
+          "say",
+          "The clown carefully puts his slide whistle in his shirt pocket, ducks underneath the counter, and comes back up with a paper cone, which he holds in the mouth of the metal box. He pulls down a lever and the machine makes a thin squealing sound as glittering white spun sugar collects around the paper cone in a fluffy cloud."
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "say",
+          "The clown ducks under the counter and comes back up with a paper cone, which he holds in the mouth of the metal box. He pulls down a lever and the machine makes a thin squealing sound as glittering white spun sugar collects around the paper cone in a fluffy cloud."
+        ],
+        [
+          "if",
+          "!hasflag(circus_stolewhistle) && hasflag(clowns_stealwhistle)<2"
+        ],
+        [
+          "say",
+          "The clown puts his slide whistle down on the counter, ducks underneath, and comes back up with a paper cone, which he holds in the mouth of the metal box. He pulls down a lever and the machine makes a thin squealing sound as glittering white spun sugar collects around the paper cone in a fluffy cloud."
+        ],
+        [
+          "if",
+          "!hasflag(circus_stolewhistle) && hasflag(clowns_stealwhistle)<2"
+        ],
+        [
+          "addflag",
+          "clowns_stealwhistle,1"
+        ],
+        [
+          "if",
+          "hasflag(circus_stolewhistle)"
+        ],
+        [
+          "say",
+          "Here you go."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Here you go! Enjoy! <i>Fwooooo-eeeeeeeeet!</i>"
+        ],
+        [
+          "additem",
+          "food_cottoncandy"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "Thanks."
+        ]
+      ],
+      "paywhistle": [
+        [
+          "leftsay",
+          "I found this slide-whistle. Is it yours?"
+        ],
+        [
+          "rightsay",
+          "Oh my gosh, it is! Thank you so much!"
+        ],
+        [
+          "removeitem",
+          "quest_slidewhistle"
+        ],
+        [
+          "addflag",
+          "clowns_stealwhistle,2"
+        ],
+        [
+          "delflag",
+          "circus_stolewhistle"
+        ],
+        [
+          "say",
+          "The clown carefully puts his slide whistle in his shirt pocket, ducks underneath the counter, and comes back up with a paper cone, which he holds in the mouth of the metal box. He pulls down a lever and the machine makes a thin squealing sound as glittering white spun sugar collects around the paper cone in a fluffy cloud."
+        ],
+        [
+          "rightsay",
+          "Here you go, @miss@! It's on the house!"
+        ],
+        [
+          "checklocation",
+          "Circus - Slide Whistle Reward"
+        ],
+        [
+          "rightsay",
+          "<i>Fwooooooooo-eeeeeeeeeeeeeeeet!</i>"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "Thanks."
+        ]
+      ]
+    },
+    "clowns_circus_gamemox": {
+      "level3": [
+        [
+          "say",
+          "You take careful aim and pop off rounds (and balloons) for as long as you can hold the gun together."
+        ],
+        [
+          "rightsay",
+          "Hey, not bad! Not bad at all! Not enough balloons for our grand prize, but it's worth a li'l something!"
+        ],
+        [
+          "playsound",
+          "carnival_balloon_game_hit"
+        ],
+        [
+          "if",
+          "!hasflag(circus_game3prize)"
+        ],
+        [
+          "say",
+          "He gives you a little toy stuffed cat."
+        ],
+        [
+          "if",
+          "!hasflag(circus_game3prize)"
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your Aim (Small Prize)"
+        ],
+        [
+          "if",
+          "hasflag(circus_game3prize)"
+        ],
+        [
+          "rightspeak",
+          "Limit one kitten per customer, though."
+        ],
+        [
+          "addflag",
+          "circus_game3prize"
+        ],
+        [
+          "option",
+          "nothanks",
+          "Okay"
+        ]
+      ],
+      "level4": [
+        [
+          "say",
+          "I'm not sure exactly how a jaguar shoots, but presumably it's pretty good. You clear nearly the entire wall of balloons, and the clown looks genuinely impressed."
+        ],
+        [
+          "rightsay",
+          "Well I'll be! Looks like you win! Congratulations on the finest shooting I've seen in quite a time!"
+        ],
+        [
+          "playsound",
+          "carnival_balloon_game_hit"
+        ],
+        [
+          "if",
+          "hasflag(circus_gameticketprize)"
+        ],
+        [
+          "goto",
+          "already"
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your ____ (Ticket Prize)"
+        ],
+        [
+          "addflag",
+          "circus_gameticketprize"
+        ],
+        [
+          "if",
+          "!hasflag(clowns_showover)"
+        ],
+        [
+          "rightsay",
+          "The show will be starting soon, so don't miss it!"
+        ],
+        [
+          "sayoption",
+          "nothanks",
+          "Thanks!"
+        ]
+      ],
+      "showover": [
+        [
+          "say",
+          "He hands you a large and reasonably well-made toy stuffed cat."
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your Aim (Large Prize)"
+        ],
+        [
+          "addflag",
+          "circus_game3prize2"
+        ],
+        [
+          "sayoption",
+          "nothanks",
+          "Neat!"
+        ]
+      ]
+    },
+    "clowns_circus_gamemus": {
+      "level3": [
+        [
+          "playsound",
+          "clank1"
+        ],
+        [
+          "say",
+          "You pick up the mallet, take a deep breath, and smash that lever with a mighty swing. The little bell-striker makes it nearly -- but not quite! -- to the bell."
+        ],
+        [
+          "rightsay",
+          "Well now! That was <i>very</i> close. Not a grand prize winner, but it's the best I've seen today and that's got to be worth something!"
+        ],
+        [
+          "if",
+          "!hasflag(circus_game1prize)"
+        ],
+        [
+          "say",
+          "He hands you a small teddy bear."
+        ],
+        [
+          "if",
+          "!hasflag(circus_game1prize)"
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your Might (Small Prize)"
+        ],
+        [
+          "if",
+          "hasflag(circus_game1prize)"
+        ],
+        [
+          "rightspeak",
+          "Limit one per customer on the teddy bears, though."
+        ],
+        [
+          "addflag",
+          "circus_game1prize"
+        ],
+        [
+          "option",
+          "nothanks",
+          "Okay"
+        ]
+      ],
+      "level4": [
+        [
+          "playsound",
+          "carnival_strength_game"
+        ],
+        [
+          "say",
+          "You pick up the mallet, toss it end-over-end and catch it a couple of times to test its weight, and casually slam it into the lever."
+        ],
+        [
+          "say",
+          "<i>DING!</i>"
+        ],
+        [
+          "rightsay",
+          "Well I'll be! That's some gen-u-ine muscle you've got on you, @fella@! Looks like you're a winner!"
+        ],
+        [
+          "if",
+          "hasflag(circus_gameticketprize)"
+        ],
+        [
+          "goto",
+          "already"
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your ____ (Ticket Prize)"
+        ],
+        [
+          "addflag",
+          "circus_gameticketprize"
+        ],
+        [
+          "if",
+          "!hasflag(clowns_showover)"
+        ],
+        [
+          "rightsay",
+          "The show will be starting soon, so don't miss it!"
+        ],
+        [
+          "sayoption",
+          "nothanks",
+          "Thanks!"
+        ]
+      ],
+      "showover": [
+        [
+          "say",
+          "He hands you a large and reasonably well-made teddy bear."
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your Might (Large Prize)"
+        ],
+        [
+          "addflag",
+          "circus_game1prize2"
+        ],
+        [
+          "sayoption",
+          "nothanks",
+          "Neat!"
+        ]
+      ]
+    },
+    "clowns_circus_gamemys": {
+      "level3": [
+        [
+          "say",
+          "The clown starts picking cards out of the deck and holding them up with the backs to you. You manage to guess about two-thirds of them."
+        ],
+        [
+          "rightsay",
+          "Say, that's not bad! Not enough to win the grand prize, but you deserve some recognition for that, my friend."
+        ],
+        [
+          "if",
+          "!hasflag(circus_game2prize)"
+        ],
+        [
+          "say",
+          "He gives you a little toy stuffed owl."
+        ],
+        [
+          "if",
+          "!hasflag(circus_game2prize)"
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your Mind (Small Prize)"
+        ],
+        [
+          "if",
+          "hasflag(circus_game2prize)"
+        ],
+        [
+          "rightspeak",
+          "Limit one per customer on the owls, though."
+        ],
+        [
+          "addflag",
+          "circus_game2prize"
+        ],
+        [
+          "option",
+          "nothanks",
+          "Okay"
+        ]
+      ],
+      "level4": [
+        [
+          "say",
+          "The clown starts picking cards out of the deck and holding them up with the backs to you. You rattle off their names as fast as he can pick them up. He seems genuinely impressed."
+        ],
+        [
+          "rightsay",
+          "That, @sir@, is so remarkable as to be practically frightening. Looks like we have a winner!"
+        ],
+        [
+          "if",
+          "hasflag(circus_gameticketprize)"
+        ],
+        [
+          "goto",
+          "already"
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your ____ (Ticket Prize)"
+        ],
+        [
+          "addflag",
+          "circus_gameticketprize"
+        ],
+        [
+          "if",
+          "!hasflag(clowns_showover)"
+        ],
+        [
+          "rightsay",
+          "The show will be starting soon, so don't miss it!"
+        ],
+        [
+          "sayoption",
+          "nothanks",
+          "Thanks!"
+        ]
+      ],
+      "showover": [
+        [
+          "say",
+          "He hands you a large and reasonably well-made plush owl."
+        ],
+        [
+          "checklocation",
+          "Circus - Test Your Mind (Large Prize)"
+        ],
+        [
+          "addflag",
+          "circus_game2prize2"
+        ],
+        [
+          "sayoption",
+          "nothanks",
+          "Neat!"
+        ]
+      ]
+    },
+    "clowns_circus_kidtalk": {
+      "post": [
+        [
+          "if",
+          "hasitem(misc_balloon) && hasflag(clowns_tradedkid)==0"
+        ],
+        [
+          "goto",
+          "trade"
+        ],
+        [
+          "rightportrait",
+          "kid"
+        ],
+        [
+          "rightsay",
+          "Hello again, @maam@! Thanks for finding my lucky bottle cap!"
+        ],
+        [
+          "sayoption",
+          "leave",
+          "No problem, kid."
+        ]
+      ],
+      "okay": [
+        [
+          "rightsay",
+          "Great! Here you go!"
+        ],
+        [
+          "checklocation",
+          "Circus Kid - Lucky Cap Trade"
+        ],
+        [
+          "removeitem",
+          "misc_balloon,1"
+        ],
+        [
+          "addflag",
+          "clowns_tradedkid,1"
+        ],
+        [
+          "rightsay",
+          "Thanks again, @maam@!"
+        ],
+        [
+          "say",
+          "The kid runs off with his new balloon."
+        ],
+        [
+          "option",
+          "leave",
+          "Leave"
+        ]
+      ]
+    },
     "clowns_circus_ticketbooth": {
       "handstamp": [
         [
@@ -2238,7 +3402,7 @@
         ],
         [
           "rightsay",
-          "...@maam@, this is a ticket booth."
+          "...@Sir@, this is a ticket booth."
         ],
         [
           "say",
@@ -2298,7 +3462,7 @@
       "buycheck": [
         [
           "say",
-          "You drop the Meat on the booth and he pushes the \"thing\" over to you."
+          "You drop the Meat on the booth and he pushes the <i>thing</i> over to you."
         ],
         [
           "rightsay",
