@@ -1366,6 +1366,170 @@
         ]
       ]
     },
+    "breadwood_hallowaylocker": {
+      "picklock": [
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "addflag",
+          "breadwood_hallowaylocker"
+        ],
+        [
+          "say",
+          "The locker contains the key to itself and a few miscellaneous sundries."
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "checklocation",
+          "Breadwood Bunkhouse - Footlocker"
+        ]
+      ]
+    },
+    "breadwood_mayor": {
+      "prob5": [
+        [
+          "addflag",
+          "breadwood_quest5"
+        ],
+        [
+          "incflag",
+          "breadwood_quests,1"
+        ],
+        [
+          "rightportrait",
+          "mayor"
+        ],
+        [
+          "rightsay",
+          "We keep a municipal soup kitchen open to help those who're down on their luck -- which is pretty much everybody 'round here. But we've run out of soup, and need someone to go fetch some more from Soupstock Lode."
+        ],
+        [
+          "say",
+          "He gives you a stack of bread bowls to carry the soup in."
+        ],
+        [
+          "checklocation",
+          "Breadwood Mayor's Office - Soup Quest Accepted"
+        ],
+        [
+          "if",
+          "!hasflag(map_mine5)"
+        ],
+        [
+          "mapunlock",
+          "mine5,Soupstock Lode"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Okay, off I go."
+        ]
+      ]
+    },
+    "breadwood_questyjones": {
+      "yes": [
+        [
+          "addflag",
+          "breadwood_jonesquest,1"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Great! Thanks a bundle."
+        ],
+        [
+          "checklocation",
+          "Breadwood Bunkhouse - Hobart's Camera"
+        ],
+        [
+          "if",
+          "!hasflag(map_cemetery6)"
+        ],
+        [
+          "say",
+          "He marks the location of the cemetery on your map."
+        ],
+        [
+          "if",
+          "!hasflag(map_cemetery6)"
+        ],
+        [
+          "mapunlock",
+          "cemetery6,Petting Cemetery"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Okay. I'll be back."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Okay. Owl be back."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Owlkay. Owl be back. Owl."
+        ]
+      ]
+    },
+    "breadwood_spittoon": {
+      "seven": [
+        [
+          "say",
+          "Boots, great. Boots full of bandit spit. I hope they have to invent a whole new kind of trenchfoot just for you. I hope they name it after you."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Breadwood - Spittoon"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "option",
+          "done",
+          "You're just jealous of my sweet new boots."
+        ]
+      ]
+    },
     "cemetery2_alcove1": {
       "take": [
         [
@@ -1958,6 +2122,44 @@
           "option",
           "done",
           "Weird!"
+        ]
+      ]
+    },
+    "cemetery6_touchskeleton": {
+      "skeleton3": [
+        [
+          "say",
+          "This is an owl skeleton.  If you want to know how many fireballs it takes to get to the center of an enemy skeleton, just ask an owl."
+        ],
+        [
+          "addstate",
+          "bloof,Increase your Spell Damage\\nfor the rest of the day"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_jonesquest)==1 && hasitem(quest_owlcamera)"
+        ],
+        [
+          "option",
+          "pic",
+          "Take a picture of it"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_jonesquest)==1 && !hasitem(quest_owlcamera)"
+        ],
+        [
+          "grayoption",
+          "nopic",
+          "Take a picture of it [Requires the owl camera]"
+        ],
+        [
+          "if",
+          "!hasflag(breadwood_jonesquest)==1"
+        ],
+        [
+          "goto",
+          "button"
         ]
       ]
     },
