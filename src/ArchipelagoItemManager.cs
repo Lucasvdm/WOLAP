@@ -50,6 +50,7 @@ namespace WOLAP
             ArchipelagoItem item = itemList.Find(item => item.Name == itemName);
             if (item == null) return false;
 
+            //TODO: Items that require special attributes/enchantments or other info (e.g. ghostwood visitor's permit/ID)
             switch (itemName)
             {
                 case "Progressive Nex-Mex Skillbook":

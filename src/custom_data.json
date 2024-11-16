@@ -6617,6 +6617,717 @@
         ]
       ]
     },
+    "ghosttown1_cactusa": {
+      "good": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You manage to snag the pencil with the corner of your temporary visitor permit and yank it out of the cactus. Nice!"
+        ],
+        [
+          "say",
+          "Oh, wait... this is a number <i>4</i> pencil."
+        ],
+        [
+          "checklocation",
+          "Ghostwood - Ghost Cactus"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "ghosttown1_knock1": {
+      "permit9": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Sure do! That thing pops the tops off beer bottles like you wouldn't believe!"
+        ],
+        [
+          "leftsay",
+          "So long as it removes staples, I'll be happy."
+        ],
+        [
+          "rightsay",
+          "I imagine it does, but I'm afraid I'm not authorized for unstapling. You'll have to take it back over to Records. Here y'are."
+        ],
+        [
+          "if",
+          "hasflag(ghostwood_gotunstaplercheck)"
+        ],
+        [
+          "additem",
+          "quest_unstapler"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "checklocation",
+          "Ghostwood Salooooon - Staple Remover"
+        ],
+        [
+          "if",
+          "!hasflag(ghostwood_gotunstaplercheck)"
+        ],
+        [
+          "addflag",
+          "ghostwood_gotunstaplercheck"
+        ],
+        [
+          "addflag",
+          "ghosttown1_unstapler,1"
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,10"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Great."
+        ]
+      ],
+      "ordere": [
+        [
+          "addmeat",
+          "-1000"
+        ],
+        [
+          "rightsay",
+          "There ya go! Don't drink it all in one place!"
+        ],
+        [
+          "checklocation",
+          "Ghostwood Salooooon - Whiskey Bottle"
+        ],
+        [
+          "addflag",
+          "ghosttown1_boughtbottle,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
+        ]
+      ]
+    },
+    "ghosttown1_knock2": {
+      "welcome": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Knock, knock."
+        ],
+        [
+          "rightportrait",
+          "ghost2"
+        ],
+        [
+          "rightsay",
+          "Department of Records. How can I help you, @mr@ @idlastname@?"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+        ],
+        [
+          "sayoption",
+          "permit0",
+          "I'm here on behalf of the mayor of Breadwood. He needs a permit..."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==1"
+        ],
+        [
+          "sayoption",
+          "permit1",
+          "I'm supposed to pick up a file on the town of Breadwood."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==5 && hasitem(quest_loggingrep)"
+        ],
+        [
+          "sayoption",
+          "permit5",
+          "Okay, I'm back with those papers."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==8"
+        ],
+        [
+          "sayoption",
+          "permit8",
+          "I need some papers unstapled."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==10 && hasitem(quest_unstapler)"
+        ],
+        [
+          "sayoption",
+          "permit10",
+          "Here's your staple remover back."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_beeropen)==1"
+        ],
+        [
+          "sayoption",
+          "beeropen",
+          "The Department of Libations needs to borrow your staple remover..."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Umm... I can't think of anything."
+        ]
+      ],
+      "permit5": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "removeitem",
+          "quest_loggingrep"
+        ],
+        [
+          "rightsay",
+          "All right, let me just put those in an official Inter-Department Document Transfer Folder for you... there you are."
+        ],
+        [
+          "checklocation",
+          "Ghostwood Stable - Got IDDTF"
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,6"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Great, thank you."
+        ]
+      ],
+      "beeropen": [
+        [
+          "leftsay",
+          "The Department of Libations needs to borrow your staple remover again."
+        ],
+        [
+          "rightsay",
+          "All right. I don't get much use out of it since we took Adjunct Records' stapler away anyway."
+        ],
+        [
+          "if",
+          "hasflag(ghostwood_gotunstaplercheck)"
+        ],
+        [
+          "additem",
+          "quest_unstapler"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "checklocation",
+          "Ghostwood Salooooon - Staple Remover"
+        ],
+        [
+          "addflag",
+          "ghosttown1_beeropen,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
+        ]
+      ]
+    },
+    "ghosttown1_knock3": {
+      "welcome": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Knock, knock."
+        ],
+        [
+          "rightportrait",
+          "ghost3"
+        ],
+        [
+          "rightsay",
+          "@mr@ ...@idlastname@, was it? What can I do for you?"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+        ],
+        [
+          "sayoption",
+          "permit0",
+          "I'm here on behalf of the mayor of Breadwood. He needs a permit..."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==1"
+        ],
+        [
+          "sayoption",
+          "permit1",
+          "I'm supposed to pick up a file on the town of Breadwood."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==2"
+        ],
+        [
+          "sayoption",
+          "permit2",
+          "The Department of Records sent me over here to pick up a file."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==4 && hasitem(quest_stapler)"
+        ],
+        [
+          "sayoption",
+          "permit4",
+          "Okay, I got you a stapler."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==7"
+        ],
+        [
+          "sayoption",
+          "permit7",
+          "Administration wants you to unstaple these papers."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Umm... nothing, I guess."
+        ]
+      ],
+      "permit4": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Great! Ahh, there's nothing better than that new stapler smell."
+        ],
+        [
+          "removeitem",
+          "quest_stapler"
+        ],
+        [
+          "leftsay",
+          "Can I have that logging report now?"
+        ],
+        [
+          "rightsay",
+          "You bet! <i>Kerchunk!</i> Here you go, freshly-stapled and wind-resistant!"
+        ],
+        [
+          "checklocation",
+          "Ghostwood Jail - Stapled Report"
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,5"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
+        ]
+      ]
+    },
+    "ghosttown1_knock4": {
+      "permit3i": [
+        [
+          "rightsay",
+          "I'm sorry @maam@, that's the wrong answer.  I'm afraid I can't approve this requisition.  I can, however, provide you with <i>this</i>."
+        ],
+        [
+          "leftsay",
+          "What is <i>that</i>?"
+        ],
+        [
+          "say",
+          "He shrugs."
+        ],
+        [
+          "checklocation",
+          "Ghostwood Office Supply - Stapler"
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,4"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Great, thanks."
+        ]
+      ]
+    },
+    "ghosttown1_knock5": {
+      "start": [
+        [
+          "if",
+          "!hasflag(ghosttown1_metthall)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "hasflag(ghostwood_gotidcheck) && hasitem(quest_g1visitorid)"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_retrypermit) && !hasflag(ghostwood_gotidcheck)"
+        ],
+        [
+          "goto",
+          "realpermitretry"
+        ],
+        [
+          "if",
+          "hasitem(quest_3pencil) && hasflag(ghostwood_gottemppermitcheck) && !hasflag(ghostwood_gotidcheck)"
+        ],
+        [
+          "goto",
+          "realpermit"
+        ],
+        [
+          "if",
+          "hasitem(quest_4pencil)"
+        ],
+        [
+          "goto",
+          "4pencil"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired)"
+        ],
+        [
+          "goto",
+          "hitempexp"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired)"
+        ],
+        [
+          "goto",
+          "newtemp"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_tempretry)"
+        ],
+        [
+          "goto",
+          "tempretry"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_nopencil)"
+        ],
+        [
+          "goto",
+          "nopencil"
+        ],
+        [
+          "if",
+          "!hasitem(quest_g1visitorid) && !hasitem(quest_g1tempvisit)"
+        ],
+        [
+          "goto",
+          "second"
+        ],
+        [
+          "say",
+          "no result"
+        ],
+        [
+          "option",
+          "done",
+          "oops"
+        ]
+      ],
+      "hitempexp2": [
+        [
+          "leftsay",
+          "...Yes."
+        ],
+        [
+          "rightsay",
+          "Unfortunately I can't accept an expired pass."
+        ],
+        [
+          "leftsay",
+          "Can I get a new one?"
+        ],
+        [
+          "rightsay",
+          "No."
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "addflag",
+          "ghostwood_askedaboutexpiredpass"
+        ],
+        [
+          "option",
+          "done",
+          "Better go find that pencil"
+        ]
+      ],
+      "newtemp": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "My visitor pass expired. Can I have another one?"
+        ],
+        [
+          "rightportrait",
+          "ghost5"
+        ],
+        [
+          "rightsay",
+          "Sorry @sir@, only one pass per visitor. I'd be glad to help you apply for a full visitor ID, though."
+        ],
+        [
+          "leftsay",
+          "But I still don't have a pencil."
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "addflag",
+          "ghostwood_askedaboutexpiredpass"
+        ],
+        [
+          "option",
+          "done",
+          "Better go find that pencil"
+        ]
+      ],
+      "temppermit6b": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Correct. All right, everything seems to be in order. Here's your temporary visitor pass."
+        ],
+        [
+          "checklocation",
+          "Ghostwood Town Hall - Issued Permit"
+        ],
+        [
+          "addflag",
+          "ghostwood_gottemppermitcheck"
+        ],
+        [
+          "addflag",
+          "ghosttown1_tempretry,0"
+        ],
+        [
+          "addflag",
+          "ghosttown1_tempexpired,0"
+        ],
+        [
+          "leftsay",
+          "Thanks."
+        ],
+        [
+          "rightsay",
+          "It expires in eleven seconds."
+        ],
+        [
+          "sayoption",
+          "done",
+          "..."
+        ]
+      ],
+      "realpermit7a": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Correct. All right, everything seems to be in order. Allow me to officially welcome you to the town of Ghostwood. Here's your visitor ID."
+        ],
+        [
+          "checklocation",
+          "Ghostwood Town Hall - Issued ID"
+        ],
+        [
+          "removeitem",
+          "quest_g1tempvisit"
+        ],
+        [
+          "addflag",
+          "ghostwood_gotidcheck"
+        ],
+        [
+          "leftsay",
+          "Thank you. Say, was it always called Ghostwood, or..."
+        ],
+        [
+          "rightsay",
+          "Yes. Total coincidence."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Huh."
+        ]
+      ],
+      "permit11k": [
+        [
+          "say",
+          "<i>Scribble</i>"
+        ],
+        [
+          "rightsay",
+          "Good. Now, just take this back to the mayor of Breadwood, and have him sign on this line here, and initial over here."
+        ],
+        [
+          "checklocation",
+          "Ghostwood Town Hall - The Final Form"
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,13"
+        ],
+        [
+          "leftsay",
+          "Are you kidding me?"
+        ],
+        [
+          "rightsay",
+          "I don't know how to do that."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Uggggh."
+        ]
+      ],
+      "permit15": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permittime)>@day@"
+        ],
+        [
+          "goto",
+          "permit15b"
+        ],
+        [
+          "rightsay",
+          "Let me look... ah yes, here it is. And there you are."
+        ],
+        [
+          "checklocation",
+          "Ghostwood Town Hall - Permit Finally Processed"
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,16"
+        ],
+        [
+          "leftsay",
+          "I don't have to sign anything to collect it?"
+        ],
+        [
+          "rightsay",
+          "Nope."
+        ],
+        [
+          "leftsay",
+          "Are you sure?"
+        ],
+        [
+          "rightsay",
+          "No @sir@. That's it."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Holy crap."
+        ]
+      ]
+    },
+    "ghosttown1_sharpen": {
+      "4pencil": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You stick the #4 pencil into the sharpener and grind off about a quarter of it."
+        ],
+        [
+          "removeitem",
+          "quest_4pencil"
+        ],
+        [
+          "checklocation",
+          "Ghostwood - Sharpened Pencil"
+        ]
+      ]
+    },
     "goblin1_destroyedcrate": {
       "e": [
         [
