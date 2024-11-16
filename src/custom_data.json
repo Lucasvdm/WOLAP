@@ -3619,14 +3619,8 @@
           "circus_ticketbooth_checkintro"
         ],
         [
-          "sayoption",
-          "buycheck",
-          "Buy the \"thing\" [1,000 Meat]"
-        ],
-        [
-          "sayoption",
-          "done",
-          "Maybe later"
+          "goto",
+          "buyopts"
         ]
       ],
       "buycheckretry": [
@@ -3651,14 +3645,33 @@
           "Sure, it's your money."
         ],
         [
-          "sayoption",
+          "goto",
+          "buyopts"
+        ]
+      ],
+      "buyopts": [
+        [
+          "if",
+          "player.meat>=1000"
+        ],
+        [
+          "option",
           "buycheck",
           "Buy the \"thing\" [1,000 Meat]"
         ],
         [
-          "sayoption",
+          "else",
+          ""
+        ],
+        [
+          "greyoption",
+          "cantbuy",
+          "Buy the \"thing\" [Requires 1,000 Meat]"
+        ],
+        [
+          "option",
           "done",
-          "On second thought, maybe not"
+          "On second thought, maybe later"
         ]
       ],
       "buycheck": [
@@ -3683,7 +3696,7 @@
           "circus_ticketbooth_gotcheck"
         ],
         [
-          "option",
+          "sayoption",
           "done",
           "Thanks."
         ]
