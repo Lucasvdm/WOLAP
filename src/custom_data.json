@@ -8494,6 +8494,76 @@
         ]
       ]
     },
+    "postalstation_papers3": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Nothing interesting.  Oh, wait, there's actually a postcard in here that you could use."
+        ],
+        [
+          "addflag",
+          "postalstation_gotpostcard"
+        ],
+        [
+          "checklocation",
+          "Postal Way Station - Middle Newspaper Stack"
+        ]
+      ]
+    },
+    "postalstation_papers4": {
+      "letter": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Oh hey, there's an undelivered letter underneath the stack."
+        ],
+        [
+          "say",
+          "It's addressed to Roy Bean."
+        ],
+        [
+          "addflag",
+          "postalstation_royletter"
+        ],
+        [
+          "checklocation",
+          "Postal Way Station - Top-Right Newspaper Stack"
+        ],
+        [
+          "if",
+          "!hasflag(map_roybean)"
+        ],
+        [
+          "say",
+          "You look at the address and jot it down on your map."
+        ],
+        [
+          "if",
+          "!hasflag(map_roybean)"
+        ],
+        [
+          "mapunlock",
+          "roybean,Roy Bean's House of Justice and Jellybeans"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ]
+      ]
+    },
     "professor_talk": {
       "intro3": [
         [
