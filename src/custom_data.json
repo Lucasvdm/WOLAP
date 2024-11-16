@@ -1366,6 +1366,106 @@
         ]
       ]
     },
+    "bandit8_bookshelf2": {
+      "start": [
+        [
+          "say",
+          "There are quite a few good books on here, actually!"
+        ],
+        [
+          "checklocation",
+          "Chuck's House Cellar - Bookcase (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Chuck's House Cellar - Bookcase (Item 2)"
+        ],
+        [
+          "checklocation",
+          "Chuck's House Cellar - Bookcase (Item 3)"
+        ],
+        [
+          "option",
+          "done",
+          "What a haul!"
+        ]
+      ]
+    },
+    "bandit8_dresser": {
+      "popup": [
+        [
+          "say",
+          "Going through Chuck's drawers seems like maybe not a good idea."
+        ],
+        [
+          "if",
+          "!hasflag(chuckshouse_gotkey)"
+        ],
+        [
+          "say",
+          "There is a key on top of the dresser, though."
+        ],
+        [
+          "if",
+          "!hasflag(chuckshouse_gotkey)"
+        ],
+        [
+          "option",
+          "get",
+          "Yoink!"
+        ]
+      ],
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Chuck's House - Bedroom Dresser"
+        ],
+        [
+          "addflag",
+          "chuckshouse_gotkey"
+        ],
+        [
+          "say",
+          "Yoink, indeed."
+        ]
+      ]
+    },
+    "bandit8_mailbag": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You sling the sack of mail over your shoulder. Neither rain nor sleet nor super-creepy B&B proprietors."
+        ],
+        [
+          "checklocation",
+          "Chuck's House Cellar - Mail Bag"
+        ],
+        [
+          "addflag",
+          "bandit8_tookmail"
+        ]
+      ]
+    },
+    "bandit8_nightstand": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Chuck's House Cellar - Nightstand"
+        ]
+      ]
+    },
     "breadwood_hallowaylocker": {
       "picklock": [
         [
