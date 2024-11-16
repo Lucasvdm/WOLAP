@@ -1366,6 +1366,61 @@
         ]
       ]
     },
+    "bandit7_beastpile": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You plop a big ol' glob of yeast into your pack."
+        ],
+        [
+          "checklocation",
+          "Ol' Schmaltz Brewery - Deceased Yeast Beast"
+        ]
+      ]
+    },
+    "bandit7_beershelf": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Three cans of beer on the wall, three cans of beer! Take them all down and put them in your bag, instead of singing the rest of this song about beer!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Ol' Schmaltz Brewery - Shelf"
+        ]
+      ]
+    },
+    "bandit7_yeastyhat": {
+      "e": [
+        [
+          "addflag",
+          "bandit7_yeastyhat"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Okay, but ew."
+        ],
+        [
+          "checklocation",
+          "Ol' Schmaltz Brewery - Dead Guy"
+        ]
+      ]
+    },
     "bandit8_bookshelf2": {
       "start": [
         [
