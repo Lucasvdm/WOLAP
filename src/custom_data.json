@@ -10870,6 +10870,132 @@
         ]
       ]
     },
+    "roybean_honeybean": {
+      "buy0": [
+        [
+          "addflag",
+          "mainquest,34"
+        ],
+        [
+          "addmeat",
+          "-6000"
+        ],
+        [
+          "say",
+          "You hand over the exhorbitant amount of Meat and get the jellybean.  The cost of healthcare in this country is out of control!"
+        ],
+        [
+          "checklocation",
+          "Roy Bean's House - Honey Bean"
+        ],
+        [
+          "option",
+          "buy0joke",
+          "You can say that again"
+        ]
+      ],
+      "buy1": [
+        [
+          "addflag",
+          "mainquest,34"
+        ],
+        [
+          "addmeat",
+          "-4000"
+        ],
+        [
+          "say",
+          "You hand over the slightly less exhorbitant amount of Meat and get the jellybean."
+        ],
+        [
+          "checklocation",
+          "Roy Bean's House - Honey Bean"
+        ],
+        [
+          "option",
+          "done",
+          "Take your leave"
+        ]
+      ],
+      "buy2": [
+        [
+          "addflag",
+          "mainquest,34"
+        ],
+        [
+          "addmeat",
+          "-2000"
+        ],
+        [
+          "say",
+          "You hand over the slightly more reasonable amount of Meat and get the jellybean."
+        ],
+        [
+          "checklocation",
+          "Roy Bean's House - Honey Bean"
+        ],
+        [
+          "option",
+          "done",
+          "Take your leave"
+        ]
+      ],
+      "buy3": [
+        [
+          "addflag",
+          "mainquest,34"
+        ],
+        [
+          "addmeat",
+          "-5"
+        ],
+        [
+          "say",
+          "You hand over the Meat.  You almost feel bad because of the depth of the discount."
+        ],
+        [
+          "checklocation",
+          "Roy Bean's House - Honey Bean"
+        ],
+        [
+          "option",
+          "done",
+          "Take your leave"
+        ]
+      ]
+    },
+    "roybean_spittoontalk": {
+      "five": [
+        [
+          "say",
+          "Well, I tried. Don't ever say I didn't warn you."
+        ],
+        [
+          "say",
+          "You plunge your hand into the spittoon and fish around for a while. Eventually you pull out a really disgusting pistol, and a really disgusting hand to shoot it with."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addskill",
+          "spittoonhand"
+        ],
+        [
+          "checklocation",
+          "Roy Bean's House - Spittoon"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "option",
+          "done",
+          "Yayyyy."
+        ]
+      ]
+    },
     "shaggydogcave_beaniron1": {
       "popup": [
         [
