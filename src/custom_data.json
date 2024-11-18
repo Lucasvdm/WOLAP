@@ -6704,6 +6704,24 @@
         ]
       ]
     },
+    "elvibrato4_coffeemaker": {
+      "yes": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "The machine emits a pleasant chime, and piping hot coffee pours into the cup.  You grab it."
+        ],
+        [
+          "checklocation",
+          "El Vibrato Construction Facility - BUGAANZEVE"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "fort1_generalgob": {
       "win": [
         [
