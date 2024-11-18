@@ -6704,6 +6704,200 @@
         ]
       ]
     },
+    "elvibrato3_accvending": {
+      "start": [
+        [
+          "say",
+          "The screen on this machine says ^EQUIPMENT FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!curiousabandonedwell_gotringcheck && !curiousabandonedwell_gotbroochcheck"
+        ],
+        [
+          "say",
+          "There are two buttons."
+        ],
+        [
+          "if",
+          "hasflag(curiousabandonedwell_vendingbuttonsused) == 1"
+        ],
+        [
+          "say",
+          "There's one button you haven't tried."
+        ],
+        [
+          "if",
+          "curiousabandonedwell_gotringcheck && curiousabandonedwell_gotbroochcheck"
+        ],
+        [
+          "say",
+          "You've gotten everything you need from this machine."
+        ],
+        [
+          "if",
+          "!curiousabandonedwell_gotringcheck"
+        ],
+        [
+          "option",
+          "ring",
+          "^BRACELET FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!curiousabandonedwell_gotbroochcheck"
+        ],
+        [
+          "option",
+          "lapel",
+          "^BROOCH FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ],
+      "ring": [
+        [
+          "if",
+          "hasitem(elv_scrap)<5"
+        ],
+        [
+          "goto",
+          "notenough"
+        ],
+        [
+          "say",
+          "The machine emits a noise like a duck and a slot opens.  The El Vibrato scraps in your pack vibrate, so you cram some of them in the hole.  After five, the slot closes and reopens, having converted your garbage into jewelry!"
+        ],
+        [
+          "removeitem",
+          "elv_scrap,5"
+        ],
+        [
+          "playsounds",
+          "elv_,.35,ho,be,ni,pause,cha,cha,cha,no"
+        ],
+        [
+          "checklocation",
+          "Curious Abandoned Well Facility (Equipment Fabrication) - Item 1"
+        ],
+        [
+          "addflag",
+          "curiousabandonedwell_gotringcheck"
+        ],
+        [
+          "incflag",
+          "curiousabandonedwell_vendingbuttonsused"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "lapel": [
+        [
+          "if",
+          "hasitem(elv_scrap)<5"
+        ],
+        [
+          "goto",
+          "notenough"
+        ],
+        [
+          "say",
+          "The machine emits a noise like a duck and a slot opens.  The El Vibrato scraps in your pack vibrate, so you cram some of them in the hole.  After five, the slot closes and reopens, having converted your garbage into jewelry!"
+        ],
+        [
+          "removeitem",
+          "elv_scrap,5"
+        ],
+        [
+          "playsounds",
+          "elv_,.35,som,nok,pause,cha,cha,cha,no"
+        ],
+        [
+          "checklocation",
+          "Curious Abandoned Well Facility (Equipment Fabrication) - Item 2"
+        ],
+        [
+          "addflag",
+          "curiousabandonedwell_gotbroochcheck"
+        ],
+        [
+          "incflag",
+          "curiousabandonedwell_vendingbuttonsused"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
+    "elvibrato3_chest1": {
+      "unlock": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "particleburstwaa",
+          "chest1,burst_elvdespawnup,50,15"
+        ],
+        [
+          "additem",
+          "elv_powersphere"
+        ],
+        [
+          "checklocation",
+          "Curious Abandoned Well Facility (Secondary Storage) - Bottom Chest"
+        ]
+      ]
+    },
+    "elvibrato3_chest2": {
+      "unlock": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "particleburstwaa",
+          "chest2,burst_elvdespawnup,50,15"
+        ],
+        [
+          "additem",
+          "elv_powersphere"
+        ],
+        [
+          "checklocation",
+          "Curious Abandoned Well Facility (Secondary Storage) - Top Chest"
+        ]
+      ]
+    },
+    "elvibrato3_fabtable": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Curious Abandoned Well Facility (Secondary Storage) - Weird Device"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "elvibrato4_coffeemaker": {
       "yes": [
         [
