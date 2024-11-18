@@ -2497,6 +2497,879 @@
         ]
       ]
     },
+    "cemetery4_investigateshed": {
+      "inv1": [
+        [
+          "addstate",
+          "shovel,1"
+        ],
+        [
+          "say",
+          "Well, tool singular. There's a shovel here."
+        ],
+        [
+          "option",
+          "grabshovel",
+          "Grab it"
+        ]
+      ],
+      "grabshovel": [
+        [
+          "say",
+          "You grab the shovel and cram it in your pack."
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - Shed Tools"
+        ],
+        [
+          "addflag",
+          "cemetery4_gotshovel"
+        ],
+        [
+          "option",
+          "hub",
+          "Nice"
+        ]
+      ]
+    },
+    "cemetery4_pickplot": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addstate",
+          "contents,%milcem_contents/@cemetery4_whichfight@%"
+        ],
+        [
+          "addflag",
+          "cemetery4_did@cemetery4_whichfight@"
+        ],
+        [
+          "delflag",
+          "cemetery4_whichfight"
+        ],
+        [
+          "say",
+          "You beat the skeleton and stuff what's left of it back into the gravehole."
+        ],
+        [
+          "if",
+          "matchstring($contents$,a1) || matchstring($contents$,b1) || matchstring($contents$,c1)"
+        ],
+        [
+          "addxp",
+          "@xpreward_d@"
+        ],
+        [
+          "if",
+          "matchstring($contents$,a2) || matchstring($contents$,b2) || matchstring($contents$,c2)"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "if",
+          "matchstring($contents$,a3) || matchstring($contents$,b3) || matchstring($contents$,c3)"
+        ],
+        [
+          "addxp",
+          "@xpreward_h@"
+        ],
+        [
+          "additem",
+          "pickone(bone,bone,skullchips,looseteeth),rand(1,3)"
+        ],
+        [
+          "if",
+          "matchstring($contents$,c3) && !hasflag(militarycemetery_gotriflehelmetcheck)"
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - 2nd Lt., 69th Innuendo Div."
+        ],
+        [
+          "if",
+          "matchstring($contents$,c3) && !hasflag(militarycemetery_gotriflehelmetcheck)"
+        ],
+        [
+          "addflag",
+          "militarycemetery_gotriflehelmetcheck"
+        ],
+        [
+          "if",
+          "itemroll(40)"
+        ],
+        [
+          "additem",
+          "pickone(bone,bone,skullchips,looseteeth)"
+        ],
+        [
+          "if",
+          "itemroll(20)"
+        ],
+        [
+          "additem",
+          "pickone(bone,bone,skullchips,looseteeth)"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ],
+      "myco": [
+        [
+          "say",
+          "Plot 420 is completely overgrown with mushrooms.  You root around in the loose shroomage and find a book."
+        ],
+        [
+          "say",
+          "Coincidentally, it's a book about mushrooms!"
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - Plot 420"
+        ],
+        [
+          "goto",
+          "markplot"
+        ]
+      ],
+      "necrotoken": [
+        [
+          "say",
+          "Next to that tombstone, you find a pile of refuse obviously left behind by one of the Necromancer's cultists.  In addition to being evil meddlers in dark forces best left unmeddled in, those jerks are real litterbugs!"
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - Plot 13"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ],
+      "necrobook": [
+        [
+          "say",
+          "Next to that tombstone you find a pedestal with a leather-bound book on top of it.  Looks evil.  You'd better grab it before somebody else does."
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - Plot 666"
+        ],
+        [
+          "goto",
+          "markplot"
+        ]
+      ],
+      "postpuzz7": [
+        [
+          "if",
+          "matchstring($promptvalue$,??????)"
+        ],
+        [
+          "say",
+          "You shake your head, unable to think of something to say."
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,??????)"
+        ],
+        [
+          "option",
+          "puzz7ask",
+          "Say a word for the departed"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,??????)"
+        ],
+        [
+          "goto",
+          "optsagain"
+        ],
+        [
+          "say",
+          "You say a brief word for the departed."
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shrewd)"
+        ],
+        [
+          "leftsay",
+          "Shrewd"
+        ],
+        [
+          "addstate",
+          "firstsolve,0"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shrewd) && !hasflag(cemetery4_puzz7_solved_basic)"
+        ],
+        [
+          "addstate",
+          "firstsolve,1"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shrewd) && hasflag(cemetery4_puzz7_solved_basic)"
+        ],
+        [
+          "addstate",
+          "firstsolve,2"
+        ],
+        [
+          "if",
+          "$firstsolve$==1"
+        ],
+        [
+          "say",
+          "A courier walks up to you."
+        ],
+        [
+          "if",
+          "$firstsolve$==1"
+        ],
+        [
+          "rightpicture",
+          "portrait_bartender"
+        ],
+        [
+          "if",
+          "$firstsolve$==1"
+        ],
+        [
+          "rightsay",
+          "According to General Heimer's will, I am supposed to deliver this to the person standing at his grave at this exact moment."
+        ],
+        [
+          "if",
+          "$firstsolve$==1 && !hasflag(cemetery4_hitbycudgel)"
+        ],
+        [
+          "say",
+          "He hands you a package and then departs. You open the box and inside is a bunch of Meat."
+        ],
+        [
+          "if",
+          "$firstsolve$==1 && hasflag(cemetery4_hitbycudgel)"
+        ],
+        [
+          "say",
+          "You cringe for a second, but he hands you a package and then departs. You open the box and inside is a bunch of Meat."
+        ],
+        [
+          "if",
+          "$firstsolve$==1"
+        ],
+        [
+          "addmeat",
+          "1000"
+        ],
+        [
+          "if",
+          "$firstsolve$==1 && !hasflag(cemetery4_hitbycudgel)"
+        ],
+        [
+          "say",
+          "At the bottom of the package is a note that says, \"You've not heard the last from me.\""
+        ],
+        [
+          "if",
+          "$firstsolve$==1 && !hasflag(cemetery4_hitbycudgel)"
+        ],
+        [
+          "option",
+          "puzz7break",
+          "Ominous"
+        ],
+        [
+          "if",
+          "$firstsolve$==1 && hasflag(cemetery4_hitbycudgel)"
+        ],
+        [
+          "sayoption",
+          "puzz7break",
+          "Sweet!"
+        ],
+        [
+          "if",
+          "$firstsolve$==1"
+        ],
+        [
+          "stop"
+        ],
+        [
+          "if",
+          "$firstsolve$==2"
+        ],
+        [
+          "say",
+          "You wait around for a minute, but nothing happens."
+        ],
+        [
+          "if",
+          "$firstsolve$==2"
+        ],
+        [
+          "say",
+          "You can't shake the feeling General Heimer hasn't had his last word, though."
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shrewd)"
+        ],
+        [
+          "addflag",
+          "cemetery4_puzz7_solved_basic,1"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shrewd)"
+        ],
+        [
+          "option",
+          "puzz7ask",
+          "Say another word for the departed"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shrewd)"
+        ],
+        [
+          "goto",
+          "optsagain"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,genius)"
+        ],
+        [
+          "leftsay",
+          "Genius"
+        ],
+        [
+          "addstate",
+          "secondsolve,0"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,genius) && !hasflag(cemetery4_puzz7_solved_advanced)"
+        ],
+        [
+          "addstate",
+          "secondsolve,1"
+        ],
+        [
+          "if",
+          "$secondsolve$==1"
+        ],
+        [
+          "say",
+          "A courier walks up to you."
+        ],
+        [
+          "if",
+          "$secondsolve$==1"
+        ],
+        [
+          "rightpicture",
+          "portrait_bartender"
+        ],
+        [
+          "if",
+          "$secondsolve$==1"
+        ],
+        [
+          "rightsay",
+          "According to General Heimer's will, I am supposed to deliver this to the person standing at his grave at this exact moment."
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)>0"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)==1"
+        ],
+        [
+          "leftsay",
+          "Oh no, not again!"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)==2"
+        ],
+        [
+          "leftsay",
+          "Seriously?"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)==2"
+        ],
+        [
+          "rightsay",
+          "The will is very specific.  And very long."
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)>2"
+        ],
+        [
+          "leftsay",
+          "Alright, let's get this over with."
+        ],
+        [
+          "if",
+          "$secondsolve$==1"
+        ],
+        [
+          "say",
+          "The courier then knocks you cold with a cudgel."
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)<2"
+        ],
+        [
+          "rightsay",
+          "Sleepy time!"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && !hasflag(cemetery4_hitbycudgel)"
+        ],
+        [
+          "sayoption",
+          "puzz7dream",
+          "Wait, what? [Dream]"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)==1"
+        ],
+        [
+          "sayoption",
+          "puzz7dream",
+          "That hurts, you know! [Dream]"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)==2"
+        ],
+        [
+          "option",
+          "puzz7dream",
+          "Sigh [Dream]"
+        ],
+        [
+          "if",
+          "$secondsolve$==1 && hasflag(cemetery4_hitbycudgel)>2"
+        ],
+        [
+          "sayoption",
+          "puzz7dream",
+          "How does this even work? [Dream]"
+        ],
+        [
+          "if",
+          "$secondsolve$==1"
+        ],
+        [
+          "incflag",
+          "cemetery4_hitbycudgel,1"
+        ],
+        [
+          "if",
+          "$secondsolve$==1"
+        ],
+        [
+          "stop"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shined)"
+        ],
+        [
+          "leftsay",
+          "Shined"
+        ],
+        [
+          "addstate",
+          "thirdsolve,0"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shined)"
+        ],
+        [
+          "addstate",
+          "thirdsolve,1"
+        ],
+        [
+          "if",
+          "matchstring($promptvalue$,shined) && !hasflag(cemetery4_haddream)"
+        ],
+        [
+          "addstate",
+          "thirdsolve,2"
+        ],
+        [
+          "if",
+          "$thirdsolve$==2"
+        ],
+        [
+          "say",
+          "You feel good about that word, but it feels like maybe you skipped a step or two."
+        ],
+        [
+          "if",
+          "$thirdsolve$==2"
+        ],
+        [
+          "option",
+          "puzz7ask",
+          "Say another word for the departed"
+        ],
+        [
+          "if",
+          "$thirdsolve$==2"
+        ],
+        [
+          "goto",
+          "optsagain"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "say",
+          "A courier walks up to you."
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "rightpicture",
+          "portrait_bartender"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "rightsay",
+          "According to General Heimer's will, I am supposed to deliver this to the person standing at his grave at this exact moment."
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "leftsay",
+          "Oh no, not again!"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "say",
+          "He hands you a package and leaves. (Thank goodness!)  You open it and inside is a huge gem.  Nice!"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - Puzzle Plots Solved"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "tracking",
+          "puzzle_milcem"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did11"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did37"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did111"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did230"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did370"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did690"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "addflag",
+          "cemetery4_did707"
+        ],
+        [
+          "if",
+          "$thirdsolve$==1"
+        ],
+        [
+          "goto",
+          "optsagain"
+        ],
+        [
+          "leftsay",
+          "$promptvalue$"
+        ],
+        [
+          "say",
+          "You somehow feel that wasn't quite the right thing to say."
+        ],
+        [
+          "option",
+          "puzz7ask",
+          "Say something else"
+        ],
+        [
+          "goto",
+          "optsagain"
+        ]
+      ]
+    },
+    "cemetery4_shovel": {
+      "popup": [
+        [
+          "say",
+          "There's a shovel here."
+        ],
+        [
+          "if",
+          "!hasflag(militarycemetery_gotcoffinshovel)"
+        ],
+        [
+          "option",
+          "e",
+          "Take it"
+        ],
+        [
+          "else",
+          ""
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Military Cemetery - Shovel By Coffins"
+        ],
+        [
+          "addflag",
+          "militarycemetery_gotcoffinshovel"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "cemetery6_touchskeleton": {
       "skeleton3": [
         [
