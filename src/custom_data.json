@@ -1521,6 +1521,223 @@
         ]
       ]
     },
+    "bandit9_checklouise": {
+      "start": [
+        [
+          "if",
+          "!hasflag(ranch2_sentbaker)"
+        ],
+        [
+          "goto",
+          "done"
+        ],
+        [
+          "if",
+          "hasflag(bandit9_talkedtolouise)"
+        ],
+        [
+          "goto",
+          "done"
+        ],
+        [
+          "if",
+          "hasflag(bandit9_done)"
+        ],
+        [
+          "goto",
+          "louiseintro2"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "say",
+          "You see Louise Lathrop busily baking bread.  Billy Baker hops to his feet as you enter."
+        ],
+        [
+          "rightportrait",
+          "bandit1_serious"
+        ],
+        [
+          "rightsay",
+          "Hey! Thanks for sending Louise over! She knows a ton about baking!"
+        ],
+        [
+          "rightportrait",
+          "bandit1_sad"
+        ],
+        [
+          "rightsay",
+          "Yeah! We're gonna be major league bakers with her around!"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "No problem, fellas. Let me grab enough bread to settle things with the Mayor, and we'll call it square."
+        ],
+        [
+          "addflag",
+          "bandit9_done,6"
+        ],
+        [
+          "refreshwaa"
+        ],
+        [
+          "checklocation",
+          "Baker Boys' Hideout - Bread Recovered"
+        ],
+        [
+          "addflag",
+          "bandit9_talkedtolouise,1"
+        ],
+        [
+          "option",
+          "done",
+          "All's well that ends well!"
+        ]
+      ]
+    },
+    "bandit9_leader": {
+      "yesgrain": [
+        [
+          "say",
+          "The Baker Boys sneak out to Kellogg Ranch to filch a few bags of grain."
+        ],
+        [
+          "say",
+          "After a couple tries, the boys hit on a decent bread recipe, and bake enough to cover what they stole from the Mayor."
+        ],
+        [
+          "checklocation",
+          "Baker Boys' Hideout - Bread Recovered"
+        ],
+        [
+          "addflag",
+          "bandit9_done,1"
+        ],
+        [
+          "incflag",
+          "peoplehelped,2"
+        ],
+        [
+          "option",
+          "done",
+          "All's well that ends well!"
+        ]
+      ],
+      "yesbones": [
+        [
+          "say",
+          "The Baker Boys sneak out to the Buffalo Pile and collect a load of bones, which do indeed turn out to make bizarrely effective fertilizer. As in, you can literally watch the wheat growing."
+        ],
+        [
+          "say",
+          "The grain seems fine though, and after a couple tries, the boys hit on a decent bread recipe, and bake enough to cover what they stole from the Mayor."
+        ],
+        [
+          "checklocation",
+          "Baker Boys' Hideout - Bread Recovered"
+        ],
+        [
+          "addflag",
+          "bandit9_done,2"
+        ],
+        [
+          "incflag",
+          "peoplehelped,2"
+        ],
+        [
+          "option",
+          "done",
+          "All's well that ends well!"
+        ]
+      ],
+      "yesforage": [
+        [
+          "say",
+          "You teach Jerry how to find the wild ingredients they need while Billy works on figuring out a proper recipe."
+        ],
+        [
+          "say",
+          "After a couple tries, they manage to produce a pretty decent loaf of bread, and bake enough to cover what they stole from the Mayor."
+        ],
+        [
+          "checklocation",
+          "Baker Boys' Hideout - Bread Recovered"
+        ],
+        [
+          "addflag",
+          "bandit9_done,3"
+        ],
+        [
+          "incflag",
+          "peoplehelped,2"
+        ],
+        [
+          "option",
+          "done",
+          "All's well that ends well!"
+        ]
+      ],
+      "yesilldoit": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "The boys grumble, but they turn over the last remnants of their ingredients, and you manage to get enough bread out of them to satisfy the mayor."
+        ],
+        [
+          "checklocation",
+          "Baker Boys' Hideout - Bread Recovered"
+        ],
+        [
+          "addflag",
+          "bandit9_done,4"
+        ],
+        [
+          "incflag",
+          "peoplehelped,2"
+        ],
+        [
+          "option",
+          "done",
+          "Good enough for me!"
+        ]
+      ],
+      "yesilldoit2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "The boys grumble, but they turn over the last remnants of their ingredients, and you manage to get enough bread out of them to satisfy the mayor."
+        ],
+        [
+          "checklocation",
+          "Baker Boys' Hideout - Bread Recovered"
+        ],
+        [
+          "addflag",
+          "bandit9_done,5"
+        ],
+        [
+          "incflag",
+          "peoplehelped,2"
+        ],
+        [
+          "option",
+          "done",
+          "Good enough for me!"
+        ]
+      ]
+    },
     "breadwood_hallowaylocker": {
       "picklock": [
         [
