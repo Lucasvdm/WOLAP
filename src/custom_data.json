@@ -11421,6 +11421,165 @@
         ]
       ]
     },
+    "shroomcave_cultist2": {
+      "getloot": [
+        [
+          "additem",
+          "bone"
+        ],
+        [
+          "checklocation",
+          "Shroomcave - Sleeping Cultist (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Shroomcave - Sleeping Cultist (Item 2)"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ]
+    },
+    "shroomcave_jellycrate": {
+      "grab": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Yoink! They do look pretty cool under the blacklight, you have to admit."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Shroomcave (Hidden Lounge) - Jellybean Jar"
+        ]
+      ]
+    },
+    "shroomcave_knapsack": {
+      "investigate": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It contains some loose bits of granola and some very, very dirty clothes."
+        ],
+        [
+          "if",
+          "!hasflag(shroomcave_raidedsack)"
+        ],
+        [
+          "say",
+          "Oh, and a map!"
+        ],
+        [
+          "if",
+          "!hasflag(shroomcave_raidedsack)"
+        ],
+        [
+          "checklocation",
+          "Shroomcave - Dirty Knapsack"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "additem",
+          "shroomgro"
+        ],
+        [
+          "addflag",
+          "shroomcave_raidedsack"
+        ]
+      ]
+    },
+    "shroomcave_lavalamp": {
+      "take": [
+        [
+          "addflag",
+          "shroomcave_tooklamp"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You stow it in your pack. Fortunately, it isn't real lava."
+        ],
+        [
+          "checklocation",
+          "Shroomcave (Hidden Lounge) - Lava Lamp"
+        ]
+      ]
+    },
+    "shroomcave_shroom1": {
+      "pick": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You carefully pluck the <i>Lactarius Dirtihippica</i> out of the ground and stow it away."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Shroomcave - First Magic Mushroom"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "shroomcave_shroom2": {
+      "pick": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You carefully pluck the <i>Lactarius Dirtihippica</i> out of the ground and stow it away."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Shroomcave - Second Magic Mushroom"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "shroomcave_shroom3": {
+      "pick": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You carefully pluck the <i>Lactarius Dirtihippica</i> out of the ground and stow it away."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Shroomcave - Third Magic Mushroom"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "silverplater_platerhimself": {
       "barbedwire": [
         [
