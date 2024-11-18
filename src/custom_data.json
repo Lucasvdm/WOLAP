@@ -9894,6 +9894,85 @@
         ]
       ]
     },
+    "goblin3_getbeans": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(goblin3_bombed)"
+        ],
+        [
+          "goto",
+          "bombed"
+        ],
+        [
+          "if",
+          "hasflag(goblin3_pastime)"
+        ],
+        [
+          "goto",
+          "pastime"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "You push past the now much smaller goblin pile, and grab the jar of jellybeans."
+        ],
+        [
+          "checklocation",
+          "Ol' Granddad (Floor 4) - Jellybean Jar"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Sorry."
+        ]
+      ],
+      "bombed": [
+        [
+          "say",
+          "You stroll nonchalantly past the scorched black blob of goop on the floor, and pick up the jar of jellybeans."
+        ],
+        [
+          "checklocation",
+          "Ol' Granddad (Floor 4) - Jellybean Jar"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "option",
+          "done",
+          "Mission accomplished."
+        ]
+      ],
+      "pastime": [
+        [
+          "say",
+          "The goblin pile is/are too focused on their game to notice you taking the jellybeans. And it was a fair trade, so they're yours now anyway."
+        ],
+        [
+          "checklocation",
+          "Ol' Granddad (Floor 4) - Jellybean Jar"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Nice."
+        ]
+      ]
+    },
     "house_macready": {
       "seven": [
         [
