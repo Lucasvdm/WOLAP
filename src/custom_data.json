@@ -7875,6 +7875,112 @@
         ]
       ]
     },
+    "fort4_nastypile": {
+      "inve": [
+        [
+          "addflag",
+          "fort4_laundrypile"
+        ],
+        [
+          "say",
+          "You power through the stench and find a few non-garbage items in the pile."
+        ],
+        [
+          "checklocation",
+          "Fort Memoriam Barracks - Trash Pile"
+        ]
+      ]
+    },
+    "fort4_playgame": {
+      "guns2": [
+        [
+          "leftsay",
+          "Sure, thanks!"
+        ],
+        [
+          "addflag",
+          "fort4_gotguns"
+        ],
+        [
+          "checklocation",
+          "Fort Memoriam - All Battles Cleared"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ]
+    },
+    "fort4_rulebooks": {
+      "study": [
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You pore over the rules until you understand them perfectly enough to realize that they're for an entirely different game than these guys are actually playing."
+        ],
+        [
+          "say",
+          "Oh well.  At least you learned something... useful..."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "say",
+          "As you're about to walk away from the shelf, you notice a book that definitely doesn't belong here..."
+        ],
+        [
+          "checklocation",
+          "Fort Memoriam Barracks - Bookshelf"
+        ],
+        [
+          "option",
+          "done",
+          "Oh"
+        ]
+      ]
+    },
+    "fort4_snackshelf": {
+      "e": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Fort Memoriam - Candy Shelf"
+        ]
+      ]
+    },
+    "fort4_spittoon": {
+      "five": [
+        [
+          "say",
+          "With a fanfare of sad trombones and a choir of angels retching, a sword rises out of the spittoon, held aloft by a wet, bedraggled, and miserable-looking woman's arm. Since you're already kneeling, the arm wastes no time before tapping you on both shoulders with the sword, splashing your clothes with yellow slime and officially declaring you @firstname@ @lastname@, @King@ of Filth. Congratulations. The sword clatters on the floor as the hand drops it with a shudder and withdraws into the spittoon."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Fort Memoriam Barracks - Spittoon"
+        ],
+        [
+          "incflag",
+          "spittoonsopen"
+        ],
+        [
+          "option",
+          "done",
+          "Long live the @king@!"
+        ]
+      ]
+    },
     "ghosttown1_cactusa": {
       "good": [
         [
