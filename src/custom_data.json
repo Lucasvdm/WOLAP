@@ -5589,6 +5589,35 @@
         ]
       ]
     },
+    "curlyscairn_cairn2": {
+      "start": [
+        [
+          "say",
+          "You lift up the corner of the entire cairn.  There's some kind of machine buried underneath it!"
+        ],
+        [
+          "checklocation",
+          "Curly's Cairn - Under the Cairn"
+        ],
+        [
+          "addflag",
+          "curlyscairn_gotcairn"
+        ],
+        [
+          "say",
+          "You get the sense you won't need Curly's compass anymore, so you bury it under the cairn."
+        ],
+        [
+          "removeitem",
+          "quest_curlycompass"
+        ],
+        [
+          "option",
+          "done",
+          "If you say so"
+        ]
+      ]
+    },
     "daveyard_bonepile": {
       "dig": [
         [
@@ -10637,6 +10666,207 @@
         ],
         [
           "markused"
+        ]
+      ]
+    },
+    "ranch4_bookshelf1": {
+      "inv": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "A small diary is the only legible thing left on this shelf."
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch - Ruined Bookshelf (Left)"
+        ]
+      ]
+    },
+    "ranch4_bookshelf2": {
+      "inv": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You manage to extract one non-destroyed book from the collection."
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch - Ruined Bookshelf (Right)"
+        ]
+      ]
+    },
+    "ranch4_burntbooks": {
+      "dig": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest3)==1 && !alexandriaranch_gotbookpilecheck"
+        ],
+        [
+          "goto",
+          "getbook"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "The books are wrecked.  The volumes are ruined.  The tomes are kaput."
+        ]
+      ],
+      "getbook": [
+        [
+          "say",
+          "You manage to find... part of the overdue book from the Breadwood library."
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch - Smoldering Book Pile"
+        ]
+      ]
+    },
+    "ranch4_case1": {
+      "picklock": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You make short work of the lock and grab the book."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch Vault - Glass Case (Left)"
+        ]
+      ]
+    },
+    "ranch4_case2": {
+      "picklock": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You make short work of the lock and grab the book."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch Vault - Glass Case (Middle)"
+        ]
+      ]
+    },
+    "ranch4_case3": {
+      "picklock": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You make short work of the lock and grab the book."
+        ],
+        [
+          "markused"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch Vault - Glass Case (Right)"
+        ]
+      ]
+    },
+    "ranch4_shelf1": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You choose the book with the most sensational-sounding title."
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch Vault - Left Bookshelf"
+        ]
+      ]
+    },
+    "ranch4_shelf2": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You take the one that looks the most relevant to your experience."
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch Vault - Middle Bookshelf"
+        ]
+      ]
+    },
+    "ranch4_shelf3": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You take the one that looks the most interesting."
+        ],
+        [
+          "checklocation",
+          "Alexandria Ranch Vault - Right Bookshelf"
         ]
       ]
     },
