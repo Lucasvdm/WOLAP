@@ -11213,6 +11213,305 @@
         ]
       ]
     },
+    "mine4_beaniron2": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine (Left Tunnel) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine4_crate": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "mine4_gotdyn"
+        ],
+        [
+          "goto",
+          "nope"
+        ],
+        [
+          "say",
+          "You pick up a stick of old dynamite. I don't recommend you do a lot of hopping up and down while you're carrying that."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine (Left Tunnel) - Dynamite Crate"
+        ],
+        [
+          "addflag",
+          "mine4_gotdyn"
+        ]
+      ]
+    },
+    "mine4_idol": {
+      "take": [
+        [
+          "checklocation",
+          "Jumbleneck Mine (Right Tunnel) - Idol"
+        ],
+        [
+          "addflag",
+          "mine4_tookidol,1"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "mine4_idolpete"
+        ],
+        [
+          "say",
+          "You pick up the statuette. It's made of silver, and the tarnish and darkness make it hard to tell what it's meant to depict."
+        ]
+      ]
+    },
+    "mine4_lunchbox": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Pretty much everything inside has crumbled into dust, except for a waxed-paper sandwich bag and some raisins that probably weren't intended to become raisins."
+        ],
+        [
+          "Jumbleneck Mine (Left Tunnel) - Lunchbox",
+          "quest_baggie"
+        ],
+        [
+          "additem",
+          "food_raisins"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "mine4_office_desk": {
+      "rummage": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You find some old jerky and a key. Nice!"
+        ],
+        [
+          "additem",
+          "food_jerky"
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine Foreman's Office - Desk"
+        ],
+        [
+          "addflag",
+          "mine4_desk_empty,1"
+        ]
+      ]
+    },
+    "mine4_office_hrack": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "mine4_hatrack,1"
+        ],
+        [
+          "say",
+          "Yoink."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine Foreman's Office - Hatrack"
+        ]
+      ]
+    },
+    "mine4_office_looksafe": {
+      "crack": [
+        [
+          "playsound",
+          "opensafe"
+        ],
+        [
+          "say",
+          "You press your ear up against the safe door and slowly turn the dial. Eventually you manage to pop it open."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine Foreman's Office - Safe (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine Foreman's Office - Safe (Item 2)"
+        ],
+        [
+          "addflag",
+          "mine4_safeopen,1"
+        ],
+        [
+          "option",
+          "done",
+          "Score!"
+        ]
+      ],
+      "openit": [
+        [
+          "say",
+          "You spin the dial to the combination the ghost told you, and the safe door swings open."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine Foreman's Office - Safe (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine Foreman's Office - Safe (Item 2)"
+        ],
+        [
+          "addflag",
+          "mine4_safeopen,1"
+        ],
+        [
+          "option",
+          "done",
+          "Score!"
+        ]
+      ]
+    },
+    "mine4_pickaxe": {
+      "pickup": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Picked."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine (Inside) - The Pick in the Stone"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "mine4_top_barrel": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "!hasitem(quest_baggie) && !jumbleneckmine_gotgreasecheck"
+        ],
+        [
+          "say",
+          "What, just grab a handful? No."
+        ],
+        [
+          "if",
+          "hasitem(quest_baggie) && !jumbleneckmine_gotgreasecheck"
+        ],
+        [
+          "goto",
+          "getgrease"
+        ],
+        [
+          "if",
+          "jumbleneckmine_gotgreasecheck"
+        ],
+        [
+          "say",
+          "You have plenty of that already."
+        ]
+      ],
+      "getgrease": [
+        [
+          "say",
+          "You fill your waxed-paper sandwich bag with old grease. Hopefully this will come in handy very soon, so you can stop carrying it around."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine - Grease Barrel"
+        ],
+        [
+          "removeitem",
+          "quest_baggie"
+        ]
+      ]
+    },
+    "mine4_top_pile2": {
+      "findit": [
+        [
+          "say",
+          "Whoa, uh... there's a human skull hidden in this rock pile. That's a little ominous."
+        ],
+        [
+          "checklocation",
+          "Jumbleneck Mine - Rock Pile By Elevator"
+        ],
+        [
+          "addflag",
+          "mine4_skullfind,1"
+        ],
+        [
+          "option",
+          "done",
+          "Yikes"
+        ]
+      ]
+    },
     "mine5_beaniron2": {
       "popup": [
         [
@@ -13609,6 +13908,154 @@
         }
       },
       "parentwaa": "mine2"
+    },
+    "mine4_levelc": {
+      "name": "Jumbleneck Mine (Inside)",
+      "width": "1.000",
+      "ground": null,
+      "sky": "",
+      "startxy": "1080,100",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_mineceiling1,foreground_mineceiling2",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "mine4",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 285.0,
+          "z": 321.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine4_beaniron2",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "cartlaunchA": {
+          "asset": "minelauncher",
+          "usedasset": null,
+          "x": 94.0,
+          "z": 115.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(mine4_cartlauncher)",
+          "script": "mine4_looklaunch",
+          "proximity": 5.0
+        },
+        "cartlaunchB": {
+          "asset": "minelauncher",
+          "usedasset": null,
+          "x": 94.0,
+          "z": 115.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(mine4_cartlauncher)",
+          "script": "mine4_looklaunch",
+          "proximity": 5.0
+        },
+        "crate": {
+          "asset": "crate",
+          "usedasset": null,
+          "x": 24.0,
+          "z": 229.0,
+          "height": 136.0,
+          "width": 180.0,
+          "condition": "",
+          "script": "mine4_crate",
+          "proximity": 0.0
+        },
+        "lunchbox": {
+          "asset": "lunchbox",
+          "usedasset": "lunchbox_open",
+          "x": 457.0,
+          "z": 242.0,
+          "height": 101.0,
+          "width": 142.0,
+          "condition": "",
+          "script": "mine4_lunchbox",
+          "proximity": 0.0
+        },
+        "minecart": {
+          "asset": "minecart_full",
+          "usedasset": null,
+          "x": 156.0,
+          "z": 113.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(mine4_cartloc)==1",
+          "script": "mine4_minecartb",
+          "proximity": 0.0
+        },
+        "track1": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 159.0,
+          "z": 88.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "track2": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 306.0,
+          "z": 88.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "track3": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 465.0,
+          "z": 88.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "track4": {
+          "asset": "tracksbend",
+          "usedasset": null,
+          "x": 623.0,
+          "z": 90.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tunnel": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 620.0,
+          "z": 257.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine4_levelc__tunnel__exec",
+          "proximity": 0.0,
+          "notilt": 1.0
+        }
+      },
+      "parentwaa": "mine4"
     },
     "mine5_level1": {
       "name": "Soupstock Lode (Level 1)",
