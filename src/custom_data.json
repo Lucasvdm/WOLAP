@@ -8315,6 +8315,477 @@
         ]
       ]
     },
+    "fort6_bookshelf": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Fifth Tent) - Bookcase"
+        ],
+        [
+          "addflag",
+          "fort6_bookshelf"
+        ]
+      ]
+    },
+    "fort6_collector": {
+      "trueopts": [
+        [
+          "if",
+          "hasflag(roybean_quest)==5 && !hasitem(quest_jellybeans3) && !hasstate(beans)"
+        ],
+        [
+          "sayoption",
+          "jellybeans",
+          "You seen any jelly beans?"
+        ],
+        [
+          "if",
+          "hasflag(roybean_quest)==5 && hasflag(fort6_knowslounge)==1 && !hasstate(lounge)"
+        ],
+        [
+          "sayoption",
+          "lounge",
+          "Do you know anything about a lounge?"
+        ],
+        [
+          "if",
+          "hasitem(bone)>=10 && !fortofdarkness_gotbonetradecheck"
+        ],
+        [
+          "option",
+          "bones",
+          "Give her some bones [10 bones]"
+        ],
+        [
+          "if",
+          "hasitem(bone)<10 && !fortofdarkness_gotbonetradecheck"
+        ],
+        [
+          "grayoption",
+          "phones",
+          "Give her some bones [Requires 10 bones]"
+        ],
+        [
+          "if",
+          "hasitem(skullchips)>=5 && !fortofdarkness_gotchiptradecheck"
+        ],
+        [
+          "option",
+          "chips",
+          "Give her some skull chips [5 of them]"
+        ],
+        [
+          "if",
+          "hasitem(skullchips)<5 && !fortofdarkness_gotchiptradecheck"
+        ],
+        [
+          "grayoption",
+          "shmips",
+          "Give her some skull chips [Requires 5 skull chips]"
+        ],
+        [
+          "if",
+          "hasitem(sell_goldtooth)>=10 && !fortofdarkness_got10teethcheck"
+        ],
+        [
+          "option",
+          "teeth",
+          "Give her some gold teeth [10 gold teeth]"
+        ],
+        [
+          "if",
+          "hasitem(sell_goldtooth)<10 && !fortofdarkness_got10teethcheck"
+        ],
+        [
+          "grayoption",
+          "teeth",
+          "Give her some gold teeth [Requires 10 gold teeth]"
+        ],
+        [
+          "if",
+          "hasitem(sell_goldtooth)>=23 && !fortofdarkness_got23teethcheck"
+        ],
+        [
+          "option",
+          "teeth2",
+          "Give her a LOT of gold teeth [23 gold teeth]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave her to her hallucinations"
+        ]
+      ],
+      "chips": [
+        [
+          "say",
+          "You hand her some bone chips, and she stops muttering. Her eyes seem to focus a little, and she takes some glue out of her toolbox and presses the chips into a ring."
+        ],
+        [
+          "removeitem",
+          "skullchips,5"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Second Tent) - Bone Trader (Chips)"
+        ],
+        [
+          "addflag",
+          "fortofdarkness_gotchiptradecheck"
+        ],
+        [
+          "say",
+          "As soon as she gives the ring to you, though, she's back to her muttering."
+        ],
+        [
+          "sayoption",
+          "opts",
+          "Nice, thank you!"
+        ]
+      ],
+      "teeth": [
+        [
+          "say",
+          "She blinks at the gold teeth you handed her, and takes a spool of wire out of her toolbox. Soon she presents you with an elaborate tiara. \"Not enough,\" she mutters sadly. \"Not nearly enough...\""
+        ],
+        [
+          "removeitem",
+          "sell_goldtooth,10"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Second Tent) - Bone Trader (10 Gold Teeth)"
+        ],
+        [
+          "addflag",
+          "fortofdarkness_got10teethcheck"
+        ],
+        [
+          "sayoption",
+          "opts",
+          "Huh? Well, thanks!"
+        ]
+      ],
+      "teeth2": [
+        [
+          "say",
+          "You give her almost a whole mouth's worth of gold teeth, and she draws a long, slow breath. \"So many,\" she whispers, and she seems to see you for the first time. She looks you up and down, then takes a piece of string out of her pocket and uses it to measure your head."
+        ],
+        [
+          "say",
+          "She picks some more bones out of those scattered on the floor -- ribs, finger bones, fragments of skull, more teeth -- and carefully sorts them on her workbench. You can't really see what happens after that, because you'd have to actually look over her shoulder, and it seems like a bad idea to disturb her."
+        ],
+        [
+          "say",
+          "After a time, she turns back around, holding a beautiful, ornate crown of bone, ivory, and gold. \"Thank you,\" she whispers as she hands it to you."
+        ],
+        [
+          "removeitem",
+          "sell_goldtooth,23"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Second Tent) - Bone Trader (23 Gold Teeth)"
+        ],
+        [
+          "addflag",
+          "fortofdarkness_got23teethcheck"
+        ],
+        [
+          "sayoption",
+          "opts",
+          "Wow..."
+        ]
+      ],
+      "bones": [
+        [
+          "say",
+          "You hand her an armload of bones, and she starts mechanically picking through them, selecting some and discarding others based on criteria you can't discern."
+        ],
+        [
+          "say",
+          "Eventually, having chosen the best two from the pile, she secures them together with wire and screws and hands you something that basically looks like a sword."
+        ],
+        [
+          "removeitem",
+          "bone,10"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Second Tent) - Bone Trader (Bones)"
+        ],
+        [
+          "addflag",
+          "fortofdarkness_gotbonetradecheck"
+        ],
+        [
+          "sayoption",
+          "opts",
+          "Neat! Thanks!"
+        ]
+      ]
+    },
+    "fort6_mushlady": {
+      "intro2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Uh-huh! They're good for all kinds of things, if you know which ones to pick! If you want, I can sell you a few of my favorites!"
+        ],
+        [
+          "rightsay",
+          "I have a spare pair of mushroom pliers too, if you want to pick your own."
+        ],
+        [
+          "sayoption",
+          "optstemp",
+          "Okay, cool."
+        ]
+      ],
+      "opts": [
+        [
+          "if",
+          "hasflag(roybean_quest)==5 && !hasitem(quest_jellybeans3) && !hasflag(fort6_knowslounge)"
+        ],
+        [
+          "sayoption",
+          "jellybeans",
+          "You seen any jelly beans?"
+        ],
+        [
+          "if",
+          "hasflag(roybean_quest)==5 && hasflag(fort6_knowslounge)==1 && !hasstate(lounge)"
+        ],
+        [
+          "sayoption",
+          "lounge",
+          "Where did you say your lounge was?"
+        ],
+        [
+          "if",
+          "!hasflag(fortofdarkness_gotplierscheck)"
+        ],
+        [
+          "rightsay",
+          "Would you like to buy a mushroom? Or a pair of mushroom pliers?"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Would you like to buy a mushroom? This batch is extra groovy!"
+        ],
+        [
+          "if",
+          "meat>=1000"
+        ],
+        [
+          "option",
+          "buyshroom",
+          "Buy a mushroom [1,000 Meat]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "buyshwoop",
+          "Buy a mushroom [1,000 Meat]"
+        ],
+        [
+          "if",
+          "hasskill(dickerin)>=3 && !hasflag(fort6_dickered)"
+        ],
+        [
+          "sayoption",
+          "dicker",
+          "How about a free mushroom? [Dickerin' 3]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "if",
+          "hasskill(dickerin) && !hasflag(fort6_dickered)"
+        ],
+        [
+          "graysayoption",
+          "cityslicker",
+          "How about a free mushroom? [Requires Dickerin' 3]"
+        ],
+        [
+          "if",
+          "hasflag(fortofdarkness_gotplierscheck)"
+        ],
+        [
+          "goto",
+          "finishopts"
+        ],
+        [
+          "if",
+          "meat>=500 && !fortofdarkness_gotplierscheck"
+        ],
+        [
+          "option",
+          "buypliers",
+          "Buy the pliers [500 Meat]"
+        ],
+        [
+          "if",
+          "meat<500 && !fortofdarkness_gotplierscheck"
+        ],
+        [
+          "grayoption",
+          "buyplovers",
+          "Buy the pliers [Requires 500 Meat]"
+        ],
+        [
+          "goto",
+          "finishopts"
+        ]
+      ],
+      "dicker": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "Well, I guess... I suppose they're ultimately free, after all.  Sure.  One won't hurt.  Plus, what do I even need Meat for?"
+        ],
+        [
+          "addflag",
+          "fort6_dickered"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (First Tent) - Free Mushroom"
+        ],
+        [
+          "if",
+          "!hasskill(kurtzmox)"
+        ],
+        [
+          "playsound",
+          "UI_Level_Up"
+        ],
+        [
+          "if",
+          "!hasskill(kurtzmox)"
+        ],
+        [
+          "addskill",
+          "kurtzmox"
+        ],
+        [
+          "sayoption",
+          "optstemp",
+          "Exactly."
+        ]
+      ],
+      "buypliers": [
+        [
+          "addmeat",
+          "-500"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (First Tent) - Irene's Pliers"
+        ],
+        [
+          "addflag",
+          "fortofdarkness_gotplierscheck"
+        ],
+        [
+          "rightsay",
+          "Here you go! I'd share the location of my secret mushroom hunting cave with you, but I lost my knapsack with my map in it, and I don't think I could explain how to get there just in, like, words. Good luck, though!"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks!"
+        ]
+      ]
+    },
+    "fort6_ratskeleton": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You stuff the packrat skeleton in your bag. The lady is too preoccupied with the contents of her head to notice."
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Second Tent) - Animal Skeleton"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "fort6_safe": {
+      "crack": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "opensafe"
+        ],
+        [
+          "say",
+          "Aha.  Turns out it was only a single gun.  It's a nice one, though!"
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness (Fifth Tent) - Gun Safe"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "fort6_timerift": {
+      "grab": [
+        [
+          "addflag",
+          "fort6_rift"
+        ],
+        [
+          "say",
+          "You grab the man's shoes, which makes him giggle even louder."
+        ],
+        [
+          "say",
+          "As soon as the shoes pass through the window, it snaps to static."
+        ],
+        [
+          "checklocation",
+          "Fort of Darkness - Temporal Rift"
+        ],
+        [
+          "option",
+          "done",
+          "Strange"
+        ]
+      ]
+    },
     "ghosttown1_cactusa": {
       "good": [
         [
