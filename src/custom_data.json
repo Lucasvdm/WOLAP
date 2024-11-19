@@ -2802,6 +2802,502 @@
         ]
       ]
     },
+    "cemetery3_bookpedestal": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 3) - Cultists' Pedestal"
+        ]
+      ]
+    },
+    "cemetery3_cultistouthouse": {
+      "popup": [
+        [
+          "if",
+          "hasflag(cemetery3_didouthouse)"
+        ],
+        [
+          "goto",
+          "nope"
+        ],
+        [
+          "say",
+          "This is a hastily constructed, <i>very</i> shallow privy."
+        ],
+        [
+          "if",
+          "stenchresist<100"
+        ],
+        [
+          "option",
+          "inve",
+          "Investigate [stench resistance]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "invss",
+          "Investigate [Requires stench resistance]"
+        ]
+      ],
+      "inve": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "cemetery3_didouthouse"
+        ],
+        [
+          "say",
+          "You open the door and dig around in the detritus."
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 3) - Outhouse"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ]
+    },
+    "cemetery3_diggystone": {
+      "diggystone1dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 1) - Big Bob Hurlingham's Grave"
+        ]
+      ],
+      "diggystone2dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 1) - Wise Ol' Jed Marmot's Grave"
+        ]
+      ],
+      "diggystone3dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Annette Jangle's Grave"
+        ]
+      ],
+      "diggystone4dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Fred Deeks' Grave"
+        ]
+      ],
+      "diggystone5dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Dink 'Scotch' Terkinson's Grave"
+        ]
+      ],
+      "diggystone6dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "Based on the contents of the coffin, you'd have called it \"exploding skull syndrome.\""
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 3) - Paulette Tootsbury's Grave"
+        ]
+      ],
+      "diggystone7dig": [
+        [
+          "addflag",
+          "cemetery3_@script_context_data.id@"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "Looks like the eagle knocked out all of her teeth on its way down."
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 3) - Stanrietta Minkleston's Grave"
+        ]
+      ]
+    },
+    "cemetery3_grannysmith": {
+      "right": [
+        [
+          "tracking",
+          "puzzle_grannysmith"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "Granny's eyes brighten, and she bursts into tears -- but happy ones this time."
+        ],
+        [
+          "rightsay",
+          "Oh yes, of course!  How could I have forgotten?"
+        ],
+        [
+          "if",
+          "hasflag(cemetery3_magdalene)"
+        ],
+        [
+          "rightsay",
+          "Poor, sweet Magdalene.  Oh, how I miss her..."
+        ],
+        [
+          "if",
+          "hasflag(cemetery3_melissa)"
+        ],
+        [
+          "rightsay",
+          "Poor, sweet Melissa.  Oh, how I miss her..."
+        ],
+        [
+          "addxp",
+          "xpreward_d*3"
+        ],
+        [
+          "say",
+          "Granny drifts over to her tombstone and gently places a bouquet at its base.  Both Granny and the flowers fade away into nothingness."
+        ],
+        [
+          "addflag",
+          "cemetery3_grannysmith"
+        ],
+        [
+          "say",
+          "That is, except for a single flower that remains."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 1) - Granddaughter Puzzle"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Goodbye, Granny."
+        ]
+      ]
+    },
+    "cemetery3_picnic": {
+      "dig": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "food_bloodsausage"
+        ],
+        [
+          "pushrandom",
+          "food_instantgrits"
+        ],
+        [
+          "pushrandom",
+          "food_jelliedescargot"
+        ],
+        [
+          "pushrandom",
+          "food_plumpudding"
+        ],
+        [
+          "pushrandom",
+          "food_sodacrackers"
+        ],
+        [
+          "pushrandom",
+          "potion_candy1"
+        ],
+        [
+          "pushrandom",
+          "potion_candy2"
+        ],
+        [
+          "pushrandom",
+          "potion_candy3"
+        ],
+        [
+          "pushrandom",
+          "potion_sarsaparilla"
+        ],
+        [
+          "if",
+          "hasflag(container_drygoods)>3"
+        ],
+        [
+          "pushrandom",
+          "potion_candy4"
+        ],
+        [
+          "if",
+          "hasflag(container_drygoods)>6"
+        ],
+        [
+          "pushrandom",
+          "potion_candy5"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(container_drygoods)>3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(container_drygoods)>7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(container_drygoods)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "incflag",
+          "container_drygoods,1"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Picnic"
+        ]
+      ]
+    },
+    "cemetery3_scaredskeleton": {
+      "getreward": [
+        [
+          "rightsay",
+          "Great! Whew! That's a load off my mind, let me tell you. Here, you can have this worry-stone, I don't need it now."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addflag",
+          "cemetery3_bernard,2"
+        ],
+        [
+          "addflag",
+          "cemetery4_scaredskeleton"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 3) - Bernard's Reward"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Cool, thanks."
+        ]
+      ]
+    },
+    "cemetery3_skellowstone1": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You pluck the sword from the stone.  Now you're royalty!"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 1) - Sweet Monument"
+        ],
+        [
+          "addflag",
+          "cemetery3_skellowstone1,1"
+        ]
+      ]
+    },
+    "cemetery3_tontinestone1": {
+      "getkey": [
+        [
+          "say",
+          "You pick up the object -- it looks like a piece of a broken key!"
+        ],
+        [
+          "addflag",
+          "cemetery3_tontinekey1"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Fancy Tomb (Left)"
+        ],
+        [
+          "option",
+          "open",
+          "Interesting"
+        ]
+      ]
+    },
+    "cemetery3_tontinestone2": {
+      "getkey": [
+        [
+          "say",
+          "You pick up the object -- it looks like a piece of a broken key!"
+        ],
+        [
+          "addflag",
+          "cemetery3_tontinekey2"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Fancy Tomb (Middle)"
+        ],
+        [
+          "option",
+          "open",
+          "Interesting"
+        ]
+      ]
+    },
+    "cemetery3_tontinestone3": {
+      "getkey": [
+        [
+          "say",
+          "You pick up the object -- it looks like a piece of a broken key!"
+        ],
+        [
+          "addflag",
+          "cemetery3_tontinekey3"
+        ],
+        [
+          "checklocation",
+          "Reboot Hill (Plot 2) - Fancy Tomb (Right)"
+        ],
+        [
+          "option",
+          "open",
+          "Interesting"
+        ]
+      ]
+    },
     "cemetery4_investigateshed": {
       "inv1": [
         [
@@ -11170,6 +11666,26 @@
           "sayoption",
           "eight",
           "All right. Bye, Macready."
+        ]
+      ]
+    },
+    "item_tontinetreasure": {
+      "invpopup": [
+        [
+          "say",
+          "The chest contains a lone (but extremely large) gemstone and a document describing a tontine, which you apparently won despite not even signing up for it!"
+        ],
+        [
+          "checklocation",
+          "ReBoot Hill - Tontine Treasure Chest"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "option",
+          "done",
+          "LOL"
         ]
       ]
     },
