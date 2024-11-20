@@ -2043,6 +2043,75 @@
         ]
       ]
     },
+    "beancave_beaniron1": {
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "The Great Garbanzo's Hideout - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "beancave_bed": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "It wasn't a pillow at all, but a bag of beans!"
+        ],
+        [
+          "checklocation",
+          "The Great Garbanzo's Hideout - Under the Pillow"
+        ]
+      ]
+    },
+    "beancave_bookshelf": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "The Great Garbanzo's Hideout - Bookcase"
+        ]
+      ]
+    },
+    "beancave_sofa": {
+      "e": [
+        [
+          "addflag",
+          "beancave_sofa"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You find some loose beans in the cushions."
+        ],
+        [
+          "checklocation",
+          "The Great Garbanzo's Hideout - Between the Cushions"
+        ]
+      ]
+    },
     "breadwood_hallowaylocker": {
       "picklock": [
         [
@@ -13905,6 +13974,100 @@
   },
   "skills": {},
   "waas": {
+    "beancave_interior": {
+      "name": "The Great Garbanzo's Hideout (Inside)",
+      "width": "0.500",
+      "ground": null,
+      "sky": "",
+      "startxy": "215,65",
+      "horizon": "wallcave_tile1",
+      "camera": "interior",
+      "foregroundparallax": "foreground_caveframe1",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "beancave",
+      "elements": {
+        "arcaneoven": {
+          "asset": "arcaneoven",
+          "usedasset": null,
+          "x": 393.0,
+          "z": 229.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "crafting_arcaneoven",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 200.0,
+          "z": 304.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "hasskill(cookery)",
+          "script": "beancave_beaniron1",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "bed": {
+          "asset": "bed2",
+          "usedasset": "bed2",
+          "x": 309.0,
+          "z": 28.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "beancave_bed",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "flip": 1.0
+        },
+        "bookshelf": {
+          "asset": "bookshelf",
+          "usedasset": "bookshelf",
+          "x": 278.0,
+          "z": 237.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "beancave_bookshelf",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "exit": {
+          "asset": "caveopening",
+          "usedasset": null,
+          "x": 46.0,
+          "z": 0.0,
+          "height": 516.0,
+          "width": 444.0,
+          "condition": "",
+          "script": "autoscript__beancave_interior__exit__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 50.0
+        },
+        "sofa": {
+          "asset": "sofa2",
+          "usedasset": null,
+          "x": 35.0,
+          "z": 238.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "beancave_sofa",
+          "proximity": 0.0,
+          "extendback": 1.0
+        }
+      },
+      "parentwaa": "beancave"
+    },
     "elvibrato1_cave": {
       "name": "Humming Cave (Inside)",
       "width": "2.000",
