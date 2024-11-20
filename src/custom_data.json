@@ -13432,6 +13432,132 @@
         ]
       ]
     },
+    "necrotower_necromancer": {
+      "annihilate3": [
+        [
+          "checklocation",
+          "Necromancer's Tower - Necromancer Defeated"
+        ],
+        [
+          "say",
+          "You pick up his crown.  Funny.  There's nothing to it.  Why couldn't you see that before?"
+        ],
+        [
+          "option",
+          "necrodone",
+          "Leave"
+        ]
+      ],
+      "alicewins": [
+        [
+          "say",
+          "Your feet feel like lead. You struggle to take a single step. And then another. Ever so slowly, you drag yourself away from the throne. The struggle takes years, decades, <i>eons</i>."
+        ],
+        [
+          "say",
+          "You barely hear Alice's shotgun. Mostly you hear the scream as the Necromancer's withered husk explodes into dust, and the dust takes on the shape of a wailing skull. And then the dust dissipates and is gone."
+        ],
+        [
+          "checklocation",
+          "Necromancer's Tower - Necromancer Defeated"
+        ],
+        [
+          "say",
+          "You collapse to the ground. Alice helps you to your feet, and examines your face."
+        ],
+        [
+          "rightsay",
+          "Mmm. Color's coming back a little. How you feeling?"
+        ],
+        [
+          "sayoption",
+          "alicewins2",
+          "B... better?"
+        ]
+      ],
+      "destroy": [
+        [
+          "tracking",
+          "side_destroynecro"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "goto",
+          "alicedestroy"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "You puff a breath at the Necromancer and he crumbles to powder.  His crown hits the ground and bounces off of the throne's raised base, rolling to a stop at your feet."
+        ],
+        [
+          "checklocation",
+          "Necromancer's Tower - Necromancer Defeated"
+        ],
+        [
+          "addflag",
+          "necrotower_necromancer,2"
+        ],
+        [
+          "addxp",
+          "@xpreward_g@*9"
+        ],
+        [
+          "option",
+          "done",
+          "Welp. So much for that, and good riddance."
+        ]
+      ],
+      "alicedestroy": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "Doc, you wanna do the honors?"
+        ],
+        [
+          "rightpicture",
+          "portrait_alice"
+        ],
+        [
+          "rightspeak",
+          "My pleasure."
+        ],
+        [
+          "say",
+          "She racks her shotgun and gives the wretched mummy both barrels. It explodes into dust, which dissipates with a sad whisper."
+        ],
+        [
+          "rightsay",
+          "Eat that, you old bastard. That's for Elliot."
+        ],
+        [
+          "checklocation",
+          "Necromancer's Tower - Necromancer Defeated"
+        ],
+        [
+          "leftsay",
+          "How's it feel?"
+        ],
+        [
+          "rightsay",
+          "Better. Much better."
+        ],
+        [
+          "sayoption",
+          "adestroy2",
+          "So... now what?"
+        ]
+      ]
+    },
     "postalstation_papers3": {
       "e": [
         [
