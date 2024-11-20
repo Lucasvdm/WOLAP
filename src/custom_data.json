@@ -13707,6 +13707,200 @@
           "Strange"
         ]
       ]
+    },
+    "timenexus_camaro": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "On the seat inside you find a gun.  You think."
+        ],
+        [
+          "addflag",
+          "timenexus_camaro"
+        ],
+        [
+          "checklocation",
+          "Temporal Nexus - Camaro"
+        ]
+      ]
+    },
+    "timenexus_coach": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "No survivors, but somebody left a really nice hat behind!"
+        ],
+        [
+          "checklocation",
+          "Temporal Nexus - Stagecoach"
+        ],
+        [
+          "addflag",
+          "timenexus_coach"
+        ]
+      ]
+    },
+    "timenexus_robot": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "timenexus_robot"
+        ],
+        [
+          "say",
+          "It's a ring!  Or at least it's a ring-shaped object."
+        ],
+        [
+          "checklocation",
+          "Temporal Nexus - Robot"
+        ]
+      ]
+    },
+    "timenexus_sarc2": {
+      "node12": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "You put the jawbone back into the sarcophagus, and in doing so, notice something yellow hidden under the pillow."
+        ],
+        [
+          "say",
+          "You grab it, as a reward for your patience."
+        ],
+        [
+          "checklocation",
+          "Temporal Nexus - Jawbone"
+        ],
+        [
+          "addflag",
+          "timenexus_ed"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ]
+    },
+    "westpole_cairn": {
+      "popup": [
+        [
+          "addstate",
+          "val,=hasflag(westpole_@script_context_data.id@)"
+        ],
+        [
+          "if",
+          "$val$>0"
+        ],
+        [
+          "goto",
+          "knockoffer"
+        ],
+        [
+          "say",
+          "It's a pile of weird rocks."
+        ],
+        [
+          "if",
+          "geologistquest>=4 && !hasflag(geologistquest_westpole)"
+        ],
+        [
+          "option",
+          "grab",
+          "Grab one for Dr. Morton"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "stack",
+          "Mess with them"
+        ]
+      ],
+      "grab": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You pocket what you hope is the most interesting stone."
+        ],
+        [
+          "checklocation",
+          "The West Pole - Leftmost Cairn (Dr. Morton's Quest)"
+        ],
+        [
+          "addflag",
+          "geologistquest_westpole"
+        ]
+      ],
+      "knockoffer": [
+        [
+          "say",
+          "It's that cairn you built."
+        ],
+        [
+          "if",
+          "geologistquest>=4 && !hasflag(geologistquest_westpole)"
+        ],
+        [
+          "option",
+          "grab",
+          "Grab a stone for Dr. Morton"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "knock",
+          "Knock it over"
+        ]
+      ]
+    },
+    "westpole_rockex": {
+      "correct": [
+        [
+          "say",
+          "With a rumble of shaking earth, the rock rises out of the ground, revealing itself to be the tip of a stone obelisk. A hollow in the center of the obelisk contains a small stone ring; when you take it, the obelisk retracts back into the ground."
+        ],
+        [
+          "addflag",
+          "petroglyphsolved"
+        ],
+        [
+          "tracking",
+          "puzzle_petroglyphs"
+        ],
+        [
+          "checklocation",
+          "The West Pole - Petroglyph Puzzle Solved"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@*3"
+        ],
+        [
+          "option",
+          "done",
+          "Wow, crazy."
+        ]
+      ]
     }
   },
   "skills": {},
