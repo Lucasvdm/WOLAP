@@ -13345,6 +13345,24 @@
         ]
       ]
     },
+    "ranch6_bookshelf": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You find a single mostly-unburnt book."
+        ],
+        [
+          "checklocation",
+          "Hellstrom Ranch (Barn) - Bookshelf"
+        ]
+      ]
+    },
     "roybean_honeybean": {
       "buy0": [
         [
@@ -15326,6 +15344,324 @@
         }
       },
       "parentwaa": "mine5"
+    },
+    "ranch6": {
+      "name": "Hellstrom Ranch",
+      "width": "1.500",
+      "ground": null,
+      "sky": "lazyclouds",
+      "startxy": "330,45",
+      "parallax1": "bg_pines4,bg_pines3,bg_pines2,bg_pines1",
+      "parallax2": "bg_mountain4,bg_flat1,bg_monument,bg_flat1,bg_mountain1,bg_mountain3,bg_mountain2,bg_flat1,bg_flat1,bg_flat1,bg_flat1,bg_mountain4,bg_flat1,bg_flat1,bg_flat1",
+      "horizon": "horizonline1",
+      "groundtexture": "floor_dirt1",
+      "cluttercount": 30.0,
+      "cluttersprites": "grass1,grass2,grass3,grass4,grass5,grass6,grass7",
+      "clutterseed": 2001.0,
+      "music": "music_sadguitar_new",
+      "ambientsound1": "desert_ambience_loop",
+      "ambientvolume1": ".23",
+      "onenter": "ranch6_visitation",
+      "polish": "A few more small hellportals, some particle effects on the",
+      "hellportals.": 1.0,
+      "": "Leaving Bovicus trapped here has a big effect on the Cow Attack of '06",
+      "basewaa": "ranch6",
+      "elements": {
+        "barn": {
+          "asset": "barn",
+          "usedasset": null,
+          "x": 156.0,
+          "z": 228.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__ranch6__barn__popup",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "decal": "scorchmark1,-120,70",
+          "decal2": "scorchmark2,140,140"
+        },
+        "barndoor": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 298.0,
+          "z": 227.0,
+          "height": 10.0,
+          "width": 150.0,
+          "condition": "",
+          "script": "autoscript__ranch6__barndoor__exec",
+          "proximity": 0.0
+        },
+        "barn_burned": {
+          "asset": "barn_burned",
+          "usedasset": null,
+          "x": 157.0,
+          "z": 228.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "nevertrue",
+          "script": "autoscript__ranch6__barn_burned__popup",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "emitter": "smoke_a,150,340,1",
+          "emitter2": "smoke_a,125,180,1",
+          "emitter3": "smoke_a,220,60,1",
+          "emitter4": "smoke_a,320,100,1",
+          "polish": "add some smoke emitters"
+        },
+        "bovicus_bad": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 969.0,
+          "z": 101.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "hasflag(ranch6_bovicus) && !hasflag(ranch6_cowsbane)",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "cow_upright",
+          "head": "head_bovicus",
+          "flip": 1.0
+        },
+        "bovicus_contained": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 969.0,
+          "z": 107.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "hasflag(ranch6_bovicus) && hasflag(ranch6_cowsbane)",
+          "script": "ranch6_talktobovicus",
+          "proximity": 0.0,
+          "prefab": "cow_upright",
+          "head": "head_bovicus",
+          "flip": 1.0
+        },
+        "cowbell": {
+          "asset": "cowbell",
+          "usedasset": null,
+          "x": 833.0,
+          "z": 236.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "ranch6_cowbell",
+          "proximity": 0.0
+        },
+        "cowsbanecircle": {
+          "asset": "cowsbanering2",
+          "usedasset": null,
+          "x": 920.0,
+          "z": 45.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(ranch6_cowsbane)",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0,
+          "noclip": 1.0
+        },
+        "hagarsagave": {
+          "asset": "hagarsagave",
+          "usedasset": "hagarsagave_empty",
+          "x": 1198.0,
+          "z": 16.0,
+          "height": 250.0,
+          "width": 425.0,
+          "condition": "",
+          "script": "forage_hagarsagave",
+          "proximity": 0.0
+        },
+        "haystack": {
+          "asset": "haystack",
+          "usedasset": "haystack_used",
+          "x": -86.0,
+          "z": 245.0,
+          "height": 326.0,
+          "width": 392.0,
+          "condition": "",
+          "script": "cre_haystack",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "hitch": {
+          "asset": "hitchingpost_broken",
+          "usedasset": null,
+          "x": 30.0,
+          "z": 17.0,
+          "height": 174.0,
+          "width": 398.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "horse": {
+          "asset": "horse",
+          "usedasset": null,
+          "x": -7.0,
+          "z": 27.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "horse",
+          "proximity": 0.0
+        },
+        "horseshoething": {
+          "asset": "ruinwall_chunk_horseshoe",
+          "usedasset": "ruinwall_chunk",
+          "x": 1384.0,
+          "z": 231.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "ranch6_horseshoe",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "emitter": "smoke_a,45,182,1",
+          "emitter2": "smoke_a,115,195,1",
+          "emitter3": "smoke_a,25,75,1"
+        },
+        "pardner": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 674.0,
+          "z": 224.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "pardner",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "portal": {
+          "asset": "hellportal_frame",
+          "usedasset": null,
+          "x": 1051.0,
+          "z": 253.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "floater_template",
+          "head": "hellportal_frame",
+          "ambientsound": "hellcow_portal_loop, 200",
+          "ambientvolume": ".7",
+          "interesting": 1.0
+        },
+        "portalblocker": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 983.0,
+          "z": 225.0,
+          "height": 100.0,
+          "width": 150.0,
+          "condition": "",
+          "script": "ranch6_portal",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "portal_shroud": {
+          "asset": "hellportal_shroud",
+          "usedasset": null,
+          "x": 1051.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "floater_template",
+          "head": "hellportal_shroud"
+        },
+        "portal_stars": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1051.0,
+          "z": 254.0,
+          "height": 1.0,
+          "width": 1.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "decal": "decal_starfield,0,50"
+        },
+        "ruinbit1": {
+          "asset": "ruin_junk3",
+          "usedasset": null,
+          "x": 481.0,
+          "z": 59.0,
+          "height": 107.0,
+          "width": 130.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "emitter": "smoke_a,25,45,1"
+        },
+        "ruinbit2": {
+          "asset": "ruin_wall3",
+          "usedasset": null,
+          "x": 832.0,
+          "z": 29.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "emitter": "smoke_a,45,45,1"
+        },
+        "ruinbit3": {
+          "asset": "ruin_wall4",
+          "usedasset": null,
+          "x": 1267.0,
+          "z": 26.0,
+          "height": 104.0,
+          "width": 331.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0,
+          "emitter": "smoke_a,45,45,1"
+        },
+        "scorch1": {
+          "asset": "scorchmark3",
+          "usedasset": null,
+          "x": 563.0,
+          "z": 79.0,
+          "height": 231.0,
+          "width": 330.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "scorch2": {
+          "asset": "scorchmark1",
+          "usedasset": null,
+          "x": 868.0,
+          "z": 74.0,
+          "height": 203.0,
+          "width": 140.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "scorch3": {
+          "asset": "scorchmark2",
+          "usedasset": null,
+          "x": 1266.0,
+          "z": 109.0,
+          "height": 230.0,
+          "width": 138.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0,
+          "flip": 1.0
+        }
+      },
+      "parentwaa": "ranch6"
     },
     "shaggydogcave_interior": {
       "name": "Shaggy Dog Cave (Inside)",
