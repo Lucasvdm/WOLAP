@@ -12806,6 +12806,632 @@
         ]
       ]
     },
+    "mine6_beaniron2_level2": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Level 2) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine6_beaniron2_level4": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Level 4) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine6_curlynightstand": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "Hey, there's a map in the drawer!"
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Curly's Cave) - Nightstand"
+        ]
+      ]
+    },
+    "mine6_curlypie": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "if",
+          "hasflag(fort1_generalgob)==2"
+        ],
+        [
+          "goto",
+          "gobgotit"
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Curly's Cave) - Pie Safe"
+        ],
+        [
+          "goto",
+          "donewithpie"
+        ]
+      ],
+      "gobgotit": [
+        [
+          "say",
+          "Looks like that pie-shootin' goblin got here first."
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Curly's Cave) - Pie Safe"
+        ],
+        [
+          "goto",
+          "donewithpie"
+        ]
+      ]
+    },
+    "mine6_elvcardtable": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "They're full of holes!"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Cards"
+        ]
+      ]
+    },
+    "mine6_elvtrashpile": {
+      "scrounge": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Trash Pile"
+        ]
+      ]
+    },
+    "mine6_elvvending": {
+      "start": [
+        [
+          "say",
+          "The screen on this machine says ^CLOTHING FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(madnessmawmine_vendingbuttonsused)"
+        ],
+        [
+          "say",
+          "There are four buttons."
+        ],
+        [
+          "if",
+          "madnessmawmine_vendingbuttonsused == 1"
+        ],
+        [
+          "say",
+          "There are three buttons you haven't tried."
+        ],
+        [
+          "if",
+          "madnessmawmine_vendingbuttonsused == 2"
+        ],
+        [
+          "say",
+          "There are two buttons left."
+        ],
+        [
+          "if",
+          "madnessmawmine_vendingbuttonsused == 3"
+        ],
+        [
+          "say",
+          "There's one last button to press."
+        ],
+        [
+          "if",
+          "madnessmawmine_vendingbuttonsused == 4"
+        ],
+        [
+          "say",
+          "You've gotten everything you need from this machine."
+        ],
+        [
+          "if",
+          "!madnessmawmine_vending_gothatcheck"
+        ],
+        [
+          "option",
+          "hat",
+          "^HEADWEAR FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!madnessmawmine_vending_gotheadbandcheck"
+        ],
+        [
+          "option",
+          "hat2",
+          "^ANTIPSYCHOTIC HEADWEAR FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!madnessmawmine_vending_gotpantscheck"
+        ],
+        [
+          "option",
+          "pants",
+          "^LEGSWEAR FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!madnessmawmine_vending_gotbootscheck"
+        ],
+        [
+          "option",
+          "boots",
+          "^FOOTWEAR FABRICATION^translate_elvibrato^"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
+        ]
+      ],
+      "hat": [
+        [
+          "if",
+          "hasitem(elv_scrap)<10"
+        ],
+        [
+          "goto",
+          "notenough"
+        ],
+        [
+          "say",
+          "The machine emits a noise like a duck and a slot opens.  The El Vibrato scraps in your pack vibrate, so you cram some of them in the hole.  After ten, the slot closes and reopens, having converted your garbage into a hat!"
+        ],
+        [
+          "removeitem",
+          "elv_scrap,10"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Vending Machine (SOMFUKRO)"
+        ],
+        [
+          "addflag",
+          "madnessmawmine_vending_gothatcheck"
+        ],
+        [
+          "incflag",
+          "madnessmawmine_vendingbuttonsused"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "hat2": [
+        [
+          "if",
+          "hasitem(elv_scrap)<10"
+        ],
+        [
+          "goto",
+          "notenough"
+        ],
+        [
+          "say",
+          "The machine emits a noise like a duck and a slot opens.  The El Vibrato scraps in your pack vibrate, so you cram some of them in the hole.  After ten, the slot closes and reopens, having converted your garbage into one of those headbands!"
+        ],
+        [
+          "removeitem",
+          "elv_scrap,10"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Vending Machine (SOMZAKBUNOK)"
+        ],
+        [
+          "addflag",
+          "madnessmawmine_vending_gotheadbandcheck"
+        ],
+        [
+          "incflag",
+          "madnessmawmine_vendingbuttonsused"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "pants": [
+        [
+          "if",
+          "hasitem(elv_scrap)<10"
+        ],
+        [
+          "goto",
+          "notenough"
+        ],
+        [
+          "say",
+          "The machine emits a noise like a duck and a slot opens.  The El Vibrato scraps in your pack vibrate, so you cram some of them in the hole.  After ten, the slot closes and reopens, having converted your garbage into pants!"
+        ],
+        [
+          "removeitem",
+          "elv_scrap,10"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Vending Machine (ZEVENOKKRO)"
+        ],
+        [
+          "addflag",
+          "madnessmawmine_vending_gotpantscheck"
+        ],
+        [
+          "incflag",
+          "madnessmawmine_vendingbuttonsused"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "boots": [
+        [
+          "if",
+          "hasitem(elv_scrap)<10"
+        ],
+        [
+          "goto",
+          "notenough"
+        ],
+        [
+          "say",
+          "The machine emits a noise like a duck and a slot opens.  The El Vibrato scraps in your pack vibrate, so you cram some of them in the hole.  After ten, the slot closes and reopens, having converted your garbage into boots!"
+        ],
+        [
+          "removeitem",
+          "elv_scrap,10"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Vending Machine (BUKUZKRO)"
+        ],
+        [
+          "addflag",
+          "madnessmawmine_vending_gotbootscheck"
+        ],
+        [
+          "incflag",
+          "madnessmawmine_vendingbuttonsused"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
+    "mine6_fusetable": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Outpost (Madness Maw Mine) - Cylinder"
+        ],
+        [
+          "addflag",
+          "mine6_gotfuse"
+        ]
+      ]
+    },
+    "mine6_talkcultist7": {
+      "headband2": [
+        [
+          "leftsay",
+          "Instructions to do what, exactly?"
+        ],
+        [
+          "rightsay",
+          "To dig. To free him. To... excuse me, I have to go freak out now."
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "say",
+          "He drops his mask on the ground and runs away."
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Level 3) - Head Cultist"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Okay, bye. Good luck!"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "mine6_cultist7gone"
+        ],
+        [
+          "say",
+          "You beat up the cult leader and take his mask. Looks like you just got promoted!"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Madness Maw Mine (Level 3) - Head Cultist"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "postalstation_papers3": {
       "e": [
         [
@@ -15690,6 +16316,299 @@
         }
       },
       "parentwaa": "mine5"
+    },
+    "mine6_level2": {
+      "name": "Madness Maw Mine (Level 2)",
+      "width": "1.000",
+      "ground": null,
+      "sky": "",
+      "startxy": "210,115",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_minesupport,foreground_mineceiling1,foreground_mineceiling2",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "mine6",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 642.0,
+          "z": 311.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine6_beaniron2_level2",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "cultist3": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 392.0,
+          "z": 243.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(mine6_cultist3gone)",
+          "script": "mine6_cultist",
+          "proximity": 0.0,
+          "prefab": "human_template",
+          "head": "head_cultist3",
+          "idle": "tied_standing",
+          "flip": 1.0
+        },
+        "cultist4": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 519.0,
+          "z": 112.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(mine6_cultist4gone)",
+          "script": "mine6_cultist",
+          "proximity": 0.0,
+          "prefab": "human_template",
+          "head": "head_cultist4",
+          "idle": "dazed"
+        },
+        "cultist5": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 911.0,
+          "z": 32.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(mine6_cultist5gone)",
+          "script": "mine6_cultist",
+          "proximity": 0.0,
+          "prefab": "human_template",
+          "head": "head_cultist5",
+          "idle": "boring"
+        },
+        "down": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 745.0,
+          "z": 257.0,
+          "height": 486.0,
+          "width": 546.0,
+          "condition": "",
+          "script": "autoscript__mine6_level2__down__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0,
+          "notilt": 1.0
+        },
+        "rocks": {
+          "asset": "rocks3",
+          "usedasset": null,
+          "x": 76.0,
+          "z": 253.0,
+          "height": 105.0,
+          "width": 214.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 258.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks3": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 736.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks4": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 903.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "spiral1": {
+          "asset": "spiral1",
+          "usedasset": null,
+          "x": 330.0,
+          "z": 305.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine6_level2__spiral1__popup",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "spiral2": {
+          "asset": "spiral2",
+          "usedasset": null,
+          "x": 421.0,
+          "z": 62.0,
+          "height": 122.0,
+          "width": 148.0,
+          "condition": "",
+          "script": "autoscript__mine6_level2__spiral2__popup",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "spiral3": {
+          "asset": "spiral3",
+          "usedasset": null,
+          "x": 963.0,
+          "z": 64.0,
+          "height": 146.0,
+          "width": 151.0,
+          "condition": "",
+          "script": "autoscript__mine6_level2__spiral3__popup",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "up": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 110.0,
+          "z": 258.0,
+          "height": 486.0,
+          "width": 546.0,
+          "condition": "",
+          "script": "autoscript__mine6_level2__up__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0,
+          "notilt": 1.0
+        }
+      },
+      "parentwaa": "mine6"
+    },
+    "mine6_level4": {
+      "name": "Madness Maw Mine (Level 4)",
+      "width": "1.000",
+      "ground": null,
+      "sky": "",
+      "startxy": "500,150",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_minesupport,foreground_mineceiling1,foreground_mineceiling2",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "polish": "Something else going on in this room?",
+      "basewaa": "mine6",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 183.0,
+          "z": 317.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine6_beaniron2_level4",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "blocker": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 790.0,
+          "z": 85.0,
+          "height": 110.0,
+          "width": 160.0,
+          "condition": "!hasflag(mine6_elvrocks)",
+          "script": "mine6_elvpile",
+          "proximity": 0.0
+        },
+        "elvladder": {
+          "asset": "ladderhole",
+          "usedasset": null,
+          "x": 820.0,
+          "z": 110.0,
+          "height": 182.0,
+          "width": 394.0,
+          "condition": "hasflag(mine6_elvrocks)",
+          "script": "autoscript__mine6_level4__elvladder__exec",
+          "proximity": 0.0
+        },
+        "elvpile": {
+          "asset": "rubblepile",
+          "usedasset": null,
+          "x": 769.0,
+          "z": 87.0,
+          "height": 420.0,
+          "width": 560.0,
+          "condition": "!hasflag(mine6_elvrocks)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock2": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 468.0,
+          "z": 254.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks1": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 301.0,
+          "z": 253.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "up": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 312.0,
+          "z": 256.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine6_level4__up__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0,
+          "notilt": 1.0
+        }
+      },
+      "parentwaa": "mine6"
     },
     "ranch6": {
       "name": "Hellstrom Ranch",
