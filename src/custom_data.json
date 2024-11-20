@@ -4240,6 +4240,307 @@
         ]
       ]
     },
+    "cemetery5_bookplinth": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Buffalo Pile (Sleeping Quarters) - Pedestal"
+        ]
+      ]
+    },
+    "cemetery5_footlocker1": {
+      "picklock": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You pick the lock."
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "checklocation",
+          "Buffalo Pile (Sleeping Quarters) - Left Footlocker (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Buffalo Pile (Sleeping Quarters) - Left Footlocker (Item 2)"
+        ],
+        [
+          "addmeat",
+          "rand(50,80),1"
+        ]
+      ]
+    },
+    "cemetery5_footlocker3": {
+      "loot": [
+        [
+          "checklocation",
+          "Buffalo Pile (Sleeping Quarters) - Right Footlocker"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "bone"
+        ],
+        [
+          "pushrandom",
+          "skullchips"
+        ],
+        [
+          "pushrandom",
+          "looseteeth"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>5"
+        ],
+        [
+          "pushrandom",
+          "sell_goldtooth"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "pushrandom",
+          "sell_graveskull"
+        ],
+        [
+          "pushrandom",
+          "potion_gravedirt"
+        ],
+        [
+          "pushrandom",
+          "sell_oldcoins"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>8"
+        ],
+        [
+          "pushrandom",
+          "booze_grave"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "pushrandom",
+          "booze_grave2"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "if",
+          "!hasitem(ring_grave)"
+        ],
+        [
+          "pushrandom",
+          "ring_grave"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>3 && !hasitem(ring_grave2)"
+        ],
+        [
+          "pushrandom",
+          "ring_grave2"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>6 && !hasitem(lapel_grave1)"
+        ],
+        [
+          "pushrandom",
+          "lapel_grave1"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>9 && !hasitem(lapel_grave2)"
+        ],
+        [
+          "pushrandom",
+          "lapel_grave2"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>12 && !hasitem(lapel_grave3)"
+        ],
+        [
+          "pushrandom",
+          "lapel_grave3"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>15 && !hasitem(pants_grave)"
+        ],
+        [
+          "pushrandom",
+          "pants_grave"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>18 && !hasitem(lapel_grave4)"
+        ],
+        [
+          "pushrandom",
+          "lapel_grave4"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>21 && !hasitem(hat_grave)"
+        ],
+        [
+          "pushrandom",
+          "hat_grave"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>24 && !hasitem(lapel_grave5)"
+        ],
+        [
+          "pushrandom",
+          "lapel_grave5"
+        ],
+        [
+          "if",
+          "$sizeofrandom$>0"
+        ],
+        [
+          "additem",
+          "poprandom()"
+        ],
+        [
+          "incflag",
+          "containers_grave,1"
+        ]
+      ]
+    },
+    "cemetery5_hangingcoat": {
+      "search": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You find a key in one of the inside pockets!"
+        ],
+        [
+          "checklocation",
+          "Buffalo Pile (Storage/Assembly) - Robe Next to Slab"
+        ]
+      ]
+    },
+    "cemetery5_magazines": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "cemetery5_gotskillbook"
+        ],
+        [
+          "say",
+          "You flip through and find one book relevant to your interests."
+        ],
+        [
+          "checklocation",
+          "Buffalo Pile (Bathroom) - Magazines"
+        ]
+      ]
+    },
+    "cemetery5_toilettrash": {
+      "dig": [
+        [
+          "addflag",
+          "cemetery5_toilettrash"
+        ],
+        [
+          "checklocation",
+          "Buffalo Pile (Bathroom) - Trash Pile"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ]
+    },
     "cemetery6_boothman": {
       "takequest2": [
         [
