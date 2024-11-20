@@ -4240,6 +4240,51 @@
         ]
       ]
     },
+    "cemetery6_boothman": {
+      "takequest2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Great! Here's a list of parts. There's a place called the Buffalo Pile to the east, that's probably your best bet."
+        ],
+        [
+          "checklocation",
+          "Petting Cemetery - Accepted Buffalo Quest"
+        ],
+        [
+          "addflag",
+          "cemetery6_quest2,2"
+        ],
+        [
+          "if",
+          "!hasflag(map_cemetery5)"
+        ],
+        [
+          "mapunlock",
+          "cemetery5,Buffalo Pile"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "sayoption",
+          "done",
+          "I'm on my way."
+        ]
+      ]
+    },
     "cemetery6_touchskeleton": {
       "skeleton3": [
         [
