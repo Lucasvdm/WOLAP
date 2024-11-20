@@ -11758,6 +11758,46 @@
         ]
       ]
     },
+    "medicineshow_bookshelf": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "The Old Medicine Show - Bookcase"
+        ]
+      ]
+    },
+    "medicineshow_nightstand": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "It's full of old snake pieces!"
+        ],
+        [
+          "checklocation",
+          "The Old Medicine Show - Nightstand (Item 1)"
+        ],
+        [
+          "checklocation",
+          "The Old Medicine Show - Nightstand (Item 2)"
+        ],
+        [
+          "checklocation",
+          "The Old Medicine Show - Nightstand (Item 3)"
+        ]
+      ]
+    },
     "mine1_beaniron1": {
       "popup": [
         [
