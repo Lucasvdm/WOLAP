@@ -14317,6 +14317,391 @@
         ]
       ]
     },
+    "ranch5_animalskeleton": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You fold up the ape skeleton and stuff it in your pocket."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Office) - Animal Skeleton"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "ranch5_barbedwire": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You stuff the coil of barbed wire into your pack. Maybe you can send it to a sick friend, or something."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Barn) - Barbed Wire"
+        ]
+      ]
+    },
+    "ranch5_bed1": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Top-Left Bed"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
+    "ranch5_bed5": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Bottom-Middle Bed"
+        ]
+      ]
+    },
+    "ranch5_grainpiles": {
+      "get": [
+        [
+          "addflag",
+          "ranch5_gotgrain"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Barn) - Grain Pile"
+        ]
+      ]
+    },
+    "ranch5_hiddenkeys": {
+      "popup": [
+        [
+          "if",
+          "kelloggranch_gothiddenkeycheck"
+        ],
+        [
+          "goto",
+          "alreadygot"
+        ],
+        [
+          "say",
+          "There's a loose board here with fingerprints on it..."
+        ],
+        [
+          "if",
+          "hasitem(crowbar)"
+        ],
+        [
+          "option",
+          "pry",
+          "Pry it up [crowbar]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "pref",
+          "Pry it up [Requires crowbar]"
+        ]
+      ],
+      "pry": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There's a keyring hidden under the board!"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Main Building) - Loose Floorboard"
+        ],
+        [
+          "addflag",
+          "kelloggranch_gothiddenkeycheck"
+        ]
+      ]
+    },
+    "ranch5_kelloggdesk2": {
+      "drawer1": [
+        [
+          "say",
+          "You find a binder full of cryptic, messily-written notes, labeled \"KELLOGG'S GRAIN FLAKES PREPARATION.\""
+        ],
+        [
+          "if",
+          "kelloggranch_gotrecipecheck"
+        ],
+        [
+          "goto",
+          "alreadygotrecipe"
+        ],
+        [
+          "say",
+          "Interesting."
+        ],
+        [
+          "if",
+          "mysticality>=20"
+        ],
+        [
+          "option",
+          "decode",
+          "Decode the recipe [20 Mysticality]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "derchoad",
+          "Decode the recipe [Requires 20 Mysticality]"
+        ],
+        [
+          "option",
+          "done",
+          "Well, not really."
+        ]
+      ],
+      "decode": [
+        [
+          "say",
+          "You grab a sheet of paper and consolidate the crazy series of notes into a more-or-less straightforward recipe."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Office) - Desk Drawer"
+        ],
+        [
+          "addflag",
+          "kelloggranch_gotrecipecheck"
+        ],
+        [
+          "option",
+          "done",
+          "Excellent."
+        ]
+      ]
+    },
+    "ranch5_locker1": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(ranch5_locker1looted)"
+        ],
+        [
+          "goto",
+          "empty"
+        ],
+        [
+          "say",
+          "Looks like this one belonged to a cook."
+        ],
+        [
+          "addflag",
+          "ranch5_locker1looted"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - First Locker (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - First Locker (Item 2)"
+        ]
+      ]
+    },
+    "ranch5_locker2": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(ranch5_locker2looted)"
+        ],
+        [
+          "goto",
+          "empty"
+        ],
+        [
+          "addflag",
+          "ranch5_locker2looted"
+        ],
+        [
+          "say",
+          "Looks like this person had a secret stash of candy in addition to an earnest commitment to fitness."
+        ],
+        [
+          "additem",
+          "potion_candy4,rand(2,3)"
+        ],
+        [
+          "additem",
+          "potion_candy5,rand(2,3)"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Second Locker"
+        ]
+      ]
+    },
+    "ranch5_locker4": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(ranch5_locker4looted)"
+        ],
+        [
+          "goto",
+          "empty"
+        ],
+        [
+          "addflag",
+          "ranch5_locker4looted"
+        ],
+        [
+          "say",
+          "There's nothing in this locker but a sewing kit.  Needles and thread."
+        ],
+        [
+          "say",
+          "You take the needles and leave the thread."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Fourth Locker"
+        ]
+      ]
+    },
+    "ranch5_locker5": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(ranch5_locker5looted)"
+        ],
+        [
+          "goto",
+          "empty"
+        ],
+        [
+          "addflag",
+          "ranch5_locker5looted"
+        ],
+        [
+          "say",
+          "Whoever had this locker was apparently hiding some... performance enhancers."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Fifth Locker"
+        ]
+      ]
+    },
+    "ranch5_locker6": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(ranch5_locker6looted)"
+        ],
+        [
+          "goto",
+          "empty"
+        ],
+        [
+          "addflag",
+          "ranch5_locker6looted"
+        ],
+        [
+          "say",
+          "The locker is filled with dirty laundry.  Assuming that the laundry at the very bottom of the pile was hidden there on purpose because it's really important, you grab it."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Sixth Locker (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Dormitory) - Sixth Locker (Item 2)"
+        ]
+      ]
+    },
+    "ranch5_oven2": {
+      "finish": [
+        [
+          "say",
+          "You set the time knob to $time$ minutes and wait for the oven to finish."
+        ],
+        [
+          "addstate",
+          "total,=$temp$*$time$"
+        ],
+        [
+          "if",
+          "$total$<5120"
+        ],
+        [
+          "goto",
+          "toocold"
+        ],
+        [
+          "if",
+          "$total$>5120"
+        ],
+        [
+          "goto",
+          "toohot"
+        ],
+        [
+          "say",
+          "The oven dings and a perfectly-cooked tray of toasty flakes emerges from the slot."
+        ],
+        [
+          "checklocation",
+          "Kellogg Ranch (Kitchen) - Dough Baked"
+        ],
+        [
+          "option",
+          "done",
+          "They're Grrrreat!"
+        ]
+      ]
+    },
     "ranch6_bookshelf": {
       "e": [
         [
