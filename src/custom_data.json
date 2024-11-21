@@ -9951,6 +9951,50 @@
         ]
       ]
     },
+    "fort5_generaldesk": {
+      "inv": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "The desk is basically empty, but you do find an old medal discarded in one of the drawers."
+        ],
+        [
+          "checklocation",
+          "Fort Unnecessary - Administration Desk"
+        ],
+        [
+          "addflag",
+          "fort5_generaldesk"
+        ]
+      ]
+    },
+    "fort5_timerift": {
+      "grab": [
+        [
+          "addflag",
+          "fort5_rift"
+        ],
+        [
+          "say",
+          "You snatch the rectangle, and the view through the window is replaced with static."
+        ],
+        [
+          "checklocation",
+          "Fort Unnecessary - Time Portal"
+        ],
+        [
+          "say",
+          "Wow, this is a <i>nice</i> rectangle!"
+        ],
+        [
+          "option",
+          "done",
+          "Strange"
+        ]
+      ]
+    },
     "fort6_bookshelf": {
       "get": [
         [
