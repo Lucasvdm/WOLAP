@@ -10487,6 +10487,76 @@
         ]
       ]
     },
+    "fort7_rentaldude": {
+      "start": [
+        [
+          "say",
+          "Looks like this is where you go to rent a mule. Just judging from the sign, you know."
+        ],
+        [
+          "rightportrait",
+          "rentaldude"
+        ],
+        [
+          "rightsay",
+          "Howdy, welcome to Alamo Rent-a-Mule. How can I help you?"
+        ],
+        [
+          "if",
+          "hasflag(fort5_knowsaboutmule) && !hasflag(fort5_privatebowlegs) && !fort7_gotmulecontractcheck"
+        ],
+        [
+          "sayoption",
+          "rent",
+          "I'd like to rent a mule."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "sayoption",
+          "no",
+          "I'd like to rent a mule."
+        ],
+        [
+          "sayoption",
+          "done",
+          "You can't, never mind."
+        ]
+      ],
+      "buy": [
+        [
+          "rightsay",
+          "Great! Here's your contract-slash-certificate of title."
+        ],
+        [
+          "addmeat",
+          "-1500"
+        ],
+        [
+          "checklocation",
+          "Alamo Rent-A-Mule - Rented a Mule"
+        ],
+        [
+          "addflag",
+          "fort7_gotmulecontractcheck"
+        ],
+        [
+          "leftsay",
+          "Thanks, I guess. Can you have to mule delivered to Fort Unnecessary, to the south?"
+        ],
+        [
+          "rightsay",
+          "No problem! Thanks for choosing Alamo Rent-a-Mule, and please remember us for all your future mule needs!"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Yeah, sure."
+        ]
+      ]
+    },
     "frisco_flyer": {
       "e": [
         [
