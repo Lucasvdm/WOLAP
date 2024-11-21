@@ -12386,6 +12386,105 @@
         ]
       ]
     },
+    "hallowaystore_curlysmeat": {
+      "dig": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "Hooray!"
+        ],
+        [
+          "checklocation",
+          "Halloway's Hideaway - X Marks the Spot"
+        ],
+        [
+          "addflag",
+          "curly_treasuregot"
+        ],
+        [
+          "removeitem",
+          "quest_curlymap"
+        ]
+      ]
+    },
+    "hallowaystore_store": {
+      "givemap": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightportrait",
+          "halloway"
+        ],
+        [
+          "rightsay",
+          "Aha. Well, since you came all this way just to return my pin, I guess you're the trustworthy sort Curly was lookin' for. Here ya go, this is the other half a' that map."
+        ],
+        [
+          "checklocation",
+          "Halloway's Hideaway - Half of Curly's Map"
+        ],
+        [
+          "addflag",
+          "hallowaystore_stoppin"
+        ],
+        [
+          "option",
+          "done",
+          "Wow, thanks!"
+        ]
+      ],
+      "opts": [
+        [
+          "if",
+          "hasflag(ranch1_grace)==2 && !hasflag(hallowaystore_grace)"
+        ],
+        [
+          "sayoption",
+          "grace",
+          "What happened to the squirrels?"
+        ],
+        [
+          "if",
+          "hasitem(quest_hallowaykeepsake) && !hasstate(keepsake) && !hasflag(hallowaystore_stoppin)"
+        ],
+        [
+          "sayoption",
+          "keepsake",
+          "H. Halloway? I found this silver pin..."
+        ],
+        [
+          "if",
+          "hasflag(curly_mapread) && !hasflag(hallowaystore_stoppin)"
+        ],
+        [
+          "sayoption",
+          "mapask2",
+          "You know a fella name of Curly? I found part of a map..."
+        ],
+        [
+          "sayoption",
+          "launch",
+          "Let me see what you're selling."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Well, see you later."
+        ]
+      ]
+    },
     "house_macready": {
       "seven": [
         [
