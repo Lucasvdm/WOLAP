@@ -14225,6 +14225,21 @@
         ]
       ]
     },
+    "moonshinestill_usestill": {
+      "getjar": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Moonshine Still - Free Jar"
+        ],
+        [
+          "addflag",
+          "moonshinestill_first"
+        ]
+      ]
+    },
     "necrotower_necromancer": {
       "annihilate3": [
         [
