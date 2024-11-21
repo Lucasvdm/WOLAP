@@ -7918,6 +7918,24 @@
         ]
       ]
     },
+    "elvibrato7_crowntable": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "It's a perfect fit!"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Control Center - El Vibrato Quest Completion"
+        ]
+      ]
+    },
     "fort1_generalgob": {
       "win": [
         [
@@ -14225,6 +14243,123 @@
         ]
       ]
     },
+    "mine8_beaniron3": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Deepest Delve Mine (Alt Entrance) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine8_bracelet": {
+      "e": [
+        [
+          "addflag",
+          "mine8_gotbracelet"
+        ],
+        [
+          "checklocation",
+          "Deepest Delve Mine (Level 2) - Bracelet"
+        ]
+      ]
+    },
+    "mine8_coalsmasher": {
+      "e2": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "coalsmasher_smash"
+        ],
+        [
+          "say",
+          "The machine works its magic, and compresses the massive lump of coal into a much smaller lump of coal."
+        ],
+        [
+          "addflag",
+          "mine8_coalcart,3"
+        ],
+        [
+          "checklocation",
+          "Deepest Delve Mine - Coal Smasher 5000"
+        ]
+      ]
+    },
+    "mine8_l2altarpop": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You put the cross in your pack."
+        ],
+        [
+          "checklocation",
+          "Deepest Delve Mine (Level 2) - Cult Altar"
+        ],
+        [
+          "addflag",
+          "mine8_gotelvcross"
+        ]
+      ]
+    },
+    "mine8_partcrate": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "Huh.  All it had in it was a gas cap."
+        ],
+        [
+          "checklocation",
+          "Deepest Delve Mine (Alt Entrance) - Toolbox"
+        ]
+      ]
+    },
     "moonshinestill_usestill": {
       "getjar": [
         [
@@ -19285,6 +19420,255 @@
         }
       },
       "parentwaa": "mine7"
+    },
+    "mine8_level1": {
+      "name": "Deepest Delve Mine (Level 1)",
+      "width": "3.000",
+      "ground": null,
+      "sky": "",
+      "startxy": "850,200",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side2",
+      "foregroundparallax": "foreground_minesupport,foreground_mineceiling1,foreground_mineceiling2,foreground_mineceiling1",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "mine8",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 2070.0,
+          "z": 327.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine8_beaniron3",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "blocker": {
+          "asset": "bigrubblepile2",
+          "usedasset": null,
+          "x": 1481.0,
+          "z": 227.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine8_level1__blocker__popup",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "extendback": 1.0
+        },
+        "coalshaft": {
+          "asset": "coalshaft2",
+          "usedasset": null,
+          "x": 185.0,
+          "z": 219.0,
+          "height": 864.0,
+          "width": 547.0,
+          "condition": "",
+          "script": "autoscript__mine8_level1__coalshaft__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "elevator": {
+          "asset": "elevator",
+          "usedasset": null,
+          "x": 1074.0,
+          "z": 243.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "elevator_template_hollow",
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "elevatorengine": {
+          "asset": "mineengine",
+          "usedasset": null,
+          "x": 1305.0,
+          "z": 244.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "elevator_collider": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1110.0,
+          "z": 242.0,
+          "height": 10.0,
+          "width": 180.0,
+          "condition": "",
+          "script": "mine8_elevatordown",
+          "proximity": 0.0,
+          "shootableheight": 155.0,
+          "door": 1.0
+        },
+        "elevator_shroud": {
+          "asset": "elevator_hollow_shroud",
+          "usedasset": null,
+          "x": 1074.0,
+          "z": 253.0,
+          "height": 675.0,
+          "width": 751.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "exit": {
+          "asset": "minedoor_rope2",
+          "usedasset": null,
+          "x": 642.0,
+          "z": 244.0,
+          "height": 486.0,
+          "width": 546.0,
+          "condition": "",
+          "script": "autoscript__mine8_level1__exit__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "exit2": {
+          "asset": "exitladder",
+          "usedasset": null,
+          "x": 2724.0,
+          "z": 205.0,
+          "height": 909.0,
+          "width": 619.0,
+          "condition": "",
+          "script": "autoscript__mine8_level1__exit2__exec",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "partcrate": {
+          "asset": "toolbox",
+          "usedasset": "toolbox",
+          "x": 2430.0,
+          "z": 205.0,
+          "height": 110.0,
+          "width": 137.0,
+          "condition": "",
+          "script": "mine8_partcrate",
+          "proximity": 0.0
+        },
+        "rocks1": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 634.0,
+          "z": 239.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 798.0,
+          "z": 243.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rubble2": {
+          "asset": "trashpile3",
+          "usedasset": null,
+          "x": 1515.0,
+          "z": 123.0,
+          "height": 142.0,
+          "width": 242.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble3": {
+          "asset": "trashpile1",
+          "usedasset": null,
+          "x": 1732.0,
+          "z": 25.0,
+          "height": 142.0,
+          "width": 242.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "rubble4": {
+          "asset": "bigrubblepile5",
+          "usedasset": null,
+          "x": 1529.0,
+          "z": 88.0,
+          "height": 142.0,
+          "width": 242.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "rubble5": {
+          "asset": "bigrubblepile4",
+          "usedasset": null,
+          "x": 1547.0,
+          "z": 162.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble6": {
+          "asset": "bigrubblepile3",
+          "usedasset": null,
+          "x": 1531.0,
+          "z": 180.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble7": {
+          "asset": "rubblepile",
+          "usedasset": null,
+          "x": 1567.0,
+          "z": 0.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble8": {
+          "asset": "bigrubblepile3",
+          "usedasset": null,
+          "x": 1589.0,
+          "z": 103.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        }
+      },
+      "parentwaa": "mine8"
     },
     "ranch6": {
       "name": "Hellstrom Ranch",
