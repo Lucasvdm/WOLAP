@@ -7856,6 +7856,27 @@
         ]
       ]
     },
+    "elvibrato6_useterminal": {
+      "makekey": [
+        [
+          "checklocation",
+          "El Vibrato Chamber (Curious False Mountain) - Chronokey Fabrication"
+        ],
+        [
+          "say",
+          "The terminal makes a type of sound you've never heard before, and your bag gets slightly heavier.  You investigate, and find a... oh yeah, it's just that weird El Vibrato thing you found in the woods when you were six.  That thing has been there the whole time."
+        ],
+        [
+          "addflag",
+          "elvibrato6_timekey"
+        ],
+        [
+          "option",
+          "done",
+          "Yeah.  The whole time."
+        ]
+      ]
+    },
     "fort1_generalgob": {
       "win": [
         [
