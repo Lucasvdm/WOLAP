@@ -7856,6 +7856,47 @@
         ]
       ]
     },
+    "elvibrato5_corpseman": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "Ooh, they had a bunch of El Vibrato stuff!"
+        ],
+        [
+          "additem",
+          "elv_scrap,rand(4,6)"
+        ],
+        [
+          "checklocation",
+          "Curious Flat Plain - Explorer Skeleton"
+        ],
+        [
+          "additem",
+          "elv_punchcard1,rand(2,4)"
+        ]
+      ]
+    },
+    "elvibrato5_trashpile": {
+      "e": [
+        [
+          "addflag",
+          "elvibrato5_gotgarbage,2"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Curious Flat Plain - Garbage Return"
+        ]
+      ]
+    },
     "elvibrato6_useterminal": {
       "makekey": [
         [
