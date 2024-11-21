@@ -10480,6 +10480,87 @@
         ]
       ]
     },
+    "geologist_bench2": {
+      "fix": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "Oh yeah?"
+        ],
+        [
+          "leftspeak",
+          "Sure!  Just gotta hook this wire up to this spring, twist this flange a little, and Bob's yer uncle."
+        ],
+        [
+          "rightspeak",
+          "Oh, huh! Clever! Well, I'm still not interested in them. You can keep them if you want."
+        ],
+        [
+          "checklocation",
+          "Dr. Morton's House - Workbench"
+        ],
+        [
+          "addflag",
+          "geologist_boots"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks!"
+        ]
+      ]
+    },
+    "geologist_josiequarry": {
+      "quest11b": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "addflag",
+          "geologistquest,12"
+        ],
+        [
+          "rightspeak",
+          "I'll be giving you an assistant credit when I publish, of course. I'd like to give you a more material reward, but I spent most of the grant money on the drilling rig..."
+        ],
+        [
+          "rightsay",
+          "Oh, how about this? I don't need this hexitite sample any more. Maybe you could wear it as a hat?"
+        ],
+        [
+          "checklocation",
+          "Morton's Quarry - Dr. Morton's Quest Completion"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks!"
+        ]
+      ]
+    },
+    "geologist_prizehole": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Ooh, it's an especially shiny rock!"
+        ],
+        [
+          "addflag",
+          "geologist_gotgem"
+        ],
+        [
+          "checklocation",
+          "Morton's Quarry (Tiny Diverticulum) - Hex Puzzle"
+        ]
+      ]
+    },
     "ghosttown1_cactusa": {
       "good": [
         [
