@@ -10480,6 +10480,23 @@
         ]
       ]
     },
+    "geocave_rock": {
+      "giverock": [
+        [
+          "checklocation",
+          "Old Cave - Weird Rock"
+        ],
+        [
+          "addflag",
+          "geologistquest,6"
+        ],
+        [
+          "option",
+          "done",
+          "Okay!"
+        ]
+      ]
+    },
     "geologist_bench2": {
       "fix": [
         [
