@@ -12289,6 +12289,251 @@
         ]
       ]
     },
+    "jewelrystore_shop": {
+      "buyglasses": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "say",
+          "The clerk invites you to have a seat in their living area while Master Gerald gets to work cutting and grinding some glass into lenses and setting them in wire frames. You flip through an indecipherable goblin magazine while you wait."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "The clerk invites you to have a seat in their living area while Master Gerald gets to work cutting and grinding some glass into lenses and setting them into wire frames. You flip through a goblin magazine while you wait; the lead article seems to be about social interaction with humans, and the value of occasionally pretending to be dumber than you actually are."
+        ],
+        [
+          "rightportrait",
+          "gobbo"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "rightsay",
+          "%goblin_paragraph%"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "Okay, close enough for government working."
+        ],
+        [
+          "rightportrait",
+          "clerk"
+        ],
+        [
+          "rightsay",
+          "Master Gerald has completed your spectacles with the utmost degree of craftsmanship. Here you are!"
+        ],
+        [
+          "addflag",
+          "fort5_glassesquest,2"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Spectacles"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks!"
+        ]
+      ],
+      "hexgem": [
+        [
+          "say",
+          "Master Gerald takes your polished thaumomorphic diorite and sets it in a fine ring for you.  He doesn't have to polish or cut it, because aeons of ley energy already did the job for him!  Maybe you should have given your $cost$ Meat to aeons of ley energy, not Gerald."
+        ],
+        [
+          "removeitem",
+          "sell_hexgem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Diorite"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "stinkgem": [
+        [
+          "say",
+          "Master Gerald takes your effluvious emerald, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_stinkgem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Emerald"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "cowgem": [
+        [
+          "say",
+          "Master Gerald takes your cowseye, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_cowgem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Cowseye"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "sapphiregem": [
+        [
+          "say",
+          "Master Gerald takes your cool sapphire, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_sapphiregem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Sapphire"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "tontinegem": [
+        [
+          "say",
+          "Master Gerald takes your unbreakable ruby, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_tontinegem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Ruby"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "coalgem": [
+        [
+          "say",
+          "Master Gerald takes your superdense coal, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_coalgem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Coal"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "silicongem": [
+        [
+          "say",
+          "Master Gerald takes your strange silvery crystal, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_silicongem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Silicon"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "diamondgem": [
+        [
+          "say",
+          "Master Gerald takes your massive diamond, cuts and polishes it, and sets it in a fine ring for you."
+        ],
+        [
+          "removeitem",
+          "sell_diamondgem"
+        ],
+        [
+          "addmeat",
+          "-$cost$"
+        ],
+        [
+          "checklocation",
+          "Jeweler's Cabin - Diamond"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ]
+    },
     "medicineshow_bookshelf": {
       "e": [
         [
