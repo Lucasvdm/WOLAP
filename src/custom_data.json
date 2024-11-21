@@ -4624,6 +4624,35 @@
         ]
       ]
     },
+    "clooncys_spittoon": {
+      "get": [
+        [
+          "say",
+          "You flip that beautiful brass bucket over and slap it onto your head, drenching yourself in hot brown tobacco spit. It washes down over your face and hair like a sewage waterfall, soaking your clothes, running down your collar and slithering into your underwear, and filling your boots. I can't even force myself to describe it in any more detail than that."
+        ],
+        [
+          "say",
+          "You are the world's foulest human being. Congratulations!"
+        ],
+        [
+          "addflag",
+          "clooncys_didspittoon"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "checklocation",
+          "Frisco - Spittoon"
+        ],
+        [
+          "option",
+          "done",
+          "Hooray!!"
+        ]
+      ]
+    },
     "clowns_camp_fightwin": {
       "dig": [
         [
@@ -10390,6 +10419,20 @@
           "option",
           "done",
           "Strange"
+        ]
+      ]
+    },
+    "frisco_flyer": {
+      "e": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Frisco - Flier on the Street"
         ]
       ]
     },
