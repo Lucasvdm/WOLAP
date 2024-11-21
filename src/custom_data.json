@@ -13519,6 +13519,237 @@
         ]
       ]
     },
+    "mine7_beaniron3_insidemain": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Abandoned Mine (Inside) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine7_beaniron3_sidetunnel1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Abandoned Mine (Side Tunnel 1) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine7_beaniron3_sidetunnel2": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean iron!"
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you are sans pickaxe."
+        ]
+      ],
+      "pickit": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "There we go!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Abandoned Mine (Side Tunnel 2) - Bean-Iron Deposit"
+        ]
+      ]
+    },
+    "mine7_cardtable": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "They're full of holes!"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Storage Room - Card Table (Item 1)"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Storage Room - Card Table (Item 2)"
+        ]
+      ]
+    },
+    "mine7_drillmachine": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You grab the pointiest part of the machine."
+        ],
+        [
+          "checklocation",
+          "Abandoned Mine (Side Tunnel 2) - Drilling Machine"
+        ],
+        [
+          "addflag",
+          "geologistquest,8"
+        ]
+      ]
+    },
+    "mine7_drywasher": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You scrub the machine down.  It doesn't look any better afterwards, but you do find some ore wedged in crannies here and there."
+        ],
+        [
+          "checklocation",
+          "Abandoned Mine - Drywasher"
+        ],
+        [
+          "addxp",
+          "10"
+        ]
+      ]
+    },
+    "mine7_fusetable": {
+      "take": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addflag",
+          "mine7_gotfuse"
+        ],
+        [
+          "checklocation",
+          "El Vibrato Storage Room - Cylinder"
+        ]
+      ]
+    },
+    "mine7_shinypile": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Abandoned Mine - Rocks to Right of Entrance"
+        ],
+        [
+          "addflag",
+          "mine7_shinypile"
+        ]
+      ]
+    },
     "necrotower_necromancer": {
       "annihilate3": [
         [
@@ -17207,6 +17438,1363 @@
         }
       },
       "parentwaa": "mine6"
+    },
+    "mine7_interior": {
+      "name": "Abandoned Mine (Inside)",
+      "width": "2.550",
+      "ground": null,
+      "sky": "",
+      "startxy": "330,175",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_minesupport,foreground_mineceiling1,foreground_mineceiling2",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "mine7",
+      "elements": {
+        "beaniron1": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 1562.0,
+          "z": 319.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine7_beaniron3_insidemain",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "commentvolume": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 2070.0,
+          "z": 124.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "!hasflag(elvibrato5_warehouse)",
+          "script": "autoscript__mine7_interior__commentvolume__popup",
+          "proximity": 0.0,
+          "noclip": 1.0,
+          "extendforward": 1.0,
+          "extendback": 1.0
+        },
+        "door1": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 679.0,
+          "z": 255.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_interior__door1__exec",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "door2": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 1179.0,
+          "z": 253.0,
+          "height": 486.0,
+          "width": 546.0,
+          "condition": "",
+          "script": "autoscript__mine7_interior__door2__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "elevator": {
+          "asset": "elevatorshaft",
+          "usedasset": null,
+          "x": 53.0,
+          "z": 233.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "elevator_shaft_template_hollow",
+          "extendback": 1.0,
+          "noshadow": 1.0,
+          "notilt": 1.0
+        },
+        "elevator_collider": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 90.0,
+          "z": 232.0,
+          "height": 10.0,
+          "width": 180.0,
+          "condition": "",
+          "script": "mine7_elevator_up",
+          "proximity": 0.0,
+          "shootableheight": 200.0,
+          "door": 1.0
+        },
+        "elevator_shroud": {
+          "asset": "elevatorshaft_shroud",
+          "usedasset": null,
+          "x": 53.0,
+          "z": 243.0,
+          "height": 862.0,
+          "width": 749.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "firstaid": {
+          "asset": "medicinecabinet",
+          "usedasset": "medicinecabinet_open",
+          "x": 519.0,
+          "z": 319.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "mine7_medicinecabinet",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "minecart1": {
+          "asset": "minecart_full",
+          "usedasset": "minecart_empty",
+          "x": 1670.0,
+          "z": 213.0,
+          "height": 234.0,
+          "width": 221.0,
+          "condition": "",
+          "script": "mine7_minecart1",
+          "proximity": 0.0
+        },
+        "rock": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 2329.0,
+          "z": 96.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock1": {
+          "asset": "rocks9",
+          "usedasset": null,
+          "x": 2249.0,
+          "z": 164.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock10": {
+          "asset": "rocks9",
+          "usedasset": null,
+          "x": 2194.0,
+          "z": 57.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock12": {
+          "asset": "rocks9",
+          "usedasset": null,
+          "x": 2446.0,
+          "z": 125.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock14": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 2116.0,
+          "z": 124.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock15": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 2153.0,
+          "z": 34.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock16": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 2330.0,
+          "z": 188.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock17": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 2210.0,
+          "z": 190.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock18": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 2397.0,
+          "z": 162.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock19": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 2397.0,
+          "z": 89.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock2": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 2325.0,
+          "z": 62.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock20": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 2494.0,
+          "z": 207.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock21": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 0.0,
+          "z": 0.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock22": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 2170.0,
+          "z": 214.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock23": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 2446.0,
+          "z": 63.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock25": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 2496.0,
+          "z": 40.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock26": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 2325.0,
+          "z": 223.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock27": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 2557.0,
+          "z": 124.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock3": {
+          "asset": "rocks7",
+          "usedasset": null,
+          "x": 2327.0,
+          "z": 24.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock4": {
+          "asset": "rocks7",
+          "usedasset": null,
+          "x": 2209.0,
+          "z": 126.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock5": {
+          "asset": "rocks7",
+          "usedasset": null,
+          "x": 2504.0,
+          "z": 125.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock6": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 2161.0,
+          "z": 125.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock7": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 2329.0,
+          "z": 153.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock8": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 2448.0,
+          "z": 183.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock9": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 2253.0,
+          "z": 85.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper1": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 1767.0,
+          "z": 118.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper2": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 1768.0,
+          "z": 101.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper3": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 1766.0,
+          "z": 75.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "switch1": {
+          "asset": "tracklever_left",
+          "usedasset": null,
+          "x": 615.0,
+          "z": 149.0,
+          "height": 188.0,
+          "width": 263.0,
+          "condition": "",
+          "script": "autoscript__mine7_interior__switch1__popup",
+          "proximity": 0.0,
+          "polish": "Vary up the popup messages on these switches and the ones in mine7_room1."
+        },
+        "switch2": {
+          "asset": "tracklever_left",
+          "usedasset": null,
+          "x": 1117.0,
+          "z": 145.0,
+          "height": 188.0,
+          "width": 263.0,
+          "condition": "",
+          "script": "autoscript__mine7_interior__switch2__popup",
+          "proximity": 0.0
+        },
+        "teleportcollider": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 2280.0,
+          "z": 122.0,
+          "height": 10.0,
+          "width": 130.0,
+          "condition": "hasflag(mine7_elvopen)",
+          "script": "mine7_teleportdown",
+          "proximity": 0.0,
+          "shootableheight": 150.0
+        },
+        "teleporter": {
+          "asset": "elv_teleporter2",
+          "usedasset": null,
+          "x": 2262.0,
+          "z": 124.0,
+          "height": 466.0,
+          "width": 501.0,
+          "condition": "hasflag(mine7_elvopen)",
+          "script": "",
+          "proximity": 0.0,
+          "elvibrato": 1.0,
+          "noshadow": 1.0
+        },
+        "teleporterpile": {
+          "asset": "rockstack",
+          "usedasset": null,
+          "x": 2254.0,
+          "z": 121.0,
+          "height": 549.0,
+          "width": 559.0,
+          "condition": "!hasflag(mine7_elvopen)",
+          "script": "mine7_teleporterpile",
+          "proximity": 0.0
+        },
+        "tracks1": {
+          "asset": "tracks1",
+          "usedasset": null,
+          "x": 257.0,
+          "z": 75.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks2": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 847.0,
+          "z": 74.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks3": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 1007.0,
+          "z": 75.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks4": {
+          "asset": "tracks1",
+          "usedasset": null,
+          "x": 1344.0,
+          "z": 76.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracksbend": {
+          "asset": "tracksbend",
+          "usedasset": null,
+          "x": 140.0,
+          "z": 75.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0,
+          "floordecal": 1.0
+        },
+        "trackst": {
+          "asset": "tracksjunction",
+          "usedasset": null,
+          "x": 672.0,
+          "z": 74.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "trackst2": {
+          "asset": "tracksjunction",
+          "usedasset": null,
+          "x": 1169.0,
+          "z": 75.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        }
+      },
+      "parentwaa": "mine7"
+    },
+    "mine7_room1": {
+      "name": "Abandoned Mine (Side Tunnel 1)",
+      "width": "2.500",
+      "ground": null,
+      "sky": "",
+      "startxy": "300,40",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_mineframe",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "basewaa": "mine7",
+      "elements": {
+        "beaniron": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 2443.0,
+          "z": 303.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine7_beaniron3_sidetunnel1",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "cart2": {
+          "asset": "minecart_full",
+          "usedasset": "minecart_empty",
+          "x": 2219.0,
+          "z": 203.0,
+          "height": 234.0,
+          "width": 221.0,
+          "condition": "",
+          "script": "mine7_cart2",
+          "proximity": 0.0
+        },
+        "cart3": {
+          "asset": "minecart_full",
+          "usedasset": "minecart_empty",
+          "x": 2442.0,
+          "z": 142.0,
+          "height": 234.0,
+          "width": 221.0,
+          "condition": "",
+          "script": "mine7_cart3",
+          "proximity": 0.0
+        },
+        "cart4": {
+          "asset": "minecart_full",
+          "usedasset": "minecart_empty",
+          "x": 2304.0,
+          "z": 13.0,
+          "height": 234.0,
+          "width": 221.0,
+          "condition": "",
+          "script": "mine7_cart4",
+          "proximity": 0.0
+        },
+        "coldoor": {
+          "asset": "minedoor_collapsed",
+          "usedasset": null,
+          "x": 1131.0,
+          "z": 250.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0,
+          "extendback": 1.0
+        },
+        "elvchest": {
+          "asset": "elv_chest_locked",
+          "usedasset": "elv_chest_open",
+          "x": 33.0,
+          "z": 47.0,
+          "height": 135.0,
+          "width": 278.0,
+          "condition": "hasflag(mine7_cache)",
+          "script": "elv_chest",
+          "proximity": 0.0,
+          "elvibrato": 1.0,
+          "": "maybe usedscript"
+        },
+        "elvchestnotice": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 173.0,
+          "z": 68.0,
+          "height": 30.0,
+          "width": 30.0,
+          "condition": "!hasflag(mine7_cache)",
+          "script": "mine7_elvcache",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "extendback": 1.0,
+          "noclip": 1.0
+        },
+        "exit": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 229.0,
+          "z": 253.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_room1__exit__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0
+        },
+        "rock1": {
+          "asset": "rocks1",
+          "usedasset": null,
+          "x": 32.0,
+          "z": 57.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock2": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 31.0,
+          "z": 32.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock3": {
+          "asset": "rocks5",
+          "usedasset": null,
+          "x": 97.0,
+          "z": 61.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rock4": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 97.0,
+          "z": 31.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rocks1": {
+          "asset": "rocks6",
+          "usedasset": null,
+          "x": 225.0,
+          "z": 252.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 379.0,
+          "z": 252.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks3": {
+          "asset": "rocks4",
+          "usedasset": null,
+          "x": 1121.0,
+          "z": 245.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0,
+          "extendback": 1.0
+        },
+        "rocks4": {
+          "asset": "rocks3",
+          "usedasset": null,
+          "x": 1267.0,
+          "z": 243.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0,
+          "extendback": 1.0
+        },
+        "snake": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 1837.0,
+          "z": 188.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(mine7_snake)",
+          "script": "mine7_snake",
+          "proximity": 0.0,
+          "prefab": "snake_coal",
+          "extendforward": 1.0,
+          "extendback": 1.0,
+          "ambientsound": "snake_group_loop, 180"
+        },
+        "snake2": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 1910.0,
+          "z": 38.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(mine7_snake)",
+          "script": "mine7_snake",
+          "proximity": 0.0,
+          "prefab": "snake_coal",
+          "extendforward": 1.0,
+          "extendback": 1.0
+        },
+        "snake3": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 1962.0,
+          "z": 188.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(mine7_snake)",
+          "script": "mine7_snake",
+          "proximity": 0.0,
+          "prefab": "snake_coal",
+          "extendforward": 1.0,
+          "extendback": 1.0
+        },
+        "stopper1": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 5.0,
+          "z": 168.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper2": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 7.0,
+          "z": 151.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "stopper3": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 6.0,
+          "z": 130.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "stopper4": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 2302.0,
+          "z": 173.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper5": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 2301.0,
+          "z": 151.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper6": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 2300.0,
+          "z": 121.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "switch": {
+          "asset": "tracklever_up",
+          "usedasset": null,
+          "x": 389.0,
+          "z": 188.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_room1__switch__popup",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "switch2": {
+          "asset": "tracklever_up",
+          "usedasset": null,
+          "x": 1322.0,
+          "z": 188.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_room1__switch2__popup",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "tracks1": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 67.0,
+          "z": 126.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks2": {
+          "asset": "tracks1",
+          "usedasset": null,
+          "x": 397.0,
+          "z": 126.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks3": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 809.0,
+          "z": 126.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks4": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 970.0,
+          "z": 127.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks5": {
+          "asset": "tracks1",
+          "usedasset": null,
+          "x": 1304.0,
+          "z": 127.0,
+          "height": 168.0,
+          "width": 1256.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks6": {
+          "asset": "tracks1",
+          "usedasset": null,
+          "x": 1722.0,
+          "z": 127.0,
+          "height": 168.0,
+          "width": 1256.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks7": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 2136.0,
+          "z": 127.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "trackst": {
+          "asset": "tracksjunction",
+          "usedasset": null,
+          "x": 225.0,
+          "z": 126.0,
+          "height": 398.0,
+          "width": 539.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "trackst2": {
+          "asset": "tracksjunction",
+          "usedasset": null,
+          "x": 1130.0,
+          "z": 127.0,
+          "height": 398.0,
+          "width": 539.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        }
+      },
+      "parentwaa": "mine7"
+    },
+    "mine7_room2": {
+      "name": "Abandoned Mine (Side Tunnel 2)",
+      "width": "1.500",
+      "ground": null,
+      "sky": "",
+      "startxy": "1290,95",
+      "horizon": "wallmine_tile1",
+      "leftwall": "wallmine_side1",
+      "rightwall": "wallmine_side1",
+      "foregroundparallax": "foreground_mineframe",
+      "foregroundbrightness": ".5",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt1",
+      "music": "music_cavemine",
+      "ambientsound1": "cave_ambience_loop",
+      "basewaa": "mine7",
+      "elements": {
+        "beanholder": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 710.0,
+          "z": 319.0,
+          "height": 50.0,
+          "width": 50.0,
+          "condition": "hasskill(cookery)",
+          "script": "mine7_beaniron3_sidetunnel2",
+          "proximity": 0.0,
+          "emitter": "twinkles",
+          "notilt": 1.0
+        },
+        "digger_bit": {
+          "asset": "drillmachine_bit",
+          "usedasset": null,
+          "x": 308.0,
+          "z": 12.0,
+          "height": 310.0,
+          "width": 424.0,
+          "condition": "geologistquest<=7",
+          "script": "mine7_drillmachine",
+          "proximity": 0.0
+        },
+        "digger_nobit": {
+          "asset": "drillmachine_nobit",
+          "usedasset": null,
+          "x": 308.0,
+          "z": 12.0,
+          "height": 310.0,
+          "width": 306.0,
+          "condition": "geologistquest>7",
+          "script": "",
+          "proximity": 0.0
+        },
+        "emptycart": {
+          "asset": "minecart_empty2",
+          "usedasset": null,
+          "x": 1398.0,
+          "z": 36.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "exit": {
+          "asset": "minedoor",
+          "usedasset": null,
+          "x": 1161.0,
+          "z": 251.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_room2__exit__exec",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "noshadow": 1.0,
+          "notilt": 1.0
+        },
+        "ladderdown": {
+          "asset": "ladderhole",
+          "usedasset": null,
+          "x": 224.0,
+          "z": 191.0,
+          "height": 182.0,
+          "width": 394.0,
+          "condition": "",
+          "script": "autoscript__mine7_room2__ladderdown__exec",
+          "proximity": 0.0
+        },
+        "rocks1": {
+          "asset": "rocks9",
+          "usedasset": null,
+          "x": 1148.0,
+          "z": 246.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rocks2": {
+          "asset": "rocks7",
+          "usedasset": null,
+          "x": 1320.0,
+          "z": 246.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "noshadow": 1.0
+        },
+        "rubble1": {
+          "asset": "rocks3",
+          "usedasset": null,
+          "x": 350.0,
+          "z": 164.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble2": {
+          "asset": "rocks4",
+          "usedasset": null,
+          "x": 177.0,
+          "z": 217.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble3": {
+          "asset": "rocks2",
+          "usedasset": null,
+          "x": 181.0,
+          "z": 164.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "rubble4": {
+          "asset": "rocks8",
+          "usedasset": null,
+          "x": 352.0,
+          "z": 218.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "spiral1": {
+          "asset": "spiral1",
+          "usedasset": null,
+          "x": 199.0,
+          "z": 298.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_room2__spiral1__popup",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "spiral2": {
+          "asset": "spiral3",
+          "usedasset": null,
+          "x": 325.0,
+          "z": 274.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__mine7_room2__spiral2__popup",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "spiral3": {
+          "asset": "spiral2",
+          "usedasset": null,
+          "x": 266.0,
+          "z": 125.0,
+          "height": 122.0,
+          "width": 148.0,
+          "condition": "",
+          "script": "autoscript__mine7_room2__spiral3__popup",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "stash": {
+          "asset": "lootpile5",
+          "usedasset": "lootpile5_empty",
+          "x": 53.0,
+          "z": 68.0,
+          "height": 298.0,
+          "width": 355.0,
+          "condition": "",
+          "script": "mine7_stash",
+          "proximity": 0.0
+        },
+        "stopper1": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 525.0,
+          "z": 165.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper2": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 523.0,
+          "z": 147.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "stopper3": {
+          "asset": "minestopper",
+          "usedasset": null,
+          "x": 525.0,
+          "z": 127.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "tracks1": {
+          "asset": "tracks1",
+          "usedasset": null,
+          "x": 745.0,
+          "z": 129.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracks2": {
+          "asset": "tracks_short",
+          "usedasset": null,
+          "x": 585.0,
+          "z": 128.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "tracksbend": {
+          "asset": "tracksbend",
+          "usedasset": null,
+          "x": 1162.0,
+          "z": 129.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "floordecal": 1.0
+        },
+        "vein1": {
+          "asset": "meatvein1",
+          "usedasset": null,
+          "x": 581.0,
+          "z": 325.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "meatvein",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "vein2": {
+          "asset": "meatvein2",
+          "usedasset": null,
+          "x": 824.0,
+          "z": 302.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "meatvein",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "vein3": {
+          "asset": "meatvein2",
+          "usedasset": null,
+          "x": 622.0,
+          "z": 23.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "meatvein",
+          "proximity": 0.0,
+          "floordecal": 1.0,
+          "flip": 1.0
+        }
+      },
+      "parentwaa": "mine7"
     },
     "ranch6": {
       "name": "Hellstrom Ranch",
