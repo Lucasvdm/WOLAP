@@ -12550,6 +12550,24 @@
         ]
       ]
     },
+    "house_cocoon1": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It's bones.  Well, bones and pants."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Cellar - Rightmost Cocoon"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "house_hedgefight3": {
       "win": [
         [
@@ -12826,6 +12844,22 @@
         ]
       ]
     },
+    "house_photobox": {
+      "getit": [
+        [
+          "say",
+          "Hey, one of these is a photo of that L'Ardest guy!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Cellar - Box of Photos"
+        ],
+        [
+          "addflag",
+          "house_photoboxused"
+        ]
+      ]
+    },
     "house_photocounter": {
       "takephoto": [
         [
@@ -12860,6 +12894,24 @@
           "sayoption",
           "takephoto2",
           "Why'd you take a picture of me, then?"
+        ]
+      ]
+    },
+    "house_piesafe": {
+      "e": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Oh.  Ew."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Cellar - Pie Safe"
         ]
       ]
     },
