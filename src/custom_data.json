@@ -12568,6 +12568,47 @@
         ]
       ]
     },
+    "house_gunbench": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "hasflag(house_madeworstgun)"
+        ],
+        [
+          "goto",
+          "alreadymade"
+        ],
+        [
+          "say",
+          "You don't really know much about gunsmithing, so you just kinda randomly cram pieces together until you have something gun-shaped."
+        ],
+        [
+          "addflag",
+          "house_madeworstgun"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Laboratory - Gunsmithing Tools (Worst Gun)"
+        ]
+      ],
+      "best": [
+        [
+          "say",
+          "You follow the directions on Mrs. Gun's blueprint and construct her final gift to the world."
+        ],
+        [
+          "removeitem",
+          "quest_bestgunplan"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Laboratory - Gunsmithing Tools (Opus)"
+        ]
+      ]
+    },
     "house_hedgefight3": {
       "win": [
         [
@@ -12788,6 +12829,59 @@
         ]
       ]
     },
+    "house_lab_bismuthbench": {
+      "popup": [
+        [
+          "if",
+          "hasflag(house_madebismuthbomb)"
+        ],
+        [
+          "goto",
+          "alreadyused"
+        ],
+        [
+          "if",
+          "hasflag(house_coaltergeistintro)"
+        ],
+        [
+          "goto",
+          "makebomb"
+        ],
+        [
+          "say",
+          "This workbench is littered with scrap metal and little canisters labeled \"BISMUTH. DO NOT EAT.\""
+        ]
+      ]
+    },
+    "house_lab_bismuthbench2": {
+      "finish": [
+        [
+          "addflag",
+          "house_madebismuthbomb"
+        ],
+        [
+          "say",
+          "Florence goes to town with a hammer and pliers and comes back with a metal sphere. It has a grinning skull painted on it and a big red button on the side."
+        ],
+        [
+          "leftsay",
+          "Well, that's properly intimidating at least."
+        ],
+        [
+          "rightsay",
+          "And it ain't just a pretty face!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Laboratory - Science Bench"
+        ],
+        [
+          "option",
+          "done",
+          "Groovy"
+        ]
+      ]
+    },
     "house_lathe": {
       "e": [
         [
@@ -12912,6 +13006,223 @@
         [
           "checklocation",
           "Gun Manor Cellar - Pie Safe"
+        ]
+      ]
+    },
+    "house_sciencebox_lab": {
+      "popup": [
+        [
+          "say",
+          "It's a box of science stuff."
+        ],
+        [
+          "option",
+          "e",
+          "Grab it"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Laboratory - Science Box"
+        ],
+        [
+          "addflag",
+          "house_@script_context_data.id@"
+        ]
+      ]
+    },
+    "house_silencerbench": {
+      "e": [
+        [
+          "if",
+          "!hasflag(house_silencerplan)"
+        ],
+        [
+          "goto",
+          "nope"
+        ],
+        [
+          "if",
+          "hasitem(aug_silencer) || (house_madesilencer && !tempflag_receivedsilencer)"
+        ],
+        [
+          "goto",
+          "alreadygot"
+        ],
+        [
+          "closepopup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "house_silencerbench2"
+        ]
+      ]
+    },
+    "house_silencerbench2": {
+      "start": [
+        [
+          "addstate",
+          "nocando,0"
+        ],
+        [
+          "say",
+          "You look over the tools on the bench.  You could definitely make a silenter here."
+        ],
+        [
+          "if",
+          "hasitem(quest_silencercan)"
+        ],
+        [
+          "say",
+          "You've got the right size tin can."
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencercan) && hasflag(house_knowsilencercan) && tempflag_receivedsilencercan"
+        ],
+        [
+          "say",
+          "You don't have a 1.2337\" diameter tin can on you, but you know exactly where to get one."
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencercan) && (!hasflag(house_knowsilencercan) || !tempflag_receivedsilencercan)"
+        ],
+        [
+          "addstate",
+          "nocando,1"
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencercan) && (!hasflag(house_knowsilencercan) || !tempflag_receivedsilencercan)"
+        ],
+        [
+          "say",
+          "The first thing you'll need is a 1.2337\" diameter cylinder.  Hmm.  Maybe a tin can would work?"
+        ],
+        [
+          "if",
+          "hasitem(quest_silencerstuffing)"
+        ],
+        [
+          "say",
+          "You've got some stuffing of the appropriate density."
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencerstuffing) && hasflag(house_knowssilencerstuffing) && tempflag_receivedsilencerstuffing"
+        ],
+        [
+          "say",
+          "You don't have any appropriate stuffing, but you know right where some is."
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencerstuffing) && (!hasflag(house_knowssilencerstuffing) || !tempflag_receivedsilencerstuffing)"
+        ],
+        [
+          "addstate",
+          "nocando,1"
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencerstuffing) && (!hasflag(house_knowssilencerstuffing) || !tempflag_receivedsilencerstuffing)"
+        ],
+        [
+          "say",
+          "You'll also need some stuffing to pad out the inside of the can.  That's gonna be tricky to find."
+        ],
+        [
+          "if",
+          "$nocando$==1"
+        ],
+        [
+          "goto",
+          "end"
+        ],
+        [
+          "option",
+          "make",
+          "Make a silenter"
+        ],
+        [
+          "option",
+          "done",
+          "Don't make a silenter"
+        ]
+      ],
+      "make": [
+        [
+          "if",
+          "!hasitem(quest_silencercan) && hasitem(quest_silencerstuffing)"
+        ],
+        [
+          "say",
+          "You run upstairs and grab another string bean can from the larder."
+        ],
+        [
+          "if",
+          "hasitem(quest_silencercan) && !hasitem(quest_silencerstuffing)"
+        ],
+        [
+          "say",
+          "You run upstairs and grab another handful of stuffing from the nursery."
+        ],
+        [
+          "if",
+          "!hasitem(quest_silencercan) && !hasitem(quest_silencerstuffing)"
+        ],
+        [
+          "say",
+          "You run upstairs to grab another string bean can from the larder and some more stuffing from the nursery."
+        ],
+        [
+          "if",
+          "hasitem(quest_silencercan)"
+        ],
+        [
+          "removeitem",
+          "quest_silencercan"
+        ],
+        [
+          "if",
+          "hasitem(quest_silencerstuffing)"
+        ],
+        [
+          "removeitem",
+          "quest_silencerstuffing"
+        ],
+        [
+          "say",
+          "You drill a hole in each end of the can and carefully remove the beans."
+        ],
+        [
+          "say",
+          "Then you soak the stuffing in a vat of acoustic dampening chemicals, and carefully jam it into the can."
+        ],
+        [
+          "say",
+          "Voila!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Laboratory - Workbench"
+        ],
+        [
+          "addflag",
+          "house_madesilencer"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
         ]
       ]
     },
@@ -17494,6 +17805,199 @@
         }
       },
       "parentwaa": "elvibrato1"
+    },
+    "house_lab": {
+      "name": "Gun Manor Laboratory",
+      "width": "0.900",
+      "ground": null,
+      "sky": "",
+      "startxy": "145,100",
+      "camera": "interior",
+      "horizon": "brickwall_tile2,brickwall_tile3,brickwall_tile4,brickwall_tile1",
+      "leftwall": "wallbrick_side1",
+      "rightwall": "wallbrick_side1",
+      "foregroundparallax": "woodceiling1_good",
+      "foregroundparallaxoffset": -40.0,
+      "foregroundbrightness": ".5",
+      "groundtexture": "floor_dirt1",
+      "ambientsound1": "winchester_house_ambience",
+      "onenter": "house_labinit",
+      "music": "music_ghosthouse",
+      "ambientvolume1": ".2",
+      "dark": 1.0,
+      "darkness": ".3",
+      "nolantern": 1.0,
+      "basewaa": "house",
+      "elements": {
+        "bismuthbombbench": {
+          "asset": "bismuthbench",
+          "usedasset": null,
+          "x": 139.0,
+          "z": 250.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "house_lab_bismuthbench",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "bismuthboxes": {
+          "asset": "bismuthboxes",
+          "usedasset": null,
+          "x": 32.0,
+          "z": 247.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__house_lab__bismuthboxes__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "electriclight1": {
+          "asset": null,
+          "usedasset": null,
+          "x": 400.0,
+          "z": -180.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "coldstorage": 1.0
+        },
+        "electriclight2": {
+          "asset": null,
+          "usedasset": null,
+          "x": 200.0,
+          "z": -180.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "coldstorage": 1.0
+        },
+        "electriclight3": {
+          "asset": null,
+          "usedasset": null,
+          "x": 600.0,
+          "z": -180.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "coldstorage": 1.0
+        },
+        "exit": {
+          "asset": "housecellardoor",
+          "usedasset": null,
+          "x": 103.0,
+          "z": 0.0,
+          "height": 367.0,
+          "width": 266.0,
+          "condition": "",
+          "script": "autoscript__house_lab__exit__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 50.0
+        },
+        "ghostbuster": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 369.0,
+          "z": 10.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "house_ghostbuster_talk",
+          "proximity": 0.0,
+          "coldstorage": 1.0
+        },
+        "gunbench": {
+          "asset": "gunbench",
+          "usedasset": null,
+          "x": 666.0,
+          "z": 244.0,
+          "height": 225.0,
+          "width": 238.0,
+          "condition": "",
+          "script": "house_gunbench",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "medicinecabinet": {
+          "asset": "medicinecabinet",
+          "usedasset": "medicinecabinet_open",
+          "x": 816.0,
+          "z": 318.0,
+          "height": 164.0,
+          "width": 162.0,
+          "condition": "",
+          "script": "house_labmedicine",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "pardner": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 251.0,
+          "z": 13.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "pardner",
+          "proximity": 0.0
+        },
+        "periodic": {
+          "asset": "periodictable",
+          "usedasset": null,
+          "x": 262.0,
+          "z": 302.0,
+          "height": 242.0,
+          "width": 388.0,
+          "condition": "",
+          "script": "house_periodictable",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "sciencebox1": {
+          "asset": "sciencebox",
+          "usedasset": null,
+          "x": 544.0,
+          "z": 16.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(house_sciencebox1)",
+          "script": "house_sciencebox_lab",
+          "proximity": 0.0
+        },
+        "silencerbench": {
+          "asset": "silenterbench",
+          "usedasset": null,
+          "x": 454.0,
+          "z": 250.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "house_silencerbench",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "silencerposter": {
+          "asset": "silenterrecipe",
+          "usedasset": null,
+          "x": 541.0,
+          "z": 310.0,
+          "height": 187.0,
+          "width": 179.0,
+          "condition": "",
+          "script": "house_silencerposter",
+          "proximity": 0.0,
+          "notilt": 1.0
+        }
+      },
+      "parentwaa": "house"
     },
     "mine1_interior1": {
       "name": "Snakepit Mine (Inside)",
