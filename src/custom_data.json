@@ -12826,6 +12826,43 @@
         ]
       ]
     },
+    "house_photocounter": {
+      "takephoto": [
+        [
+          "addflag",
+          "house_gotphoto"
+        ],
+        [
+          "rightspeak",
+          "Okay then!  Smile!"
+        ],
+        [
+          "playsound",
+          "camera_flash"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Visitor Center - Photo"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "Wait a second -- this is a photograph of the house."
+        ],
+        [
+          "rightspeak",
+          "Yep!  An official Gun Manor souvenir photo!"
+        ],
+        [
+          "sayoption",
+          "takephoto2",
+          "Why'd you take a picture of me, then?"
+        ]
+      ]
+    },
     "house_trashpile": {
       "e": [
         [
@@ -12841,6 +12878,126 @@
         [
           "checklocation",
           "Back of Gun Manor - Compost Heap"
+        ]
+      ]
+    },
+    "house_vc_employee2": {
+      "mus": [
+        [
+          "addstate",
+          "crush"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Nice! That's one of Mrs. Gun's loudest inventions, you know."
+        ],
+        [
+          "say",
+          "She takes your token, puts it in the machine, and happily turns the crank. It makes a loud grinding noise, and your token drops out into a slot, somewhat longer and thinner."
+        ],
+        [
+          "removeitem",
+          "quest_housetoken"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Visitor Center - Token Smasher (Shotgun)"
+        ],
+        [
+          "sayoption",
+          "prehub",
+          "Thanks!"
+        ]
+      ],
+      "myst": [
+        [
+          "addstate",
+          "crush"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Great! It has little sparklies around it, that's how you know it's magical. It probably also shoots beans, but that isn't in the picture."
+        ],
+        [
+          "say",
+          "She takes your token, puts it in the machine, and happily turns the crank. It makes a loud grinding noise, and your token drops out into a slot, somewhat longer and thinner."
+        ],
+        [
+          "removeitem",
+          "quest_housetoken"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Visitor Center - Token Smasher (Rifle)"
+        ],
+        [
+          "sayoption",
+          "prehub",
+          "Thanks!"
+        ]
+      ],
+      "mox": [
+        [
+          "addstate",
+          "crush"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Good choice! Someday it will make a lot of people uncomfortable if you tell them you think pistols are cool, but not here in 1895! Ha ha!"
+        ],
+        [
+          "say",
+          "She takes your token, puts it in the machine, and happily turns the crank. It makes a loud grinding noise, and your token drops out into a slot, somewhat longer and thinner."
+        ],
+        [
+          "removeitem",
+          "quest_housetoken"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Visitor Center - Token Smasher (Pistol)"
+        ],
+        [
+          "sayoption",
+          "prehub",
+          "Thanks!"
+        ]
+      ]
+    },
+    "house_vc_employee8": {
+      "buy": [
+        [
+          "say",
+          "You give the guy $meatcost$ meat and fish around the display until you find one with your name on it."
+        ],
+        [
+          "addflag",
+          "house_vc_shotglass"
+        ],
+        [
+          "addmeat",
+          "-$meatcost$"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Visitor Center - SouvenIRS Stand"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
         ]
       ]
     },
