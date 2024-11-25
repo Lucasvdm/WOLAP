@@ -12485,6 +12485,218 @@
         ]
       ]
     },
+    "house_beanbush": {
+      "e": [
+        [
+          "addflag",
+          "house_beanbush"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Hedge Maze - Bean Bush"
+        ]
+      ]
+    },
+    "house_coalmanbones": {
+      "e": [
+        [
+          "addflag",
+          "house_coalmanloot"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Back of Gun Manor - Coal Man Skeleton"
+        ]
+      ]
+    },
+    "house_hedgefight3": {
+      "win": [
+        [
+          "addflag",
+          "house_hedgefight3"
+        ],
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "Finally!"
+        ],
+        [
+          "addxp",
+          "@xpreward_w@*4"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Hedge Maze - Hedge Wizard Defeated (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Hedge Maze - Hedge Wizard Defeated (Item 2)"
+        ],
+        [
+          "additem",
+          "hedgeleaf,rand(3,4)"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "house_hedgetreasure": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "addmeat",
+          "rand(100*@house_diff@,110*@house_diff@)"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Hedge Maze - Hedge Wizard's Chest"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "house_macready": {
       "seven": [
         [
@@ -12515,6 +12727,24 @@
           "sayoption",
           "eight",
           "All right. Bye, Macready."
+        ]
+      ]
+    },
+    "house_trashpile": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You dig through the trash, and find a single item of non-trash."
+        ],
+        [
+          "checklocation",
+          "Back of Gun Manor - Compost Heap"
         ]
       ]
     },
