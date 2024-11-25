@@ -12500,6 +12500,41 @@
         ]
       ]
     },
+    "house_carriagebook": {
+      "e": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Carriage House - Leftmost Coach"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "house_carriagehammer": {
+      "e": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It's a courtesy hammer, for the coach's passengers."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Carriage House - Middle Coach"
+        ]
+      ]
+    },
     "house_coalmanbones": {
       "e": [
         [
@@ -12694,6 +12729,67 @@
         ],
         [
           "markused"
+        ]
+      ]
+    },
+    "house_hedgetrimmers": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "house_hedgetrimmers"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Carriage House - Hedge Clippers"
+        ]
+      ]
+    },
+    "house_herbicidecabinet": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There is!  There IS something useful!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Carriage House - Cabinet (Item 1)"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Carriage House - Cabinet (Item 2)"
+        ],
+        [
+          "addflag",
+          "house_herbicidecabinet"
+        ]
+      ]
+    },
+    "house_lathe": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "house_carriageroom_lathe"
+        ],
+        [
+          "say",
+          "You lathe, rinse, and repeat until the cue is fixed."
+        ],
+        [
+          "removeitem",
+          "weapon_wobblycue"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Carriage House - Lathe"
         ]
       ]
     },
