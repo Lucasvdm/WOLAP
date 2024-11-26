@@ -176,14 +176,19 @@ namespace WOLAP
             //All previously collected items are received every time you connect, so filter out old items
             var flags = MPlayer.instance.data;
             int index = Session.Items.AllItemsReceived.IndexOf(item);
-            string itemReceivedFlag = ITEM_RECEIVED_FLAG_PREFIX + item.ItemName.Replace(" ", "") + "_" + index;
+            string itemReceivedFlag = ITEM_RECEIVED_FLAG_PREFIX + item.ItemName.Replace(" ", "");
+            string itemReceivedFlagIndexed = itemReceivedFlag + "_" + index;
 
-            if (!flags.ContainsKey(itemReceivedFlag))
+            if (!flags.ContainsKey(itemReceivedFlagIndexed))
             {
                 WolapPlugin.Log.LogInfo($"Received {item.ItemDisplayName} from {item.Player} at {item.LocationDisplayName}");
 
                 bool received = itemManager.ProcessItem(item.ItemName);
-                flags.Add(itemReceivedFlag, "1");
+                flags.Add(itemReceivedFlagIndexed, "1");
+
+                //Unindexed flag is used for checking with hasflag in JSON
+                if (flags.ContainsKey(itemReceivedFlag)) flags[itemReceivedFlag] = (int.Parse(flags[itemReceivedFlag]) + 1).ToString(); //Increment flag
+                else flags.Add(itemReceivedFlag, "1");
             }
         }
 
