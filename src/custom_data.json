@@ -12528,6 +12528,29 @@
         ]
       ]
     },
+    "house_animalhead1": {
+      "take": [
+        [
+          "addflag",
+          "house_gotglasseye"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Pop! Now it's really got its eye on you."
+        ],
+        [
+          "checklocation",
+          "Mr. Gun's Trophy Room - Moose Head"
+        ],
+        [
+          "changeelementproperty",
+          "animalhead1,asset,trophy_moose_oneeye"
+        ]
+      ]
+    },
     "house_beanbush": {
       "e": [
         [
