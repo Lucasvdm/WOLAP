@@ -13748,6 +13748,25 @@
         ]
       ]
     },
+    "house_musicbooks": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Almost all of the books are dry-rotted and moth-eaten, and fall apart at a touch. You do find a copy of \"Duelling Banjos\" in reasonable shape, though."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Music Room - Book Pile"
+        ],
+        [
+          "addflag",
+          "house_musicbooks_used"
+        ]
+      ]
+    },
     "house_panshelf": {
       "popup": [
         [
@@ -13860,6 +13879,29 @@
           "sayoption",
           "takephoto2",
           "Why'd you take a picture of me, then?"
+        ]
+      ]
+    },
+    "house_piano": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Weird, it's blank!"
+        ],
+        [
+          "addflag",
+          "house_piano,1"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Music Room - Piano"
+        ],
+        [
+          "goto",
+          "step1"
         ]
       ]
     },
