@@ -12848,6 +12848,25 @@
         ]
       ]
     },
+    "house_chalkboard": {
+      "e2": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You look at the board and shudder, and then take the chalk."
+        ],
+        [
+          "addflag",
+          "house_gotchalk"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Children's Quarters - Chalkboard"
+        ]
+      ]
+    },
     "house_coalmanbones": {
       "e": [
         [
@@ -13097,6 +13116,25 @@
         [
           "goto",
           "finish1"
+        ]
+      ]
+    },
+    "house_dollmine": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "addflag",
+          "house_gotfirecracker"
+        ],
+        [
+          "say",
+          "There's a tiny stick of dynamite stuck in a little borehole. This toy is interactive!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Children's Quarters - Dollmine"
         ]
       ]
     },
