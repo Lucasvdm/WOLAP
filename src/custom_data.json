@@ -12500,6 +12500,53 @@
         ]
       ]
     },
+    "house_canshelf": {
+      "popup": [
+        [
+          "say",
+          "Cans of every shape, size, and food you don't like."
+        ],
+        [
+          "if",
+          "hasflag(house_silencerplan) && !hasflag(house_knowsilencercan)"
+        ],
+        [
+          "option",
+          "e",
+          "Wait a second..."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "if",
+          "hasflag(house_silencerplan) && !hasitem(quest_silencercan) && house_madesilencer"
+        ],
+        [
+          "option",
+          "grab",
+          "Grab another string bean can"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Eureka! These cans of string beans are exactly 1.2337\" in diameter!  They must have packed the beans lengthwise."
+        ],
+        [
+          "addflag",
+          "house_knowsilencercan"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Larder - Right Shelf"
+        ]
+      ]
+    },
     "house_carriagebook": {
       "e": [
         [
@@ -12879,6 +12926,20 @@
           "option",
           "done",
           "Groovy"
+        ]
+      ]
+    },
+    "house_lardershelf": {
+      "e": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Larder - Middle Shelf"
         ]
       ]
     },
