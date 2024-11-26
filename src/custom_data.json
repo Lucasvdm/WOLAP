@@ -12797,6 +12797,142 @@
         ]
       ]
     },
+    "house_ghost_lawyer": {
+      "givehat4": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "She looks at you silently for a moment, then looks at the watch. She winds the hands back a minute, and listens as it chimes again."
+        ],
+        [
+          "say",
+          "She sighs and shakes her head, then smiles at you."
+        ],
+        [
+          "rightsay",
+          "Thank you, @firstname@. You'd make a damn fine attorney."
+        ],
+        [
+          "say",
+          "She shakes your hand, and fades from view as she does so -- leaving her attorney's badge in your hand."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Art Gallery - Lawyer Quest Completion"
+        ],
+        [
+          "addxp",
+          "@xpreward_w@*3"
+        ],
+        [
+          "addflag",
+          "house_ghost_lawyer"
+        ],
+        [
+          "incflag",
+          "house_ghosts,-1"
+        ],
+        [
+          "incflag",
+          "house_ghosts_peaceful,1"
+        ],
+        [
+          "addflag",
+          "house_ghost_lawyer_peace"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Rest in peace, Counselor."
+        ]
+      ],
+      "keephat3": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "She looks at you silently for a moment, then sighs and shakes her head."
+        ],
+        [
+          "say",
+          "She smiles at you."
+        ],
+        [
+          "rightsay",
+          "Thank you, @firstname@. You'd make a damn fine attorney."
+        ],
+        [
+          "say",
+          "She shakes your hand, and fades from view as she does so."
+        ],
+        [
+          "addxp",
+          "@xpreward_w@*3"
+        ],
+        //TODO: When I implement check-missed points, I'll need to miss the badge check here so it can be bought from the lost & found
+        [
+          "playsound",
+          "house_ghostquest_complete"
+        ],
+        [
+          "addflag",
+          "house_ghost_lawyer"
+        ],
+        [
+          "incflag",
+          "house_ghosts,-1"
+        ],
+        [
+          "incflag",
+          "house_ghosts_peaceful,1"
+        ],
+        [
+          "addflag",
+          "house_ghost_lawyer_peace"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Rest in peace, Counselor."
+        ]
+      ],
+      "t3objection3": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "I already thought it. <i>TAKE THAT!</i>"
+        ],
+        [
+          "playsound",
+          "house_phoenix_wright_whip_,1,1,3"
+        ],
+        [
+          "say",
+          "She hurls a small book at you, which you just barely manage to catch."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Art Gallery - Clock Noon Objection"
+        ],
+        [
+          "leftsay",
+          "Gah!"
+        ],
+        [
+          "sayoption",
+          "t3objection3b",
+          "What the heck is this?"
+        ]
+      ]
+    },
     "house_ghost_librarian_convo": {
       "checkquest": [
         [
