@@ -13047,7 +13047,7 @@
         ],
         [
           "if",
-          "hasitem(aug_silencer) || (house_madesilencer && !tempflag_receivedsilencer)"
+          "hasitem(aug_silencer) || (house_madesilencer && !received_item_Silenter)"
         ],
         [
           "goto",
@@ -13085,7 +13085,7 @@
         ],
         [
           "if",
-          "!hasitem(quest_silencercan) && hasflag(house_knowsilencercan) && tempflag_receivedsilencercan"
+          "!hasitem(quest_silencercan) && hasflag(house_knowsilencercan) && received_item_1.2337\"DiameterTinCan"
         ],
         [
           "say",
@@ -13093,7 +13093,7 @@
         ],
         [
           "if",
-          "!hasitem(quest_silencercan) && (!hasflag(house_knowsilencercan) || !tempflag_receivedsilencercan)"
+          "!hasitem(quest_silencercan) && (!hasflag(house_knowsilencercan) || !received_item_1.2337\"DiameterTinCan)"
         ],
         [
           "addstate",
@@ -13101,7 +13101,7 @@
         ],
         [
           "if",
-          "!hasitem(quest_silencercan) && (!hasflag(house_knowsilencercan) || !tempflag_receivedsilencercan)"
+          "!hasitem(quest_silencercan) && (!hasflag(house_knowsilencercan) || !received_item_1.2337\"DiameterTinCan)"
         ],
         [
           "say",
@@ -13117,7 +13117,7 @@
         ],
         [
           "if",
-          "!hasitem(quest_silencerstuffing) && hasflag(house_knowssilencerstuffing) && tempflag_receivedsilencerstuffing"
+          "!hasitem(quest_silencerstuffing) && hasflag(house_knowssilencerstuffing) && received_item_WadOfStuffing"
         ],
         [
           "say",
@@ -13125,7 +13125,7 @@
         ],
         [
           "if",
-          "!hasitem(quest_silencerstuffing) && (!hasflag(house_knowssilencerstuffing) || !tempflag_receivedsilencerstuffing)"
+          "!hasitem(quest_silencerstuffing) && (!hasflag(house_knowssilencerstuffing) || !received_item_WadOfStuffing)"
         ],
         [
           "addstate",
@@ -13133,7 +13133,7 @@
         ],
         [
           "if",
-          "!hasitem(quest_silencerstuffing) && (!hasflag(house_knowssilencerstuffing) || !tempflag_receivedsilencerstuffing)"
+          "!hasitem(quest_silencerstuffing) && (!hasflag(house_knowssilencerstuffing) || !received_item_WadOfStuffing)"
         ],
         [
           "say",
