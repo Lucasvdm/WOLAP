@@ -12551,6 +12551,28 @@
         ]
       ]
     },
+    "house_atticstick": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "playsound",
+          "house_dish_break_05"
+        ],
+        [
+          "checklocation",
+          "Mrs. Gun's Room - Display Case"
+        ],
+        [
+          "addflag",
+          "house_gotatticstick"
+        ]
+      ]
+    },
     "house_beanbush": {
       "e": [
         [
@@ -13802,6 +13824,51 @@
         ],
         [
           "markused"
+        ]
+      ]
+    },
+    "house_mrsgunfinal2": {
+      "family2": [
+        [
+          "leftsay",
+          "Yeah. He didn't know you were already dead, so he's been hiding in your attic for the last couple days, waiting for the ghosts to kill you. What do you want me to do with him?"
+        ],
+        [
+          "rightsay",
+          "<i>sigh...</i> I'll leave it up to you. I'm not in a state to make any reasoned judgement. In any case, you've answered my question, and I can feel myself moving on already. Thank you for all your help."
+        ],
+        [
+          "say",
+          "With a sad wave, Mrs. Gun fades from view. Then, almost as an afterthought, the lock on her desk drawer pops open. Inside, you find a check written out to Cunningham Ghost Annihilation Services (which Flo snags with a \"Cha-ching!\") and a blueprint."
+        ],
+        [
+          "addflag",
+          "house_mrsgunfinal"
+        ],
+        [
+          "incflag",
+          "house_ghosts,-1"
+        ],
+        [
+          "incflag",
+          "house_ghosts_peaceful,1"
+        ],
+        [
+          "if",
+          "hasflag(house_ghosts_peaceful)==13"
+        ],
+        [
+          "giveachievement",
+          "ach_manorpeaceful"
+        ],
+        [
+          "checklocation",
+          "Mrs. Gun's Room - All Ghosts Settled Peacefully"
+        ],
+        [
+          "option",
+          "walkaway",
+          "Alrighty"
         ]
       ]
     },
