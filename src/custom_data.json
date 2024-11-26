@@ -12881,6 +12881,43 @@
         ]
       ]
     },
+    "house_cuerack": {
+      "popup": [
+        [
+          "if",
+          "house_gotcuerackcheck"
+        ],
+        [
+          "say",
+          "It's a rack of billiards cues, but you've already got one."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "getone"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You inspect them and take the best one, which isn't saying much."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Billiards Room - Cue Rack"
+        ],
+        [
+          "addflag",
+          "house_gotcuerackcheck"
+        ]
+      ]
+    },
     "house_dessertcart": {
       "e": [
         [
@@ -13841,6 +13878,25 @@
         [
           "checklocation",
           "Gun Manor Cellar - Pie Safe"
+        ]
+      ]
+    },
+    "house_pooltable": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You grab the most appealing ball."
+        ],
+        [
+          "addflag",
+          "house_gotpoolball"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Billiards Room - Pool Table"
         ]
       ]
     },
