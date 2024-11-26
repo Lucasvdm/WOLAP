@@ -12938,6 +12938,30 @@
         ]
       ]
     },
+    "house_panshelf": {
+      "popup": [
+        [
+          "goto",
+          "beanslinger"
+        ],
+        [
+          "say",
+          "This shelf is full of pots and pans, none of which are interesting to you."
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Kitchen - Pot Shelf"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "house_parlorsofa": {
       "e": [
         [
@@ -13246,6 +13270,58 @@
           "option",
           "done",
           "Nice"
+        ]
+      ]
+    },
+    "house_spicerack": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Kitchen - Spice Rack"
+        ],
+        [
+          "addflag",
+          "house_gotspices"
+        ]
+      ]
+    },
+    "house_stove2": {
+      "step4": [
+        [
+          "addflag",
+          "house_madechili"
+        ],
+        [
+          "removeitem",
+          "quest_housespices"
+        ],
+        [
+          "if",
+          "hasitem(quest_housebeans)"
+        ],
+        [
+          "removeitem",
+          "quest_housebeans"
+        ],
+        [
+          "say",
+          "You restrain yourself from adding a gun, step back, and admire your handiwork."
+        ],
+        [
+          "say",
+          "It's not according-to-Hoyle chili because it doesn't have a gun in it, but it <i>is</i> chili with no gun in it, which is the thing you were after."
+        ],
+        [
+          "checklocation",
+          "quest_gunlesschili"
+        ],
+        [
+          "option",
+          "done",
+          "Finally!"
         ]
       ]
     },
