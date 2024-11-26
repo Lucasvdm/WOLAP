@@ -12615,6 +12615,24 @@
         ]
       ]
     },
+    "house_dessertcart": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Okay, it's not <i>entirely</i> deserted. It's only deserted of desserts. Just desserts."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Dining Room - Dessert Cart"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "house_gunbench": {
       "e": [
         [
