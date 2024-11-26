@@ -12485,6 +12485,49 @@
         ]
       ]
     },
+    "house_airbnbookshelf": {
+      "skillbook": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Hey, there's actually a useful book hidden among all this crap!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Guest Room 1 - Bookcase"
+        ],
+        [
+          "goto",
+          "keepon"
+        ]
+      ]
+    },
+    "house_airbnbsewing": {
+      "e8": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Oh god. Just take it, okay? Take it and get the hell out of this script."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Guest Room 3 - Sewing Basket"
+        ],
+        [
+          "addflag",
+          "house_airbnbsewing"
+        ],
+        [
+          "option",
+          "e9",
+          "Thank you sew much!"
+        ]
+      ]
+    },
     "house_beanbush": {
       "e": [
         [
@@ -13510,6 +13553,32 @@
         [
           "checklocation",
           "Gun Manor Cellar - Pie Safe"
+        ]
+      ]
+    },
+    "house_sciencebox_guestroom": {
+      "popup": [
+        [
+          "say",
+          "It's a box of science stuff."
+        ],
+        [
+          "option",
+          "e",
+          "Grab it"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Guest Room 4 - Science Box"
+        ],
+        [
+          "addflag",
+          "house_@script_context_data.id@"
         ]
       ]
     },
@@ -18442,6 +18511,141 @@
         }
       },
       "parentwaa": "elvibrato1"
+    },
+    "house_airbnb4": {
+      "name": "Gun Manor Guest Room #4",
+      "width": "0.500",
+      "ground": "",
+      "sky": "",
+      "startxy": "200,90",
+      "horizon": "wall_fancydiamonds",
+      "camera": "interior",
+      "groundtexture": "floor_parquet3",
+      "foregroundparallax": "ceiling_tin2",
+      "leftwall": "wall_fancydiamonds_side2",
+      "rightwall": "wall_fancydiamonds_side",
+      "music": "music_ghosthouse",
+      "ambientsound1": "winchester_house_ambience",
+      "ambientvolume1": ".2",
+      "dark": 1.0,
+      "darkness": ".3",
+      "nolantern": 1.0,
+      "basewaa": "house",
+      "elements": {
+        "bed": {
+          "asset": "bed2",
+          "usedasset": null,
+          "x": 358.0,
+          "z": 231.0,
+          "height": 218.0,
+          "width": 366.0,
+          "condition": "",
+          "script": "autoscript__house_airbnb4__bed__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "chair": {
+          "asset": "fancychair1",
+          "usedasset": null,
+          "x": 14.0,
+          "z": 24.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "exit": {
+          "asset": "fancydoor1",
+          "usedasset": null,
+          "x": 200.0,
+          "z": 0.0,
+          "height": 530.0,
+          "width": 436.0,
+          "condition": "",
+          "script": "autoscript__house_airbnb4__exit__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 40.0
+        },
+        "floorlamp": {
+          "asset": "floorlamp",
+          "usedasset": null,
+          "x": 243.0,
+          "z": 242.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "coldstorage": 1.0
+        },
+        "ghost": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 376.0,
+          "z": 54.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(house_ghost_novelty)",
+          "script": "house_ghost_novelty",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "prefab": "human_template",
+          "head": "head_dude_noveltyghost",
+          "idle": "human_scared",
+          "flip": 1.0,
+          "ambientsound": "ghost_loop_01,300",
+          "ambientvolume": ".3"
+        },
+        "plant": {
+          "asset": "frondpot2",
+          "usedasset": null,
+          "x": 448.0,
+          "z": 10.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__house_airbnb4__plant__popup",
+          "proximity": 0.0
+        },
+        "sciencebox3": {
+          "asset": "sciencetable",
+          "usedasset": null,
+          "x": 51.0,
+          "z": 27.0,
+          "height": 92.0,
+          "width": 101.0,
+          "condition": "!hasflag(house_sciencebox3)",
+          "script": "house_sciencebox_guestroom",
+          "proximity": 0.0
+        },
+        "sciencetable": {
+          "asset": "fancytable1",
+          "usedasset": null,
+          "x": 51.0,
+          "z": 27.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(house_sciencebox3)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "ventto3": {
+          "asset": "armoire",
+          "usedasset": null,
+          "x": 52.0,
+          "z": 238.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "house_airbnb4armoire",
+          "proximity": 0.0,
+          "extendback": 1.0
+        }
+      },
+      "parentwaa": "house"
     },
     "house_lab": {
       "name": "Gun Manor Laboratory",
