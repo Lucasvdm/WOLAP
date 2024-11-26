@@ -12633,6 +12633,215 @@
         ]
       ]
     },
+    "house_dictionary2": {
+      "carver": [
+        [
+          "addstate",
+          "numleft,=6-hasflag(house_mainpuzzle)"
+        ],
+        [
+          "if",
+          "$numleft$>0"
+        ],
+        [
+          "say",
+          "You seem to be skipping forward a bit, yeah?"
+        ],
+        [
+          "if",
+          "$numleft$>0"
+        ],
+        [
+          "goto",
+          "finish1"
+        ],
+        [
+          "if",
+          "hasflag(house_mainpuzzle_done)"
+        ],
+        [
+          "say",
+          "There's just a gap where you chiseled out your page-knife now."
+        ],
+        [
+          "if",
+          "hasflag(house_mainpuzzle_done)"
+        ],
+        [
+          "goto",
+          "finish1"
+        ],
+        [
+          "say",
+          "<b>CARVER</b>"
+        ],
+        [
+          "say",
+          "The dictionary has been waiting so long for someone to turn to this page that the natural geological processes within the book have caused the pages to compress into a dense and very sharp material. You chip out a piece and fashion it into a makeshift knife."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Library - Cipher Puzzle Solved"
+        ],
+        [
+          "say",
+          "<i>Congrats on a job well done!</i>"
+        ],
+        [
+          "addflag",
+          "house_mainpuzzle_done"
+        ],
+        [
+          "goto",
+          "finish1"
+        ]
+      ],
+      "key": [
+        [
+          "say",
+          "<b>key</b>"
+        ],
+        [
+          "say",
+          "1. (n.) One of these things:"
+        ],
+        [
+          "if",
+          "hasflag(house_dictionarykey)"
+        ],
+        [
+          "goto",
+          "key-already1"
+        ],
+        [
+          "addflag",
+          "house_dictionarykey"
+        ],
+        [
+          "say",
+          "There's a key stuck to the page!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Library - Dictionary (\"Key\")"
+        ],
+        [
+          "goto",
+          "finish1"
+        ]
+      ],
+      "poach": [
+        [
+          "if",
+          "hasflag(house_poachlookup)"
+        ],
+        [
+          "goto",
+          "poachgone1"
+        ],
+        [
+          "say",
+          "<b>poach</b>"
+        ],
+        [
+          "say",
+          "1. (v.) To slow cook by immersion in water."
+        ],
+        [
+          "say",
+          "2. (v.) To shoot an animal belonging to the king."
+        ],
+        [
+          "if",
+          "hasflag(house_ghost_poacher_knowquest)"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "if",
+          "hasflag(house_ghost_poacher_knowquest)"
+        ],
+        [
+          "leftsay",
+          "See, you <i>told</i> that ghost in the kitchen that there were two meanings."
+        ],
+        [
+          "if",
+          "hasflag(house_ghost_poacher_knowquest)"
+        ],
+        [
+          "addflag",
+          "house_poachlookup"
+        ],
+        [
+          "if",
+          "hasflag(house_ghost_poacher_knowquest)"
+        ],
+        [
+          "say",
+          "You tear the page out so you can prove it to him."
+        ],
+        [
+          "if",
+          "hasflag(house_ghost_poacher_knowquest)"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Library - Dictionary (\"Poach\")"
+        ],
+        [
+          "goto",
+          "finish1"
+        ]
+      ]
+    },
+    "house_ghost_librarian_convo": {
+      "checkquest": [
+        [
+          "rightportrait",
+          "ghost"
+        ],
+        [
+          "rightsay",
+          "<size=16>Yes? What can I do for you this time?</size>"
+        ],
+        [
+          "if",
+          "hasitem(aug_silencer)"
+        ],
+        [
+          "sayoption",
+          "solve",
+          "Hey look, I invented this. [silenter]"
+        ],
+        [
+          "if",
+          "!hasitem(aug_silencer) && hasflag(house_madesilencer) && received_item_Silenter"
+        ],
+        [
+          "sayoption",
+          "solvealt",
+          "Hey, I know how to make guns quiet!"
+        ],
+        [
+          "sayoption",
+          "fight",
+          "I've decided I hate whispering. [Fight]"
+        ],
+        [
+          "sayoption",
+          "library",
+          "Can you help me with some... library stuff?"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Actually, never mind."
+        ]
+      ]
+    },
     "house_gunbench": {
       "e": [
         [
@@ -13379,6 +13588,46 @@
         [
           "addflag",
           "house_gotspices"
+        ]
+      ]
+    },
+    "house_stacks_digin": {
+      "funlaw": [
+        [
+          "say",
+          "You find the shelf where \"Fun Law\" belongs and put it back. The next book on the shelf is entitled \"Gun Law\", which might be even more entertaining."
+        ],
+        [
+          "removeitem",
+          "book_funlaw"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Library - Fun Law Returned"
+        ],
+        [
+          "option",
+          "done",
+          "Will definitely give this a shot"
+        ]
+      ],
+      "dbanjos": [
+        [
+          "say",
+          "You find the shelf where \"Duelling Banjos\" belongs and put it back. The previous book on the shelf is entitled \"Duel Law\", which seems to be about the legal issues surrounding duelling. Never know when that might come in handy."
+        ],
+        [
+          "removeitem",
+          "book_dbanjos"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Library - Duelling Banjos Returned"
+        ],
+        [
+          "option",
+          "done",
+          "Duelly noted"
         ]
       ]
     },
