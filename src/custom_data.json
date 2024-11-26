@@ -12900,6 +12900,25 @@
         ]
       ]
     },
+    "house_crib": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You write down all of the spooky notes."
+        ],
+        [
+          "removeitem",
+          "quest_housemusic"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Nursery - Crib"
+        ]
+      ]
+    },
     "house_cuerack": {
       "popup": [
         [
@@ -14331,6 +14350,57 @@
           "option",
           "done",
           "Finally!"
+        ]
+      ]
+    },
+    "house_stuffybear": {
+      "popup": [
+        [
+          "say",
+          "This teddy bear has been comprehensively and enthusiastically disemboweled."
+        ],
+        [
+          "if",
+          "hasflag(house_silencerplan) && !hasflag(house_knowssilencerstuffing)"
+        ],
+        [
+          "option",
+          "e",
+          "Oh hey..."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "if",
+          "hasflag(house_silencerplan) && house_madesilencer && received_item_Silenter && !hasitem(quest_silencerstuffing)"
+        ],
+        [
+          "option",
+          "grab",
+          "Grab another wad of stuffing"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "This stuffing would be perfect for making a silenter!"
+        ],
+        [
+          "say",
+          "Sorry, Teddy -- this is for the greater good."
+        ],
+        [
+          "addflag",
+          "house_knowssilencerstuffing"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Nursery - Teddy Bear Guts"
         ]
       ]
     },
