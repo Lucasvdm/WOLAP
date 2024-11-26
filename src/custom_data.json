@@ -14426,6 +14426,24 @@
         ]
       ]
     },
+    "house_toybox": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Toddler's Room - Toybox"
+        ],
+        [
+          "say",
+          "Huh.  Less macabre than you were expecting."
+        ]
+      ]
+    },
     "house_trashpile": {
       "e": [
         [
