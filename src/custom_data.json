@@ -14051,6 +14051,32 @@
         ]
       ]
     },
+    "house_sciencebox_tweenroom": {
+      "popup": [
+        [
+          "say",
+          "It's a box of science stuff."
+        ],
+        [
+          "option",
+          "e",
+          "Grab it"
+        ]
+      ],
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Tween Room - Science Box"
+        ],
+        [
+          "addflag",
+          "house_@script_context_data.id@"
+        ]
+      ]
+    },
     "house_shower": {
       "e": [
         [
@@ -14459,6 +14485,66 @@
         [
           "checklocation",
           "Back of Gun Manor - Compost Heap"
+        ]
+      ]
+    },
+    "house_tweenarmoire": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It's worth a try."
+        ],
+        [
+          "addflag",
+          "house_tween_gotskirt"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Tween Room - Wardrobe"
+        ]
+      ]
+    },
+    "house_tweenbed": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "The title is \"Fun Law: Rules for 71 Parlor Games & Assorted Amusements for Children\"."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Tween Room - Under the Bed"
+        ],
+        [
+          "addflag",
+          "house_gotfunlaw"
+        ]
+      ]
+    },
+    "house_tweendesk": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You decide to just take the book with you and do the assignment later."
+        ],
+        [
+          "addflag",
+          "house_tweendesk"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Tween Room - Desk"
+        ],
+        [
+          "markused"
         ]
       ]
     },
@@ -19348,6 +19434,197 @@
           "script": "house_silencerposter",
           "proximity": 0.0,
           "notilt": 1.0
+        }
+      },
+      "parentwaa": "house"
+    },
+    "house_tween": {
+      "name": "Gun Manor Tween Room",
+      "width": "0.660",
+      "ground": null,
+      "sky": "",
+      "startxy": "195,80",
+      "horizon": "wall_fancyflowers1,wall_fancyflowers2",
+      "camera": "interior",
+      "groundtexture": "floor_parquet3",
+      "foregroundparallax": "ceiling_tin2",
+      "leftwall": "wall_fancyflowerside2",
+      "rightwall": "wall_fancyflowerside",
+      "music": "music_cave_lounge_disco",
+      "ambientsound1": "winchester_house_ambience",
+      "ambientvolume1": ".2",
+      "dark": 1.0,
+      "darkness": ".3",
+      "nolantern": 1.0,
+      "onenter": "house_tween_init",
+      "basewaa": "house",
+      "elements": {
+        "armoire": {
+          "asset": "armoire",
+          "usedasset": null,
+          "x": 394.0,
+          "z": 244.0,
+          "height": 356.0,
+          "width": 240.0,
+          "condition": "",
+          "script": "house_tweenarmoire",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "bed": {
+          "asset": "bed_4poster",
+          "usedasset": null,
+          "x": 531.0,
+          "z": 224.0,
+          "height": 369.0,
+          "width": 370.0,
+          "condition": "",
+          "script": "house_tweenbed",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "desk": {
+          "asset": "desk_book",
+          "usedasset": "desk",
+          "x": 229.0,
+          "z": 32.0,
+          "height": 208.0,
+          "width": 310.0,
+          "condition": "",
+          "script": "house_tweendesk",
+          "proximity": 0.0
+        },
+        "exit": {
+          "asset": "fancydoor1",
+          "usedasset": null,
+          "x": 0.0,
+          "z": 0.0,
+          "height": 530.0,
+          "width": 436.0,
+          "condition": "",
+          "script": "autoscript__house_tween__exit__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 40.0
+        },
+        "floorlamp": {
+          "asset": "floorlamp",
+          "usedasset": null,
+          "x": 474.0,
+          "z": 7.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "coldstorage": 1.0
+        },
+        "gramophone": {
+          "asset": "victrolla",
+          "usedasset": null,
+          "x": 600.0,
+          "z": 20.0,
+          "height": 234.0,
+          "width": 116.0,
+          "condition": "!hasflag(house_tween_musicoff)",
+          "script": "",
+          "proximity": 0.0,
+          "extendforward": 1.0,
+          "emitter": "music_piano,-50,10",
+          "prop": "crank_victrolla,5,40,1"
+        },
+        "gramophone_collider": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 599.0,
+          "z": 24.0,
+          "height": 10.0,
+          "width": 40.0,
+          "condition": "",
+          "script": "house_tween_gramophone",
+          "proximity": 0.0,
+          "extendforward": 1.0
+        },
+        "gramophone_off": {
+          "asset": "victrolla",
+          "usedasset": null,
+          "x": 600.0,
+          "z": 20.0,
+          "height": 234.0,
+          "width": 116.0,
+          "condition": "hasflag(house_tween_musicoff)",
+          "script": "",
+          "proximity": 0.0,
+          "extendforward": 1.0
+        },
+        "lawbook": {
+          "asset": "floorbook",
+          "usedasset": null,
+          "x": 573.0,
+          "z": 227.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(house_gotfunlaw)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "poster": {
+          "asset": "booneposter",
+          "usedasset": null,
+          "x": 210.0,
+          "z": 289.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(house_posterscare)",
+          "script": "house_tweenposter",
+          "proximity": 0.0
+        },
+        "poster_floor": {
+          "asset": "booneposter_torn",
+          "usedasset": null,
+          "x": 240.0,
+          "z": 254.0,
+          "height": 94.0,
+          "width": 224.0,
+          "condition": "hasflag(house_posterscare)",
+          "script": "",
+          "proximity": 0.0,
+          "noclip": 1.0
+        },
+        "postposter": {
+          "asset": "booneposter2",
+          "usedasset": null,
+          "x": 210.0,
+          "z": 289.0,
+          "height": 166.0,
+          "width": 132.0,
+          "condition": "hasflag(house_posterscare)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "sciencebox2": {
+          "asset": "sciencebox",
+          "usedasset": null,
+          "x": 417.0,
+          "z": 15.0,
+          "height": 92.0,
+          "width": 101.0,
+          "condition": "!hasflag(house_sciencebox2)",
+          "script": "house_sciencebox_tweenroom",
+          "proximity": 0.0
+        },
+        "vanity": {
+          "asset": "vanity_fancy_black",
+          "usedasset": "vanity_fancy_black",
+          "x": 39.0,
+          "z": 251.0,
+          "height": 246.0,
+          "width": 279.0,
+          "condition": "",
+          "script": "house_tweenvanity",
+          "proximity": 0.0,
+          "extendback": 1.0
         }
       },
       "parentwaa": "house"
