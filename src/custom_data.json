@@ -13023,6 +13023,21 @@
         ]
       ]
     },
+    "house_pantryrack": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Pantry - Back Row, Third Rack"
+        ],
+        [
+          "addflag",
+          "house_gotpantrypants"
+        ]
+      ]
+    },
     "house_parlorsofa": {
       "e": [
         [
