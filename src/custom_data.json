@@ -13282,6 +13282,56 @@
         ]
       ]
     },
+    "house_humidor": {
+      "popup": [
+        [
+          "say",
+          "It's a humidor full of cheap cigars."
+        ],
+        [
+          "if",
+          "!house_gothumidorcheck"
+        ],
+        [
+          "goto",
+          "initialcheck"
+        ],
+        [
+          "if",
+          "received_item_CheapCigar && hasitem(potion_cheapcigar)<3"
+        ],
+        [
+          "option",
+          "grab1",
+          "Grab one"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "You've got plenty of them at this point."
+        ]
+      ],
+      "initialcheck": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "What's this? There's something wedged at the back of one of the shelves."
+        ],
+        [
+          "checklocation",
+          "Gun Manor Manliness Room - Humidor"
+        ],
+        [
+          "addflag",
+          "house_gothumidorcheck"
+        ]
+      ]
+    },
     "house_lab_bismuthbench": {
       "popup": [
         [
@@ -13402,6 +13452,21 @@
           "sayoption",
           "eight",
           "All right. Bye, Macready."
+        ]
+      ]
+    },
+    "house_mancavebarcart": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Manliness Room - Booze Cart"
+        ],
+        [
+          "addflag",
+          "house_mancavebarcart"
         ]
       ]
     },
