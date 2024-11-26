@@ -13362,6 +13362,24 @@
         ]
       ]
     },
+    "house_medicinecabinet": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Why, ointment!  That's what's inside!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Restroom - Medicine Cabinet"
+        ],
+        [
+          "markused"
+        ]
+      ]
+    },
     "house_panshelf": {
       "popup": [
         [
@@ -13518,6 +13536,25 @@
         [
           "addflag",
           "house_@script_context_data.id@"
+        ]
+      ]
+    },
+    "house_shower": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "It's curtains for you!"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Restroom - Shower"
+        ],
+        [
+          "addflag",
+          "house_shower,1"
         ]
       ]
     },
