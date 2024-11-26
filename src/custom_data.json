@@ -12938,6 +12938,29 @@
         ]
       ]
     },
+    "house_parlorsofa": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You sigh and do what has to be done."
+        ],
+        [
+          "addflag",
+          "house_parlorchili"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Parlor - Sofa Cushions (Murdered Chili)"
+        ],
+        [
+          "removeitem",
+          "quest_gunlesschili"
+        ]
+      ]
+    },
     "house_photobox": {
       "getit": [
         [
@@ -13223,6 +13246,28 @@
           "option",
           "done",
           "Nice"
+        ]
+      ]
+    },
+    "house_teaservice": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "You liberate the tea service from its cart."
+        ],
+        [
+          "addflag",
+          "house_teaservice"
+        ],
+        [
+          "checklocation",
+          "Gun Manor Parlor - Tea Cart"
         ]
       ]
     },
