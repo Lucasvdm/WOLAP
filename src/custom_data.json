@@ -12543,6 +12543,206 @@
         ]
       ]
     },
+    "house_bowlterfight": {
+      "win": [
+        [
+          "addflag",
+          "house_bowltergeist"
+        ],
+        [
+          "incflag",
+          "house_bowlterkills"
+        ],
+        [
+          "say",
+          "Ashes to ashes, pins to pins."
+        ],
+        [
+          "addxp",
+          "@xpreward_w@"
+        ],
+        [
+          "if",
+          "house_bowlingwincount == 3"
+        ],
+        [
+          "checklocation",
+          "Mr. Gun's Bowling Room - Combat Drop 4"
+        ],
+        [
+          "if",
+          "house_bowlingwincount == 2"
+        ],
+        [
+          "checklocation",
+          "Mr. Gun's Bowling Room - Combat Drop 3"
+        ],
+        [
+          "if",
+          "house_bowlingwincount == 1"
+        ],
+        [
+          "checklocation",
+          "Mr. Gun's Bowling Room - Combat Drop 2"
+        ],
+        [
+          "if",
+          "!house_bowlingwincount"
+        ],
+        [
+          "checklocation",
+          "Mr. Gun's Bowling Room - Combat Drop 1"
+        ],
+        [
+          "incflag",
+          "house_bowlingwincount"
+        ],
+        [
+          "pushrandom",
+          "combat_bowlingchunk,combat_bowlingchunk"
+        ],
+        [
+          "additem",
+          "poprandom()"
+        ],
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "house_canshelf": {
       "popup": [
         [
