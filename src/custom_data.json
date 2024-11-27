@@ -18131,6 +18131,230 @@
         ]
       ]
     },
+    "randomencounter": {
+      "start": [
+        [
+          "if",
+          "matchstring(@regionto@,bs)"
+        ],
+        [
+          "goto",
+          "realdone"
+        ],
+        [
+          "if",
+          "!wandering && matchstring(@travelfrom@,@travelto@)"
+        ],
+        [
+          "goto",
+          "realdone"
+        ],
+        [
+          "addstate",
+          "skipchance,5"
+        ],
+        [
+          "if",
+          "matchstring(@gear.ring.id@,ring_nores)"
+        ],
+        [
+          "incstate",
+          "skipchance,25"
+        ],
+        [
+          "if",
+          "hasflag(randomencounters_@regionto@)>5"
+        ],
+        [
+          "incstate",
+          "skipchance,10"
+        ],
+        [
+          "if",
+          "hasflag(randomencounters_@regionto@)>10"
+        ],
+        [
+          "incstate",
+          "skipchance,10"
+        ],
+        [
+          "if",
+          "hasflag(randomencounters_@regionto@)>15"
+        ],
+        [
+          "incstate",
+          "skipchance,10"
+        ],
+        [
+          "if",
+          "hasflag(randomencounters_@regionto@)>20"
+        ],
+        [
+          "incstate",
+          "skipchance,10"
+        ],
+        [
+          "if",
+          "hasflag(randomencounters_@regionto@)>25"
+        ],
+        [
+          "incstate",
+          "skipchance,10"
+        ],
+        [
+          "if",
+          "hasflag(randomencounters_@regionto@)>30"
+        ],
+        [
+          "incstate",
+          "skipchance,10"
+        ],
+        [
+          "if",
+          "rand(1,100)<=$skipchance$ && !wandering"
+        ],
+        [
+          "goto",
+          "realdone"
+        ],
+        [
+          "incflag",
+          "randomencounters,1"
+        ],
+        [
+          "incflag",
+          "randomencounters_@regionto@,1"
+        ],
+        [
+          "if",
+          "!hasflag(visited_@regionto@)"
+        ],
+        [
+          "addflag",
+          "visited_@regionto@,1"
+        ],
+        [
+          "if",
+          "pete && !matchstring(@regionto@,a) && hasflag(randomencounters_@regionto@)>rand(1,2) && !hasflag(re_petelevelup_@regionto@)"
+        ],
+        [
+          "runscript",
+          "re_petelevelup_@regionto@"
+        ],
+        [
+          "if",
+          "@randomencounters@==7"
+        ],
+        [
+          "goto",
+          "skillbook1"
+        ],
+        [
+          "if",
+          "@randomencounters@==9"
+        ],
+        [
+          "goto",
+          "meateor"
+        ],
+        [
+          "if",
+          "@randomencounters@==13"
+        ],
+        [
+          "goto",
+          "necrobook"
+        ],
+        [
+          "if",
+          "@randomencounters@==21"
+        ],
+        [
+          "goto",
+          "skillbook2"
+        ],
+        [
+          "if",
+          "divisible(@randomencounters@,5)"
+        ],
+        [
+          "runscript",
+          "mapdiscovery_@regionto@"
+        ],
+        [
+          "if",
+          "wandering && rand(1,2)==1"
+        ],
+        [
+          "runscript",
+          "mapdiscovery_@regionto@"
+        ],
+        [
+          "runscript",
+          "randomevent_@regionto@"
+        ],
+        [
+          "say",
+          "Fell through without picking an encounter.  This should never happen."
+        ],
+        [
+          "option",
+          "done",
+          "Something went wrong"
+        ]
+      ]
+    },
+    "re_necrobook": {
+      "get3": [
+        [
+          "say",
+          "A chill runs down your spine as you touch the book."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Any Region) - 13th Encounter"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
+    "re_skillbook1": {
+      "get": [
+        [
+          "say",
+          "You pore over the detritus and manage to find exactly one book that is both undestroyed and remotely interesting to you."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Any Region) - 7th Encounter"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
+    "re_skillbook2": {
+      "get": [
+        [
+          "say",
+          "The bag is full of books, mostly boring military field manuals.  You do find one of specific interest to you, though."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Any Region) - 21st Encounter"
+        ],
+        [
+          "option",
+          "done",
+          "Continue on"
+        ]
+      ]
+    },
     "roybean_honeybean": {
       "buy0": [
         [
