@@ -20126,7 +20126,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Gulch Goblin Flapjackjack"
+          "Random Encounter (Region B) - Gulch Goblin Flapjackjack (Flapjacks)"
         ],
         [
           "addxp",
@@ -20149,7 +20149,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Gulch Goblin Flapjackjack"
+          "Random Encounter (Region B) - Gulch Goblin Flapjackjack (Flapjacks)"
         ],
         [
           "addxp",
@@ -20168,7 +20168,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Gulch Goblin Flapjackjack"
+          "Random Encounter (Region B) - Gulch Goblin Flapjackjack (Spatula)"
         ],
         [
           "addxp",
@@ -20195,7 +20195,11 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Gulch Goblin Flapjackjack"
+          "Random Encounter (Region B) - Gulch Goblin Flapjackjack (Spatula)"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region B) - Gulch Goblin Flapjackjack (Flapjacks)"
         ],
         [
           "if",
@@ -20982,7 +20986,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Old Wizard Skeleton (Item 1 - Beans)"
+          "Random Encounter (Region B) - Old Wizard Skeleton (Bean Can)"
         ],
         [
           "option",
@@ -21025,7 +21029,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Old Wizard Skeleton (Item 1 - Beans)"
+          "Random Encounter (Region B) - Old Wizard Skeleton (Bean Can)"
         ],
         [
           "addxp",
@@ -21052,11 +21056,11 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Old Wizard Skeleton (Item 1 - Beans)"
+          "Random Encounter (Region B) - Old Wizard Skeleton (Bean Can)"
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Old Wizard Skeleton (Item 2 - Hat)"
+          "Random Encounter (Region B) - Old Wizard Skeleton (Wizard Hat)"
         ],
         [
           "if",
@@ -21236,7 +21240,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Cattle Baron's Skeleton (Item 2)"
+          "Random Encounter (Region B) - Cattle Baron's Skeleton (Top Hat)"
         ],
         [
           "addxp",
@@ -21263,7 +21267,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Cattle Baron's Skeleton (Item 1)"
+          "Random Encounter (Region B) - Cattle Baron's Skeleton (Lily)"
         ],
         [
           "addxp",
@@ -21298,7 +21302,7 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Cattle Baron's Skeleton (Item 1)"
+          "Random Encounter (Region B) - Cattle Baron's Skeleton (Lily)"
         ],
         [
           "addxp",
@@ -21325,11 +21329,11 @@
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Cattle Baron's Skeleton (Item 1)"
+          "Random Encounter (Region B) - Cattle Baron's Skeleton (Lily)"
         ],
         [
           "checklocation",
-          "Random Encounter (Region B) - Cattle Baron's Skeleton (Item 2)"
+          "Random Encounter (Region B) - Cattle Baron's Skeleton (Top Hat)"
         ],
         [
           "additem",
