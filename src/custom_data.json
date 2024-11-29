@@ -22045,6 +22045,598 @@
         ]
       ]
     },
+    "re_banditf1": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You knock the guy unconscious and take his pants, on the assumption that the constriction is probably squeezing all the blood out of his legs and overloading his brain."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Kurtz-Cult Runaway"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_banditf2": {
+      "intim2": [
+        [
+          "leftsay",
+          "It can't be hot enough! It can't be done!"
+        ],
+        [
+          "rightsay",
+          "No! Noooo!"
+        ],
+        [
+          "leftsay",
+          "IT'S IMPOSSIBLE FOR IT TO BE HOT ENOUGH!"
+        ],
+        [
+          "rightsay",
+          "Nooooaaaarrrggghhh!"
+        ],
+        [
+          "say",
+          "The chef runs away into the desert, screaming. As you watch him go, there's a <i>clang</i> behind you as the door to his stove falls off, the hinges having melted through."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mad Hedge Chef"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Well done!"
+        ]
+      ],
+      "tellhim": [
+        [
+          "leftsay",
+          "Buddy... gazpacho soup is served cold."
+        ],
+        [
+          "rightsay",
+          "What... no. No! It's not true!"
+        ],
+        [
+          "leftsay",
+          "Yeah. Sorry."
+        ],
+        [
+          "say",
+          "The chef runs off into the desert, screaming. As you watch him go, there's a <i>clang</i> behind you as the door to his stove falls off, the hinges having melted through."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mad Hedge Chef"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Well okay!"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You knock out the crazed chef and, feeling merciful, push him into the shade of a large rock before checking out his stove that is slowly melting into slag."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mad Hedge Chef"
+        ],
+        [
+          "addmeat",
+          "rand(25,35),1"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_banditf3": {
+      "dynamite": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Here, try sending your bosses this!"
+        ],
+        [
+          "say",
+          "You pitch a bundle of dynamite at the guy, who shoots it reflexively."
+        ],
+        [
+          "say",
+          "When the dust and smoke clears, all that's left is a gun, a crater, and a hat drifting down to the ground."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Cow-Cult Brigand"
+        ],
+        [
+          "additem",
+          "hat_black"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "outfox2": [
+        [
+          "leftsay",
+          "Look, let me see the gun. Yeah, just as I thought. These squiggles here, these are old beanslinger runes. \"Tah-Bah-Sco\", it means \"bring the heat\". This is just regular magic, doesn't have anything to do with the cows."
+        ],
+        [
+          "rightsay",
+          "Well shucks! And here I thought I was doin' somethin' of religious significance!"
+        ],
+        [
+          "leftsay",
+          "Nope, sorry."
+        ],
+        [
+          "rightsay",
+          "Guess I got some reflectin' ta do. Go ahead and keep the gun."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Cow-Cult Brigand"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Okay, thanks!"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! Now his magical pistol is in slightly more responsible hands."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Cow-Cult Brigand"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "re_chefpepper": {
       "grab": [
         [
@@ -25041,6 +25633,759 @@
         ]
       ]
     },
+    "re_goblinf1": {
+      "intim": [
+        [
+          "leftsay",
+          "Hah! Foolish goblin! The worst cactus predator is me!"
+        ],
+        [
+          "rightsay",
+          "Oh no!"
+        ],
+        [
+          "leftsay",
+          "Watching me kicking over all of a cactuses!"
+        ],
+        [
+          "rightsay",
+          "No! Here, will giving you a gift not to doing that!"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Cactus-Suited Goblin"
+        ],
+        [
+          "sayoption",
+          "intim2",
+          "Very well, I am accepting your offer."
+        ]
+      ],
+      "horn2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Umm... giving you this club?"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Cactus-Suited Goblin"
+        ],
+        [
+          "leftsay",
+          "...I'm not sure why you didn't just attack me with it, but okay, fair's fair."
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Cool"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You beat up a goblin in a cactus costume. Will this be the silliest fight in the whole adventure? Probably not."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Cactus-Suited Goblin"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_goblinf2": {
+      "buyyes": [
+        [
+          "say",
+          "You purchase the boots from the goblin, who seems very excited to have made a sale."
+        ],
+        [
+          "addmeat",
+          "-250"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Tanner"
+        ],
+        [
+          "option",
+          "done",
+          "Cool"
+        ]
+      ],
+      "intim2": [
+        [
+          "leftsay",
+          "No! For <i>free</i> giving them, or beating you up!"
+        ],
+        [
+          "rightsay",
+          "Oh no!"
+        ],
+        [
+          "say",
+          "The goblin sadly hands over the boots."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Tanner"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Good!"
+        ]
+      ],
+      "outfox": [
+        [
+          "leftsay",
+          "Hmm. Will you giving me boots for teaching a tanning magic?"
+        ],
+        [
+          "rightsay",
+          "Oh! Wow! Sure!"
+        ],
+        [
+          "say",
+          "You teach the goblin a simplified low-power broiling cantrip that should roast the leather more quickly than sunlight, and they happily give you the boots as payment."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Tanner"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Nice!"
+        ]
+      ],
+      "hagglebuy": [
+        [
+          "say",
+          "You buy the boots for @goblinf2_haggle@ Meat."
+        ],
+        [
+          "addmeat",
+          "-@goblinf2_haggle@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Tanner"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Cool"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You beat the goblin up and take his boots. Good job?"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Tanner"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_goblinf3": {
+      "gary": [
+        [
+          "say",
+          "Gary and the soldier-goblin chatter back and forth for a bit. The soldier gives Gary a small bundle, and the two of them part ways with a salute."
+        ],
+        [
+          "leftpicture",
+          "portrait_gary_flipped"
+        ],
+        [
+          "leftsay",
+          "They finding outfit on dead soldier mans and is soldier now! Here, giving us a thing not needing."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Field Trauma Kit)"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Well, that's nice of them."
+        ]
+      ],
+      "medals": [
+        [
+          "leftsay",
+          "I seeing you having a medal!"
+        ],
+        [
+          "rightsay",
+          "Hmm? Oh! Shiny dangle! Yes!"
+        ],
+        [
+          "leftsay",
+          "Not earning shiny dangle properly! Should giving to me, for collection."
+        ],
+        [
+          "rightsay",
+          "Aww. Okay."
+        ],
+        [
+          "say",
+          "The goblin hands over his medal, and you put it with your others, without a shred of irony."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Pin)"
+        ],
+        [
+          "option",
+          "done",
+          "Excellent"
+        ]
+      ],
+      "intim2": [
+        [
+          "leftsay",
+          "Giving supplies!"
+        ],
+        [
+          "rightsay",
+          "Sempering fi!"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Field Trauma Kit)"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Good! At easing!"
+        ]
+      ],
+      "fox2": [
+        [
+          "leftsay",
+          "Not earning shiny dangle properly, other soldiers angry if seeing!"
+        ],
+        [
+          "rightsay",
+          "Oh no! You take!"
+        ],
+        [
+          "say",
+          "The goblin hands over his medal with a grateful salute."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Pin)"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Okay!"
+        ]
+      ],
+      "horn2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Oh! Okay!"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Field Trauma Kit)"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Cool"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won a decisive military victory over that one goblin."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Pin)"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Goblin Grave Robber (Field Trauma Kit)"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "re_mallet": {
       "open": [
         [
@@ -27590,6 +28935,673 @@
         [
           "checklocation",
           "Random Encounter (Region E) - Buffalo Soldier Rifleman"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_skeletonf1": {
+      "hornswoggle": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Whoo, buddy, that's some real nice bone growth, I can see you've been drinking your milk, but you know what you need?"
+        ],
+        [
+          "rightsay",
+          "...Hiss?"
+        ],
+        [
+          "leftsay",
+          "Protein! You can't build muscle without protein! And fortunately for you, I just happen to have a very reasonably-priced sample of a new instant protein shake right here in my pack..."
+        ],
+        [
+          "say",
+          "You turn away from the skeleton and fish an empty bottle out of your pack, and scoop some sand into it out of $skelposlow$ view."
+        ],
+        [
+          "leftsay",
+          "...Just add water and that's like ten thousand percent of your protein needs, plus all the silicon you could ever want, in one delicious shake! ...Uh, do you have anything to trade?"
+        ],
+        [
+          "say",
+          "The skeleton happily swaps $skelposlow$ boots for the bottle and runs off looking for some water."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Thick-Boned Skeleton (Boots)"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! And it turns out what they say is true: skeletons with big bones have big feet."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Thick-Boned Skeleton (Boots)"
+        ],
+        [
+          "say",
+          "He was also carrying some kind of... brochure?"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Thick-Boned Skeleton (Brochure)"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_skeletonf2": {
+      "intim": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Make weird gestures at <i>me</i>, will you? I'll show you a weird gesture!"
+        ],
+        [
+          "say",
+          "You give the skeleton a kick in the pelvis so hard, one of the legs pops off. The rest of the skeleton crawls away in sheepish dismay."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mushroom-Covered Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Alright!"
+        ]
+      ],
+      "outfox": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "No no no, you're getting these gestures all wrong. You're not accounting for your arms being lighter than normal, so the momentum is all out of kilter."
+        ],
+        [
+          "rightpicture",
+          "portrait_skeletonf2"
+        ],
+        [
+          "rightsay",
+          "Hiss?"
+        ],
+        [
+          "leftsay",
+          "I'll demonstrate without actually casting the spell. Watch closely."
+        ],
+        [
+          "say",
+          "You wave your arms in a complicated pattern, which the skeleton observes and then duplicates. The spell causes all the mushrooms to explode, blowing $skelacc$ apart."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mushroom-Covered Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Good job!"
+        ]
+      ],
+      "hornswoggle": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Say, are those mushrooms you're growing edible? They look pretty good..."
+        ],
+        [
+          "rightpicture",
+          "portrait_skeletonf2"
+        ],
+        [
+          "rightsay",
+          "...Hiss?"
+        ],
+        [
+          "leftsay",
+          "You haven't even tried them? That's surprising. If I could grow my own food like that..."
+        ],
+        [
+          "say",
+          "The skeleton shrugs and pops one of the mushrooms in $skelposlow$ mouth. If $skelprolow$'d had eyeballs, the pupils would have dilated instantly. $skelprocap$ falls on the ground and starts twitching and giggling, and doesn't react to you stealing one of $skelposlow$ legs."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mushroom-Covered Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Groovy"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! The lesson here is not to be a skeleton with mushrooms growing out of you."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Mushroom-Covered Skeleton"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_skeletonf3": {
+      "outfox": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hmm. You might not be aware of this, but although bone does not burn into ash the way wood does, intense heat does cause it to get quite brittle."
+        ],
+        [
+          "rightpicture",
+          "portrait_skeletonf3"
+        ],
+        [
+          "rightsay",
+          "Hiss!"
+        ],
+        [
+          "say",
+          "The skeleton goes for $skelposlow$ gun, and the momentum of the quick-draw causes the entire hand to pop off at the wrist and sail through the air, landing with a <i>plop</i> at your feet."
+        ],
+        [
+          "leftsay",
+          "There, see? Told you."
+        ],
+        [
+          "say",
+          "The skeleton runs away, embarrassed."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Burnin' Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Okay!"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You showed that skeleton what it's like to be figuratively on fire instead of literally!"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region F) - Burnin' Skeleton"
         ],
         [
           "addstate",
