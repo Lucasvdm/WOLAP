@@ -22637,6 +22637,594 @@
         ]
       ]
     },
+    "re_banditg1": {
+      "intim": [
+        [
+          "say",
+          "You stand up in your stirrups and point at the man angrily."
+        ],
+        [
+          "leftsay",
+          "Fool! Your mortal hammer cannot touch my ghostly incorporeal form! Begone lest I wrench thy spirit from its meaty shell!"
+        ],
+        [
+          "rightsay",
+          "What?"
+        ],
+        [
+          "leftsay",
+          "...<i>BOOOOOO!</i>"
+        ],
+        [
+          "rightsay",
+          "Aaaaahh!"
+        ],
+        [
+          "say",
+          "He faints dead away. After checking to make sure this isn't literal, you take his sledgehammer. You know, just to make sure he doesn't hurt anybody with his weirdo ghost mania."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Insane Construction Worker"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Alright!"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You beat the guy senseless and take his hammer, so he can't attack any more travelers. And his wallet, so he can't buy any more hammers."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Insane Construction Worker"
+        ],
+        [
+          "addmeat",
+          "rand(25,35),1"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_banditg2": {
+      "intim": [
+        [
+          "leftsay",
+          "Buddy, I have a nigh-inexhaustible capacity for violence, and for your own good if you do not take that hat off I will punch you in the head until it comes off on its own!"
+        ],
+        [
+          "rightsay",
+          "Goodness gracious! That seems quite unnecessary!"
+        ],
+        [
+          "leftsay",
+          "If I have to beat the crap out of you to save your life, that's a sacrifice I'm willing to make."
+        ],
+        [
+          "rightsay",
+          "Very well, if you feel so strongly about it, I suppose I have no choice. Here, you may keep it for yourself."
+        ],
+        [
+          "say",
+          "He hands you his burning hat and walks away quickly."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Burning Man"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thank you."
+        ]
+      ],
+      "outfox": [
+        [
+          "leftsay",
+          "Look, I'll put it this way: you're an artist, right? You depend on your eyes for your ability to create. Well, once your hat burns down far enough, your eyeballs are going to boil in their sockets."
+        ],
+        [
+          "rightsay",
+          "Ah. Well... that would put a hamper on my painting..."
+        ],
+        [
+          "leftsay",
+          "Of course, well before that happens, your brain will roast. Starting with the parietal lobes on top, which govern visual perception and object manipulation."
+        ],
+        [
+          "rightsay",
+          "Oh my. Very well, you've made your point. Here."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Burning Man"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thank you."
+        ]
+      ],
+      "hornstwo": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "The man wordlessly removes his burning hat, hands it to you, and walks away."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Burning Man"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Was it something I said?"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! Specifically, you have won a hat that is on fire. Congratulations?"
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Burning Man"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_banditg3": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! You claim the jogger's goofy-looking shoes as your just reward."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Bandit Jogger"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "re_chefpepper": {
       "grab": [
         [
@@ -26386,6 +26974,1001 @@
         ]
       ]
     },
+    "re_gobling1": {
+      "options": [
+        [
+          "option",
+          "fight",
+          "Attack the goblin [Fight]"
+        ],
+        [
+          "if",
+          "hasskill(goblintongue)"
+        ],
+        [
+          "option",
+          "talk",
+          "Talk to it [Goblintongue]"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "option",
+          "gary",
+          "Have Gary deal with it"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "option",
+          "comm",
+          "Try to communicate with it"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "option",
+          "runaway",
+          "Run away [Dark Horse]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "surrender",
+          "Surrender"
+        ]
+      ],
+      "buyweapon250": [
+        [
+          "say",
+          "You give the goblin 250 Meat and pick up a... well, any piece of driftwood can be used as a weapon, right?"
+        ],
+        [
+          "addmeat",
+          "-250"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Weapon)"
+        ],
+        [
+          "addflag",
+          "re_g_gotdriftwoodweaponcheck"
+        ],
+        [
+          "option",
+          "shopagain250",
+          "I guess so..."
+        ]
+      ],
+      "buyhat250": [
+        [
+          "say",
+          "You give the goblin 250 Meat and pick up a... a piece of driftwood with a chinstrap on it?"
+        ],
+        [
+          "addmeat",
+          "-250"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Hat)"
+        ],
+        [
+          "addflag",
+          "re_g_gotdriftwoodhatcheck"
+        ],
+        [
+          "option",
+          "shopagain250",
+          "Well, okay..."
+        ]
+      ],
+      "buyshield250": [
+        [
+          "say",
+          "You give the goblin 250 Meat and pick up a... well, any piece of driftwood can be used as a shield, right?"
+        ],
+        [
+          "addmeat",
+          "-250"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Shield)"
+        ],
+        [
+          "addflag",
+          "re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "option",
+          "shopagain250",
+          "I guess so..."
+        ]
+      ],
+      "shopagain250": [
+        [
+          "if",
+          "re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodhatcheck && re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "goto",
+          "boughtall"
+        ],
+        [
+          "say",
+          "The goblin's simmered down a bit but still gives you a hard stare as you look over their other \"art\"."
+        ],
+        [
+          "if",
+          "player.meat>=250 && !re_g_gotdriftwoodweaponcheck"
+        ],
+        [
+          "option",
+          "buyweapon250",
+          "Buy a driftwood... weapon? [250 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<250 && !re_g_gotdriftwoodweaponcheck"
+        ],
+        [
+          "grayoption",
+          "nobuy",
+          "Buy a driftwood... weapon? [Requires 250 Meat]"
+        ],
+        [
+          "if",
+          "player.meat>=250 && !re_g_gotdriftwoodhatcheck"
+        ],
+        [
+          "option",
+          "buyhat250",
+          "Buy a driftwood... hat? [250 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<250 && !re_g_gotdriftwoodhatcheck"
+        ],
+        [
+          "grayoption",
+          "nobuy",
+          "Buy a driftwood... hat? [Requires 250 Meat]"
+        ],
+        [
+          "if",
+          "player.meat>=250 && !re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "option",
+          "buyshield250",
+          "Buy a driftwood... shield? [250 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<250 && !re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "grayoption",
+          "nobuy",
+          "Buy a driftwood... shield? [Requires 250 Meat]"
+        ],
+        [
+          "option",
+          "fight",
+          "Attack the goblin [Fight]"
+        ],
+        [
+          "if",
+          "(re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodhatcheck) || (re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodshieldcheck) || (re_g_gotdriftwoodhatcheck && re_g_gotdriftwoodshieldcheck)"
+        ],
+        [
+          "option",
+          "done",
+          "Take your new thingamajigs and leave"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "done",
+          "Take your new thingamajig and leave"
+        ]
+      ],
+      "boughtall": [
+        [
+          "if",
+          "hasskill(goblintongue)"
+        ],
+        [
+          "say",
+          "The goblin is counting their earnings and muttering about starting a studio and hiring more artists to carry out their vision."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "The goblin is muttering excitedly and counting through its hefty bundle of Meat."
+        ],
+        [
+          "option",
+          "fight",
+          "Time to show them the meaning of critique [Fight]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave them to it"
+        ]
+      ],
+      "buyweapon300": [
+        [
+          "say",
+          "You give the goblin 300 Meat and pick up a... well, any piece of driftwood can be used as a weapon, right?"
+        ],
+        [
+          "addmeat",
+          "-300"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Weapon)"
+        ],
+        [
+          "addflag",
+          "re_g_gotdriftwoodweaponcheck"
+        ],
+        [
+          "option",
+          "done",
+          "I guess so..."
+        ]
+      ],
+      "buyhat300": [
+        [
+          "say",
+          "You give the goblin 300 Meat and pick up a... a piece of driftwood with a chinstrap on it?"
+        ],
+        [
+          "addmeat",
+          "-300"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Hat)"
+        ],
+        [
+          "addflag",
+          "re_g_gotdriftwoodhatcheck"
+        ],
+        [
+          "option",
+          "done",
+          "Well, okay..."
+        ]
+      ],
+      "buyshield300": [
+        [
+          "say",
+          "You give the goblin 300 Meat and pick up a... well, any piece of driftwood can be used as a shield, right?"
+        ],
+        [
+          "addmeat",
+          "-300"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Shield)"
+        ],
+        [
+          "addflag",
+          "re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "option",
+          "done",
+          "I guess so..."
+        ]
+      ],
+      "shopagain300": [
+        [
+          "if",
+          "re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodhatcheck && re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "goto",
+          "boughtall"
+        ],
+        [
+          "say",
+          "The goblin's simmered down a bit but still gives you a hard stare as you look over their other \"art\"."
+        ],
+        [
+          "if",
+          "player.meat>=300 && !re_g_gotdriftwoodweaponcheck"
+        ],
+        [
+          "option",
+          "buyweapon300",
+          "Buy a driftwood... weapon? [300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<300 && !re_g_gotdriftwoodweaponcheck"
+        ],
+        [
+          "grayoption",
+          "nobuy",
+          "Buy a driftwood... weapon? [Requires 300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat>=300 && !re_g_gotdriftwoodhatcheck"
+        ],
+        [
+          "option",
+          "buyhat300",
+          "Buy a driftwood... hat? [300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<300 && !re_g_gotdriftwoodhatcheck"
+        ],
+        [
+          "grayoption",
+          "nobuy",
+          "Buy a driftwood... hat? [Requires 300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat>=300 && !re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "option",
+          "buyshield300",
+          "Buy a driftwood... shield? [300 Meat]"
+        ],
+        [
+          "if",
+          "player.meat<300 && !re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "grayoption",
+          "nobuy",
+          "Buy a driftwood... shield? [Requires 300 Meat]"
+        ],
+        [
+          "option",
+          "fight",
+          "Attack the goblin [Fight]"
+        ],
+        [
+          "if",
+          "(re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodhatcheck) || (re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodshieldcheck) || (re_g_gotdriftwoodhatcheck && re_g_gotdriftwoodshieldcheck)"
+        ],
+        [
+          "option",
+          "done",
+          "Take your new thingamajigs and leave"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "done",
+          "Take your new thingamajig and leave"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "if",
+          "re_g_gotdriftwoodweaponcheck && re_g_gotdriftwoodhatcheck && re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "say",
+          "That'll teach 'em to share their creative work and hope to make a living from it."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "You won! The goblin is much calmer now that they're unconscious."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Driftwood Sculptor (Shield)"
+        ],
+        [
+          "if",
+          "re_g_gotdriftwoodweaponcheck || re_g_gotdriftwoodhatcheck || re_g_gotdriftwoodshieldcheck"
+        ],
+        [
+          "say",
+          "You leave them with the Meat. You're not some sort of dirty <i>thief</i> - you paid them, so everything after that was your right."
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_gobling2": {
+      "intim2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Okay yes!"
+        ],
+        [
+          "say",
+          "The goblin gives you the seashell and scampers away in a fright."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Clamdigger"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Good!"
+        ]
+      ],
+      "fox2": [
+        [
+          "leftsay",
+          "Thanks!"
+        ],
+        [
+          "say",
+          "Oddly, the shell has a lapel pin glued to the back of it. Maybe a wagonload of seaside souvenirs overturned here sometime in the past?"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Clamdigger"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Sweet!"
+        ]
+      ],
+      "horn2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Clamdigger"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Smooth"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You successfully beat the heck out of a goblin clamdigger."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Goblin Clamdigger"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_gobling3": {
+      "outfox": [
+        [
+          "say",
+          "You teach the goblin a small wind spell to help him guide his bullets a little more accurately, and he gratefully gives you a handmade ring in exchange."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Trigger-Happy Goblin Driftwood Sculptor"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Nice!"
+        ]
+      ],
+      "hornswoggle": [
+        [
+          "say",
+          "You spend a little time teaching the goblin how to improve his aim, and he gratefully gives you a handmade ring in exchange. Which is convenient, because you were originally planning on stealing it while shaking his hand."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Trigger-Happy Goblin Driftwood Sculptor"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Sweet"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won, which is pretty lucky considering the goblin already had their gun out and ready!"
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Trigger-Happy Goblin Driftwood Sculptor"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "re_mallet": {
       "open": [
         [
@@ -29602,6 +31185,669 @@
         [
           "checklocation",
           "Random Encounter (Region F) - Burnin' Skeleton"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_skeletong1": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You defeated the ancient conqueror, making you officially the only living combatant of a war that ended three hundred years ago."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Conquistador's Skeleton"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_skeletong2": {
+      "intim": [
+        [
+          "leftsay",
+          "Are you one of those drowned pirate skeletons? Because you're a lot less scary on land."
+        ],
+        [
+          "rightsay",
+          "Hiss!"
+        ],
+        [
+          "leftsay",
+          "Have you got your land legs yet? I bet you don't, right? Will it make you landsick if I just stand here motionless, not rocking from side to side at all?"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "say",
+          "After a minute, the skeleton turns green and tries to throw up, but since it doesn't have a stomach its head just falls off."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Seaweed-Draped Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Wow!"
+        ]
+      ],
+      "outfox": [
+        [
+          "leftsay",
+          "Oh hey, did you remember to stop and decompress as you were walking out of the briny depths? The difference in pressure between the seafloor and the surface can be really dramatic, and..."
+        ],
+        [
+          "rightsay",
+          "BAM!"
+        ],
+        [
+          "say",
+          "Most of the skeleton's joints explode, and it collapses into a heap of bones and rotten seaweed."
+        ],
+        [
+          "leftsay",
+          "Yeah, see? I warned you."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Seaweed-Draped Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Yup"
+        ]
+      ],
+      "hornswoggle": [
+        [
+          "leftsay",
+          "Oh! Wait! Oh my gosh! Are you Davy Jones?"
+        ],
+        [
+          "rightsay",
+          "...Hiss?"
+        ],
+        [
+          "leftsay",
+          "I'm a huge fan, I have all your albums!"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "leftsay",
+          "Can I have your autograph?"
+        ],
+        [
+          "say",
+          "The skeleton scribbles something onto a piece of paper for you, and then wanders off, puzzled."
+        ],
+        [
+          "leftsay",
+          "\"Rainy Jane\" was really underrated!"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Seaweed-Draped Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Neat!"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! Unfortunately the skeleton didn't have much in the way of loot, but... oh, here, this'll do."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Seaweed-Draped Skeleton"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
+    "re_skeletong3": {
+      "intim": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "I should be afraid of you? Are you kidding me? You didn't even survive getting off the boat!"
+        ],
+        [
+          "rightpicture",
+          "portrait_skeletong3"
+        ],
+        [
+          "rightsay",
+          "Hiss!"
+        ],
+        [
+          "leftsay",
+          "Oh, I'm shaking in my boots! My boots which are nice and dry because I didn't fall off a galleon and drown on my way to conquering a foreign land. Maybe you shoulda had a pool noodle instead of that blunderbuss, El Capitano Cinqo de Moron!"
+        ],
+        [
+          "say",
+          "The skeleton gets so angry $skelprolow$ can't even aim properly any more. $skelprocap$ petulantly throws $skelposlow$ gun on the ground and storms away."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Conquistador Dragoon Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Alright!"
+        ]
+      ],
+      "hornswoggle": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Wow, you haven't been taking very good care of that gun. What, were you half-buried on the ocean floor for like four hundred years?"
+        ],
+        [
+          "rightpicture",
+          "portrait_skeletong3"
+        ],
+        [
+          "rightsay",
+          "...Hiss."
+        ],
+        [
+          "leftsay",
+          "Oh. Really? Huh. Well, anyway, that thing's probably just gonna explode if you try to fire it. Let me have a look, I can probably tune it up for you."
+        ],
+        [
+          "say",
+          "The skeleton hands over $skelposlow$ gun. You inspect it carefully and then use it to blow $skelposlow$ skull clean off."
+        ],
+        [
+          "leftsay",
+          "Okay, no, my mistake. It's a bit mucky but it's basically fine."
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Conquistador Dragoon Skeleton"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "option",
+          "done",
+          "Cool"
+        ]
+      ],
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You won! Specifically, you won the oldest, filthiest gun you've ever seen."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "checklocation",
+          "Random Encounter (Region G) - Conquistador Dragoon Skeleton"
         ],
         [
           "addstate",
