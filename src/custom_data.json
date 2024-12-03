@@ -14907,6 +14907,181 @@
         ]
       ]
     },
+    "item_hedgeleaf_assembly": {
+      "start": [
+        [
+          "addstate",
+          "cost1,3"
+        ],
+        [
+          "addstate",
+          "cost2,3"
+        ],
+        [
+          "addstate",
+          "cost3,5"
+        ],
+        [
+          "addstate",
+          "cost4,7"
+        ],
+        [
+          "addstate",
+          "got,=hasitem(hedgeleaf)"
+        ],
+        [
+          "if",
+          "$got$==1"
+        ],
+        [
+          "say",
+          "You have 1 magic-infused leaf."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "You have $got$ magic-infused leaves."
+        ],
+        [
+          "say",
+          "What would you like to make?"
+        ],
+        [
+          "if",
+          "$got$>=$cost1$ && !hedgeleaf_gotsaladcheck"
+        ],
+        [
+          "option",
+          "make1",
+          "A salad, ha ha [$cost1$ leaves]"
+        ],
+        [
+          "if",
+          "$got$<$cost1$ && !hedgeleaf_gotsaladcheck"
+        ],
+        [
+          "grayoption",
+          "flake1",
+          "A salad [Requires $cost1$ leaves]"
+        ],
+        [
+          "if",
+          "$got$>=$cost2$"
+        ],
+        [
+          "option",
+          "make2",
+          "Some booze [$cost2$ leaves]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "flake1",
+          "Some booze [Requires $cost2$ leaves]"
+        ],
+        [
+          "if",
+          "$got$>=$cost3$ && !hedgeleaf_gotweaponcheck"
+        ],
+        [
+          "option",
+          "make3",
+          "A weapon [$cost3$ leaves]"
+        ],
+        [
+          "if",
+          "$got$<$cost3$ && !hedgeleaf_gotweaponcheck"
+        ],
+        [
+          "grayoption",
+          "flake1",
+          "A weapon [Requires $cost3$ leaves]"
+        ],
+        [
+          "if",
+          "$got$>=$cost4$ && !hedgeleaf_gothatcheck"
+        ],
+        [
+          "option",
+          "make4",
+          "A hat [$cost4$ leaves]"
+        ],
+        [
+          "if",
+          "$got$<$cost4$ && !hedgeleaf_gothatcheck"
+        ],
+        [
+          "grayoption",
+          "flake1",
+          "A hat [Requires $cost4$ leaves]"
+        ],
+        [
+          "option",
+          "done",
+          "No more leaving, I'm leaving"
+        ]
+      ],
+      "make1": [
+        [
+          "removeitem",
+          "hedgeleaf,$cost1$"
+        ],
+        [
+          "checklocation",
+          "Magic-Infused Leaf Crafting - 3 Leaves"
+        ],
+        [
+          "addflag",
+          "hedgeleaf_gotsaladcheck"
+        ],
+        [
+          "goto",
+          "start"
+        ]
+      ],
+      "make3": [
+        [
+          "removeitem",
+          "hedgeleaf,$cost3$"
+        ],
+        [
+          "checklocation",
+          "Magic-Infused Leaf Crafting - 5 Leaves"
+        ],
+        [
+          "addflag",
+          "hedgeleaf_gotweaponcheck"
+        ],
+        [
+          "goto",
+          "start"
+        ]
+      ],
+      "make4": [
+        [
+          "removeitem",
+          "hedgeleaf,$cost4$"
+        ],
+        [
+          "checklocation",
+          "Magic-Infused Leaf Crafting - 7 Leaves"
+        ],
+        [
+          "addflag",
+          "hedgeleaf_gothatcheck"
+        ],
+        [
+          "goto",
+          "start"
+        ]
+      ]
+    },
     "item_jethrolocket": {
       "open": [
         [
@@ -14932,6 +15107,190 @@
           "option",
           "done",
           "Okay"
+        ]
+      ]
+    },
+    "item_spiderparts_assembly": {
+      "start": [
+        [
+          "if",
+          "spiderparts_gotringcheck && spiderparts_gotpantscheck && spiderparts_gotaxecheck"
+        ],
+        [
+          "goto",
+          "madeall"
+        ],
+        [
+          "addstate",
+          "cost1,4"
+        ],
+        [
+          "addstate",
+          "cost2,6"
+        ],
+        [
+          "addstate",
+          "cost3,8"
+        ],
+        [
+          "addstate",
+          "got,=hasitem(spiderparts)"
+        ],
+        [
+          "if",
+          "$got$==1"
+        ],
+        [
+          "say",
+          "You have 1 horrible pile of spider parts."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "You have $got$ horrible piles of spider parts."
+        ],
+        [
+          "say",
+          "What awful thing would you like to construct out of them?"
+        ],
+        [
+          "if",
+          "$got$>=$cost1$ && !spiderparts_gotringcheck"
+        ],
+        [
+          "option",
+          "ring",
+          "A ring [$cost1$ piles]"
+        ],
+        [
+          "if",
+          "$got$<$cost1$ && !spiderparts_gotringcheck"
+        ],
+        [
+          "grayoption",
+          "gring",
+          "A ring [Requires $cost1$ piles]"
+        ],
+        [
+          "if",
+          "$got$>=$cost2$ && !spiderparts_gotpantscheck"
+        ],
+        [
+          "option",
+          "pants",
+          "Some pants [$cost2$ piles]"
+        ],
+        [
+          "if",
+          "$got$<$cost2$ && !spiderparts_gotpantscheck"
+        ],
+        [
+          "grayoption",
+          "gring",
+          "Some pants [Requires $cost2$ piles]"
+        ],
+        [
+          "if",
+          "$got$>=$cost3$ && !spiderparts_gotaxecheck"
+        ],
+        [
+          "option",
+          "axe",
+          "An axe [$cost3$ piles]"
+        ],
+        [
+          "if",
+          "$got$<$cost3$ && !spiderparts_gotaxecheck"
+        ],
+        [
+          "grayoption",
+          "gring",
+          "An axe [Requires $cost3$ piles]"
+        ],
+        [
+          "option",
+          "done",
+          "I changed my mind, this is very bad"
+        ]
+      ],
+      "ring": [
+        [
+          "say",
+          "You twist a bunch of the spider bits into a terrible ring!"
+        ],
+        [
+          "removeitem",
+          "spiderparts,$cost1$"
+        ],
+        [
+          "checklocation",
+          "Spider Part Crafting - 4 Piles"
+        ],
+        [
+          "addflag",
+          "spiderparts_gotringcheck"
+        ],
+        [
+          "goto",
+          "start"
+        ]
+      ],
+      "pants": [
+        [
+          "say",
+          "You make one of the worst pairs of pants you've ever seen."
+        ],
+        [
+          "removeitem",
+          "spiderparts,$cost2$"
+        ],
+        [
+          "checklocation",
+          "Spider Part Crafting - 6 Piles"
+        ],
+        [
+          "addflag",
+          "spiderparts_gotpantscheck"
+        ],
+        [
+          "goto",
+          "start"
+        ]
+      ],
+      "axe": [
+        [
+          "say",
+          "You attach some of the sharp bits to some of the blunt bits and make a terrifying axe."
+        ],
+        [
+          "removeitem",
+          "spiderparts,$cost3$"
+        ],
+        [
+          "checklocation",
+          "Spider Part Crafting - 8 Piles"
+        ],
+        [
+          "addflag",
+          "spiderparts_gotaxecheck"
+        ],
+        [
+          "goto",
+          "start"
+        ]
+      ],
+      "madeall": [
+        [
+          "say",
+          "You've already done much more work with these things than you could ever want."
+        ],
+        [
+          "option",
+          "done",
+          "Thank god"
         ]
       ]
     },
