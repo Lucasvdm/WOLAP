@@ -14907,6 +14907,34 @@
         ]
       ]
     },
+    "item_jethrolocket": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You carefully pick the locket lock."
+        ],
+        [
+          "removeitem",
+          "quest_jethrolocket"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "checklocation",
+          "Opened Charred Locket"
+        ],
+        [
+          "option",
+          "done",
+          "Okay"
+        ]
+      ]
+    },
     "item_tontinetreasure": {
       "invpopup": [
         [
