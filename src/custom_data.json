@@ -6656,6 +6656,574 @@
         ]
       ]
     },
+    "crafting_leather": {
+      "leather1": [
+        [
+          "say",
+          "You think about what you could make out of thick leather."
+        ],
+        [
+          "if",
+          "!crafting_leather_gothat1check"
+        ],
+        [
+          "option",
+          "hat1",
+          "A hat [+5 Muscle]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotpants1check"
+        ],
+        [
+          "option",
+          "pants1",
+          "Pants [+5 Muscle, +3 Armor]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotboots1check"
+        ],
+        [
+          "option",
+          "boots1",
+          "Boots [+3 Stomp damage]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotbag1check"
+        ],
+        [
+          "option",
+          "offhand1",
+          "A bag [+10% Meat Drop bonus]"
+        ],
+        [
+          "if",
+          "hasitem(nails) && !crafting_leather_gotgloves1check"
+        ],
+        [
+          "option",
+          "weapon1",
+          "Nailgloves [+3 Muscle; Using nails]"
+        ],
+        [
+          "if",
+          "!hasitem(nails) && !crafting_leather_gotgloves1check"
+        ],
+        [
+          "grayoption",
+          "doo",
+          "Nailgloves [Requires some nails]"
+        ],
+        [
+          "option",
+          "rope1",
+          "3 lassos [Disabling combat item]"
+        ],
+        [
+          "option",
+          "start",
+          "None of these"
+        ]
+      ],
+      "hat1": [
+        [
+          "removeitem",
+          "leather1"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 1 (Hat)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gothat1check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "pants1": [
+        [
+          "removeitem",
+          "leather1"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 1 (Pants)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotpants1check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "boots1": [
+        [
+          "removeitem",
+          "leather1"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 1 (Boots)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotboots1check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "offhand1": [
+        [
+          "removeitem",
+          "leather1"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 1 (Bag)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotbag1check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "weapon1": [
+        [
+          "removeitem",
+          "leather1"
+        ],
+        [
+          "removeitem",
+          "nails"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 1 (Gloves)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotgloves1check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "leather2": [
+        [
+          "say",
+          "You consider what you could make out of smoldering leather."
+        ],
+        [
+          "if",
+          "!crafting_leather_gothat2check"
+        ],
+        [
+          "option",
+          "hat2",
+          "A hat [+7 Muscle, Cold Resist]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotpants2check"
+        ],
+        [
+          "option",
+          "pants2",
+          "Pants [+7 Muscle, +4 Armor, Cold Resist]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotboots2check"
+        ],
+        [
+          "option",
+          "boots2",
+          "Boots [+4 Speed, +5 Stomp damage]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotbag2check"
+        ],
+        [
+          "option",
+          "offhand2",
+          "A bag [+20% Meat & +10% Item bonus]"
+        ],
+        [
+          "if",
+          "hasitem(cowfangs) && !crafting_leather_gotgloves2check"
+        ],
+        [
+          "option",
+          "weapon2",
+          "Fang-gloves [Poisonous; Using cow fangs]"
+        ],
+        [
+          "if",
+          "!hasitem(cowfangs) && !crafting_leather_gotgloves2check"
+        ],
+        [
+          "grayoption",
+          "doo",
+          "Fang-gloves [Requires cow fangs]"
+        ],
+        [
+          "option",
+          "rope2",
+          "3 smoldering lassos [Disabling combat item]"
+        ],
+        [
+          "option",
+          "start",
+          "None of these"
+        ]
+      ],
+      "hat2": [
+        [
+          "removeitem",
+          "leather2"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 2 (Hat)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gothat2check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "pants2": [
+        [
+          "removeitem",
+          "leather2"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 2 (Pants)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotpants2check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "boots2": [
+        [
+          "removeitem",
+          "leather2"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 2 (Boots)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotboots2check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "offhand2": [
+        [
+          "removeitem",
+          "leather2"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 2 (Bag)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotbag2check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "weapon2": [
+        [
+          "removeitem",
+          "leather2"
+        ],
+        [
+          "removeitem",
+          "cowfangs"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 2 (Gloves)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotgloves2check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "leather3": [
+        [
+          "say",
+          "You ponder what you could make out of infernal leather."
+        ],
+        [
+          "if",
+          "!hasskill(cowrruption) || crafting_leather_gotmalletcheck"
+        ],
+        [
+          "goto",
+          "afterskill"
+        ],
+        [
+          "say",
+          "An idea burns in your corrupt mind.  A hammer."
+        ],
+        [
+          "if",
+          "hasitem(bone)"
+        ],
+        [
+          "option",
+          "hammer",
+          "Yes, a hammer [+11 Muscle; Using a bone]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "hlammer",
+          "Yes, a hammer [Requires a bone]"
+        ],
+        [
+          "goto",
+          "afterskill"
+        ]
+      ],
+      "afterskill": [
+        [
+          "if",
+          "!crafting_leather_gothat3check"
+        ],
+        [
+          "option",
+          "hat3",
+          "A hat [+9 Muscle, On Fire]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotpants3check"
+        ],
+        [
+          "option",
+          "pants3",
+          "Pants [+1 Max AP, On Fire]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotboots3check"
+        ],
+        [
+          "option",
+          "boots3",
+          "Boots [+7 Stomp damage, On Fire]"
+        ],
+        [
+          "if",
+          "!crafting_leather_gotbag3check"
+        ],
+        [
+          "option",
+          "offhand3",
+          "A bag [+30% Meat, +20% Item, On Fire]"
+        ],
+        [
+          "if",
+          "hasitem(ungulithhorn) && !crafting_leather_gotgloves3check"
+        ],
+        [
+          "option",
+          "weapon3",
+          "Ungulith-horn gloves [Spooky damage; Using horn]"
+        ],
+        [
+          "if",
+          "!hasitem(ungulithhorn) && !crafting_leather_gotgloves3check"
+        ],
+        [
+          "grayoption",
+          "doo",
+          "Ungulith-horn gloves [Requires ungulith horn]"
+        ],
+        [
+          "option",
+          "rope3",
+          "3 infernal lassos [Disabling combat item]"
+        ],
+        [
+          "option",
+          "start",
+          "None of these"
+        ]
+      ],
+      "hammer": [
+        [
+          "removeitem",
+          "leather3"
+        ],
+        [
+          "removeitem",
+          "bone"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 3 (Mallet)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotmalletcheck"
+        ],
+        [
+          "option",
+          "start",
+          "Yes.  Yes."
+        ]
+      ],
+      "hat3": [
+        [
+          "removeitem",
+          "leather3"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 3 (Hat)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gothat3check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "pants3": [
+        [
+          "removeitem",
+          "leather3"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 3 (Pants)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotpants3check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "boots3": [
+        [
+          "removeitem",
+          "leather3"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 3 (Boots)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotboots3check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "offhand3": [
+        [
+          "removeitem",
+          "leather3"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 3 (Bag)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotbag3check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ],
+      "weapon3": [
+        [
+          "removeitem",
+          "leather3"
+        ],
+        [
+          "removeitem",
+          "ungulithhorn"
+        ],
+        [
+          "checklocation",
+          "Leatherworkery Crafting - Level 3 (Gloves)"
+        ],
+        [
+          "addflag",
+          "crafting_leather_gotgloves3check"
+        ],
+        [
+          "option",
+          "start",
+          "Nice"
+        ]
+      ]
+    },
     "cre_brotoybox": {
       "getpuz": [
         [
