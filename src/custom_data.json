@@ -6656,6 +6656,376 @@
         ]
       ]
     },
+    "crafting_arcaneoven": {
+      "iron1": [
+        [
+          "if",
+          "crafting_cookery_gotspatulacheck && crafting_cookery_gotskilletcheck && crafting_cookery_gotbadgecheck"
+        ],
+        [
+          "goto",
+          "madeall"
+        ],
+        [
+          "say",
+          "Your mind reaches into the bean iron to see what shapes it conceals."
+        ],
+        [
+          "say",
+          "You detect three."
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotspatulacheck"
+        ],
+        [
+          "option",
+          "spatula",
+          "A spatula [Weapon, +5 Mysticality]"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotskilletcheck"
+        ],
+        [
+          "option",
+          "skillet",
+          "A skillet [Off-Hand, +3 Armor]"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotbadgecheck"
+        ],
+        [
+          "option",
+          "badge",
+          "A badge [Lapel, +7 Spell damage]"
+        ],
+        [
+          "option",
+          "forge",
+          "None of the above"
+        ]
+      ],
+      "spatula": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron1"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 1 (Spatula)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotspatulacheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "skillet": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron1"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 1 (Skillet)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotskilletcheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "badge": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron1"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 1 (Badge)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotbadgecheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "iron2": [
+        [
+          "if",
+          "crafting_cookery_gotspatulacheck && crafting_cookery_gotskilletcheck && crafting_cookery_gotbadgecheck"
+        ],
+        [
+          "goto",
+          "madeall"
+        ],
+        [
+          "say",
+          "The dense bean-iron hides many mysteries."
+        ],
+        [
+          "say",
+          "Well, three.  Three mysteries.  They're good ones, though."
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotladlecheck"
+        ],
+        [
+          "option",
+          "ladle",
+          "A ladle [Weapon, +7 Mysticality]"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotsaucepancheck"
+        ],
+        [
+          "option",
+          "saucepan",
+          "A saucepan [Off-Hand, +5 HP Regen]"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotcollandercheck"
+        ],
+        [
+          "option",
+          "collander",
+          "A collander [Hat, +7 Mysticality]"
+        ],
+        [
+          "option",
+          "forge",
+          "Never mind"
+        ]
+      ],
+      "ladle": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron2"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 2 (Ladle)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotladlecheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "saucepan": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron2"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 2 (Saucepan)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotsaucepancheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "collander": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron2"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 2 (Collander)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotcollandercheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "iron3": [
+        [
+          "if",
+          "crafting_cookery_gotspatulacheck && crafting_cookery_gotskilletcheck && crafting_cookery_gotbadgecheck"
+        ],
+        [
+          "goto",
+          "madeall"
+        ],
+        [
+          "say",
+          "This delicate bean-iron is flexible.  Versatile.  Complexity upon complexity hides within its structure."
+        ],
+        [
+          "say",
+          "What will you make?"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotwhiskcheck"
+        ],
+        [
+          "option",
+          "whisk",
+          "A whisk [Weapon, +10 Myst, +1 Max AP]"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotkettlecheck"
+        ],
+        [
+          "option",
+          "kettle",
+          "A kettle [Off-Hand, +50 Max HP]"
+        ],
+        [
+          "if",
+          "!crafting_cookery_gotpistolcheck"
+        ],
+        [
+          "option",
+          "pistol",
+          "A shootin' iron [Pistol, +15 Spell damage]"
+        ],
+        [
+          "option",
+          "forge",
+          "Nothing, never mind"
+        ]
+      ],
+      "whisk": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron3"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 3 (Whisk)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotwhiskcheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "kettle": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron3"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 3 (Kettle)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotkettlecheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "pistol": [
+        [
+          "say",
+          "%player_forgebeaniron%"
+        ],
+        [
+          "removeitem",
+          "beaniron3"
+        ],
+        [
+          "checklocation",
+          "Master Cookery Crafting - Level 3 (Shootin' Iron)"
+        ],
+        [
+          "addflag",
+          "crafting_cookery_gotpistolcheck"
+        ],
+        [
+          "option",
+          "forge",
+          "%player_button_forgebeaniron%"
+        ]
+      ],
+      "madeall": [
+        [
+          "say",
+          "You've gotten all the value you can out of this material."
+        ],
+        [
+          "option",
+          "forge",
+          "Okay"
+        ]
+      ]
+    },
     "crafting_leather": {
       "leather1": [
         [
