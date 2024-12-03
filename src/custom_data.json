@@ -14761,6 +14761,152 @@
         ]
       ]
     },
+    "item_bropackage": {
+      "invpopup": [
+        [
+          "consume"
+        ],
+        [
+          "if",
+          "!hasflag(bro_crafting)"
+        ],
+        [
+          "goto",
+          "giveoven"
+        ],
+        [
+          "if",
+          "!hasflag(bro_skillbook)"
+        ],
+        [
+          "goto",
+          "skillbook"
+        ],
+        [
+          "if",
+          "!hasflag(bro_ring)"
+        ],
+        [
+          "goto",
+          "cowring"
+        ],
+        [
+          "if",
+          "!hasflag(cre_gothat)"
+        ],
+        [
+          "goto",
+          "cathat"
+        ],
+        [
+          "say",
+          "Hmm, this package is empty.  Or maybe Rufus sent you some kind of special air.  That sounds like something he'd do."
+        ],
+        [
+          "option",
+          "sniff",
+          "Breathe it in"
+        ]
+      ],
+      "giveoven": [
+        [
+          "say",
+          "Dear @bro@: I thought you might be able to use this."
+        ],
+        [
+          "checklocation",
+          "Rufus' Gifts - Gift 1"
+        ],
+        [
+          "addflag",
+          "bro_gotgift1check"
+        ],
+        [
+          "option",
+          "done",
+          "Aww, what a great kid"
+        ]
+      ],
+      "skillbook": [
+        [
+          "addflag",
+          "bro_skillbook"
+        ],
+        [
+          "say",
+          "Dear @bro@, I found this and thought it might help you not die."
+        ],
+        [
+          "checklocation",
+          "Rufus' Gifts - Gift 2"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ],
+      "cowring": [
+        [
+          "say",
+          "Dear @bro@: I thought you might be able to use this."
+        ],
+        [
+          "checklocation",
+          "Rufus' Gifts - Gift 3"
+        ],
+        [
+          "addflag",
+          "bro_ring"
+        ],
+        [
+          "option",
+          "done",
+          "Aww.  Thanks Rufus."
+        ]
+      ],
+      "cathat": [
+        [
+          "say",
+          "Dear @bro@: I found your old hat behind the bed in your room, and thought you might want it back."
+        ],
+        [
+          "checklocation",
+          "Rufus' Gifts - Gift 4"
+        ],
+        [
+          "addflag",
+          "cre_gothat"
+        ],
+        [
+          "option",
+          "done",
+          "That was sweet of him"
+        ]
+      ],
+      "sniff": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You sniff the package and watch as something condenses out of the nothing inside."
+        ],
+        [
+          "checklocation",
+          "Rufus' Gifts - Gift 5"
+        ],
+        [
+          "say",
+          "Whoah, it <i>was</i> special air!"
+        ],
+        [
+          "option",
+          "done",
+          "Nice"
+        ]
+      ]
+    },
     "item_tontinetreasure": {
       "invpopup": [
         [
