@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static PathMaker;
 
 namespace WOLAP
 {
@@ -17,8 +18,11 @@ namespace WOLAP
         public Dictionary<string, object> SlotData { get; private set; }
         public bool IsConnected { get { return Session != null && Session.Socket.Connected; } }
 
-        private const string GAME_NAME = "West of Loathing";
-        private const string ITEM_RECEIVED_FLAG_PREFIX = "received_item_";
+        public const string GAME_NAME = "West of Loathing";
+        public const string ITEM_RECEIVED_FLAG_PREFIX = "received_item_";
+        public const string UNLOCKED_SHOP_CHECK_FLAG_PREFIX = "unlocked_shop_check_";
+        public const string ADDED_SHOP_CHECK_FLAG_PREFIX = "added_shop_check_";
+        public const string SHOP_CHECK_ITEM_TEMPLATE_NAME = "archipelago_shopitem";
 
         private string hostname;
         private int port;
@@ -125,7 +129,10 @@ namespace WOLAP
                 this.slot = slot;
                 this.password = password;
                 SlotData = success.SlotData;
-                //Other data initialization and post-connection logic
+
+                PopulateShopCheckItemInfo();
+                Dictionary<string, string> flags = MPlayer.instance.data;
+                AddChecksToShops(ShopCheckLocations.FindAll(check => check.ApItemInfo != null && !flags.ContainsKey(ADDED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""))));
             }
             else
             {
@@ -232,5 +239,134 @@ namespace WOLAP
             }
             return startingInventory;
         }
+
+        public void PopulateShopCheckItemInfo()
+        {
+            PopulateShopCheckItemInfo(ShopCheckLocations);
+        }
+
+        public void PopulateShopCheckItemInfo(List<ShopCheckLocation> locationsToPopulate)
+        {
+            Dictionary<string, string> flags = MPlayer.instance.data;
+
+            List<long> checkIDs = new List<long>();
+            foreach (ShopCheckLocation check in ShopCheckLocations)
+            {
+                if (!flags.ContainsKey(ADDED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", "")) && (check.IsAddableEarly || flags.ContainsKey(UNLOCKED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""))))
+                {
+                    checkIDs.Add(Session.Locations.GetLocationIdFromName(GAME_NAME, check.Name));
+                }
+            }
+
+            Session.Locations.ScoutLocationsAsync(checkIDs.ToArray()).ContinueWith(locationInfoPacket =>
+            {
+                foreach (ItemInfo itemInfo in locationInfoPacket.Result.Values)
+                {
+                    ShopCheckLocation location = ShopCheckLocations.Find(check => check.Name == itemInfo.LocationName);
+                    location.ApItemInfo = itemInfo;
+                }
+            }).Wait(TimeSpan.FromSeconds(10));
+
+            WolapPlugin.Log.LogInfo("Retrieved item info for addable shop check locations.");
+        }
+
+        public void AddChecksToShops(List<ShopCheckLocation> checks)
+        {
+            foreach (ShopCheckLocation check in checks)
+            {
+                AddCheckToShop(check);
+            }
+        }
+
+        public void AddCheckToShop(ShopCheckLocation check)
+        {
+            if (check.ApItemInfo == null) return; //TODO: Make a call to retrieve item info here
+
+            MItem baseItem = ModelManager.GetItem(SHOP_CHECK_ITEM_TEMPLATE_NAME);
+            if (baseItem == null)
+            {
+                WolapPlugin.Log.LogError("Couldn't find the base archipelago shop check item!");
+                return;
+            }
+
+            ItemInfo info = check.ApItemInfo;
+            MItem checkItem = baseItem.Clone();
+            checkItem.data["name"] = info.ItemDisplayName;
+            
+            string description = $"{info.Player.Name}'s {info.ItemDisplayName} ";
+            if (info.Flags.HasFlag(ItemFlags.Advancement)) description += "(Progression)";
+            else if (info.Flags.HasFlag(ItemFlags.NeverExclude)) description += "(Useful)";
+            else if (info.Flags.HasFlag(ItemFlags.None)) description += "(Filler)";
+            checkItem.data["description"] = description;
+
+            Store.AddStockItem(check.ShopID, checkItem, 1, check.Price);
+
+            MPlayer.instance.data.Add(ADDED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""), "1");
+
+            WolapPlugin.Log.LogInfo($"Added check [{check.Name}] to shop [{check.ShopID}]");
+        }
+
+        public static readonly List<ShopCheckLocation> ShopCheckLocations = new List<ShopCheckLocation>
+        {
+            new ShopCheckLocation("Dirtwater Mercantile - Item 1", "dirtwatergeneral", 500),
+            new ShopCheckLocation("Dirtwater Mercantile - Item 2", "dirtwatergeneral", 1000),
+            new ShopCheckLocation("Dirtwater (Tony's Boots) - Item 1", "tonysboots", 1000),
+            new ShopCheckLocation("Dirtwater (Tony's Boots) - Item 2", "tonysboots", 1000),
+            new ShopCheckLocation("Dirtwater (Tony's Boots) - Item 3", "tonysboots", 1000),
+            new ShopCheckLocation("Dirtwater (Tony's Boots) - Bonus Item", "tonysboots", 510, false),
+            new ShopCheckLocation("Dirtwater (Murray's Curiosity & Bean) - Item 1", "curiosity", 300),
+            new ShopCheckLocation("Dirtwater (Murray's Curiosity & Bean) - Item 2", "curiosity", 1000),
+            new ShopCheckLocation("Dirtwater (Murray's Curiosity & Bean) - Item 3", "curiosity", 650),
+            new ShopCheckLocation("Dirtwater (Murray's Curiosity & Bean) - Item 4", "curiosity", 500),
+            new ShopCheckLocation("Dirtwater (Murray's Curiosity & Bean) - Bonus Item", "curiosity", 366, false),
+            new ShopCheckLocation("Dirtwater (Grady's Fine Leather Goods) - Item 1", "tanner", 500),
+            new ShopCheckLocation("Dirtwater (Grady's Fine Leather Goods) - Item 2", "tanner", 400),
+            new ShopCheckLocation("Dirtwater (Grady's Fine Leather Goods) - Item 3", "tanner", 400),
+            new ShopCheckLocation("Dirtwater (Grady's Fine Leather Goods) - Bonus Item", "tanner", 636, false),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 1", "bookstore", 500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 2", "bookstore", 1500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 3", "bookstore", 1500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 4", "bookstore", 1500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 5", "bookstore", 500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 6", "bookstore", 500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Item 7", "bookstore", 1500),
+            new ShopCheckLocation("Dirtwater (Alexandria's Bookstore) - Bonus Item", "bookstore", 1500, false),
+            new ShopCheckLocation("Buttonwillow's Store - Item 1", "buttonwillow", 300),
+            new ShopCheckLocation("Buttonwillow's Store - Item 2", "buttonwillow", 60),
+            new ShopCheckLocation("Buttonwillow's Store - Item 3", "buttonwillow", 200),
+            new ShopCheckLocation("Buttonwillow's Store - Item 4", "buttonwillow", 1000),
+            new ShopCheckLocation("Buttonwillow's Store - Item 5", "buttonwillow", 1000),
+            new ShopCheckLocation("Buttonwillow's Store - Item 6", "buttonwillow", 1500),
+            new ShopCheckLocation("Buttonwillow's Store - Item 7", "buttonwillow", 30),
+            new ShopCheckLocation("Dynamite Dan's - Item 1", "dynamitedan", 5000),
+            new ShopCheckLocation("Rescue Mission - Shop Item 1", "mission1", 60),
+            new ShopCheckLocation("Rescue Mission - Shop Item 2", "mission1", 200),
+            new ShopCheckLocation("Breadwood Trading Post - Item 1", "breadwood", 700),
+            new ShopCheckLocation("Breadwood Trading Post - Item 2", "breadwood", 10),
+            new ShopCheckLocation("Breadwood Trading Post - Item 3", "breadwood", 1000),
+            new ShopCheckLocation("Breadwood Trading Post - Item 4", "breadwood", 2500),
+            new ShopCheckLocation("Breadwood Trading Post - Item 5", "breadwood", 30),
+            new ShopCheckLocation("Breadwood Trading Post - Item 6", "breadwood", 30),
+            new ShopCheckLocation("Breadwood Trading Post - Item 7", "breadwood", 1000),
+            new ShopCheckLocation("Breadwood Trading Post - Item 8", "breadwood", 300),
+            new ShopCheckLocation("Breadwood Trading Post - Item 9", "breadwood", 30),
+            new ShopCheckLocation("Breadwood Trading Post - Item 10", "breadwood", 400),
+            new ShopCheckLocation("Halloway's Hideaway - Shop Item 1", "halloway", 65),
+            new ShopCheckLocation("Halloway's Hideaway - Shop Item 2", "halloway", 200),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 1", "sally", 15),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 2", "sally", 50),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 3", "sally", 20),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 4", "sally", 100),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 5", "sally", 50),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 6", "sally", 100),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 7", "sally", 1000),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 8", "sally", 300),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 9", "sally", 10, false),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 10", "sally", 100, false),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 11", "sally", 200, false),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 12", "sally", 1500, false),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 13", "sally", 100, false),
+            new ShopCheckLocation("Wanderin' Sally's Camp - Item 14", "sally", 1000, false)
+        };
     }
 }

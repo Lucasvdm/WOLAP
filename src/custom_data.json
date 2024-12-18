@@ -20,6 +20,16 @@
       "region": "Various",
       "bluetext": "Bluetext here",
       "source": "Archipelago checks in shops"
+    },
+    "archipelago_shopitem": {
+      "name": "Placeholder archipelago item",
+      "slot": "nothing",
+      "category": "miscellaneous",
+      "description": "Placeholder item for archipelago checks sold in shops",
+      "icon": "icon_archipelagopow",
+      "sellvalue": 1.0,
+      "region": "Various",
+      "source": "Archipelago checks in shops"
     }
   },
   "scripts": {

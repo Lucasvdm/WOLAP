@@ -13,7 +13,15 @@ namespace WOLAP
         [HarmonyPostfix]
         static void StringToOpPatch(string s, ref MCommand.Op __result)
         {
-            if (s == "checklocation") __result = MCommand.Op.STATESHARE;
+            switch (s)
+            {
+                case "checklocation":
+                    __result = MCommand.Op.STATESHARE; //Unused Stadia-exclusive command
+                    break;
+                case "addnpcstorecheck":
+                    __result = MCommand.Op.SWAMPSPRITE; //Duplicate/alternate spelling of SWAPSPRITE, not used anywhere, and SWAPSPRITE is only for combat anyway
+                    break;
+            }
         }
 
         [HarmonyPatch(typeof(MCommand), "Execute")]
