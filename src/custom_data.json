@@ -8956,6 +8956,22 @@
         ]
       ]
     },
+    "dynamitedans_store": {
+      "initstore": [
+        [
+          "addflag",
+          "store_dynamitedan,1"
+        ],
+        [
+          "addnpcstoreitem",
+          "dynamitedan,combat_dynamite,rand(15,20)"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ]
+    },
     "elvibrato1_beaniron1": {
       "popup": [
         [
