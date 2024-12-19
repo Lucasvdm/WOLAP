@@ -18695,6 +18695,45 @@
         ]
       ]
     },
+    "mission1_nun": {
+      "initstore": [
+        [
+          "addflag",
+          "store_mission1"
+        ],
+        [
+          "addnpcstoreitem",
+          "mission1,combat_armyfirstaid,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "mission1,potion_bloodtonic,-1"
+        ],
+        [
+          "addflag",
+          "mission1_storeupdate,@day@"
+        ],
+        [
+          "teleportplayer",
+          "375,170"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "nun1"
+        ],
+        [
+          "npcstore",
+          "mission1,410,-10"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "moonshinestill_usestill": {
       "getjar": [
         [
