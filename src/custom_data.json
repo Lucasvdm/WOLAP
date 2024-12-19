@@ -8422,6 +8422,93 @@
         ]
       ]
     },
+    "dirtwater_leatherman": {
+      "stockstore": [
+        [
+          "addnpcstoreitem",
+          "tanner,aug_strop,-1"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "neighbor": [
+        [
+          "addflag",
+          "dirtwater_updated_tanner"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hey Grady, I noticed you've got a new neighbor."
+        ],
+        [
+          "addstate",
+          "neighborpos,=@dirtwater_npcstore_tanner@+1"
+        ],
+        [
+          "addstate",
+          "neighbor,@dirtwater_npcstore$neighborpos$@"
+        ],
+        [
+          "rightportrait",
+          "leatherman"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,cook)"
+        ],
+        [
+          "rightsay",
+          "Yeah, a hot dog stand -- I was thinking, if someone bought a whole lot of hot dogs, maybe they'd want some kind of sling or bandolier to hold 'em?"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,curiosity)"
+        ],
+        [
+          "rightsay",
+          "Yeah! They're giving me a bulk discount on little magical charms, so I can make bandoliers with little magical charms on 'em!"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,boots)"
+        ],
+        [
+          "rightsay",
+          "A bootsmith, yep! In fact I scored a sweet little side gig making bootstraps for him. I'm selling them here too, in case you need a spare."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,books)"
+        ],
+        [
+          "rightsay",
+          "Yeah, I found a book about pants there that was real helpful! I only ever made chaps before, because I couldn't figure out the butt part."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,brewery)"
+        ],
+        [
+          "rightsay",
+          "Heh, I sure won't complain about being neighbors with a brewery! In fact I invented these pants with extra pockets to hold your beer..."
+        ],
+        [
+          "addnpcstorecheck",
+          "Dirtwater (Grady's Fine Leather Goods) - Bonus Item"
+        ],
+        [
+          "sayoption",
+          "opttemp",
+          "Interesting!"
+        ]
+      ]
+    },
     "dirtwater_murray": {
       "intro": [
         [
