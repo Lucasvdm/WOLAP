@@ -2286,6 +2286,45 @@
         ]
       ]
     },
+    "breadwood_tradingpost": {
+      "initstore": [
+        [
+          "addflag",
+          "store_breadwood"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addnpcstoreitem",
+          "breadwood,shroomgro,1,500"
+        ],
+        [
+          "addnpcstoreitem",
+          "breadwood,rope,1"
+        ],
+        [
+          "addnpcstoreitem",
+          "breadwood,pickone(lock,soap,nails,oilcan,rope),1"
+        ],
+        [
+          "teleportplayer",
+          "860,215"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "npcstore",
+          "breadwood,900,-10"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "buttonwillowstore_shop": {
       "initstore": [
         [
@@ -7792,10 +7831,6 @@
         [
           "checklocation",
           "Your Family's Farm - Mother's Gift"
-        ],
-        [
-          "addnpcstoreitem",
-          "breadwood,book_dickerin,1,2500"
         ],
         [
           "goto",
