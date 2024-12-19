@@ -2286,6 +2286,68 @@
         ]
       ]
     },
+    "buttonwillowstore_shop": {
+      "initstore": [
+        [
+          "addflag",
+          "store_buttonwillow,1"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,booze_cheapwhiskey,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,booze_cheaptequila,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,oilcan,1"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,shroomgro,1,500"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,needle,rand(1,2)"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,pickone(lock,soap,nails,oilcan,rope),1"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,pickone(lock,soap,nails,oilcan,rope),1"
+        ],
+        [
+          "addnpcstoreitem",
+          "buttonwillow,pickone(crowbar,shovel),1"
+        ],
+        [
+          "say",
+          "The woman behind the counter stares at you with a huge grin on her face."
+        ],
+        [
+          "say",
+          "She gestures at the goods she's got for sale."
+        ],
+        [
+          "option",
+          "launch",
+          "Take a look"
+        ],
+        [
+          "option",
+          "done",
+          "Take a step backwards"
+        ]
+      ]
+    },
     "cemetery2_alcove1": {
       "take": [
         [
@@ -7730,10 +7792,6 @@
         [
           "checklocation",
           "Your Family's Farm - Mother's Gift"
-        ],
-        [
-          "addnpcstoreitem",
-          "buttonwillow,book_foragin,1,1500"
         ],
         [
           "addnpcstoreitem",
