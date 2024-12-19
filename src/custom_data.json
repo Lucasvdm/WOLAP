@@ -8276,6 +8276,53 @@
         ]
       ]
     },
+    "dirtwater_generalstore": {
+      "initstore": [
+        [
+          "addflag",
+          "store_dirtwatergeneral"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,food_sodacrackers,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,food_plumpudding,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,food_bloodsausage,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,potion_toothpowder,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,combat_dynamite,rand(3,5)"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,binoculars,1"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,shroomgro,1,400"
+        ],
+        [
+          "goto",
+          "openstore"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "dirtwater_poboxes": {
       "popup": [
         [
