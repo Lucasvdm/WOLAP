@@ -13941,6 +13941,32 @@
           "Wow, thanks!"
         ]
       ],
+      "initstore": [
+        [
+          "addflag",
+          "store_halloway,1"
+        ],
+        [
+          "addnpcstoreitem",
+          "halloway,pinecone,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "halloway,needle,rand(5,7)"
+        ],
+        [
+          "addnpcstoreitem",
+          "halloway,pick,-1"
+        ],
+        [
+          "addnpcstoreitem",
+          "halloway,shovel,-1"
+        ],
+        [
+          "goto",
+          "optstemp"
+        ]
+      ],
       "opts": [
         [
           "if",
