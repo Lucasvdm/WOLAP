@@ -29,7 +29,7 @@ namespace WOLAP
             WolapPlugin.Archipelago.SendLocationCheck(storeItem.data["source"]);
 
             Traverse traverse = Traverse.Create(__instance);
-            traverse.Method("PostBuySell", [typeof(int), typeof(int), typeof(string), typeof(string)], [storeItem.invid, -1, true, false]).GetValue();
+            traverse.Method("PostBuySell", [typeof(int), typeof(int), typeof(bool), typeof(bool)], [storeItem.invid, -1, true, false]).GetValue();
 
             return false;
         }
