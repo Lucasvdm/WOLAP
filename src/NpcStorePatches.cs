@@ -26,6 +26,8 @@ namespace WOLAP
             SoundPlayer.instance.PlayUISound(UISound.STOREBUYITEM);
             Store.current.RemoveItem(storeItem.invid, 1);
 
+            WolapPlugin.Archipelago.SendLocationCheck(storeItem.data["source"]);
+
             Traverse traverse = Traverse.Create(__instance);
             traverse.Method("PostBuySell", [storeItem.invid, -1, true, false]).GetValue();
 

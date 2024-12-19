@@ -298,6 +298,7 @@ namespace WOLAP
             else if (info.Flags.HasFlag(ItemFlags.NeverExclude)) description += "(Useful)";
             else if (info.Flags.HasFlag(ItemFlags.None)) description += "(Filler)";
             checkItem.data["description"] = description;
+            checkItem.data["source"] = check.Name;
 
             Store.AddStockItem(check.ShopID, checkItem, 1, check.Price);
 
