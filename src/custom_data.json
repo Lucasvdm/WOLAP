@@ -14350,7 +14350,6 @@
           "addxp",
           "@xpreward_w@*3"
         ],
-        //TODO: When I implement check-missed points, I'll need to miss the badge check here so it can be bought from the lost & found
         [
           "playsound",
           "house_ghostquest_complete"
