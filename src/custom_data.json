@@ -8422,6 +8422,113 @@
         ]
       ]
     },
+    "dirtwater_murray": {
+      "intro": [
+        [
+          "addflag",
+          "dirtwater_intro_curiosity"
+        ],
+        [
+          "rightsay",
+          "Well, hello again! Thank you for telling me about this town, my friend, it's a marvelous location. That's two good turns you've done me!"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Aw, don't mention it."
+        ],
+        [
+          "rightsay",
+          "Speaking of which, here's your curious headband back. Fortune willing, I won't be needing it again. No more gambles like that for me!"
+        ],
+        [
+          "additem",
+          "hat_elvheadband"
+        ],
+        [
+          "addnpcstoreitem",
+          "curiosity,allpurposebeans,-1,300"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "neighbor": [
+        [
+          "addflag",
+          "dirtwater_updated_curiosity"
+        ],
+        [
+          "addstate",
+          "neighborpos,=@dirtwater_npcstore_curiosity@+1"
+        ],
+        [
+          "addstate",
+          "neighbor,@dirtwater_npcstore$neighborpos$@"
+        ],
+        [
+          "rightsay",
+          "A very amusing synchronicity occurred!"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,cook)"
+        ],
+        [
+          "rightsay",
+          "The very same day a hot dog salesman moved in next door to me, I came into possession of an ancient ring with mysterious meat-detection powers!"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,tanner)"
+        ],
+        [
+          "rightsay",
+          "You noticed the tanner that moved in next door to me? Well, the same day he arrived, I acquired a spool of magic-amplifying thread. If you were to embroider some pants with it, the results could be quite powerful!"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,boots)"
+        ],
+        [
+          "rightsay",
+          "Have you met the bootmaker next door? I wasn't inclined to believe his stories about elves, but this morning I found a very interesting little hat on my doorstep, where my milk delivery was supposed to be!"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,books)"
+        ],
+        [
+          "rightsay",
+          "Have you met the charming young lady who runs the bookshop next door? The very day she moved in, I received a package from a contact of mine -- a mysterious painting!"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,brewery)"
+        ],
+        [
+          "rightsay",
+          "I've been working for several years on constructing a magical artifact of my own devising, and the same day the brewer moved in next door, I finally hit on the inspiration I required to finish it! It didn't even take very many bottles!"
+        ],
+        [
+          "addnpcstorecheck",
+          "Dirtwater (Murray's Curiosity & Bean) - Bonus Item"
+        ],
+        [
+          "rightsay",
+          "Would you care to see it?"
+        ],
+        [
+          "option",
+          "opts",
+          "Interesting!"
+        ]
+      ]
+    },
     "dirtwater_poboxes": {
       "popup": [
         [
