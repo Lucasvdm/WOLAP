@@ -36518,6 +36518,72 @@
         ]
       ]
     },
+    "re_wanderinsally": {
+      "init_sally_1": [
+        [
+          "addnpcstoreitem",
+          "sally,needle,rand(2,3)"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,shroomgro,1,400"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ],
+      "init_sally_2": [
+        [
+          "addnpcstoreitem",
+          "sally,combat_dynamite,rand(4,5)"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,food_carrot,rand(1,2),20"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ],
+      "init_sally_3": [
+        [
+          "addnpcstoreitem",
+          "sally,food_apple,rand(1,2),15"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ],
+      "init_sally_6": [
+        [
+          "addnpcstoreitem",
+          "sally,combat_dynamite,rand(4,5)"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,needle,rand(2,3)"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,food_carrot,rand(1,2),20"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,food_apple,rand(1,2),15"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ]
+    },
     "roybean_honeybean": {
       "buy0": [
         [
