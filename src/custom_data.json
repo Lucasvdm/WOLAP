@@ -8135,94 +8135,6 @@
         ]
       ]
     },
-    "dirtwater_chef": {
-      "give2": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftsay",
-          "$lastoption$"
-        ],
-        [
-          "removeitem",
-          "quest_chefpepper"
-        ],
-        [
-          "rightsay",
-          "Ah, a nice big one. That'll last a while. Good going."
-        ],
-        [
-          "incflag",
-          "peoplehelped,1"
-        ],
-        [
-          "addxp",
-          "xpreward_a"
-        ],
-        [
-          "addflag",
-          "dirtwater_chefquest,3"
-        ],
-        [
-          "rightsay",
-          "Okay, so, if you're still looking for stuff to do, I need someone to go check my mail. I ordered a new sauté knife, but I haven't got time to go fetch it myself. Here's the key to my post office box."
-        ],
-        [
-          "checklocation",
-          "Dirtwater Saloon - Chef's Mail Key"
-        ],
-        [
-          "sayoption",
-          "done",
-          "All right."
-        ]
-      ],
-      "give4": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftsay",
-          "$lastoption$"
-        ],
-        [
-          "removeitem",
-          "quest_secretsauce"
-        ],
-        [
-          "rightsay",
-          "Hey, thanks a million, buddy!  Now my slop will be world-famous!"
-        ],
-        [
-          "addflag",
-          "dirtwater_chefquest,5"
-        ],
-        [
-          "incflag",
-          "peoplehelped,1"
-        ],
-        [
-          "addxp",
-          "xpreward_a"
-        ],
-        [
-          "rightsay",
-          "Here, let me give you a little something for all your trouble. It fell in the slop, but it's still good."
-        ],
-        [
-          "checklocation",
-          "Dirtwater Saloon - Chef's Quest Complete"
-        ],
-        [
-          "sayoption",
-          "done",
-          "All in a day's work!"
-        ]
-      ]
-    },
     "dirtwater_bootsman": {
       "intro": [
         [
@@ -8319,6 +8231,94 @@
           "option",
           "opts",
           "Interesting!"
+        ]
+      ]
+    },
+    "dirtwater_chef": {
+      "give2": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "removeitem",
+          "quest_chefpepper"
+        ],
+        [
+          "rightsay",
+          "Ah, a nice big one. That'll last a while. Good going."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addxp",
+          "xpreward_a"
+        ],
+        [
+          "addflag",
+          "dirtwater_chefquest,3"
+        ],
+        [
+          "rightsay",
+          "Okay, so, if you're still looking for stuff to do, I need someone to go check my mail. I ordered a new sauté knife, but I haven't got time to go fetch it myself. Here's the key to my post office box."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Saloon - Chef's Mail Key"
+        ],
+        [
+          "sayoption",
+          "done",
+          "All right."
+        ]
+      ],
+      "give4": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "removeitem",
+          "quest_secretsauce"
+        ],
+        [
+          "rightsay",
+          "Hey, thanks a million, buddy!  Now my slop will be world-famous!"
+        ],
+        [
+          "addflag",
+          "dirtwater_chefquest,5"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addxp",
+          "xpreward_a"
+        ],
+        [
+          "rightsay",
+          "Here, let me give you a little something for all your trouble. It fell in the slop, but it's still good."
+        ],
+        [
+          "checklocation",
+          "Dirtwater Saloon - Chef's Quest Complete"
+        ],
+        [
+          "sayoption",
+          "done",
+          "All in a day's work!"
         ]
       ]
     },
