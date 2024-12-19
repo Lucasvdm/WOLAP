@@ -8135,6 +8135,105 @@
         ]
       ]
     },
+    "dirtwater_bookseller": {
+      "intro": [
+        [
+          "addflag",
+          "dirtwater_intro_books"
+        ],
+        [
+          "rightsay",
+          "Oh, hello again. Thank you for telling me about this place. The locals have been very welcoming."
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Glad to hear it."
+        ],
+        [
+          "rightsay",
+          "Oh, and I never really thanked you properly for saving my life, so thank you. Although I still don't really understand what happened."
+        ],
+        [
+          "leftsay",
+          "I don't think I could explain it if I tried. And you're welcome."
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "neighbor": [
+        [
+          "addflag",
+          "dirtwater_updated_books"
+        ],
+        [
+          "addstate",
+          "neighborpos,=@dirtwater_npcstore_books@+1"
+        ],
+        [
+          "addstate",
+          "neighbor,@dirtwater_npcstore$neighborpos$@"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,cook)"
+        ],
+        [
+          "rightsay",
+          "A hot dog vendor moved in next door, and asked if could find a cookbook for him."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,tanner)"
+        ],
+        [
+          "rightsay",
+          "A tanner moved in next door, and was looking for a book about the trade."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,curiosity)"
+        ],
+        [
+          "rightsay",
+          "A strange fellow selling antiques moved in next door and was looking for books about \"arcane secrets\". I'm not sure what he meant by that, but I found one he seemed happy with."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,boots)"
+        ],
+        [
+          "rightsay",
+          "A bootmaker moved in next door and was looking for something boot-focused. Kind of a weird request, but I managed to find him a book about kicking."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,brewery)"
+        ],
+        [
+          "rightsay",
+          "A brewery moved in next door, which is helping me deal with being more than a decade out of date on current events. He likes modern adventure fiction, so it wasn't hard to find him something."
+        ],
+        [
+          "addnpcstorecheck",
+          "Dirtwater (Alexandria's Bookstore) - Bonus Item"
+        ],
+        [
+          "rightsay",
+          "I've got an extra copy of it, if you're interested."
+        ],
+        [
+          "option",
+          "opts",
+          "I may well be!"
+        ]
+      ]
+    },
     "dirtwater_bootsman": {
       "intro": [
         [
