@@ -8223,6 +8223,105 @@
         ]
       ]
     },
+    "dirtwater_bootsman": {
+      "intro": [
+        [
+          "addflag",
+          "dirtwater_intro_boots"
+        ],
+        [
+          "rightsay",
+          "Oh, hey. Hi. Nice to see you again."
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Heya. Did your elves make the trip okay?"
+        ],
+        [
+          "rightsay",
+          "Oh sure, yeah. No problems like, at all. I've been seeing them less and less since the move, though, so I've been making some boots myself, just to help them out."
+        ],
+        [
+          "leftsay",
+          "Well, that's real nice of you."
+        ],
+        [
+          "addnpcstoreitem",
+          "tonysboots,aug_bootpolish,-1"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "neighbor": [
+        [
+          "addflag",
+          "dirtwater_updated_boots"
+        ],
+        [
+          "addstate",
+          "neighborpos,=@dirtwater_npcstore_boots@+1"
+        ],
+        [
+          "addstate",
+          "neighbor,@dirtwater_npcstore$neighborpos$@"
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,cook)"
+        ],
+        [
+          "rightsay",
+          "A guy moved in next door, selling hot dogs? So I figured I'd see if I could use his leftovers for boots? It's a little weird, but..."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,tanner)"
+        ],
+        [
+          "rightsay",
+          "A tanner moved in next door, so I got some, like, super-thick leather? For soles, you know? See what you think."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,curiosity)"
+        ],
+        [
+          "rightsay",
+          "A real weird guy moved in next door, he sold me some crazy nails that were, like, super cold? I dunno how that works, but I used 'em in a pair of boots if you wanna check 'em out."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,books)"
+        ],
+        [
+          "rightsay",
+          "A real nice lady set up a bookstore next door, and I got to thinking about... like, what if you had boots you could read? 'Coz it's only like one letter off, right? But then the elves made these and I can't read these letters at all. Real weird."
+        ],
+        [
+          "if",
+          "matchstring($neighbor$,brewery)"
+        ],
+        [
+          "rightsay",
+          "A guy set up a brewery next door, and I was, like... like, what if you had beer like right there in your boots? So, uh... yeah?"
+        ],
+        [
+          "addnpcstorecheck",
+          "Dirtwater (Tony's Boots) - Bonus Item"
+        ],
+        [
+          "option",
+          "opts",
+          "Interesting!"
+        ]
+      ]
+    },
     "dirtwater_flowergirl": {
       "popup": [
         [
