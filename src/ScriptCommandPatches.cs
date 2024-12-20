@@ -7,7 +7,7 @@ using HarmonyLib;
 namespace WOLAP
 {
     [HarmonyPatch]
-    internal class MCommandPatches
+    internal class ScriptCommandPatches
     {
         [HarmonyPatch(typeof(MCommand), "StringToOp")]
         [HarmonyPostfix]
