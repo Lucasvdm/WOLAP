@@ -28,18 +28,21 @@ namespace WOLAP
         [HarmonyPrefix]
         static void ExecutePatch(MCommand __instance, Action<MCommand> callback)
         {
-            if (__instance.op == MCommand.Op.STATESHARE) //checklocation
+            switch(__instance.op)
             {
-                //Could/should maybe use the mod logger instead, but this is consistent with other commands and should show in the log/debug window anyway
-                if (__instance.argCount == 0) __instance.LogError("needs a check ID, got no arguments.");
-                else
-                {
-                    //TODO: More logic will probably be needed here later
-                    if (callback != null)
+                case MCommand.Op.STATESHARE: //checklocation
+                case MCommand.Op.SWAMPSPRITE: //addnpcstorecheck
+                    //Could/should maybe use the mod logger instead, but this is consistent with other commands and should show in the log/debug window anyway
+                    if (__instance.argCount == 0) __instance.LogError("needs a check ID, got no arguments.");
+                    else
                     {
-                        callback(__instance);
+                        //TODO: More logic will probably be needed here later
+                        if (callback != null)
+                        {
+                            callback(__instance);
+                        }
                     }
-                }
+                    break;
             }
         }
     }
