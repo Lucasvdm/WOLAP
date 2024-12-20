@@ -51,7 +51,7 @@ namespace WOLAP
             Type loadFlagsType = typeof(SavedGame).GetNestedType("LoadFlags", BindingFlags.NonPublic);
             var methodParams = new[] { typeof(string), loadFlagsType, typeof(string).MakeByRefType() };
             var savedGameLoadInternal = typeof(SavedGame).GetMethod("LoadInternal", BindingFlags.NonPublic | BindingFlags.Static, Type.DefaultBinder, methodParams, null);
-            var loadInternalPostfix = typeof(SavedGamePatches).GetMethod("LoadInternalPatch", BindingFlags.NonPublic | BindingFlags.Static);
+            var loadInternalPostfix = typeof(LoadSaveDataPatches).GetMethod("LoadInternalPatch", BindingFlags.NonPublic | BindingFlags.Static);
             Harmony.Patch(savedGameLoadInternal, postfix: new HarmonyMethod(loadInternalPostfix));
         }
 
