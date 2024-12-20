@@ -6,7 +6,6 @@ using HarmonyLib;
 
 namespace WOLAP
 {
-    [HarmonyPatch]
     internal class ScriptCommandPatches
     {
         [HarmonyPatch(typeof(MCommand), "StringToOp")]

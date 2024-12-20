@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 namespace WOLAP
 {
-    [HarmonyPatch]
     internal class DebugPatches
     {
         const int MaxOutputLines = 50;
