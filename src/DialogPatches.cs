@@ -73,7 +73,7 @@ namespace WOLAP
                 return;
             }
 
-            MPlayer.instance.data.Add(ArchipelagoClient.UNLOCKED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""), "1");
+            MPlayer.instance.data.Add(Constants.UnlockedShopCheckFlagPrefix + check.Name.Replace(" ", ""), "1");
             WolapPlugin.Log.LogInfo($"Unlocked shop check [{check.Name}]");
 
             WolapPlugin.Archipelago.PopulateShopCheckItemInfo([check]);

@@ -10,15 +10,9 @@ using UnityEngine.SceneManagement;
 
 namespace WOLAP
 {
-    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+    [BepInPlugin(Constants.PluginGuid, Constants.PluginName, Constants.PluginVersion)]
     public class WolapPlugin : BaseUnityPlugin
     {
-        internal const string PluginGuid = "lucasvdm.westofloathing.aprandomizer";
-        internal const string PluginName = "West of Loathing Archipelago Randomizer";
-        internal const string PluginNameShort = "WOLAP";
-        internal const string PluginVersion = "0.1.0";
-        internal const string PluginAssetsPath = "assets/wolap_assets";
-
         internal static Harmony Harmony;
         internal static ManualLogSource Log;
         internal static AssetBundle WolapAssets;
@@ -28,8 +22,8 @@ namespace WOLAP
         {
             // Plugin startup logic
             Log = Logger;
-            Log.LogInfo($"Plugin {PluginGuid} is loaded!");
-            Harmony = new Harmony(PluginGuid);
+            Log.LogInfo($"Plugin {Constants.PluginGuid} is loaded!");
+            Harmony = new Harmony(Constants.PluginGuid);
             Harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             ProcessManualPatches();
@@ -81,14 +75,14 @@ namespace WOLAP
             //AssetBundleInfo struct is private, need to use reflection to initialize and set values (and add it to the dictionary)
             Type assetBundleInfoType = typeof(AssetBundleManager).GetNestedType("AssetBundleInfo", BindingFlags.NonPublic);
             var assetBundleInfo = Activator.CreateInstance(assetBundleInfoType); //Have to use this instead of Harmony's Type.CreateInstance ("assetBundleInfoType.CreateInstance"), that creates errors on current version
-            assetBundleInfoType.GetField("pathPrefix").SetValue(assetBundleInfo, PluginAssetsPath);
+            assetBundleInfoType.GetField("pathPrefix").SetValue(assetBundleInfo, Constants.PluginAssetsPath);
             assetBundleInfoType.GetField("isScene").SetValue(assetBundleInfo, false);
             assetBundleInfoType.GetField("assbun").SetValue(assetBundleInfo, WolapAssets);
 
             Traverse traverse = Traverse.Create(AssetBundleManager.instance);
             var assetBundleInfoDict = traverse.Field("m_mpStrAbi").GetValue();
             var dictItemProp = assetBundleInfoDict.GetType().GetProperty("Item");
-            dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, [PluginNameShort]);
+            dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, [Constants.PluginNameShort]);
         }
     }
 }

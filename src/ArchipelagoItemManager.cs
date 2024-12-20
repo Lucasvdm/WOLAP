@@ -12,7 +12,6 @@ namespace WOLAP
         public static List<ArchipelagoItem> ItemList { get { return itemList; } }
 
         private int nexmexFound;
-        private string nexmexFlag = "nexmex_books_found";
         private ArchipelagoItem[] nexmexBooks = [
             new ArchipelagoItem("Introductory Nex-Mex", ["book_nexmex1"]),
             new ArchipelagoItem("Fundamentals of Nex-Mex", ["book_nexmex2"]),
@@ -31,7 +30,7 @@ namespace WOLAP
         {
             if (nexmexFound > 0) return nexmexFound;
 
-            if (MPlayer.instance.data.TryGetValue(nexmexFlag, out string value))
+            if (MPlayer.instance.data.TryGetValue(Constants.NexmexCountFlag, out string value))
             {
                 if (Int32.TryParse(value, out int val)) return val;
                 else
@@ -57,7 +56,7 @@ namespace WOLAP
                     //Might have an AP setting to randomize order later
                     bool result = GiveItem(nexmexBooks[nexmexFound]);
                     nexmexFound++;
-                    MPlayer.instance.data[nexmexFlag] = nexmexFound.ToString();
+                    MPlayer.instance.data[Constants.NexmexCountFlag] = nexmexFound.ToString();
                     return result;
                 case "English-Goblintongue Dictionary":
                     //TODO: Special handling, grant goblintongue

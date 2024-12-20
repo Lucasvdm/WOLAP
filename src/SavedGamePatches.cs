@@ -13,14 +13,12 @@ namespace WOLAP
     {
         private static bool ModDataLoaded = false;
 
-        private const string MODDED_SAVE_PROPERTY = "archipelago_save";
-
         [HarmonyPatch("NewGame")]
         [HarmonyPostfix]
         private static void NewGamePatch(string strNameFirst, string strNameLast, string strNameFull, bool fIsCowgirl, int meatReward, string strAnimal, ref string __result)
         {
             WolapPlugin.Log.LogInfo("Created new modded Archipelago save file.");
-            MPlayer.instance.AddProperty(MODDED_SAVE_PROPERTY, "1");
+            MPlayer.instance.AddProperty(Constants.ModdedSaveProperty, "1");
 
             Traverse traverse = Traverse.Create(typeof(SavedGame));
             traverse = traverse.Method("SaveInternal", [typeof(string), typeof(string)]);
@@ -38,7 +36,7 @@ namespace WOLAP
 
         private static void ProcessSaveLoaded()
         {
-            bool isModdedSave = MPlayer.instance.data.TryGetValue(MODDED_SAVE_PROPERTY, out _);
+            bool isModdedSave = MPlayer.instance.data.TryGetValue(Constants.ModdedSaveProperty, out _);
             WolapPlugin.Log.LogInfo((isModdedSave ? "Modded" : "Unmodded") + " save loaded.");
 
             if (!ModDataLoaded && isModdedSave) LoadWOLAPData();

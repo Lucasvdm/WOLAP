@@ -18,12 +18,6 @@ namespace WOLAP
         public Dictionary<string, object> SlotData { get; private set; }
         public bool IsConnected { get { return Session != null && Session.Socket.Connected; } }
 
-        public const string GAME_NAME = "West of Loathing";
-        public const string ITEM_RECEIVED_FLAG_PREFIX = "received_item_";
-        public const string UNLOCKED_SHOP_CHECK_FLAG_PREFIX = "unlocked_shop_check_";
-        public const string ADDED_SHOP_CHECK_FLAG_PREFIX = "added_shop_check_";
-        public const string SHOP_CHECK_ITEM_TEMPLATE_NAME = "archipelago_shopitem";
-
         private string hostname;
         private int port;
         private string password;
@@ -115,7 +109,7 @@ namespace WOLAP
             LoginResult result;
             try
             {
-                result = Session.TryConnectAndLogin(GAME_NAME, slot, ItemsHandlingFlags.AllItems, requestSlotData: true, password: password);
+                result = Session.TryConnectAndLogin(Constants.GameName, slot, ItemsHandlingFlags.AllItems, requestSlotData: true, password: password);
             }
             catch (Exception ex)
             {
@@ -132,7 +126,7 @@ namespace WOLAP
 
                 PopulateShopCheckItemInfo();
                 Dictionary<string, string> flags = MPlayer.instance.data;
-                AddChecksToShops(ShopCheckLocations.FindAll(check => check.ApItemInfo != null && !flags.ContainsKey(ADDED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""))));
+                AddChecksToShops(ShopCheckLocations.FindAll(check => check.ApItemInfo != null && !flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", ""))));
             }
             else
             {
@@ -183,7 +177,7 @@ namespace WOLAP
             //All previously collected items are received every time you connect, so filter out old items
             var flags = MPlayer.instance.data;
             int index = Session.Items.AllItemsReceived.IndexOf(item);
-            string itemReceivedFlag = ITEM_RECEIVED_FLAG_PREFIX + item.ItemName.Replace(" ", "");
+            string itemReceivedFlag = Constants.ItemReceivedFlagPrefix + item.ItemName.Replace(" ", "");
             string itemReceivedFlagIndexed = itemReceivedFlag + "_" + index;
 
             if (!flags.ContainsKey(itemReceivedFlagIndexed))
@@ -252,9 +246,9 @@ namespace WOLAP
             List<long> checkIDs = new List<long>();
             foreach (ShopCheckLocation check in ShopCheckLocations)
             {
-                if (!flags.ContainsKey(ADDED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", "")) && (check.IsAddableEarly || flags.ContainsKey(UNLOCKED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""))))
+                if (!flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", "")) && (check.IsAddableEarly || flags.ContainsKey(Constants.UnlockedShopCheckFlagPrefix + check.Name.Replace(" ", ""))))
                 {
-                    checkIDs.Add(Session.Locations.GetLocationIdFromName(GAME_NAME, check.Name));
+                    checkIDs.Add(Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name));
                 }
             }
 
@@ -282,7 +276,7 @@ namespace WOLAP
         {
             if (check.ApItemInfo == null) return; //TODO: Make a call to retrieve item info here
 
-            MItem baseItem = ModelManager.GetItem(SHOP_CHECK_ITEM_TEMPLATE_NAME);
+            MItem baseItem = ModelManager.GetItem(Constants.ShopCheckItemID);
             if (baseItem == null)
             {
                 WolapPlugin.Log.LogError("Couldn't find the base archipelago shop check item!");
@@ -302,7 +296,7 @@ namespace WOLAP
 
             Store.AddStockItem(check.ShopID, checkItem, 1, check.Price);
 
-            MPlayer.instance.data.Add(ADDED_SHOP_CHECK_FLAG_PREFIX + check.Name.Replace(" ", ""), "1");
+            MPlayer.instance.data.Add(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", ""), "1");
 
             WolapPlugin.Log.LogInfo($"Added check [{check.Name}] to shop [{check.ShopID}]");
         }
