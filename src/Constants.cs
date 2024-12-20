@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace WOLAP
 {
     internal static class Constants
     {
+        public const KeyCode DialogDebugToggleKey = KeyCode.Backslash;
+
         public const string GameName = "West of Loathing";
 
         public const string PluginGuid = "lucasvdm.westofloathing.aprandomizer";

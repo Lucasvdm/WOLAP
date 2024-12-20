@@ -450,15 +450,14 @@ namespace WOLAP
         //Overrides this OnUpdate and instead handles closing in the toggle (DebugOverlay Update) so the opening and closing don't conflict
         [HarmonyPatch(typeof(DebugOverlayState), "OnUpdate")]
         [HarmonyPrefix]
-        static bool DebugOverlayStateOnUpdateOverridePatch()
+        static bool OverlayOnUpdateOverridePatch()
         {
             return false;
         }
 
-        //TODO: Move to another class
         [HarmonyPatch(typeof(GameStateMachine), "LogStates")]
         [HarmonyPrefix]
-        static void LogStatesPatch(GameStateMachine __instance)
+        static void LogGameStatesPatch(GameStateMachine __instance)
         {
             WolapPlugin.Log.LogInfo("-- Current game states --");
 
@@ -472,6 +471,46 @@ namespace WOLAP
             }
 
             return;
+        }
+
+        [HarmonyPatch(typeof(Dialog), "Update")]
+        [HarmonyPrefix]
+        static void DialogDebugTogglePatch(Dialog __instance)
+        {
+            if (Controls.dev.GetKeycodeDown(Constants.DialogDebugToggleKey))
+            {
+                Traverse traverse = Traverse.Create(__instance);
+                GameObject rootObject = traverse.Field("debugObjectsRoot").GetValue<GameObject>();
+
+                WolapPlugin.Log.LogInfo($"Attempting to toggle dialog debug features! Root Object isNull: {rootObject == null}");
+
+                if (rootObject != null)
+                {
+                    bool active = !rootObject.activeSelf;
+                    SetDialogDebugInfoVisible(rootObject, active);
+                    WolapPlugin.Log.LogInfo($"Toggling dialog debug features! Debug active: {active}");
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(Dialog), "SetDebugObjectsVisible")]
+        [HarmonyPrefix]
+        static bool SetDialogDebugObjectsVisiblePatch(Dialog __instance, bool fVisible)
+        {
+            Traverse traverse = Traverse.Create(__instance);
+            GameObject rootObject = traverse.Field("debugObjectsRoot").GetValue<GameObject>();
+
+            //ONLY do the SetActive call if the fVisible parameter is false -- if SetDebugObjectsVisible is called with 'true' (in Update), ignore it.
+            if (rootObject != null && !fVisible) rootObject.SetActive(false);
+
+            return false;
+        }
+
+        //Handling the real toggle in this method instead of SetDialogDebugObjectsVisible because there's an annoying call to that method in Update which always sets it to true
+        static void SetDialogDebugInfoVisible(GameObject debugInfoRoot, bool visible)
+        {
+            debugInfoRoot.transform.position = debugInfoRoot.transform.position.WithY(0f);
+            debugInfoRoot.SetActive(visible);
         }
     }
 }
