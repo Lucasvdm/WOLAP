@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace WOLAP
 {
+    [HarmonyPatch]
     internal class LoadSaveDataPatches
     {
         private static bool ModDataLoaded = false;

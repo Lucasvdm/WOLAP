@@ -5,6 +5,7 @@ using HarmonyLib;
 
 namespace WOLAP
 {
+    [HarmonyPatch]
     internal class NpcStorePatches
     {
         [HarmonyPatch(typeof(NpcStore), "HandleBuySell")]
