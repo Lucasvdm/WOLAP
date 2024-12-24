@@ -184,7 +184,12 @@ namespace WOLAP
             {
                 WolapPlugin.Log.LogInfo($"Received {item.ItemDisplayName} from {item.Player} at {item.LocationDisplayName}");
 
-                bool received = itemManager.ProcessItem(item.ItemName);
+                if (!itemManager.ProcessItem(item.ItemName))
+                {
+                    WolapPlugin.Log.LogWarning($"Failed to process item: {item.ItemDisplayName}");
+                    return;
+                }
+
                 flags.Add(itemReceivedFlagIndexed, "1");
 
                 //Unindexed flag is used for checking with hasflag in JSON
