@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Archipelago.MultiClient.Net.Models;
 using HarmonyLib;
+using UnityEngine;
 
 namespace WOLAP
 {
@@ -53,7 +56,7 @@ namespace WOLAP
             switch (cmd.op)
             {
                 case MCommand.Op.STATESHARE:
-                    HandleCheckLocationCommand(cmd);
+                    HandleCheckLocationCommand(cmd, __instance);
                     break;
                 case MCommand.Op.SWAMPSPRITE:
                     HandleAddNPCStoreCheckCommand(cmd);
@@ -65,10 +68,37 @@ namespace WOLAP
             __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught before this patch
         }
 
-        private static void HandleCheckLocationCommand(MCommand cmd)
+        private static void HandleCheckLocationCommand(MCommand cmd, Dialog dialog)
         {
+            ArchipelagoClient ap = WolapPlugin.Archipelago;
             string locationName = cmd.StrArg(0);
-            WolapPlugin.Archipelago.SendLocationCheck(locationName);
+            ap.SendLocationCheck(locationName);
+
+            var locationId = ap.Session.Locations.GetLocationIdFromName(ap.Session.ConnectionInfo.Game, locationName);
+            if (ap.IsConnected)
+            {
+                Traverse traverse = Traverse.Create(dialog);
+                OptionsIconAndSay addItemPrefab = traverse.Field("addItemPrefab").GetValue<OptionsIconAndSay>();
+
+                WolapPlugin.Log.LogInfo($"Scouting location {locationName}");
+                ap.Session.Locations.ScoutLocationsAsync([locationId]).ContinueWith(locationInfoPacket =>
+                {
+                    foreach (ItemInfo itemInfo in locationInfoPacket.Result.Values)
+                    {
+                        if (itemInfo.Player.Name != ap.Session.Players.ActivePlayer.Name)
+                        {
+                            OptionsIconAndSay itemRow = UnityEngine.Object.Instantiate<OptionsIconAndSay>(addItemPrefab);
+                            itemRow.textFormat = "You found an item: <b>{0}</b>";
+                            itemRow.textInsert = itemInfo.ItemDisplayName;
+                            itemRow.tooltipText = $"Sent to: {itemInfo.Player.Name}";
+                            itemRow.icon = SpriteLoader.SpriteForName("icon_archipelagopow");
+
+                            traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
+                            traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
+                        }
+                    }
+                }).Wait(TimeSpan.FromSeconds(3));
+            }
         }
 
         private static void HandleAddNPCStoreCheckCommand(MCommand cmd)

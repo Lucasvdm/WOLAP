@@ -6,6 +6,8 @@ using HarmonyLib;
 using System.Reflection;
 using System.Reflection.Emit;
 using UnityEngine.SceneManagement;
+using UnityEngine;
+using System.Linq;
 
 namespace WOLAP
 {
@@ -49,6 +51,16 @@ namespace WOLAP
             }
 
             WolapPlugin.Archipelago.Connect("Lucas_WOL");
+
+            //Forcing the inventory to be initialized once to allow for other related hacks
+            WestOfLoathing.instance.state_machine.Push(new InventoryState());
+            WestOfLoathing.instance.state_machine.Pop(InventoryState.NAME);
+
+            //Loading the basic archipelago item icon once through Inventory's SpriteForItem as a hack to force it to initialize (without this, calling SpriteLoader.SpriteForName for the icon crashes the game)
+            //TODO: Figure out why this is needed.  It seems like it should just call SpriteForName internally, I don't know why this fixes anything.
+            Traverse invTraverse = Traverse.Create(Resources.FindObjectsOfTypeAll<Inventory>().First());
+            invTraverse = invTraverse.Method("SpriteForItem", [typeof(MItem), typeof(Sprite)]);
+            invTraverse.GetValue([ModelManager.GetItem("archipelago_shopitem"), null]);
         }
 
         private static async void LoadWOLAPData()
