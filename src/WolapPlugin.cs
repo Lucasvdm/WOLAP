@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace WOLAP
 {
@@ -17,6 +18,8 @@ namespace WOLAP
         internal static ManualLogSource Log;
         internal static AssetBundle WolapAssets;
         internal static ArchipelagoClient Archipelago;
+
+        private bool isUiModified;
 
         private void Awake()
         {
@@ -38,6 +41,12 @@ namespace WOLAP
             if (Archipelago.IsConnected && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
             {
                 Archipelago.Disconnect();
+            }
+
+            if (!isUiModified && UI.instance != null && WolapAssets != null)
+            {
+                SetUpUIChanges();
+                isUiModified = true;
             }
 
             Archipelago.Update();
@@ -83,6 +92,37 @@ namespace WOLAP
             var assetBundleInfoDict = traverse.Field("m_mpStrAbi").GetValue();
             var dictItemProp = assetBundleInfoDict.GetType().GetProperty("Item");
             dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, [Constants.PluginNameShort]);
+        }
+
+        private void SetUpUIChanges()
+        {
+            var ropeFrame = WolapAssets.LoadAsset<GameObject>(Constants.PluginAssetsPath + "/ui/popup frame.prefab");
+            
+            var receiptBox = Instantiate(ropeFrame);
+            AttachRopeKnotScripts(receiptBox);
+            receiptBox.transform.SetParent(UI.instance.GetComponentInParent<Canvas>().transform, false);
+            var testText = new GameObject("Receipt Text");
+            var textComp = testText.AddComponent<Text>();
+            textComp.text = "Test";
+            textComp.color = Color.red;
+            textComp.fontSize = 36;
+            textComp.font = Font.GetDefault();
+            testText.transform.SetParent(receiptBox.transform, false);
+        }
+
+        private void AttachRopeKnotScripts(GameObject ropeFrame)
+        {
+            var knotParent = ropeFrame.transform.Find(Constants.GameObjectKnotsPath);
+            if (knotParent == null)
+            {
+                Log.LogWarning("Could not find the rope knots on " + ropeFrame.name + " to attach the RopeKnot scripts.");
+                return;
+            }
+
+            foreach (Transform knot in knotParent)
+            {
+                knot.gameObject.AddComponent<RopeKnot>();
+            }
         }
     }
 }

@@ -25,5 +25,7 @@ namespace WOLAP
         public const string ModdedSaveProperty = "archipelago_save";
 
         public const string NexmexCountFlag = "nexmex_books_found";
+
+        public const string GameObjectKnotsPath = "Rope Border/Knots";
     }
 }
