@@ -4,6 +4,7 @@ using HarmonyLib;
 using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -43,10 +44,10 @@ namespace WOLAP
                 Archipelago.Disconnect();
             }
 
-            if (!isUiModified && UI.instance != null && WolapAssets != null)
+            if (!isUiModified && IsReadyToModifyUI())
             {
-                SetUpUIChanges();
                 isUiModified = true;
+                SetUpUIChanges();
             }
 
             Archipelago.Update();
@@ -94,6 +95,11 @@ namespace WOLAP
             dictItemProp.SetValue(assetBundleInfoDict, assetBundleInfo, [Constants.PluginNameShort]);
         }
 
+        private bool IsReadyToModifyUI()
+        {
+            return UI.instance != null && WolapAssets != null && WestOfLoathing.instance.state_machine.IsState(GameplayState.NAME);
+        }
+
         private void SetUpUIChanges()
         {
             var ropeFrame = WolapAssets.LoadAsset<GameObject>(Constants.PluginAssetsPath + "/ui/popup frame.prefab");
@@ -101,13 +107,46 @@ namespace WOLAP
             var receiptBox = Instantiate(ropeFrame);
             AttachRopeKnotScripts(receiptBox);
             receiptBox.transform.SetParent(UI.instance.GetComponentInParent<Canvas>().transform, false);
-            var testText = new GameObject("Receipt Text");
-            var textComp = testText.AddComponent<Text>();
-            textComp.text = "Test";
-            textComp.color = Color.red;
-            textComp.fontSize = 36;
-            textComp.font = Font.GetDefault();
-            testText.transform.SetParent(receiptBox.transform, false);
+            Log.LogInfo("Finding Inventory");
+            var invs = Resources.FindObjectsOfTypeAll<Inventory>();
+            Log.LogInfo("Inventory count: " + invs.Length);
+            var inventory = invs.First();
+            Log.LogInfo("Found Inventory");
+            var itemBox = Instantiate<InventoryItem>(inventory.itemPrefab);
+            itemBox.GetComponent<Button>().onClick.RemoveAllListeners();
+            Log.LogInfo("Instantiated II box");
+            MItem item = ModelManager.GetItem("boots_barnaby");
+            Log.LogInfo("Item name: " + item.name);
+            itemBox.item = item;
+            Log.LogInfo("Set title text: " + itemBox.text);
+            var sprite = SpriteLoader.SpriteForName(item.data["icon"]);
+            Log.LogInfo("Sprite name: " + sprite.name);
+            itemBox.sprite = sprite;
+            itemBox.style = Inventory.Style.TwoColumn;
+            itemBox.quantity = 1;
+            itemBox.transform.SetParent(receiptBox.transform, false);
+            var rect = itemBox.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0.05f, 0.05f);
+            rect.anchorMax = new Vector2(0.95f, 0.95f);
+            Traverse traverse = Traverse.Create(itemBox);
+            WolText itemText = traverse.Field("title").GetValue<WolText>();
+            FontSwitcher.AddText(itemText);
+
+            //var rcvText = new GameObject("Received Text").AddComponent<WolText>();
+            //rcvText.text = "aaa";
+            //rcvText.color = Color.black;
+            //Log.LogInfo("Color: " + rcvText.color);
+            //Log.LogInfo("Font size: " + rcvText.fontSize);
+            //rcvText.transform.SetParent(receiptBox.transform, false);
+            //rcvText.transform.localPosition = rcvText.transform.localPosition.WithX(0f).WithY(-90f);
+            //Log.LogInfo("Text position: " + rcvText.transform.position);
+            //Log.LogInfo("Text local position: " + rcvText.transform.localPosition);
+            //Log.LogInfo("Item text position: " + itemText.transform.position);
+            //Log.LogInfo("Item text local position: " + itemText.transform.localPosition);
+            //var rcvTextRect = rcvText.GetComponent<RectTransform>();
+            //rcvTextRect.anchorMin = new Vector2(0.05f, 0.05f);
+            //rcvTextRect.anchorMax = new Vector2(0.3f, 0.95f);
+            //FontSwitcher.AddText(rcvText);
         }
 
         private void AttachRopeKnotScripts(GameObject ropeFrame)
