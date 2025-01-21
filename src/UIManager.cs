@@ -23,13 +23,13 @@ namespace WOLAP
 
         private bool IsReadyToModifyUI()
         {
-            return UI.instance != null && WolapPlugin.WolapAssets != null && WestOfLoathing.instance.state_machine.IsState(GameplayState.NAME);
+            return UI.instance != null && WolapPlugin.Assets != null && WestOfLoathing.instance.state_machine.IsState(GameplayState.NAME);
         }
 
         //TODO: Define sizing using a HorizontalLayoutGroup or something on the parent frame instead of setting anchors in code, which would also allow for resizing the frame to fit longer/shorter item names
         private void SetUpUIChanges()
         {
-            var ropeFrame = WolapPlugin.WolapAssets.LoadAsset<GameObject>(Constants.PluginAssetsPath + "/ui/popup frame.prefab");
+            var ropeFrame = WolapPlugin.Assets.LoadAsset<GameObject>(Constants.PluginAssetsPath + "/ui/popup frame.prefab");
 
             var receiptBox = Instantiate(ropeFrame);
             AttachRopeKnotScripts(receiptBox);

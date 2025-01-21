@@ -17,7 +17,7 @@ namespace WOLAP
     {
         internal static Harmony Harmony;
         internal static ManualLogSource Log;
-        internal static AssetBundle WolapAssets;
+        internal static AssetBundle Assets;
         internal static ArchipelagoClient Archipelago;
         internal static UIManager UIManager;
 
@@ -71,8 +71,8 @@ namespace WOLAP
             var bundleLoadRequest = AssetBundle.LoadFromStreamAsync(assetsStream);
             yield return new WaitUntil(() => bundleLoadRequest.isDone);
 
-            WolapAssets = bundleLoadRequest.assetBundle;
-            if (WolapAssets == null)
+            Assets = bundleLoadRequest.assetBundle;
+            if (Assets == null)
             {
                 Log.LogError("Failed to load WOLAP asset bundle!");
                 yield break;
@@ -84,7 +84,7 @@ namespace WOLAP
             var assetBundleInfo = Activator.CreateInstance(assetBundleInfoType); //Have to use this instead of Harmony's Type.CreateInstance ("assetBundleInfoType.CreateInstance"), that creates errors on current version
             assetBundleInfoType.GetField("pathPrefix").SetValue(assetBundleInfo, Constants.PluginAssetsPath);
             assetBundleInfoType.GetField("isScene").SetValue(assetBundleInfo, false);
-            assetBundleInfoType.GetField("assbun").SetValue(assetBundleInfo, WolapAssets);
+            assetBundleInfoType.GetField("assbun").SetValue(assetBundleInfo, Assets);
 
             Traverse traverse = Traverse.Create(AssetBundleManager.instance);
             var assetBundleInfoDict = traverse.Field("m_mpStrAbi").GetValue();
