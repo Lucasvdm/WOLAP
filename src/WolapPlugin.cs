@@ -123,7 +123,6 @@ namespace WOLAP
             rect.anchorMax = new Vector2(0.95f, 0.95f);
             Traverse traverse = Traverse.Create(itemBox);
             WolText itemText = traverse.Field("title").GetValue<WolText>();
-            FontSwitcher.AddText(itemText);
 
             var rcvText = new GameObject("Received Text").AddComponent<WolText>();
             rcvText.text = "Received";
@@ -135,7 +134,6 @@ namespace WOLAP
             rcvTextRect.anchorMin = new Vector2(0.05f, 0.05f);
             rcvTextRect.anchorMax = new Vector2(0.28f, 0.95f);
             rcvTextRect.sizeDelta = Vector2.zero;
-            FontSwitcher.AddText(rcvText);
         }
 
         private void AttachRopeKnotScripts(GameObject ropeFrame)
