@@ -52,6 +52,8 @@ namespace WOLAP
         //TODO: Define sizing using a HorizontalLayoutGroup or something on the parent frame instead of setting anchors in code, which would also allow for resizing the frame to fit longer/shorter item names
         private void SetUpUIChanges()
         {
+            WolapPlugin.Log.LogInfo("Setting up new UI elements.");
+
             var ropeFrame = WolapPlugin.Assets.LoadAsset<GameObject>(Constants.PluginAssetsPath + "/ui/popup frame.prefab");
 
             var receiptBox = Instantiate(ropeFrame);
@@ -60,15 +62,11 @@ namespace WOLAP
             rcvItemWindowCG = receiptBox.GetComponent<CanvasGroup>();
             rcvItemWindowCG.alpha = 0f;
 
-            var invs = Resources.FindObjectsOfTypeAll<Inventory>();
-            var inventory = invs.First();
+            var inventory = AssetBundleManager.Load<Inventory>("prefabs/ui/inventory.prefab");
+            WolapPlugin.Log.LogInfo("Inventory: " + inventory.gameObject);
             rcvItemCard = Instantiate<InventoryItem>(inventory.itemPrefab);
             rcvItemCard.GetComponent<Button>().onClick.RemoveAllListeners();
-            MItem item = ModelManager.GetItem("boots_barnaby");
-            rcvItemCard.item = item;
-            rcvItemCard.sprite = SpriteLoader.SpriteForName(item.data["icon"]);
             rcvItemCard.style = Inventory.Style.TwoColumn;
-            rcvItemCard.quantity = 1;
             rcvItemCard.transform.SetParent(receiptBox.transform, false);
             rcvItemItemCG = rcvItemCard.gameObject.AddComponent<CanvasGroup>();
             var rect = rcvItemCard.GetComponent<RectTransform>();
@@ -85,6 +83,8 @@ namespace WOLAP
             rcvTextRect.anchorMin = new Vector2(0.05f, 0.05f);
             rcvTextRect.anchorMax = new Vector2(0.28f, 0.95f);
             rcvTextRect.sizeDelta = Vector2.zero;
+
+            WolapPlugin.Log.LogInfo("Finished setting up new UI elements.");
         }
 
         private void AttachRopeKnotScripts(GameObject ropeFrame)
