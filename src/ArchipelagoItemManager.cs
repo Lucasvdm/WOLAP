@@ -87,6 +87,8 @@ namespace WOLAP
                 MScript.State state = script.NewState("state_additem");
                 state.AddCommand(cmd);
                 state.Execute();
+
+                WolapPlugin.UIManager.RcvItemQueue.Enqueue(new UIManager.ReceivedID(id, quantity));
             }
 
             return true;

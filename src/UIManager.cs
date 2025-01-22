@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,22 @@ namespace WOLAP
 {
     public class UIManager : MonoBehaviour
     {
+        public ConcurrentQueue<ReceivedID> RcvItemQueue { get; private set; }
+
         private bool isUiModified;
+        private InventoryItem rcvItemCard;
         private CanvasGroup rcvItemWindowCG;
         private CanvasGroup rcvItemItemCG;
         private float rcvItemWindowFadeTime = 0.75f;
         private float rcvItemItemFadeTime = 0.4f;
+        private float rcvItemShowTime = 2.5f;
         private bool rcvItemFading;
+        private bool rcvQueueInProgress;
+
+        private void Awake()
+        {
+            RcvItemQueue = new ConcurrentQueue<ReceivedID>();
+        }
 
         private void Update()
         {
@@ -24,6 +35,12 @@ namespace WOLAP
             {
                 isUiModified = true;
                 SetUpUIChanges();
+            }
+
+            if (isUiModified)
+            {
+                //TODO: While this is in progress, hide it when opening the inventory/pause menu/whatever? It currently freezes and correctly resumes when returning to gameplay, those other states must pause the game clock or something.
+                if (RcvItemQueue.Count > 0 && !rcvQueueInProgress) StartCoroutine(DisplayReceivedItemQueue());
             }
         }
 
@@ -41,19 +58,20 @@ namespace WOLAP
             AttachRopeKnotScripts(receiptBox);
             receiptBox.transform.SetParent(UI.instance.GetComponentInParent<Canvas>().transform, false);
             rcvItemWindowCG = receiptBox.GetComponent<CanvasGroup>();
+            rcvItemWindowCG.alpha = 0f;
 
             var invs = Resources.FindObjectsOfTypeAll<Inventory>();
             var inventory = invs.First();
-            var itemBox = Instantiate<InventoryItem>(inventory.itemPrefab);
-            itemBox.GetComponent<Button>().onClick.RemoveAllListeners();
+            rcvItemCard = Instantiate<InventoryItem>(inventory.itemPrefab);
+            rcvItemCard.GetComponent<Button>().onClick.RemoveAllListeners();
             MItem item = ModelManager.GetItem("boots_barnaby");
-            itemBox.item = item;
-            itemBox.sprite = SpriteLoader.SpriteForName(item.data["icon"]);
-            itemBox.style = Inventory.Style.TwoColumn;
-            itemBox.quantity = 1;
-            itemBox.transform.SetParent(receiptBox.transform, false);
-            rcvItemItemCG = itemBox.gameObject.AddComponent<CanvasGroup>();
-            var rect = itemBox.GetComponent<RectTransform>();
+            rcvItemCard.item = item;
+            rcvItemCard.sprite = SpriteLoader.SpriteForName(item.data["icon"]);
+            rcvItemCard.style = Inventory.Style.TwoColumn;
+            rcvItemCard.quantity = 1;
+            rcvItemCard.transform.SetParent(receiptBox.transform, false);
+            rcvItemItemCG = rcvItemCard.gameObject.AddComponent<CanvasGroup>();
+            var rect = rcvItemCard.GetComponent<RectTransform>();
             rect.anchorMin = new Vector2(0.3f, 0.05f);
             rect.anchorMax = new Vector2(0.95f, 0.95f);
 
@@ -82,6 +100,33 @@ namespace WOLAP
             {
                 knot.gameObject.AddComponent<RopeKnot>();
             }
+        }
+
+        private IEnumerator DisplayReceivedItemQueue()
+        {
+            rcvQueueInProgress = true;
+
+            while (RcvItemQueue.Count > 0)
+            {
+                RcvItemQueue.TryDequeue(out var item);
+
+                if (rcvItemWindowCG.alpha == 1) yield return FadeOutCanvasGroup(rcvItemItemCG, rcvItemItemFadeTime);
+
+                var mItem = ModelManager.GetItem(item.ID);
+                rcvItemCard.item = mItem;
+                rcvItemCard.sprite = SpriteLoader.SpriteForName(mItem.data["icon"]);
+                rcvItemCard.quantity = item.Quantity;
+
+                if (rcvItemItemCG.alpha == 0) yield return FadeInCanvasGroup(rcvItemItemCG, rcvItemItemFadeTime);
+
+                if (rcvItemWindowCG.alpha == 0) yield return FadeInCanvasGroup(rcvItemWindowCG, rcvItemWindowFadeTime);
+
+                yield return new WaitForSeconds(rcvItemShowTime);
+            }
+
+            yield return FadeOutCanvasGroup(rcvItemWindowCG, rcvItemWindowFadeTime);
+
+            rcvQueueInProgress = false;
         }
 
         private void ToggleFadeCanvasGroup(CanvasGroup cg, float fadeTimeInSeconds)
@@ -114,6 +159,12 @@ namespace WOLAP
                 yield return null;
             }
             rcvItemFading = false;
+        }
+
+        public struct ReceivedID(string id, int quantity)
+        {
+            public string ID { get; set; } = id;
+            public int Quantity { get; set; } = quantity;
         }
     }
 }
