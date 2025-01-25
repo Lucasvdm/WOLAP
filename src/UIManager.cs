@@ -54,8 +54,8 @@ namespace WOLAP
                 if (RcvItemQueue.Count > 0 && !rcvQueueInProgress) StartCoroutine(DisplayReceivedItemQueue());
 
                 //Slightly more pleasant behaviour handling this here rather than in OnPush/OnPop patches for TitleStateWAA
-                if (apConnectionBox != null && apConnectionBox.isActiveAndEnabled && !WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME)) apConnectionBox.gameObject.SetActive(false);
-                else if (apConnectionBox != null && !apConnectionBox.isActiveAndEnabled && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
+                if (apConnectionBox.isActiveAndEnabled && !WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME)) apConnectionBox.gameObject.SetActive(false);
+                else if (!apConnectionBox.isActiveAndEnabled && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
                 {
                     if (!WolapPlugin.Archipelago.IsConnected) EnableEditingAPSettings();
                     apConnectionBox.gameObject.SetActive(true);
@@ -157,6 +157,11 @@ namespace WOLAP
             var firstInput = firstRow.GetComponentInChildren<WolInputField>();
             ((Text)firstInput.placeholder).text = "";
             firstInput.characterLimit = 100;
+            firstInput.gameObject.name = "AP Slot Input";
+
+            var permaflags = MPlayer.instance.permaflags.data;
+            if (permaflags.ContainsKey(Constants.APSettingsSlotFlag)) firstInput.text = permaflags[Constants.APSettingsSlotFlag];
+
             apConnectionInputs[0] = firstInput;
 
             WolapPlugin.Log.LogDebug("Setting up input row copies");
@@ -171,15 +176,21 @@ namespace WOLAP
                 {
                     case 0:
                         newLabel.text = "Host:";
-                        newInput.text = "archipelago.gg";
+                        newInput.gameObject.name = "AP Host Input";
+                        if (permaflags.ContainsKey(Constants.APSettingsHostFlag)) newInput.text = permaflags[Constants.APSettingsHostFlag];
+                        else newInput.text = "archipelago.gg";
                         ((Text)newInput.placeholder).text = "archipelago.gg";
                         break;
                     case 1:
                         newLabel.text = "Port:";
+                        newInput.gameObject.name = "AP Port Input";
+                        if (permaflags.ContainsKey(Constants.APSettingsPortFlag)) newInput.text = permaflags[Constants.APSettingsPortFlag];
                         newInput.contentType = WolInputField.ContentType.IntegerNumber;
                         break;
                     case 2:
                         newLabel.text = "Password:";
+                        newInput.gameObject.name = "AP Password Input";
+                        if (permaflags.ContainsKey(Constants.APSettingsPasswordFlag)) newInput.text = permaflags[Constants.APSettingsPasswordFlag];
                         newInput.contentType = WolInputField.ContentType.Password;
                         newInput.inputType = WolInputField.InputType.Password;
                         break;
@@ -424,6 +435,7 @@ namespace WOLAP
         [HarmonyPostfix]
         private static void ValidateInputsToMakeConnectButtonClickablePatch()
         {
+            if (apConnectionButton == null) return;
             foreach (WolInputField field in apConnectionInputs) if (field == null) return;
 
             var slot = apConnectionInputs[0].text;
@@ -431,6 +443,41 @@ namespace WOLAP
             var port = apConnectionInputs[2].text;
             if (slot.IsNullOrWhiteSpace() || host.IsNullOrWhiteSpace() || port.IsNullOrWhiteSpace()) apConnectionButton.interactable = false;
             else apConnectionButton.interactable = true;
+        }
+
+        [HarmonyPatch(typeof(WolInputField), "SendOnSubmit")]
+        [HarmonyPostfix]
+        private static void SaveConnectionSettingsPatch(WolInputField __instance)
+        {
+            foreach (WolInputField field in apConnectionInputs) if (field == null) return;
+
+            int i;
+            for (i = 0; i < apConnectionInputs.Length; i++)
+            {
+                if (apConnectionInputs[i].gameObject.name == __instance.gameObject.name) break;
+            }
+
+            string permaflagKey;
+            switch (i)
+            {
+                case 0:
+                    permaflagKey = Constants.APSettingsSlotFlag;
+                    break;
+                case 1:
+                    permaflagKey = Constants.APSettingsHostFlag;
+                    break;
+                case 2:
+                    permaflagKey = Constants.APSettingsPortFlag;
+                    break;
+                case 3:
+                    permaflagKey = Constants.APSettingsPasswordFlag;
+                    break;
+                default:
+                    return;
+            }
+
+            MPlayer.instance.permaflags.data[permaflagKey] = __instance.text;
+            SavedGame.SavePermaflags();
         }
 
         public struct ReceivedID(string id, int quantity)

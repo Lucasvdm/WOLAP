@@ -26,6 +26,11 @@ namespace WOLAP
 
         public const string NexmexCountFlag = "nexmex_books_found";
 
+        public const string APSettingsSlotFlag = "archipelago_settings_slot";
+        public const string APSettingsHostFlag = "archipelago_settings_host";
+        public const string APSettingsPortFlag = "archipelago_settings_port";
+        public const string APSettingsPasswordFlag = "archipelago_settings_password";
+
         public const string GameObjectKnotsPath = "Rope Border/Knots";
     }
 }
