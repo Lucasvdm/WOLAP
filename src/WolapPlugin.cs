@@ -37,16 +37,11 @@ namespace WOLAP
             DontDestroyOnLoad(uiManagerGO);
             UIManager = uiManagerGO.AddComponent<UIManager>();
 
-            Archipelago = new ArchipelagoClient("archipelago.gg", 55753);
+            Archipelago = new ArchipelagoClient();
         }
 
         private void Update()
         {
-            if (Archipelago.IsConnected && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
-            {
-                Archipelago.Disconnect();
-            }
-
             Archipelago.Update();
 
             //if (Controls.actual.GetKeycodeDown(KeyCode.Quote)) Log.LogInfo("Current game state: " + WestOfLoathing.instance.state_machine.state.name);

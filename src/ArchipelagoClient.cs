@@ -2,12 +2,16 @@
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
+using Archipelago.MultiClient.Net.Packets;
 using BepInEx;
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
 using static PathMaker;
 
 namespace WOLAP
@@ -125,8 +129,6 @@ namespace WOLAP
                 SlotData = success.SlotData;
 
                 PopulateShopCheckItemInfo();
-                Dictionary<string, string> flags = MPlayer.instance.data;
-                AddChecksToShops(ShopCheckLocations.FindAll(check => check.ApItemInfo != null && !flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", ""))));
             }
             else
             {
@@ -148,7 +150,7 @@ namespace WOLAP
 
             if (Session != null)
             {
-                Session.Socket.DisconnectAsync();
+                Session.Socket.DisconnectAsync().Wait(TimeSpan.FromSeconds(5));
                 Session = null;
             }
 
@@ -162,6 +164,8 @@ namespace WOLAP
             //Resetting/clearing item lists, queues, and other vars for the multiworld slot data
             incomingItems.Clear();
             outgoingLocations.Clear();
+
+            foreach (ShopCheckLocation check in ShopCheckLocations) check.ApItemInfo = null;
         }
 
         private bool IsInItemGrantableState()
@@ -246,16 +250,7 @@ namespace WOLAP
 
         public void PopulateShopCheckItemInfo(List<ShopCheckLocation> locationsToPopulate)
         {
-            Dictionary<string, string> flags = MPlayer.instance.data;
-
-            List<long> checkIDs = new List<long>();
-            foreach (ShopCheckLocation check in ShopCheckLocations)
-            {
-                if (!flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", "")) && (check.IsAddableEarly || flags.ContainsKey(Constants.UnlockedShopCheckFlagPrefix + check.Name.Replace(" ", ""))))
-                {
-                    checkIDs.Add(Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name));
-                }
-            }
+            List<long> checkIDs = locationsToPopulate.Select(check => Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name)).ToList();
 
             Session.Locations.ScoutLocationsAsync(checkIDs.ToArray()).ContinueWith(locationInfoPacket =>
             {
@@ -269,6 +264,22 @@ namespace WOLAP
             WolapPlugin.Log.LogInfo("Retrieved item info for addable shop check locations.");
         }
 
+        public void AddMissingInitialChecksToShops()
+        {
+            Dictionary<string, string> flags = MPlayer.instance.data;
+
+            List<ShopCheckLocation> checksToAdd = new List<ShopCheckLocation>();
+            foreach (ShopCheckLocation check in ShopCheckLocations)
+            {
+                if (!flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", "")) && (check.IsAddableEarly || flags.ContainsKey(Constants.UnlockedShopCheckFlagPrefix + check.Name.Replace(" ", ""))))
+                {
+                    checksToAdd.Add(check);
+                }
+            }
+
+            AddChecksToShops(checksToAdd);
+        }
+
         public void AddChecksToShops(List<ShopCheckLocation> checks)
         {
             foreach (ShopCheckLocation check in checks)
@@ -279,7 +290,7 @@ namespace WOLAP
 
         public void AddCheckToShop(ShopCheckLocation check)
         {
-            if (check.ApItemInfo == null) return; //TODO: Make a call to retrieve item info here
+            if (check.ApItemInfo == null) return;
 
             MItem baseItem = ModelManager.GetItem(Constants.ShopCheckItemID);
             if (baseItem == null)

@@ -42,25 +42,33 @@ namespace WOLAP
             bool isModdedSave = MPlayer.instance.data.TryGetValue(Constants.ModdedSaveProperty, out _);
             WolapPlugin.Log.LogInfo((isModdedSave ? "Modded" : "Unmodded") + " save loaded.");
 
-            if (!ModDataLoaded && isModdedSave) LoadWOLAPData();
-            else if (ModDataLoaded && !isModdedSave)
+            if (isModdedSave)
             {
-                ModelLoader.Instance.LoadLocal();
-                ModDataLoaded = false;
-                WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
+                if (!ModDataLoaded) LoadWOLAPData();
+
+                //Forcing the inventory to be initialized once to allow for other related hacks
+                WestOfLoathing.instance.state_machine.Push(new InventoryState());
+                WestOfLoathing.instance.state_machine.Pop(InventoryState.NAME);
+
+                //Loading the basic archipelago item icon once through Inventory's SpriteForItem as a hack to force it to initialize (without this, calling SpriteLoader.SpriteForName for the icon crashes the game)
+                //TODO: Figure out why this is needed.  It seems like it should just call SpriteForName internally, I don't know why this fixes anything.
+                Traverse invTraverse = Traverse.Create(Resources.FindObjectsOfTypeAll<Inventory>().First());
+                invTraverse = invTraverse.Method("SpriteForItem", [typeof(MItem), typeof(Sprite)]);
+                invTraverse.GetValue([ModelManager.GetItem("archipelago_shopitem"), null]);
+
+                if (WolapPlugin.Archipelago.IsConnected) WolapPlugin.Archipelago.AddMissingInitialChecksToShops();
             }
+            else
+            {
+                if (WolapPlugin.Archipelago.IsConnected) WolapPlugin.Archipelago.Disconnect();
 
-            WolapPlugin.Archipelago.Connect("Lucas_WOL");
-
-            //Forcing the inventory to be initialized once to allow for other related hacks
-            WestOfLoathing.instance.state_machine.Push(new InventoryState());
-            WestOfLoathing.instance.state_machine.Pop(InventoryState.NAME);
-
-            //Loading the basic archipelago item icon once through Inventory's SpriteForItem as a hack to force it to initialize (without this, calling SpriteLoader.SpriteForName for the icon crashes the game)
-            //TODO: Figure out why this is needed.  It seems like it should just call SpriteForName internally, I don't know why this fixes anything.
-            Traverse invTraverse = Traverse.Create(Resources.FindObjectsOfTypeAll<Inventory>().First());
-            invTraverse = invTraverse.Method("SpriteForItem", [typeof(MItem), typeof(Sprite)]);
-            invTraverse.GetValue([ModelManager.GetItem("archipelago_shopitem"), null]);
+                if (ModDataLoaded)
+                {
+                    ModelLoader.Instance.LoadLocal();
+                    ModDataLoaded = false;
+                    WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
+                }
+            }
         }
 
         private static async void LoadWOLAPData()

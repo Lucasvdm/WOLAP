@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BepInEx;
+using HarmonyLib;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -6,12 +7,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace WOLAP
 {
+    [HarmonyPatch]
     public class UIManager : MonoBehaviour
     {
+        public static bool ConnectionInProgress;
+
         public ConcurrentQueue<ReceivedID> RcvItemQueue { get; private set; }
 
         private bool isUiModified;
@@ -25,7 +30,10 @@ namespace WOLAP
         private bool rcvItemFading;
         private bool rcvQueueInProgress;
 
-        private CanvasGroup apConnectionBox;
+        private static CanvasGroup apConnectionBox;
+        private static WolInputField[] apConnectionInputs = new WolInputField[4];
+        private static Button apConnectionButton;
+        private static WolText apConnectionStatusText;
 
         private void Awake()
         {
@@ -44,6 +52,14 @@ namespace WOLAP
             {
                 //TODO: While this is in progress, hide it when opening the inventory/pause menu/whatever? It currently freezes and correctly resumes when returning to gameplay, those other states must pause the game clock or something.
                 if (RcvItemQueue.Count > 0 && !rcvQueueInProgress) StartCoroutine(DisplayReceivedItemQueue());
+
+                //Slightly more pleasant behaviour handling this here rather than in OnPush/OnPop patches for TitleStateWAA
+                if (apConnectionBox != null && apConnectionBox.isActiveAndEnabled && !WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME)) apConnectionBox.gameObject.SetActive(false);
+                else if (apConnectionBox != null && !apConnectionBox.isActiveAndEnabled && WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
+                {
+                    if (!WolapPlugin.Archipelago.IsConnected) EnableEditingAPSettings();
+                    apConnectionBox.gameObject.SetActive(true);
+                }
             }
         }
 
@@ -141,6 +157,7 @@ namespace WOLAP
             var firstInput = firstRow.GetComponentInChildren<WolInputField>();
             ((Text)firstInput.placeholder).text = "";
             firstInput.characterLimit = 100;
+            apConnectionInputs[0] = firstInput;
 
             WolapPlugin.Log.LogDebug("Setting up input row copies");
             for (int i = 0; i < 3; i++)
@@ -148,6 +165,7 @@ namespace WOLAP
                 var newRow = Instantiate(firstRow, inputRows, false);
                 var newLabel = newRow.GetChild(0).GetComponent<WolText>();
                 var newInput = newRow.GetChild(1).GetComponentInChildren<WolInputField>();
+                apConnectionInputs[i+1] = newInput;
 
                 switch (i)
                 {
@@ -158,9 +176,12 @@ namespace WOLAP
                         break;
                     case 1:
                         newLabel.text = "Port:";
+                        newInput.contentType = WolInputField.ContentType.IntegerNumber;
                         break;
                     case 2:
                         newLabel.text = "Password:";
+                        newInput.contentType = WolInputField.ContentType.Password;
+                        newInput.inputType = WolInputField.InputType.Password;
                         break;
                 }
             }
@@ -169,21 +190,22 @@ namespace WOLAP
             var connRow = content.Find("Connection Row");
             var buttonContainer = connRow.GetChild(0);
             var wolButton = dialogPrompt.GetComponentInChildren<Button>();
-            var newButton = Instantiate(wolButton, buttonContainer, false);
-            var buttonText = newButton.GetComponentInChildren<WolText>();
+            apConnectionButton = Instantiate(wolButton, buttonContainer, false);
+            var buttonText = apConnectionButton.GetComponentInChildren<WolText>();
             buttonText.text = "Connect";
-            newButton.onClick.RemoveAllListeners();
-            var buttonRect = newButton.transform as RectTransform;
+            apConnectionButton.onClick.RemoveAllListeners();
+            apConnectionButton.onClick.AddListener(OnClickAPConnectionButton);
+            var buttonRect = apConnectionButton.transform as RectTransform;
             buttonRect.anchorMin = Vector2.zero;
             buttonRect.anchorMax = Vector2.one;
 
             WolapPlugin.Log.LogDebug("Setting up connection row text");
-            var connText = connRow.GetChild(1).gameObject.AddComponent<WolText>();
-            connText.text = "Not Connected";
-            connText.color = Color.red;
-            connText.alignment = TextAnchor.MiddleCenter;
-            connText.resizeTextForBestFit = true;
-            connText.resizeTextMaxSize = 22;
+            apConnectionStatusText = connRow.GetChild(1).gameObject.AddComponent<WolText>();
+            apConnectionStatusText.text = "Not Connected";
+            apConnectionStatusText.color = Color.red;
+            apConnectionStatusText.alignment = TextAnchor.MiddleCenter;
+            apConnectionStatusText.resizeTextForBestFit = true;
+            apConnectionStatusText.resizeTextMaxSize = 22;
         }
 
         private void AttachRopeKnotScripts(GameObject ropeFrame)
@@ -199,6 +221,102 @@ namespace WOLAP
             {
                 knot.gameObject.AddComponent<RopeKnot>();
             }
+        }
+
+        private void OnClickAPConnectionButton()
+        {
+            if (WolapPlugin.Archipelago.IsConnected) HandleDisconnectButtonClicked();
+            else HandleConnectButtonClicked();
+        }
+
+        private void HandleConnectButtonClicked()
+        {
+            apConnectionButton.interactable = false;
+            apConnectionStatusText.text = "Connecting...";
+            apConnectionStatusText.color = Color.magenta;
+
+            foreach (WolInputField input in apConnectionInputs)
+            {
+                input.interactable = false;
+            }
+
+            var slot = apConnectionInputs[0].text;
+            var host = apConnectionInputs[1].text;
+            var port = apConnectionInputs[2].text == "" ? 0 : Int32.Parse(apConnectionInputs[2].text);
+            var pass = apConnectionInputs[3].text;
+
+            WolapPlugin.Archipelago.CreateSession(host, port);
+            StartCoroutine(ConnectRoutine(slot, pass));
+        }
+
+        private IEnumerator ConnectRoutine(string slot, string password)
+        {
+            ConnectionInProgress = true;
+
+            Canvas.ForceUpdateCanvases();
+            yield return new WaitForFixedUpdate();
+
+            WolapPlugin.Archipelago.Connect(slot, password);
+
+            apConnectionButton.interactable = true;
+            if (WolapPlugin.Archipelago.IsConnected)
+            {
+                apConnectionButton.GetComponentInChildren<WolText>().text = "Disconnect";
+                apConnectionStatusText.text = "Connected!";
+                apConnectionStatusText.color = Color.blue;
+            }
+            else
+            {
+                apConnectionStatusText.text = "Connection Failed";
+                apConnectionStatusText.color = Color.red;
+
+                foreach (WolInputField input in apConnectionInputs)
+                {
+                    input.interactable = true;
+                }
+            }
+
+            ConnectionInProgress = false;
+
+            yield return null;
+        }
+
+        private void HandleDisconnectButtonClicked()
+        {
+            apConnectionButton.interactable = false;
+            apConnectionStatusText.text = "Disconnecting...";
+            apConnectionStatusText.color = Color.magenta;
+
+            StartCoroutine(DisconnectRoutine());
+        }
+
+        private IEnumerator DisconnectRoutine()
+        {
+            ConnectionInProgress = true;
+
+            Canvas.ForceUpdateCanvases();
+            yield return new WaitForFixedUpdate();
+
+            WolapPlugin.Archipelago.Disconnect();
+
+            EnableEditingAPSettings();
+
+            ConnectionInProgress = false;
+
+            yield return null;
+        }
+
+        private static void EnableEditingAPSettings()
+        {
+            foreach (WolInputField input in apConnectionInputs)
+            {
+                input.interactable = true;
+            }
+
+            apConnectionButton.interactable = true;
+            apConnectionButton.GetComponentInChildren<WolText>().text = "Connect";
+            apConnectionStatusText.text = "Not Connected";
+            apConnectionStatusText.color = Color.red;
         }
 
         private IEnumerator DisplayReceivedItemQueue()
@@ -260,6 +378,59 @@ namespace WOLAP
                 yield return null;
             }
             rcvItemFading = false;
+        }
+
+        //[HarmonyPatch(typeof(TitleStateWaa), "OnPush")]
+        //[HarmonyPostfix]
+        //private static void ShowAPSettingsOnTitlePatch()
+        //{
+        //    if (apConnectionBox != null)
+        //    {
+        //        EnableEditingAPSettings();
+        //        apConnectionBox.gameObject.SetActive(true);
+        //    }
+        //}
+
+        //[HarmonyPatch(typeof(TitleStateWaa), "OnPop")]
+        //[HarmonyPostfix]
+        //private static void HideAPSettingsOnLeaveTitlePatch()
+        //{
+        //    if (apConnectionBox != null) apConnectionBox.gameObject.SetActive(false);
+        //}
+
+        [HarmonyPatch(typeof(WolInputField), "OnSelect")]
+        [HarmonyPostfix]
+        private static void DisableControlsOnSelectPatch(BaseEventData eventData)
+        {
+            Controls.PushDisableUIKeys();
+        }
+
+        [HarmonyPatch(typeof(WolInputField), "OnDeselect")]
+        [HarmonyPostfix]
+        private static void EnableControlsOnDeselectPatch(BaseEventData eventData)
+        {
+            Controls.PopDisableUIKeys();
+        }
+
+        [HarmonyPatch(typeof(TitleStateWaa), "OnButton")]
+        [HarmonyPrefix]
+        private static bool DisableMenuButtonsDuringAPConnectionPatch(TitleStateWaa __instance, string str)
+        {
+            //Prevent title screen buttons (except for quit) from being clicked while connecting/disconnecting from AP
+            return str == "quit" || !ConnectionInProgress;
+        }
+
+        [HarmonyPatch(typeof(WolInputField), "SendOnValueChanged")]
+        [HarmonyPostfix]
+        private static void ValidateInputsToMakeConnectButtonClickablePatch()
+        {
+            foreach (WolInputField field in apConnectionInputs) if (field == null) return;
+
+            var slot = apConnectionInputs[0].text;
+            var host = apConnectionInputs[1].text;
+            var port = apConnectionInputs[2].text;
+            if (slot.IsNullOrWhiteSpace() || host.IsNullOrWhiteSpace() || port.IsNullOrWhiteSpace()) apConnectionButton.interactable = false;
+            else apConnectionButton.interactable = true;
         }
 
         public struct ReceivedID(string id, int quantity)
