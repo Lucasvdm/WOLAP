@@ -209,6 +209,7 @@ namespace WOLAP
             var buttonRect = apConnectionButton.transform as RectTransform;
             buttonRect.anchorMin = Vector2.zero;
             buttonRect.anchorMax = Vector2.one;
+            UpdateAPButtonClickable();
 
             WolapPlugin.Log.LogDebug("Setting up connection row text");
             apConnectionStatusText = connRow.GetChild(1).gameObject.AddComponent<WolText>();
@@ -217,6 +218,15 @@ namespace WOLAP
             apConnectionStatusText.alignment = TextAnchor.MiddleCenter;
             apConnectionStatusText.resizeTextForBestFit = true;
             apConnectionStatusText.resizeTextMaxSize = 22;
+        }
+
+        private static void UpdateAPButtonClickable()
+        {
+            var slot = apConnectionInputs[0].text;
+            var host = apConnectionInputs[1].text;
+            var port = apConnectionInputs[2].text;
+            if (slot.IsNullOrWhiteSpace() || host.IsNullOrWhiteSpace() || port.IsNullOrWhiteSpace()) apConnectionButton.interactable = false;
+            else apConnectionButton.interactable = true;
         }
 
         private void AttachRopeKnotScripts(GameObject ropeFrame)
@@ -438,11 +448,7 @@ namespace WOLAP
             if (apConnectionButton == null) return;
             foreach (WolInputField field in apConnectionInputs) if (field == null) return;
 
-            var slot = apConnectionInputs[0].text;
-            var host = apConnectionInputs[1].text;
-            var port = apConnectionInputs[2].text;
-            if (slot.IsNullOrWhiteSpace() || host.IsNullOrWhiteSpace() || port.IsNullOrWhiteSpace()) apConnectionButton.interactable = false;
-            else apConnectionButton.interactable = true;
+            UpdateAPButtonClickable();
         }
 
         [HarmonyPatch(typeof(WolInputField), "SendOnSubmit")]
