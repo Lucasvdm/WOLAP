@@ -42,9 +42,18 @@ namespace WOLAP
             bool isModdedSave = MPlayer.instance.data.TryGetValue(Constants.ModdedSaveProperty, out _);
             WolapPlugin.Log.LogInfo((isModdedSave ? "Modded" : "Unmodded") + " save loaded.");
 
+            var trackingLogMethod = ((Action<string, int>)Tracking.Log).Method;
+            var trackingLogPrefix = ((Func<string, int, bool>)DisableTrackingCommandWebCallsPatch).Method;
+
             if (isModdedSave)
             {
-                if (!ModDataLoaded) LoadWOLAPData();
+                if (!ModDataLoaded)
+                {
+                    LoadWOLAPData();
+
+                    WolapPlugin.Harmony.Patch(trackingLogMethod, prefix: new HarmonyMethod(trackingLogPrefix));
+                    WolapPlugin.Log.LogInfo("Patched Tracking.Log to disable web calls for remote event logging during modded play.");
+                }
 
                 //Forcing the inventory to be initialized once to allow for other related hacks
                 WestOfLoathing.instance.state_machine.Push(new InventoryState());
@@ -67,6 +76,9 @@ namespace WOLAP
                     ModelLoader.Instance.LoadLocal();
                     ModDataLoaded = false;
                     WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
+
+                    WolapPlugin.Harmony.Unpatch(trackingLogMethod, trackingLogPrefix);
+                    WolapPlugin.Log.LogInfo("Unpatched Tracking.Log to re-enable web calls for remote event logging during unmodded play.");
                 }
             }
         }
@@ -126,6 +138,12 @@ namespace WOLAP
             insts.Insert(assignmentIdx, new CodeInstruction(OpCodes.Call, m_OverwriteScriptStates));
 
             return insts;
+        }
+
+        //Disable web calls to stats.westofloathing.com for remote logging events -- only applies to modded saves, patch is manually applied/removed on save load
+        private static bool DisableTrackingCommandWebCallsPatch(string strFlag, int nValue)
+        {
+            return false;
         }
 
         static MethodInfo m_OverwriteScriptStates = SymbolExtensions.GetMethodInfo(() => InjectedHelpers.OverwriteScriptStates(null, null));
