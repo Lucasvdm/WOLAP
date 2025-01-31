@@ -18,6 +18,7 @@ namespace WOLAP
         public const string PluginAssetsPath = "assets/wolap_assets";
 
         public const string ItemReceivedFlagPrefix = "received_item_";
+
         public const string UnlockedShopCheckFlagPrefix = "unlocked_shop_check_";
         public const string AddedShopCheckFlagPrefix = "added_shop_check_";
         public const string ShopCheckItemID = "archipelago_shopitem";
@@ -25,6 +26,8 @@ namespace WOLAP
         public const string ModdedSaveProperty = "archipelago_save";
 
         public const string NexmexCountFlag = "nexmex_books_found";
+
+        public const string SentGameCompletionFlag = "archipelago_game_complete";
 
         public const string APSettingsSlotFlag = "archipelago_settings_slot";
         public const string APSettingsHostFlag = "archipelago_settings_host";

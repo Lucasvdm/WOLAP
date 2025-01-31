@@ -59,6 +59,8 @@ namespace WOLAP
             }
 
             if (outgoingLocations.Count > 0) SendOutgoingChecks();
+
+            if (IsGameComplete() && !MPlayer.instance.data.ContainsKey(Constants.SentGameCompletionFlag)) SendGameCompletion();
         }
 
         public void CreateSession()
@@ -227,6 +229,21 @@ namespace WOLAP
                 ids[i] = Session.Locations.GetLocationIdFromName(Session.ConnectionInfo.Game, outgoingLocations[i]);
             }
             Session.Locations.CompleteLocationChecks(ids);
+        }
+
+        private bool IsGameComplete()
+        {
+            return !WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME) && MPlayer.instance.data.ContainsKey("endcredits");
+        }
+
+        private void SendGameCompletion()
+        {
+            if (!IsConnected) return;
+
+            Session.SetGoalAchieved();
+            WolapPlugin.Log.LogInfo("Game completed! Sent completion to AP server.");
+
+            MPlayer.instance.data[Constants.SentGameCompletionFlag] = "1";
         }
          
         public List<string> GetStartingInventory()
