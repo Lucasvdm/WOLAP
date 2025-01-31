@@ -215,7 +215,7 @@ namespace WOLAP
             {
                 WolapPlugin.Log.LogInfo($"Tried to send check for location {locationName} but not connected to Archipelago, adding to outgoing list.");
 
-                outgoingLocations.Add(locationName);
+                outgoingLocations.Add(locationName); //TODO: Also add these as flags to populate the list next time if the game is closed before reconnecting
             }
         }
 
