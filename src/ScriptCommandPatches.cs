@@ -29,10 +29,25 @@ namespace WOLAP
 
         [HarmonyPatch(typeof(MCommand), "Execute")]
         [HarmonyPrefix]
-        static void ExecutePatch(MCommand __instance, Action<MCommand> callback)
+        static bool ExecutePatch(MCommand __instance, ref bool __result, Action<MCommand> callback)
         {
             switch(__instance.op)
             {
+                case MCommand.Op.RUNSCRIPT:
+                    if (__instance.argCount == 2)
+                    {
+                        MEvalContext ectx = MEvalContext.instance;
+                        ScriptContext sctx = new ScriptContext(__instance.StrArg(0), ectx);
+                        sctx.RunState(__instance.StrArg(1));
+
+                        __result = false;
+
+                        Traverse traverse = new Traverse(__instance);
+                        traverse.Method("UnresolveArgs").GetValue();
+
+                        return false;
+                    }
+                    break;
                 case MCommand.Op.STATESHARE: //checklocation
                 case MCommand.Op.SWAMPSPRITE: //addnpcstorecheck
                     //Could/should maybe use the mod logger instead, but this is consistent with other commands and should show in the log/debug window anyway
@@ -47,6 +62,8 @@ namespace WOLAP
                     }
                     break;
             }
+
+            return true;
         }
 
         [HarmonyPatch(typeof(Dialog), "OnCommand")]
