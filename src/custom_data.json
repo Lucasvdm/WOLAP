@@ -33,6 +33,10 @@
     }
   },
   "scripts": {
+    "aaa_emptyscript": {
+      "start": [
+      ]
+    },
     "archipelago_opencheckbox": {
       "invpopup": [
         [
@@ -3729,6 +3733,64 @@
           "aftersusie"
         ]
       ],
+      "digt1": [
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "if",
+          "rand(1,2)==1"
+        ],
+        [
+          "say",
+          "The ground here is rocky, and it's pretty hard on your shovel."
+        ],
+        [
+          "incflag",
+          "shoveldamage,1"
+        ],
+        [
+          "addstate",
+          "roll,=rand(1,3)"
+        ],
+        [
+          "if",
+          "$roll$==1"
+        ],
+        [
+          "say",
+          "Instead of a coffin, you find an urn.  Looks like this soldier was cremated.  Or died in a fire."
+        ],
+        [
+          "if",
+          "$roll$==1"
+        ],
+        [
+          "additem",
+          "humanash"
+        ],
+        [
+          "if",
+          "$roll$>1"
+        ],
+        [
+          "say",
+          "You make it down to the coffin and find...  not much to write home about."
+        ],
+        [
+          "addstate",
+          "returnscript,cemetery4_pickplot"
+        ],
+        [
+          "addstate",
+          "returnstate,checkshovel"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
       "myco": [
         [
           "say",
@@ -4406,196 +4468,16 @@
           "Buffalo Pile (Sleeping Quarters) - Right Footlocker"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "bone"
-        ],
-        [
-          "pushrandom",
-          "skullchips"
-        ],
-        [
-          "pushrandom",
-          "looseteeth"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>5"
-        ],
-        [
-          "pushrandom",
-          "sell_goldtooth"
-        ],
-        [
-          "else",
-          ""
-        ],
-        [
-          "pushrandom",
-          "sell_graveskull"
-        ],
-        [
-          "pushrandom",
-          "potion_gravedirt"
-        ],
-        [
-          "pushrandom",
-          "sell_oldcoins"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>8"
-        ],
-        [
-          "pushrandom",
-          "booze_grave"
-        ],
-        [
-          "else",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_grave2"
+          "addstate",
+          "returnscript,aaa_emptyscript"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnstate,start"
         ],
         [
-          "if",
-          "hasflag(containers_grave)>3"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>7"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "addstate",
-          "quant,1"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>5"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "if",
-          "itemroll(30)"
-        ],
-        [
-          "additem",
-          "poprandom"
-        ],
-        [
-          "clearrandom",
-          ""
-        ],
-        [
-          "if",
-          "!hasitem(ring_grave)"
-        ],
-        [
-          "pushrandom",
-          "ring_grave"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>3 && !hasitem(ring_grave2)"
-        ],
-        [
-          "pushrandom",
-          "ring_grave2"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>6 && !hasitem(lapel_grave1)"
-        ],
-        [
-          "pushrandom",
-          "lapel_grave1"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>9 && !hasitem(lapel_grave2)"
-        ],
-        [
-          "pushrandom",
-          "lapel_grave2"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>12 && !hasitem(lapel_grave3)"
-        ],
-        [
-          "pushrandom",
-          "lapel_grave3"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>15 && !hasitem(pants_grave)"
-        ],
-        [
-          "pushrandom",
-          "pants_grave"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>18 && !hasitem(lapel_grave4)"
-        ],
-        [
-          "pushrandom",
-          "lapel_grave4"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>21 && !hasitem(hat_grave)"
-        ],
-        [
-          "pushrandom",
-          "hat_grave"
-        ],
-        [
-          "if",
-          "hasflag(containers_grave)>24 && !hasitem(lapel_grave5)"
-        ],
-        [
-          "pushrandom",
-          "lapel_grave5"
-        ],
-        [
-          "if",
-          "$sizeofrandom$>0"
-        ],
-        [
-          "additem",
-          "poprandom()"
-        ],
-        [
-          "incflag",
-          "containers_grave,1"
+          "runscript",
+          "container_loot_grave"
         ]
       ]
     },
@@ -6764,6 +6646,262 @@
         [
           "addflag",
           "clowns_tantoolbox,1"
+        ]
+      ]
+    },
+    "container_loot_grave": {
+      "start": [
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "incflag",
+          "containers_grave,1"
+        ],
+        [
+          "pushrandom",
+          "bone"
+        ],
+        [
+          "pushrandom",
+          "skullchips"
+        ],
+        [
+          "pushrandom",
+          "looseteeth"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=6"
+        ],
+        [
+          "pushrandom",
+          "sell_goldtooth"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "pushrandom",
+          "sell_graveskull"
+        ],
+        [
+          "pushrandom",
+          "potion_gravedirt"
+        ],
+        [
+          "pushrandom",
+          "sell_oldcoins"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=9"
+        ],
+        [
+          "pushrandom",
+          "booze_grave"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "pushrandom",
+          "booze_grave2"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=4"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=8"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=6"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "if",
+          "!hasitem(ring_grave)"
+        ],
+        [
+          "additem",
+          "ring_grave"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=3 && !hasflag(container_loot_gotgravecheck1)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 3rd Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=3 && !hasflag(container_loot_gotgravecheck1)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck1"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=6 && !hasflag(container_loot_gotgravecheck2)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 6th Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=6 && !hasflag(container_loot_gotgravecheck2)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck2"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=9 && !hasflag(container_loot_gotgravecheck3)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 9th Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=9 && !hasflag(container_loot_gotgravecheck3)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck3"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=12 && !hasflag(container_loot_gotgravecheck4)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 12th Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=12 && !hasflag(container_loot_gotgravecheck4)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck4"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=15 && !hasflag(container_loot_gotgravecheck5)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 15th Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=15 && !hasflag(container_loot_gotgravecheck5)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck5"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=18 && !hasflag(container_loot_gotgravecheck6)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 18th Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=18 && !hasflag(container_loot_gotgravecheck6)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck6"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=21 && !hasflag(container_loot_gotgravecheck7)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 21st Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=21 && !hasflag(container_loot_gotgravecheck7)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck7"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=24 && !hasflag(container_loot_gotgravecheck8)"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 24th Grave Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_grave)>=24 && !hasflag(container_loot_gotgravecheck8)"
+        ],
+        [
+          "addflag",
+          "container_loot_gotgravecheck8"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
         ]
       ]
     },
@@ -31603,6 +31741,238 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ]
+    },
+    "re_lootgravea": {
+      "open": [
+        [
+          "say",
+          "Well, if it's a pothole it must have been here a very long time, because you've found the remains of an antique traffic accident."
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgravea"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Get back on the trail"
+        ]
+      ]
+    },
+    "re_lootgraveb": {
+      "open": [
+        [
+          "say",
+          "Oh hey, the previous tenant left some stuff. Well, it's all yours now!"
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgraveb"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Hit the trail"
+        ]
+      ]
+    },
+    "re_lootgravec": {
+      "open": [
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "You dig up the grave and find... well, pretty much what you'd expect."
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgravec"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Hit the trail"
+        ]
+      ]
+    },
+    "re_lootgraved": {
+      "open": [
+        [
+          "say",
+          "Oh hey, there are a few things in here already. Maybe they were just burying this junk, but forgot to fill the hole back in?"
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgraved"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Hit the trail"
+        ]
+      ]
+    },
+    "re_lootgravee": {
+      "open": [
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "The grave turns out to be disappointingly treasure-free."
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgravee"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Hit the trail"
+        ]
+      ]
+    },
+    "re_lootgravef": {
+      "open": [
+        [
+          "say",
+          "The stuff you find in it makes you lean more toward the 'grave' theory."
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgravef"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Hit the trail"
+        ]
+      ]
+    },
+    "re_lootgraveg": {
+      "open": [
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "Oh yeah, it's definitely a grave. Check out this grave stuff:"
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgraveg"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Yay, free grave stuff!"
+        ]
+      ]
+    },
+    "re_lootgraveh": {
+      "open": [
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "say",
+          "You dig up the contents of the grave, which are pretty much the sort of stuff you'd expect to find."
+        ],
+        [
+          "addstate",
+          "returnscript,re_lootgraveh"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_grave"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Hit the trail"
         ]
       ]
     },
