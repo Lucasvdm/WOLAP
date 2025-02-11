@@ -3791,6 +3791,40 @@
           "container_loot_grave"
         ]
       ],
+      "digt3": [
+        [
+          "playsound",
+          "Player_Use_Shovel"
+        ],
+        [
+          "if",
+          "rand(1,2)==1"
+        ],
+        [
+          "say",
+          "The ground here is rocky, and it's pretty hard on your shovel."
+        ],
+        [
+          "incflag",
+          "shoveldamage,1"
+        ],
+        [
+          "say",
+          "You make it down to the coffin and find a lockbox, which you open."
+        ],
+        [
+          "addstate",
+          "returnscript,cemetery4_pickplot"
+        ],
+        [
+          "addstate",
+          "returnstate,checkshovel"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
       "myco": [
         [
           "say",
@@ -6646,6 +6680,134 @@
         [
           "addflag",
           "clowns_tantoolbox,1"
+        ]
+      ]
+    },
+    "container_loot_army": {
+      "start": [
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "incflag",
+          "containers_army,1"
+        ],
+        [
+          "pushrandom",
+          "booze_armywhiskey"
+        ],
+        [
+          "pushrandom",
+          "combat_armyfirstaid"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletfire"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletpoison"
+        ],
+        [
+          "pushrandom",
+          "combat_bulletsilver"
+        ],
+        [
+          "pushrandom",
+          "food_hardtack"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_canteen"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)>=4"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)>=8"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)>=6"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5 || hasflag(containers_army)==10 || hasflag(containers_army)==15"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==5"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 5th Army Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==10"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 10th Army Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_army)==15"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 15th Army Container"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
         ]
       ]
     },
@@ -10055,120 +10217,26 @@
           "markused"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_armywhiskey"
-        ],
-        [
-          "pushrandom",
-          "combat_armyfirstaid"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletfire"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletpoison"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletsilver"
-        ],
-        [
-          "pushrandom",
-          "food_hardtack"
-        ],
-        [
-          "pushrandom",
-          "combat_smellingsalts"
-        ],
-        [
-          "pushrandom",
-          "combat_canteen"
-        ],
-        [
           "checklocation",
           "Fort Cowardice First Tent - Back-Left Footlocker"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnscript,fort1_tent1locker1"
         ],
         [
-          "if",
-          "hasflag(containers_army)>5"
+          "addstate",
+          "returnstate,afterloot"
         ],
         [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
         [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "if",
-          "itemroll(30)"
-        ],
-        [
-          "additem",
-          "poprandom"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "additem",
-          "weapon_armysaber"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "additem",
-          "ring_army"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "additem",
-          "lapel_medals"
-        ],
-        [
-          "incflag",
-          "containers_army,1"
+          "queue",
+          2000.0
         ],
         [
           "exit"
@@ -10181,120 +10249,26 @@
           "markused"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_armywhiskey"
-        ],
-        [
-          "pushrandom",
-          "combat_armyfirstaid"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletfire"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletpoison"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletsilver"
-        ],
-        [
-          "pushrandom",
-          "food_hardtack"
-        ],
-        [
-          "pushrandom",
-          "combat_smellingsalts"
-        ],
-        [
-          "pushrandom",
-          "combat_canteen"
-        ],
-        [
           "checklocation",
           "Fort Cowardice First Tent - Front-Right Footlocker"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnscript,fort1_tent1locker2"
         ],
         [
-          "if",
-          "hasflag(containers_army)>5"
+          "addstate",
+          "returnstate,afterloot"
         ],
         [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
         [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "if",
-          "itemroll(30)"
-        ],
-        [
-          "additem",
-          "poprandom"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "additem",
-          "weapon_armysaber"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "additem",
-          "ring_army"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "additem",
-          "lapel_medals"
-        ],
-        [
-          "incflag",
-          "containers_army,1"
+          "queue",
+          2000.0
         ],
         [
           "exit"
@@ -10322,120 +10296,26 @@
           "needle"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_armywhiskey"
-        ],
-        [
-          "pushrandom",
-          "combat_armyfirstaid"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletfire"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletpoison"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletsilver"
-        ],
-        [
-          "pushrandom",
-          "food_hardtack"
-        ],
-        [
-          "pushrandom",
-          "combat_smellingsalts"
-        ],
-        [
-          "pushrandom",
-          "combat_canteen"
-        ],
-        [
           "checklocation",
           "Fort Cowardice First Tent - Back-Right Footlocker"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnscript,fort1_tent1locker3"
         ],
         [
-          "if",
-          "hasflag(containers_army)>5"
+          "addstate",
+          "returnstate,afterloot"
         ],
         [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
         [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "if",
-          "itemroll(30)"
-        ],
-        [
-          "additem",
-          "poprandom"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "additem",
-          "weapon_armysaber"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "additem",
-          "ring_army"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "additem",
-          "lapel_medals"
-        ],
-        [
-          "incflag",
-          "containers_army,1"
+          "queue",
+          2000.0
         ],
         [
           "exit"
@@ -10928,6 +10808,116 @@
         ]
       ]
     },
+    "fort2_footlocker1": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,fort2_footlocker1"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort2_footlocker3": {
+      "picklock": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "say",
+          "You pick the lock!"
+        ],
+        [
+          "addstate",
+          "returnscript,fort2_footlocker3"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort2_footlocker4": {
+      "picklock": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "say",
+          "You pick the lock!"
+        ],
+        [
+          "addstate",
+          "returnscript,fort2_footlocker4"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "fort2_footlocker6": {
       "picklock": [
         [
@@ -11092,148 +11082,58 @@
           "You pick the lock!"
         ],
         [
-          "checklocation",
-          "Fort Treason Barracks - Top-Left Footlocker"
-        ],
-        [
           "removeitem",
           "needle"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_armywhiskey"
-        ],
-        [
-          "pushrandom",
-          "combat_armyfirstaid"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletfire"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletpoison"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletsilver"
-        ],
-        [
-          "pushrandom",
-          "food_hardtack"
-        ],
-        [
-          "pushrandom",
-          "combat_smellingsalts"
-        ],
-        [
-          "pushrandom",
-          "combat_canteen"
+          "checklocation",
+          "Fort Treason Barracks - Top-Left Footlocker"
         ],
         [
           "addstate",
-          "quant,1"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)>3"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)>7"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
+          "returnscript,fort3_footlocker1"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnstate,afterloot"
         ],
         [
-          "if",
-          "hasflag(containers_army)>5"
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
         ],
         [
-          "incstate",
-          "quant,rand(1,2)"
+          "exit"
+        ]
+      ]
+    },
+    "fort3_footlocker2": {
+      "open": [
+        [
+          "markused"
         ],
         [
-          "additem",
-          "poprandom(),$quant$"
+          "addstate",
+          "returnscript,fort3_footlocker2"
         ],
         [
-          "if",
-          "itemroll(30)"
+          "addstate",
+          "returnstate,afterloot"
         ],
         [
-          "additem",
-          "poprandom"
-        ],
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
         [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "additem",
-          "weapon_armysaber"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "additem",
-          "ring_army"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "additem",
-          "lapel_medals"
-        ],
-        [
-          "incflag",
-          "containers_army,1"
+          "queue",
+          2000.0
         ],
         [
           "exit"
@@ -11269,140 +11169,22 @@
           "Fort Treason Barracks - Top-Right Footlocker (Item 2)"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_armywhiskey"
-        ],
-        [
-          "pushrandom",
-          "combat_armyfirstaid"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletfire"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletpoison"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletsilver"
-        ],
-        [
-          "pushrandom",
-          "food_hardtack"
-        ],
-        [
-          "pushrandom",
-          "combat_smellingsalts"
-        ],
-        [
-          "pushrandom",
-          "combat_canteen"
+          "addstate",
+          "returnscript,fort3_footlocker3"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnstate,afterloot"
         ],
         [
-          "if",
-          "hasflag(containers_army)>3"
-        ],
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
         [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)>7"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "addstate",
-          "quant,1"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)>5"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "if",
-          "itemroll(30)"
-        ],
-        [
-          "additem",
-          "poprandom"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "additem",
-          "weapon_armysaber"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "additem",
-          "ring_army"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "additem",
-          "lapel_medals"
-        ],
-        [
-          "incflag",
-          "containers_army,1"
+          "queue",
+          2000.0
         ],
         [
           "exit"
@@ -11419,140 +11201,22 @@
           "Fort Treason Barracks - Bottom-Right Footlocker"
         ],
         [
-          "clearrandom",
-          ""
-        ],
-        [
-          "pushrandom",
-          "booze_armywhiskey"
-        ],
-        [
-          "pushrandom",
-          "combat_armyfirstaid"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletfire"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletpoison"
-        ],
-        [
-          "pushrandom",
-          "combat_bulletsilver"
-        ],
-        [
-          "pushrandom",
-          "food_hardtack"
-        ],
-        [
-          "pushrandom",
-          "combat_smellingsalts"
-        ],
-        [
-          "pushrandom",
-          "combat_canteen"
+          "addstate",
+          "returnscript,fort3_footlocker4"
         ],
         [
           "addstate",
-          "quant,1"
+          "returnstate,afterloot"
         ],
         [
-          "if",
-          "hasflag(containers_army)>3"
-        ],
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
         [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)>7"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "addstate",
-          "quant,1"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)>5"
-        ],
-        [
-          "incstate",
-          "quant,rand(1,2)"
-        ],
-        [
-          "additem",
-          "poprandom(),$quant$"
-        ],
-        [
-          "if",
-          "itemroll(30)"
-        ],
-        [
-          "additem",
-          "poprandom"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==5"
-        ],
-        [
-          "additem",
-          "weapon_armysaber"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==10"
-        ],
-        [
-          "additem",
-          "ring_army"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "say",
-          "Ooh, hey, what's this?"
-        ],
-        [
-          "if",
-          "hasflag(containers_army)==15"
-        ],
-        [
-          "additem",
-          "lapel_medals"
-        ],
-        [
-          "incflag",
-          "containers_army,1"
+          "queue",
+          2000.0
         ],
         [
           "exit"
@@ -11919,6 +11583,99 @@
           "sayoption",
           "opts",
           "Neat! Thanks!"
+        ]
+      ]
+    },
+    "fort6_crate1": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,fort6_crate1"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort6_crate2": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,fort6_crate2"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "fort6_crate3": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,fort6_crate3"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "queue",
+          2000.0
+        ],
+        [
+          "exit"
         ]
       ]
     },
@@ -16766,6 +16523,36 @@
           "option",
           "done",
           "Okay"
+        ]
+      ]
+    },
+    "item_militarylockbox": {
+      "picklock": [
+        [
+          "cls"
+        ],
+        [
+          "removeitem",
+          "needle"
+        ],
+        [
+          "playsound",
+          "Player_Use_Lockpick"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
         ]
       ]
     },
@@ -21955,6 +21742,217 @@
         [
           "runscript",
           "re_nothing"
+        ]
+      ]
+    },
+    "re_armycratea": {
+      "open": [
+        [
+          "say",
+          "You fish through the crate and help yourself to its military contents.  It's not like those army cowards have any use for it, back east in their coward hidey holes."
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycratea"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Continue on"
+        ]
+      ]
+    },
+    "re_armycratec": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents. Can't let taxpayer-funded materiel go to waste, after all."
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycratec"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "say",
+          "Now let's get back on the trail, soldier."
+        ],
+        [
+          "option",
+          "done",
+          "Sir yes sir"
+        ]
+      ]
+    },
+    "re_armycrated": {
+      "open": [
+        [
+          "say",
+          "You crack open the crate's hard outer shell and collect the sweet inner meat. Except it isn't meat, it's items."
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycrated"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "say",
+          "Sorry, that analogy wasn't very good."
+        ],
+        [
+          "option",
+          "done",
+          "Don't sweat it"
+        ]
+      ]
+    },
+    "re_armycratee": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents.  If Fort Memoriam doesn't want it, you'll take it!"
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycratee"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterloot": [
+        [
+          "say",
+          "Now let's get back on the trail, soldier."
+        ],
+        [
+          "option",
+          "done",
+          "Sir yes sir"
+        ]
+      ]
+    },
+    "re_armycratef": {
+      "gopen2": [
+        [
+          "say",
+          "On the bright side, you apparently managed to get the crate open at some point in your self-destructive reverie."
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycratef"
+        ],
+        [
+          "addstate",
+          "returnstate,afterarmyloot1"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterarmyloot1": [
+        [
+          "say",
+          "There's even more stuff in the bottom of the crate!"
+        ],
+        [
+          "option",
+          "loot2",
+          "Keep looting"
+        ]
+      ],
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate, being careful to avoid the mushrooms (just in case) and grab the supplies inside."
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycratef"
+        ],
+        [
+          "addstate",
+          "returnstate,afterarmyloot2"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterarmyloot2": [
+        [
+          "say",
+          "Wow, there's a lot of stuff in here!"
+        ],
+        [
+          "option",
+          "open2",
+          "Keep looting"
+        ]
+      ]
+    },
+    "re_armycrateg": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_armycrateg"
+        ],
+        [
+          "addstate",
+          "returnstate,afterarmyloot"
+        ],
+        [
+          "runscript",
+          "container_loot_army"
+        ]
+      ],
+      "afterarmyloot": [
+        [
+          "say",
+          "Oh hey, there's also a first-aid kit in here."
+        ],
+        [
+          "option",
+          "loot2",
+          "Score! What's in it?"
         ]
       ]
     },
