@@ -7330,6 +7330,126 @@
         ]
       ]
     },
+    "container_loot_mine": {
+      "start": [
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "incflag",
+          "containers_mine,1"
+        ],
+        [
+          "pushrandom",
+          "booze_minerscoffee"
+        ],
+        [
+          "pushrandom",
+          "oilcan"
+        ],
+        [
+          "pushrandom",
+          "combat_match"
+        ],
+        [
+          "pushrandom",
+          "combat_kerosene"
+        ],
+        [
+          "pushrandom",
+          "combat_dynamite"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)>=3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)>=7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)>=5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)==3 || hasflag(containers_mine)==6 || hasflag(containers_mine)==9"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)==3"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 3rd Mining Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)==6"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 6th Mining Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_mine)==9"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 9th Mining Container"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
+        ]
+      ]
+    },
     "crafting_arcaneoven": {
       "iron1": [
         [
@@ -17379,6 +17499,50 @@
         ]
       ]
     },
+    "mine1_crate": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ]
+    },
+    "mine1_crate1": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ]
+    },
     "mine1_pickpile": {
       "get": [
         [
@@ -17492,6 +17656,28 @@
           "option",
           "done",
           "Okay"
+        ]
+      ]
+    },
+    "mine3_crate": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
         ]
       ]
     },
@@ -17967,6 +18153,32 @@
         [
           "checklocation",
           "Soupstock Lode (Elevator Room) - Knapsack"
+        ]
+      ]
+    },
+    "mine5_lockers": {
+      "open": [
+        [
+          "markused"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You find a few worthwhile things."
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
         ]
       ]
     },
@@ -18880,6 +19092,28 @@
         [
           "addflag",
           "mine7_shinypile"
+        ]
+      ]
+    },
+    "mine7_stash": {
+      "e": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
         ]
       ]
     },
@@ -32439,6 +32673,350 @@
           "option",
           "done",
           "Continue on"
+        ]
+      ]
+    },
+    "re_minecratea": {
+      "open": [
+        [
+          "say",
+          "You fish through the crate and help yourself to the contents, which appear to be mining gear. So you were even more right than you knew."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecratea"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Sweet."
+        ]
+      ]
+    },
+    "re_minecrateb": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents, which are now YOUR STUFF."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecrateb"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Get back on the trail"
+        ]
+      ]
+    },
+    "re_minecratec": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate with your crowbar, so that's one of the possibilities eliminated."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecratec"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Get back on the trail"
+        ]
+      ]
+    },
+    "re_minecrated": {
+      "open": [
+        [
+          "say",
+          "You brush the weeds/cactuses out of the way and help yourself to the randomly-generated contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecrated"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Get back on the trail"
+        ]
+      ]
+    },
+    "re_minecratee": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off your crate and reclaim all your lost and forgotten possessions."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecratee"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Get back on the trail"
+        ]
+      ]
+    },
+    "re_minecratef": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecratef"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Finders keepers!"
+        ]
+      ]
+    },
+    "re_minecrateg": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecrateg"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Don't \"mine\" if I do! Ho ho!"
+        ]
+      ]
+    },
+    "re_minecrateh": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents, which turn out to be both mining gear <i>and</i> first-aid supplies."
+        ],
+        [
+          "addstate",
+          "returnscript,re_minecrateh"
+        ],
+        [
+          "addstate",
+          "returnstate,aftermineloot"
+        ],
+        [
+          "runscript",
+          "container_loot_mine"
+        ]
+      ],
+      "aftermineloot": [
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "potion_nervepills"
+        ],
+        [
+          "pushrandom",
+          "potion_laudanum"
+        ],
+        [
+          "pushrandom",
+          "potion_bloodtonic"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_antidote"
+        ],
+        [
+          "pushrandom",
+          "booze_surgicalgin"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "additem",
+          "boots_medical"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "additem",
+          "pistol_medical"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "additem",
+          "pants_medical"
+        ],
+        [
+          "incflag",
+          "containers_medicine,1"
+        ],
+        [
+          "option",
+          "done",
+          "Score!"
         ]
       ]
     },
