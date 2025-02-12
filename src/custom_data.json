@@ -6811,6 +6811,269 @@
         ]
       ]
     },
+    "container_loot_elv": {
+      "start": [
+        [
+          "incflag",
+          "containers_elvibrato,1"
+        ],
+        [
+          "if",
+          "matchstring(@regionto@,a) || matchstring(@regionto@,b) || matchstring(@regionto@,c)"
+        ],
+        [
+          "addstate",
+          "tier,1"
+        ],
+        [
+          "if",
+          "matchstring(@regionto@,d) || matchstring(@regionto@,e) || matchstring(@regionto@,f)"
+        ],
+        [
+          "addstate",
+          "tier,2"
+        ],
+        [
+          "if",
+          "matchstring(@regionto@,g) || matchstring(@regionto@,h)"
+        ],
+        [
+          "addstate",
+          "tier,3"
+        ],
+        [
+          "addstate",
+          "scraps,1"
+        ],
+        [
+          "incstate",
+          "scraps,$tier$"
+        ],
+        [
+          "if",
+          "itemroll(20)"
+        ],
+        [
+          "incstate",
+          "scraps,1"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "incstate",
+          "scraps,1"
+        ],
+        [
+          "if",
+          "itemroll(40)"
+        ],
+        [
+          "incstate",
+          "scraps,1"
+        ],
+        [
+          "additem",
+          "elv_scrap,$scraps$"
+        ],
+        [
+          "addstate",
+          "roll,=rand(1,3)"
+        ],
+        [
+          "if",
+          "$tier$==1 && $roll$==1"
+        ],
+        [
+          "additem",
+          "elv_punchcard1"
+        ],
+        [
+          "if",
+          "$tier$==1 && $roll$==2"
+        ],
+        [
+          "additem",
+          "elv_punchcard1"
+        ],
+        [
+          "if",
+          "$tier$==1 && $roll$==3"
+        ],
+        [
+          "additem",
+          "elv_punchcard2"
+        ],
+        [
+          "if",
+          "$tier$==2 && $roll$==1"
+        ],
+        [
+          "additem",
+          "elv_punchcard1,rand(1,2)"
+        ],
+        [
+          "if",
+          "$tier$==2 && $roll$==2"
+        ],
+        [
+          "additem",
+          "elv_punchcard2"
+        ],
+        [
+          "if",
+          "$tier$==2 && $roll$==3"
+        ],
+        [
+          "additem",
+          "elv_punchcard2,rand(1,2)"
+        ],
+        [
+          "if",
+          "$tier$==3 && $roll$==1"
+        ],
+        [
+          "additem",
+          "elv_punchcard1,rand(3,4)"
+        ],
+        [
+          "if",
+          "$tier$==3 && $roll$==2"
+        ],
+        [
+          "additem",
+          "elv_punchcard2,rand(1,3)"
+        ],
+        [
+          "if",
+          "$tier$==3 && $roll$==3"
+        ],
+        [
+          "additem",
+          "elv_punchcard2"
+        ],
+        [
+          "addstate",
+          "cons,pickone(elv_sludge,food_elv,booze_elv,potion_elv)"
+        ],
+        [
+          "if",
+          "$tier$>=3"
+        ],
+        [
+          "addstate",
+          "cons,pickone(moonbits,elv_sludge,elv_sludge,food_elv,booze_elv,potion_elv)"
+        ],
+        [
+          "if",
+          "$tier$==2 && itemroll(30) && $roll$==3"
+        ],
+        [
+          "additem",
+          "$cons$"
+        ],
+        [
+          "if",
+          "$tier$>2 && $roll$==3"
+        ],
+        [
+          "additem",
+          "$cons$"
+        ],
+        [
+          "if",
+          "hasflag(containers_elvibrato)==5 || hasflag(containers_elvibrato)==7 || hasflag(containers_elvibrato)==11 || hasflag(containers_elvibrato)==13 || hasflag(containers_elvibrato)==15"
+        ],
+        [
+          "goto",
+          "progloot"
+        ],
+        [
+          "else"
+        ],
+        [
+          "goto",
+          "noprogloot"
+        ]
+      ],
+      "progloot": [
+        [
+          "if",
+          "hasflag(containers_elvibrato)==5"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 5th El Vibrato Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_elvibrato)==7"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 7th El Vibrato Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_elvibrato)==9"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 9th El Vibrato Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_elvibrato)==11"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 11th El Vibrato Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_elvibrato)==13"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 13th El Vibrato Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_elvibrato)==15"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 15th El Vibrato Container"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
+        ]
+      ],
+      "noprogloot": [
+        [
+          "if",
+          "matchstring(@regionto@,d)"
+        ],
+        [
+          "additem",
+          "pickone(combat_elvteleporter,combat_elvteleporter,combat_elvteleporter,combat_elvdrone,combat_elvdrone2)"
+        ],
+        [
+          "if",
+          "matchstring(@regionto@,h)"
+        ],
+        [
+          "additem",
+          "pickone(combat_elvdrone,combat_elvdrone2,combat_elvgrenade,combat_elvgrenade,combat_elvgrenade)"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
+        ]
+      ]
+    },
     "container_loot_grave": {
       "start": [
         [
@@ -9729,6 +9992,36 @@
         [
           "checklocation",
           "El Vibrato Control Center - El Vibrato Quest Completion"
+        ]
+      ]
+    },
+    "elv_chest": {
+      "unlock": [
+        [
+          "particleburstwaa",
+          "elvchest,burst_elvdespawnup,50,15"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "The keystone snaps into place and the lid vanishes."
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
         ]
       ]
     },
@@ -18531,6 +18824,32 @@
         ]
       ]
     },
+    "mine7_elvchest": {
+      "unlock": [
+        [
+          "particleburstwaa",
+          "chest,burst_elvdespawnup,50,15"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,aaa_emptyscript"
+        ],
+        [
+          "addstate",
+          "returnstate,start"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
+        ]
+      ]
+    },
     "mine7_fusetable": {
       "take": [
         [
@@ -26489,6 +26808,130 @@
           "option",
           "done",
           "It's not really graverobbing if they never made it into the grave."
+        ]
+      ]
+    },
+    "re_elvcache_a": {
+      "open": [
+        [
+          "say",
+          "You find a few bits and pieces worth keeping."
+        ],
+        [
+          "addstate",
+          "returnscript,re_elvcache_a"
+        ],
+        [
+          "addstate",
+          "returnstate,keepgoing"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
+        ]
+      ]
+    },
+    "re_elvcache_b": {
+      "open": [
+        [
+          "addstate",
+          "returnscript,re_elvcache_b"
+        ],
+        [
+          "addstate",
+          "returnstate,keepgoing"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
+        ]
+      ]
+    },
+    "re_elvcache_c": {
+      "open": [
+        [
+          "say",
+          "You fumble around the outside of the crate until you find the bit that makes the lid slide open when you push it."
+        ],
+        [
+          "addstate",
+          "returnscript,re_elvcache_c"
+        ],
+        [
+          "addstate",
+          "returnstate,keepgoing"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
+        ]
+      ]
+    },
+    "re_elvcache_d": {
+      "open": [
+        [
+          "say",
+          "You poke at the crate until you find the button that makes it open. Presumably the bear won't miss this stuff."
+        ],
+        [
+          "addstate",
+          "returnscript,re_elvcache_d"
+        ],
+        [
+          "addstate",
+          "returnstate,keepgoing"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
+        ]
+      ]
+    },
+    "re_elvcache_e": {
+      "open": [
+        [
+          "say",
+          "You slot the keystone into the appropriate hole, and the lid slides open, conveniently covering up the keyhole so you can't take the stone back. You do get some other stuff in exchange, though."
+        ],
+        [
+          "removeitem",
+          "elv_key"
+        ],
+        [
+          "addstate",
+          "returnscript,re_elvcache_e"
+        ],
+        [
+          "addstate",
+          "returnstate,keepgoing"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
+        ]
+      ]
+    },
+    "re_elvcache_f": {
+      "open": [
+        [
+          "say",
+          "You cross your fingers as you feed the crate one of your valuable keystones. It opens to reveal..."
+        ],
+        [
+          "removeitem",
+          "elv_key"
+        ],
+        [
+          "addstate",
+          "returnscript,re_elvcache_f"
+        ],
+        [
+          "addstate",
+          "returnstate,keepgoing"
+        ],
+        [
+          "runscript",
+          "container_loot_elv"
         ]
       ]
     },
