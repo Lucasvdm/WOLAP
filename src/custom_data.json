@@ -33,10 +33,6 @@
     }
   },
   "scripts": {
-    "aaa_emptyscript": {
-      "start": [
-      ]
-    },
     "archipelago_opencheckbox": {
       "invpopup": [
         [
@@ -4503,17 +4499,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,cemetery5_footlocker3"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_grave"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "cemetery5_hangingcoat": {
       "search": [
@@ -10133,17 +10130,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,elv_chest"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_elv"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "fort1_generalgob": {
       "win": [
@@ -10646,15 +10644,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort1_tent1locker2": {
       "open": [
@@ -10678,15 +10668,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort1_tent1locker3": {
       "picklock": [
@@ -10725,15 +10707,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort1_triangle": {
       "win": [
@@ -11239,15 +11213,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort2_footlocker3": {
       "picklock": [
@@ -11278,15 +11244,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort2_footlocker4": {
       "picklock": [
@@ -11321,15 +11279,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort2_footlocker6": {
       "picklock": [
@@ -11515,15 +11465,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort3_footlocker2": {
       "open": [
@@ -11543,15 +11485,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort3_footlocker3": {
       "picklock": [
@@ -11594,15 +11528,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort3_footlocker4": {
       "open": [
@@ -11626,15 +11552,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort4_nastypile": {
       "inve": [
@@ -12020,15 +11938,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort6_crate2": {
       "open": [
@@ -12051,15 +11961,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort6_crate3": {
       "open": [
@@ -12082,15 +11984,7 @@
           "container_loot_army"
         ]
       ],
-      "afterloot": [
-        [
-          "queue",
-          2000.0
-        ],
-        [
-          "exit"
-        ]
-      ]
+      "afterloot": []
     },
     "fort6_mushlady": {
       "intro2": [
@@ -16957,17 +16851,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,item_militarylockbox"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_army"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "item_spiderparts_assembly": {
       "start": [
@@ -17509,17 +17404,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,mine1_crate"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_mine"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "mine1_crate1": {
       "open": [
@@ -17531,17 +17427,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,mine1_crate1"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_mine"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "mine1_pickpile": {
       "get": [
@@ -17669,17 +17566,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,mine3_crate"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_mine"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "mine3_emerald": {
       "e": [
@@ -18170,17 +18068,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,mine5_lockers"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_mine"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "mine5_workbench": {
       "picklock": [
@@ -19050,17 +18949,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,mine7_elvchest"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_elv"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "mine7_fusetable": {
       "take": [
@@ -19105,17 +19005,18 @@
         ],
         [
           "addstate",
-          "returnscript,aaa_emptyscript"
+          "returnscript,mine7_stash"
         ],
         [
           "addstate",
-          "returnstate,start"
+          "returnstate,afterloot"
         ],
         [
           "runscript",
           "container_loot_mine"
         ]
-      ]
+      ],
+      "afterloot": []
     },
     "mine8_beaniron3": {
       "popup": [
