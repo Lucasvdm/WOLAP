@@ -102,17 +102,14 @@ namespace WOLAP
                 {
                     foreach (ItemInfo itemInfo in locationInfoPacket.Result.Values)
                     {
-                        if (itemInfo.Player.Name != ap.Session.Players.ActivePlayer.Name)
-                        {
-                            OptionsIconAndSay itemRow = UnityEngine.Object.Instantiate<OptionsIconAndSay>(addItemPrefab);
-                            itemRow.textFormat = "You found an item: <b>{0}</b>";
-                            itemRow.textInsert = itemInfo.ItemDisplayName;
-                            itemRow.tooltipText = $"Sent to: {itemInfo.Player.Name}";
-                            itemRow.icon = SpriteLoader.SpriteForName("icon_archipelagopow");
+                        OptionsIconAndSay itemRow = UnityEngine.Object.Instantiate<OptionsIconAndSay>(addItemPrefab);
+                        itemRow.textFormat = "You found an item: <b>{0}</b>";
+                        itemRow.textInsert = itemInfo.ItemDisplayName;
+                        itemRow.tooltipText = $"Sent to: {itemInfo.Player.Name}";
+                        itemRow.icon = SpriteLoader.SpriteForName("icon_archipelagopow");
 
-                            traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
-                            traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
-                        }
+                        traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
+                        traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
                     }
                 }).Wait(TimeSpan.FromSeconds(3));
             }
