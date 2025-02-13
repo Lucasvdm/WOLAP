@@ -91,13 +91,13 @@ namespace WOLAP
             string locationName = cmd.StrArg(0);
             ap.SendLocationCheck(locationName);
 
-            var locationId = ap.Session.Locations.GetLocationIdFromName(ap.Session.ConnectionInfo.Game, locationName);
             if (ap.IsConnected)
             {
                 Traverse traverse = Traverse.Create(dialog);
                 OptionsIconAndSay addItemPrefab = traverse.Field("addItemPrefab").GetValue<OptionsIconAndSay>();
 
                 WolapPlugin.Log.LogInfo($"Scouting location {locationName}");
+                var locationId = ap.Session.Locations.GetLocationIdFromName(ap.Session.ConnectionInfo.Game, locationName);
                 ap.Session.Locations.ScoutLocationsAsync([locationId]).ContinueWith(locationInfoPacket =>
                 {
                     foreach (ItemInfo itemInfo in locationInfoPacket.Result.Values)
