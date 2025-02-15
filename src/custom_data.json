@@ -7447,6 +7447,138 @@
         ]
       ]
     },
+    "container_loot_ranch": {
+      "start": [
+        [
+          "incflag",
+          "containers_ranch,1"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "nails"
+        ],
+        [
+          "pushrandom",
+          "combat_canteen"
+        ],
+        [
+          "pushrandom",
+          "rope"
+        ],
+        [
+          "pushrandom",
+          "combat_lasso"
+        ],
+        [
+          "pushrandom",
+          "soap"
+        ],
+        [
+          "pushrandom",
+          "lock"
+        ],
+        [
+          "pushrandom",
+          "potion_rancher"
+        ],
+        [
+          "pushrandom",
+          "potion_rancher2"
+        ],
+        [
+          "pushrandom",
+          "booze_rancher"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)>=3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)>=7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)>=5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)==5 || hasflag(containers_ranch)==10 || hasflag(containers_ranch)==15"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)==5"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 5th Ranch Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)==10"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 10th Ranch Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_ranch)==15"
+        ],
+        [
+          "checklocation",
+          "Progressive Loot - 15th Ranch Container"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
+        ]
+      ]
+    },
     "crafting_arcaneoven": {
       "iron1": [
         [
@@ -19496,6 +19628,29 @@
         ]
       ]
     },
+    "ranch1_crate": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,ranch1_crate"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": []
+    },
     "ranch1_flower": {
       "pick": [
         [
@@ -19795,6 +19950,33 @@
         ]
       ]
     },
+    "ranch2_crate": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "say",
+          "The stuff inside is unburnt! That's a pretty good crate."
+        ],
+        [
+          "addstate",
+          "returnscript,ranch2_crate"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": []
+    },
     "ranch2_hippy1": {
       "opts": [
         [
@@ -19930,6 +20112,29 @@
           "Yeah, groovy."
         ]
       ]
+    },
+    "ranch3_crate": {
+      "open": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "addstate",
+          "returnscript,ranch3_crate"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": []
     },
     "ranch3_getmilk": {
       "get": [
@@ -32964,6 +33169,424 @@
           "option",
           "done",
           "Continue on"
+        ]
+      ]
+    },
+    "re_ranchcratea": {
+      "open": [
+        [
+          "say",
+          "You fish through the crate and help yourself to the meager (but free!) contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_ranchcratea"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Continue on"
+        ]
+      ]
+    },
+    "re_ranchcrateb": {
+      "open": [
+        [
+          "say",
+          "You crack open that walnut and help yourself to the delicious nut meats inside."
+        ],
+        [
+          "addstate",
+          "returnscript,re_ranchcrateb"
+        ],
+        [
+          "addstate",
+          "returnstate,afterranchloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterranchloot": [
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "potion_nervepills"
+        ],
+        [
+          "pushrandom",
+          "potion_laudanum"
+        ],
+        [
+          "pushrandom",
+          "potion_bloodtonic"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_antidote"
+        ],
+        [
+          "pushrandom",
+          "booze_surgicalgin"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "additem",
+          "boots_medical"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "additem",
+          "pistol_medical"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "additem",
+          "pants_medical"
+        ],
+        [
+          "incflag",
+          "containers_medicine,1"
+        ],
+        [
+          "option",
+          "done",
+          "In a manner of speaking"
+        ]
+      ]
+    },
+    "re_ranchcratec": {
+      "open": [
+        [
+          "say",
+          "You help the crate by prying the lid off and helping yourself to the contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_ranchcratec"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "You're a helper!"
+        ]
+      ]
+    },
+    "re_ranchcrated": {
+      "open": [
+        [
+          "say",
+          "I don't know what you expected to find in there, but here's what it was:"
+        ],
+        [
+          "addstate",
+          "returnscript,re_ranchcrated"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "I hope that meets your crate expectations."
+        ]
+      ]
+    },
+    "re_ranchcratee": {
+      "open": [
+        [
+          "say",
+          "You pry the lid off the crate and help yourself to the contents, or perhaps its seeds which just happen to look like the following objects:"
+        ],
+        [
+          "addstate",
+          "returnscript,re_ranchcratee"
+        ],
+        [
+          "addstate",
+          "returnstate,afterranchloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterranchloot": [
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "potion_nervepills"
+        ],
+        [
+          "pushrandom",
+          "potion_laudanum"
+        ],
+        [
+          "pushrandom",
+          "potion_bloodtonic"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_antidote"
+        ],
+        [
+          "pushrandom",
+          "booze_surgicalgin"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "additem",
+          "boots_medical"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "additem",
+          "pistol_medical"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "additem",
+          "pants_medical"
+        ],
+        [
+          "incflag",
+          "containers_medicine,1"
+        ],
+        [
+          "option",
+          "done",
+          "Nature is weird"
+        ]
+      ]
+    },
+    "re_ranchcratef": {
+      "open": [
+        [
+          "say",
+          "You smash the lid open with your crowbar and rob it of its contents."
+        ],
+        [
+          "addstate",
+          "returnscript,re_ranchcratef"
+        ],
+        [
+          "addstate",
+          "returnstate,afterloot"
+        ],
+        [
+          "runscript",
+          "container_loot_ranch"
+        ]
+      ],
+      "afterloot": [
+        [
+          "option",
+          "done",
+          "Sorry, crate"
         ]
       ]
     },
