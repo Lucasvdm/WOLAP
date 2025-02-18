@@ -8792,6 +8792,79 @@
         ]
       ]
     },
+    "cre_starttut": {
+      "popup": [
+        [
+          "if",
+          "!hasflag(cre_dad) && !hasflag(cre_momtalk)"
+        ],
+        [
+          "goto",
+          "talktoparents"
+        ],
+        [
+          "if",
+          "!hasflag(cre_dad)"
+        ],
+        [
+          "goto",
+          "talktodad"
+        ],
+        [
+          "if",
+          "!hasflag(cre_momtalk)"
+        ],
+        [
+          "goto",
+          "talktomom"
+        ],
+        [
+          "if",
+          "hasitem(rubix)"
+        ],
+        [
+          "goto",
+          "talktorufus"
+        ],
+        [
+          "if",
+          "player.gender==1"
+        ],
+        [
+          "addstate",
+          "man,Man"
+        ],
+        [
+          "if",
+          "player.gender==2"
+        ],
+        [
+          "addstate",
+          "man,Woman"
+        ],
+        [
+          "say",
+          "Go West, Young $man$?"
+        ],
+        [
+          "option",
+          "gototut",
+          "Yes"
+        ]
+      ],
+      "talktoparents": [
+        [
+          "say",
+          "You need to say goodbye to your parents before you go."
+        ]
+      ],
+      "talktomom": [
+        [
+          "say",
+          "You should talk to your mom before leaving."
+        ]
+      ]
+    },
     "cre_yourbooks": {
       "coolbook": [
         [
