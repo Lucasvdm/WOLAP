@@ -423,14 +423,20 @@ namespace WOLAP
         [HarmonyPostfix]
         private static void DisableControlsOnSelectPatch(BaseEventData eventData)
         {
-            Controls.PushDisableUIKeys();
+            if (WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
+            {
+                Controls.PushDisableUIKeys();
+            }
         }
 
         [HarmonyPatch(typeof(WolInputField), "OnDeselect")]
         [HarmonyPostfix]
         private static void EnableControlsOnDeselectPatch(BaseEventData eventData)
         {
-            Controls.PopDisableUIKeys();
+            if (WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME))
+            {
+                Controls.PopDisableUIKeys();
+            }
         }
 
         [HarmonyPatch(typeof(TitleStateWaa), "OnButton")]
