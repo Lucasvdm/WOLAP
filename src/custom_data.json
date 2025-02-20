@@ -8770,6 +8770,245 @@
         ]
       ]
     },
+    "cre_skiptut": {
+      "start": [
+        [
+          "say",
+          "Welcome to <b>West of Loathing: Archipelago</b>!"
+        ],
+        [
+          "say",
+          "With this mod, you have no choice but to skip the Boring Springs prologue and head straight to Dirtwater. Sorry, or whatever."
+        ],
+        [
+          "say",
+          "Regardless of any previous playthroughs, you can choose any horse or pardner you like... Except Gary. Too weird he is being."
+        ],
+        [
+          "say",
+          "In any case, these choices are mostly for flavor and changes have been made so that they should not lock you out of any checks."
+        ],
+        [
+          "say",
+          "You will also start with 1000 Meat and the starting inventory you configured in your YAML (by default, the starting gear from Boring Springs) [Not yet implemented]."
+        ],
+        [
+          "option",
+          "horse",
+          "Let's do this"
+        ]
+      ],
+      "horse": [
+        [
+          "say",
+          "In WOLAP, hard mode can be toggled in the settings [Not yet implemented], so there's no need to specify that now."
+        ],
+        [
+          "say",
+          "Alrighty then, buckaroo! What horse would you like to take?"
+        ],
+        [
+          "option",
+          "horse1",
+          "The normal horse"
+        ],
+        [
+          "option",
+          "horse2",
+          "The dark horse"
+        ],
+        [
+          "option",
+          "horse3",
+          "The pale horse"
+        ],
+        [
+          "option",
+          "horse4",
+          "The crazy horse"
+        ]
+      ],
+      "pardner": [
+        [
+          "say",
+          "Who would you like to take West with you as a pardner?"
+        ],
+        [
+          "option",
+          "takepete",
+          "Take Crazy Pete"
+        ],
+        [
+          "option",
+          "takealice",
+          "Take Doc Alice"
+        ],
+        [
+          "option",
+          "takesusie",
+          "Take Susie Cochrane"
+        ],
+        [
+          "option",
+          "alone",
+          "Go it alone [Not recommended]"
+        ]
+      ],
+      "language": [
+        [
+          "if",
+          "hasflag(goblintongue_option_flag_goes_here)"
+        ],
+        [
+          "goto",
+          "temperamenttemp"
+        ],
+        [
+          "say",
+          "Goblins with you can speaking?"
+        ],
+        [
+          "option",
+          "goblinyes",
+          "Sigh, yes [Goblintongue]"
+        ],
+        [
+          "grayoption",
+          "boblin",
+          "Please God no [Can't skip Goblintongue]"
+        ]
+      ],
+      "temperamenttemp": [
+        [
+          "say",
+          "You've opted to not start with Goblintongue, so you'll need to obtain something to be able to translate that."
+        ],
+        [
+          "goto",
+          "temperament"
+        ]
+      ],
+      "temperament": [
+        [
+          "say",
+          "In WOLAP, you're granted <i>both</i> the Honorable and Ruthless perks, so you're always free to choose the most heroic or psychopathic option at a whim."
+        ],
+        [
+          "addskill",
+          "honorable"
+        ],
+        [
+          "addskill",
+          "ruthless"
+        ],
+        [
+          "option",
+          "finish",
+          "Now that's what I call immersion!"
+        ]
+      ],
+      "done": [
+        [
+          "additem",
+          "hat_4gallon"
+        ],
+        [
+          "additem",
+          "hat_barelyenchanted"
+        ],
+        [
+          "additem",
+          "hat_floppyderby"
+        ],
+        [
+          "addmeat",
+          "1000"
+        ],
+        [
+          "additem",
+          "food_turnip"
+        ],
+        [
+          "additem",
+          "pistol_deputy"
+        ],
+        [
+          "additem",
+          "ring_nasty"
+        ],
+        [
+          "incflag",
+          "spittoonsopen,1"
+        ],
+        [
+          "additem",
+          "weapon_cavalrysaber"
+        ],
+        [
+          "additem",
+          "weapon_board"
+        ],
+        [
+          "additem",
+          "lapel_sherfbadge"
+        ],
+        [
+          "addflag",
+          "tut_metcactusbill"
+        ],
+        [
+          "additem",
+          "sell_silvercufflinks"
+        ],
+        [
+          "additem",
+          "sell_pocketwatch"
+        ],
+        [
+          "additem",
+          "needle,2"
+        ],
+        [
+          "addflag",
+          "quest_curly"
+        ],
+        [
+          "addxp",
+          "50"
+        ],
+        [
+          "delflag",
+          "map_bsmain"
+        ],
+        [
+          "addproperty",
+          "map,map_world"
+        ],
+        [
+          "mapunlock",
+          "dirtwater,The Town of Dirtwater"
+        ],
+        [
+          "mapunlock",
+          "railcamp,The Manifest Destiny Railroad Company Camp"
+        ],
+        [
+          "addflag",
+          "finishedtutorial,1"
+        ],
+        [
+          "addflag",
+          "mainquest,1"
+        ],
+        [
+          "waa",
+          "dirtwater"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "cre_souvenirshelf": {
       "e": [
         [
