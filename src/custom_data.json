@@ -8789,8 +8789,19 @@
           "In any case, these choices are mostly for flavor and changes have been made so that they should not lock you out of any checks."
         ],
         [
+          "if",
+          "archipelago_start_inventory_empty"
+        ],
+        [
           "say",
-          "You will also start with 1000 Meat and the starting inventory you configured in your YAML (by default, the starting gear from Boring Springs) [Not yet implemented]."
+          "You will also start with 1000 Meat, some XP, and some starting loot from Boring Springs."
+        ],
+        [
+          "else"
+        ],
+        [
+          "say",
+          "You should have already been granted the starting inventory specified in your YAML, so in addition you'll only get some XP and a dusty turnip."
         ],
         [
           "option",
@@ -8909,6 +8920,14 @@
       ],
       "done": [
         [
+          "if",
+          "!archipelago_start_inventory_empty"
+        ],
+        [
+          "goto",
+          "doneforreal"
+        ],
+        [
           "additem",
           "hat_4gallon"
         ],
@@ -8926,23 +8945,11 @@
         ],
         [
           "additem",
-          "food_turnip"
-        ],
-        [
-          "additem",
           "pistol_deputy"
         ],
         [
           "additem",
           "ring_nasty"
-        ],
-        [
-          "incflag",
-          "spittoonsopen,1"
-        ],
-        [
-          "additem",
-          "weapon_cavalrysaber"
         ],
         [
           "additem",
@@ -8951,10 +8958,6 @@
         [
           "additem",
           "lapel_sherfbadge"
-        ],
-        [
-          "addflag",
-          "tut_metcactusbill"
         ],
         [
           "additem",
@@ -8967,6 +8970,20 @@
         [
           "additem",
           "needle,2"
+        ],
+        [
+          "goto",
+          "doneforreal"
+        ]
+      ],
+      "doneforreal": [
+        [
+          "additem",
+          "food_turnip"
+        ],
+        [
+          "addflag",
+          "tut_metcactusbill"
         ],
         [
           "addflag",

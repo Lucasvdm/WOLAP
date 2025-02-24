@@ -51,13 +51,34 @@ namespace WOLAP
         {
             if (!IsConnected) return; //TODO: Attempt reconnection?
 
-            //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
-            if (incomingItems.Count > 0 && IsInItemGrantableState())
+            if (IsInItemGrantableState())
             {
-                incomingItems.TryDequeue(out var item);
-                HandleReceivedItem(item);
-            }
+                if (!MPlayer.instance.data.ContainsKey(Constants.StartingItemsGrantedFlag))
+                {
+                    var startingInventory = GetStartingInventory();
+                    if (startingInventory.Count == 0)
+                    {
+                        MPlayer.instance.data.Add(Constants.StartingItemsEmptyFlag, "1");
+                    }
+                    else
+                    {
+                        foreach (ItemInfo item in GetStartingInventory())
+                        {
+                            HandleReceivedItem(item);
+                        }
+                    }
+                    
+                    MPlayer.instance.data.Add(Constants.StartingItemsGrantedFlag, "1");
+                }
 
+                //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
+                if (incomingItems.Count > 0)
+                {
+                    incomingItems.TryDequeue(out var item);
+                    HandleReceivedItem(item);
+                }
+            }
+            
             if (outgoingLocations.Count > 0) SendOutgoingChecks();
 
             if (IsGameComplete() && !MPlayer.instance.data.ContainsKey(Constants.SentGameCompletionFlag)) SendGameCompletion();
@@ -246,15 +267,15 @@ namespace WOLAP
             MPlayer.instance.data[Constants.SentGameCompletionFlag] = "1";
         }
          
-        public List<string> GetStartingInventory()
+        public List<ItemInfo> GetStartingInventory()
         {
-            List<string> startingInventory = new List<string>();
+            List<ItemInfo> startingInventory = [];
             if (IsConnected)
             {
                 //Starting inventory items have a location ID of -2
                 foreach (ItemInfo item in Session.Items.AllItemsReceived)
                 {
-                    if (item.LocationId == -2) startingInventory.Add(item.ItemName);
+                    if (item.LocationId == -2) startingInventory.Add(item);
                 }
             }
             return startingInventory;
