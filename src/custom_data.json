@@ -38959,6 +38959,14 @@
           "sally,food_carrot,rand(1,2),20"
         ],
         [
+          "customcommand",
+          "addnpcstorecheck,Wanderin' Sally's Camp - Item 9"
+        ],
+        [
+          "customcommand",
+          "addnpcstorecheck,Wanderin' Sally's Camp - Item 10"
+        ],
+        [
           "goto",
           "launch"
         ]
@@ -38967,6 +38975,18 @@
         [
           "addnpcstoreitem",
           "sally,food_apple,rand(1,2),15"
+        ],
+        [
+          "customcommand",
+          "addnpcstorecheck,Wanderin' Sally's Camp - Item 11"
+        ],
+        [
+          "customcommand",
+          "addnpcstorecheck,Wanderin' Sally's Camp - Item 12"
+        ],
+        [
+          "customcommand",
+          "addnpcstorecheck,Wanderin' Sally's Camp - Item 13"
         ],
         [
           "goto",
@@ -38989,6 +39009,10 @@
         [
           "addnpcstoreitem",
           "sally,food_apple,rand(1,2),15"
+        ],
+        [
+          "customcommand",
+          "addnpcstorecheck,Wanderin' Sally's Camp - Item 14"
         ],
         [
           "goto",
