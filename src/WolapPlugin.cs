@@ -44,7 +44,7 @@ namespace WOLAP
         {
             Archipelago.Update();
 
-            //if (Controls.actual.GetKeycodeDown(KeyCode.Quote)) Log.LogInfo("Current game state: " + WestOfLoathing.instance.state_machine.state.name);
+            //if (Controls.actual.GetKeycodeDown(KeyCode.RightBracket)) Log.LogInfo("Current game state: " + WestOfLoathing.instance.state_machine.state.name);
         }
 
         private static void ProcessManualPatches()

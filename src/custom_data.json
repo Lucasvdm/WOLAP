@@ -8994,6 +8994,22 @@
           "50"
         ],
         [
+          "customcommand",
+          "misspoint,Your Family's Farm - Your Bookcase"
+        ],
+        [
+          "customcommand",
+          "misspoint,Your Family's Farm - Souvenir Shelf (Item 1)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Your Family's Farm - Souvenir Shelf (Item 2)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Your Family's Farm - Rufus' Toybox"
+        ],
+        [
           "delflag",
           "map_bsmain"
         ],

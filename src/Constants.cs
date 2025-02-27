@@ -18,6 +18,7 @@ namespace WOLAP
         public const string PluginAssetsPath = "assets/wolap_assets";
 
         public const string ItemReceivedFlagPrefix = "received_item_";
+        public const string GotCheckFlagPrefix = "got_check_";
 
         public const string UnlockedShopCheckFlagPrefix = "unlocked_shop_check_";
         public const string AddedShopCheckFlagPrefix = "added_shop_check_";

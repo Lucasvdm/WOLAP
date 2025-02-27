@@ -233,6 +233,7 @@ namespace WOLAP
             {
                 var locationId = Session.Locations.GetLocationIdFromName(Session.ConnectionInfo.Game, locationName);
                 Session.Locations.CompleteLocationChecks(locationId);
+                MPlayer.instance.data.Add(Constants.GotCheckFlagPrefix + locationName.Replace(" ", ""), "1");
             }
             else
             {
@@ -248,13 +249,14 @@ namespace WOLAP
             for (int i = 0; i < ids.Length; i++)
             {
                 ids[i] = Session.Locations.GetLocationIdFromName(Session.ConnectionInfo.Game, outgoingLocations[i]);
+                MPlayer.instance.data.Add(Constants.GotCheckFlagPrefix + outgoingLocations[i].Replace(" ", ""), "1");
             }
             Session.Locations.CompleteLocationChecks(ids);
         }
 
         private bool IsGameComplete()
         {
-            return !WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME) && MPlayer.instance.data.ContainsKey("endcredits");
+            return WestOfLoathing.instance.state_machine.IsState(GameplayState.NAME) && MPlayer.instance.data.ContainsKey("endcredits");
         }
 
         private void SendGameCompletion()
@@ -326,15 +328,15 @@ namespace WOLAP
             }
         }
 
-        public void AddCheckToShop(ShopCheckLocation check)
+        public MItem AddCheckToShop(ShopCheckLocation check)
         {
-            if (check.ApItemInfo == null) return;
+            if (check.ApItemInfo == null) return null;
 
             MItem baseItem = ModelManager.GetItem(Constants.ShopCheckItemID);
             if (baseItem == null)
             {
                 WolapPlugin.Log.LogError("Couldn't find the base archipelago shop check item!");
-                return;
+                return null;
             }
 
             ItemInfo info = check.ApItemInfo;
@@ -353,6 +355,8 @@ namespace WOLAP
             MPlayer.instance.data.Add(Constants.AddedShopCheckFlagPrefix + check.Name.Replace(" ", ""), "1");
 
             WolapPlugin.Log.LogInfo($"Added check [{check.Name}] to shop [{check.ShopID}]");
+
+            return checkItem;
         }
 
         public static readonly List<ShopCheckLocation> ShopCheckLocations = new List<ShopCheckLocation>

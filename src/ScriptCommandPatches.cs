@@ -6,6 +6,8 @@ using System.Text;
 using Archipelago.MultiClient.Net.Models;
 using HarmonyLib;
 using UnityEngine;
+using static System.Collections.Specialized.BitVector32;
+using static ClockState;
 
 namespace WOLAP
 {
@@ -80,6 +82,9 @@ namespace WOLAP
                     case "addnpcstorecheck":
                         HandleAddNPCStoreCheckCommand(cmd);
                         break;
+                    case "misspoint":
+                        HandleMissedCheckCommand(cmd);
+                        break;
                 }
 
                 __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught before this patch
@@ -137,6 +142,33 @@ namespace WOLAP
 
             WolapPlugin.Archipelago.PopulateShopCheckItemInfo([check]);
             WolapPlugin.Archipelago.AddCheckToShop(check);
+        }
+
+        private static void HandleMissedCheckCommand(MCommand cmd)
+        {
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var locationName = cmd.StrArg(0);
+            if (flags.ContainsKey(Constants.GotCheckFlagPrefix + locationName.Replace(" ", "")) || flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + locationName.Replace(" ", ""))) return;
+
+            ShopCheckLocation check = new ShopCheckLocation(locationName, "dirtwatergeneral", 1000);
+            long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
+
+            WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
+            {
+                ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
+                check.ApItemInfo = itemInfo;
+            }).Wait(TimeSpan.FromSeconds(10));
+
+            WolapPlugin.Log.LogInfo($"Retrieved item info for missed check [{check.Name}].");
+            MItem newItem = WolapPlugin.Archipelago.AddCheckToShop(check);
+            MItem shopItem = MPlayer.instance.stores[check.ShopID].items.Values.Where(item => item.data["description"] == newItem.data["description"]).First(); //There HAS to be a better way to do this
+            shopItem.data["description"] += $"\n\nMissed check originally located at <b>{check.Name}</b>";
         }
     }
 }
