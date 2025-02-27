@@ -4,6 +4,7 @@ using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using Archipelago.MultiClient.Net.Packets;
 using BepInEx;
+using HarmonyLib;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -34,6 +35,7 @@ namespace WOLAP
             GameplayState.NAME,
             InventoryState.NAME
         ];
+        private bool slotDataFlagsSet = false;
 
         public ArchipelagoClient()
         {
@@ -70,6 +72,13 @@ namespace WOLAP
                     
                     MPlayer.instance.data.Add(Constants.StartingItemsGrantedFlag, "1");
                 }
+
+                if (!slotDataFlagsSet)
+                {
+                    UpdateFlagsFromSlotData();
+                    slotDataFlagsSet = true;
+                }
+                
 
                 //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
                 if (incomingItems.Count > 0)
@@ -188,6 +197,8 @@ namespace WOLAP
             incomingItems.Clear();
             outgoingLocations.Clear();
 
+            slotDataFlagsSet = false;
+
             foreach (ShopCheckLocation check in ShopCheckLocations) check.ApItemInfo = null;
         }
 
@@ -281,6 +292,19 @@ namespace WOLAP
                 }
             }
             return startingInventory;
+        }
+
+        private void UpdateFlagsFromSlotData()
+        {
+            UpdateSlotDataFlag(Constants.DlcEnabledSlotDataFlag);
+        }
+
+        private void UpdateSlotDataFlag(string name)
+        {
+            var flags = MPlayer.instance.data;
+
+            if (flags.ContainsKey(name)) flags[name] = SlotData[name].ToString();
+            else flags.Add(name, SlotData[name].ToString());
         }
 
         public void PopulateShopCheckItemInfo()
