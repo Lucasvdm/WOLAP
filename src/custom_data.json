@@ -1906,11 +1906,11 @@
         ],
         [
           "customcommand",
-          "checklocation,Jelly Bean Thieves' Hideout - Thieves Killed (Item 1)"
+          "checklocation,Jelly Bean Thieves' Hideout - Thieves Killed (Revolver)"
         ],
         [
           "customcommand",
-          "checklocation,Jelly Bean Thieves' Hideout - Thieves Killed (Item 2)"
+          "checklocation,Jelly Bean Thieves' Hideout - Thieves Killed (Hat)"
         ],
         [
           "addflag",
