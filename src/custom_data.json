@@ -59,6 +59,176 @@
       ]
     },
     "bandit1_door": {
+      "alreadylocked": [
+        [
+          "say",
+          "You've definitely got the upper hand at this point.  What's your next move?"
+        ],
+        [
+          "option",
+          "arrest",
+          "Get your cop on"
+        ],
+        [
+          "if",
+          "hasitem(combat_match) && hasskill(ruthless)"
+        ],
+        [
+          "option",
+          "burn",
+          "Burn the house down [Ruthless / match]"
+        ],
+        [
+          "option",
+          "done",
+          "Back off for a bit"
+        ]
+      ],
+      "burn": [
+        [
+          "removeitem",
+          "combat_match"
+        ],
+        [
+          "addflag",
+          "bandit1_burnedhouse"
+        ],
+        [
+          "addflag",
+          "bandit1_killed"
+        ],
+        [
+          "addflag",
+          "bandit1_resolved,3"
+        ],
+        [
+          "say",
+          "You light a match and toss it in the open window."
+        ],
+        [
+          "say",
+          "Your sense of justice renders you indifferent to the screams."
+        ],
+        [
+          "addxp",
+          "xpreward_a*3"
+        ],
+        [
+          "say",
+          "After the fire dies down, you collect the evidence of your work."
+        ],
+        [
+          "additem",
+          "quest_bandit1remainsburn"
+        ],
+        [
+          "customcommand",
+          "checklocation,Desert House - Gang Killed"
+        ],
+        [
+          "customcommand",
+          "misspoint,Desert House - Gang Shakedown"
+        ],
+        [
+          "changewaaproperty",
+          "sneak,0"
+        ],
+        [
+          "option",
+          "done",
+          "Just doin' the Lord's work"
+        ]
+      ],
+      "arrest": [
+        [
+          "if",
+          "!hasflag(dirtwater_jailintro)"
+        ],
+        [
+          "goto",
+          "cantarrest"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "Okay, fellas, the jig is up!"
+        ],
+        [
+          "say",
+          "A muffled voice says, \"The law! Get 'em, boys!\""
+        ],
+        [
+          "say",
+          "And then, \"Tarnation, we're locked in!\""
+        ],
+        [
+          "say",
+          "You hear a chorus of defeated sighs."
+        ],
+        [
+          "goto",
+          "arrestopts"
+        ]
+      ],
+      "arrestopts": [
+        [
+          "if",
+          "!hasflag(bandit1_triedhandsup)"
+        ],
+        [
+          "sayoption",
+          "handsup",
+          "Come out with your hands up."
+        ],
+        [
+          "if",
+          "hasskill(intimidatin)"
+        ],
+        [
+          "sayoption",
+          "getgearrough",
+          "Toss out your weapons [Intimidatin' 1]"
+        ],
+        [
+          "if",
+          "hasskill(outfoxin)"
+        ],
+        [
+          "sayoption",
+          "getgear",
+          "Toss out your weapons [Outfoxin' 1]"
+        ],
+        [
+          "if",
+          "hasskill(hornswogglin)"
+        ],
+        [
+          "sayoption",
+          "getgear",
+          "Toss out your weapons [Hornswogglin' 1]"
+        ],
+        [
+          "if",
+          "!hasflag(bandit1_triedsurrounded)"
+        ],
+        [
+          "sayoption",
+          "surrounded",
+          "We've got you surrounded."
+        ],
+        [
+          "if",
+          "bandit1_triedhandsup && bandit1_triedsurrounded"
+        ],
+        [
+          "option",
+          "justarrest",
+          "Just arrest them without shaking them down [Honorable]"
+        ]
+      ],
       "getgearrough": [
         [
           "leftspeak",
@@ -76,6 +246,15 @@
           "sayoption",
           "getgear2",
           "Just kidding, I'm still going to rough you up a little."
+        ],
+        [
+          "if",
+          "hasitem(combat_match) && hasskill(ruthless)"
+        ],
+        [
+          "option",
+          "burnanyway",
+          "Actually, what was that about burning the house down?"
         ]
       ],
       "getgear": [
@@ -95,6 +274,168 @@
           "sayoption",
           "getgear2",
           "Just kidding, I'm still going to arrest you."
+        ],
+        [
+          "if",
+          "hasitem(combat_match) && hasskill(ruthless)"
+        ],
+        [
+          "option",
+          "burnanyway",
+          "Actually, what was that about burning the house down?"
+        ]
+      ],
+      "burnanyway": [
+        [
+          "leftsay",
+          "Wait, did you say I have the option to <i>burn the house down?</i> With them inside?"
+        ],
+        [
+          "say",
+          "Well, yeah. You got everything you could shake them down for, but what about the stuff they wouldn't give you? They're locked in, and you have a match. Look, I'm just saying it's an option..."
+        ],
+        [
+          "leftsay",
+          "Wow, dark. But wouldn't I get in trouble with the law? Or, I dunno, God?"
+        ],
+        [
+          "say",
+          "Nah. Nobody really knows how to investigate arson yet, and besides, who are they gonna believe? The decent, upstanding <i>fugitive recovery agent</i>? Or the smoldering pile of bad guy ashes?"
+        ],
+        [
+          "say",
+          "As for divine judgment, who knows? Maybe a ghost could tell you more. And Hell is breaking loose already. In any case, the afterlife is a problem for future you."
+        ],
+        [
+          "option",
+          "burn",
+          "Alright, sure, why not [Ruthless / match]"
+        ],
+        [
+          "option",
+          "fight",
+          "I <i>do</i> want to kill them, but I'll do it face to face [Ruthless?]"
+        ],
+        [
+          "option",
+          "arrest2",
+          "You know what, I think I'll just arrest them"
+        ]
+      ],
+      "handsup": [
+        [
+          "addflag",
+          "bandit1_triedhandsup"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "The muffled voice says, \"We can't come out.  You locked us in.\""
+        ],
+        [
+          "option",
+          "arrestopts",
+          "Oh yeah"
+        ]
+      ],
+      "surrounded": [
+        [
+          "addflag",
+          "bandit1_triedsurrounded"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "The muffled voice says, \"What difference does that make?  We're locked in!\""
+        ],
+        [
+          "option",
+          "arrestopts",
+          "Oh right"
+        ]
+      ],
+      "justarrest": [
+        [
+          "leftsay",
+          "I'm not gonna rob these robbers! I'm a <i>good</i> cop."
+        ],
+        [
+          "say",
+          "Wow! Good for you."
+        ],
+        [
+          "leftsay",
+          "So do I get some sort of special reward for being so noble?"
+        ],
+        [
+          "say",
+          "I suppose through the sheer power of self-righteousness you could get some bonus XP."
+        ],
+        [
+          "addxp",
+          "@xpreward_a@*3"
+        ],
+        [
+          "leftsay",
+          "Cool! But what about something more tangible, like one of those fancy checks I might've gotten from a less honorable choice?"
+        ],
+        [
+          "say",
+          "Nope."
+        ],
+        [
+          "option",
+          "arrest2",
+          "Shucks"
+        ]
+      ],
+      "arrest2": [
+        [
+          "say",
+          "You round up the gang and haul them back to Dirtwater."
+        ],
+        [
+          "waa",
+          "dirtwater_jail,680,80"
+        ],
+        [
+          "customcommand",
+          "misspoint,Desert House - Gang Killed"
+        ],
+        [
+          "customcommand",
+          "misspoint,Desert House - Gang Shakedown"
+        ],
+        [
+          "addflag",
+          "bandit1_arrested"
+        ],
+        [
+          "addflag",
+          "bandit1_resolved,1"
+        ],
+        [
+          "addflag",
+          "dirtwater_clerkpos,1"
+        ],
+        [
+          "rightportrait",
+          "clerk"
+        ],
+        [
+          "rightsay",
+          "That's the House-in-the-Desert gang, all right. All except for the house, that is. Did it get away?"
+        ],
+        [
+          "sayoption",
+          "arrest3",
+          "What? Was I supposed to..."
         ]
       ]
     },
