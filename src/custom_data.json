@@ -1891,6 +1891,169 @@
       ]
     },
     "bandit6_trigger": {
+      "honorable": [
+        [
+          "leftsay",
+          "Listen, fellas. You stole a jar of candy from an old man. This is such a small, petty, sad little crime, it barely even qualifies as a crime. If this ends up on a wanted poster, you're gonna be the laughing stock of the criminal community. More importantly, what would your mothers think? I'm giving you a chance to turn away from this life of crime before it's too late, and I suggest you take it, because I'm pretty sure this is not a life you're suited to."
+        ],
+        [
+          "say",
+          "The bandits hang their heads shamefully and shuffle away."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@*3"
+        ],
+        [
+          "addflag",
+          "bandit6_resolved,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Good."
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Revolver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Hat)"
+        ]
+      ],
+      "ruthless": [
+        [
+          "say",
+          "Without a word, you pull a stick of dynamite out of your back pocket and toss it on the bandits' campfire, blowing the five of them - and their gear - to smithereens."
+        ],
+        [
+          "removeitem",
+          "combat_dynamite,1"
+        ],
+        [
+          "addflag",
+          "bandit10_crater"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@*3"
+        ],
+        [
+          "addflag",
+          "bandit6_resolved,3"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Shouldn't have stolen that candy."
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Revolver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Hat)"
+        ]
+      ],
+      "intim": [
+        [
+          "leftsay",
+          "Well, I'll tell you what I'm gonna do. I'm gonna attack you. And you fellas will probably take me down, but I'm fast, and I'm gonna get my hands on at least one of you. And I'm gonna pop out both of that fella's eyeballs with my thumbs, and I'm gonna put 'em in my mouth and chew 'em up like they was a couple of them jellybeans you stole. And if you haven't killed me by then I'm gonna move on to the next fella. So if there's one of you boys that wants to trade your eyeballs for a jar of goddamn candy, why don't you just go ahead and step forward."
+        ],
+        [
+          "say",
+          "The bandits slowly back away, and continue backing away until they're out of sight."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@*3"
+        ],
+        [
+          "addflag",
+          "bandit6_resolved,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Good."
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Revolver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Hat)"
+        ]
+      ],
+      "outfox": [
+        [
+          "leftsay",
+          "Listen, I'm from the Federal Horrible Wildlife Bureau. You fellas didn't steal a jar of jellybeans, you stole a jar of rare South-of-the-Border Rainbow Earwig eggs. Roy was holding them in quarantine for me 'til I could pick them up for questioning. If you don't hand them over before they hatch, you're all gonna have things like a rhinoceros beetle married a banana slug burrowing into your brains before morning. Now how about it?"
+        ],
+        [
+          "rightsay",
+          "I, uh... maybe we'll just... leave you to help yerself."
+        ],
+        [
+          "say",
+          "The five of them leave in a hurry."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@*3"
+        ],
+        [
+          "addflag",
+          "bandit6_resolved,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Good."
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Revolver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Hat)"
+        ]
+      ],
+      "hornswoggle": [
+        [
+          "leftsay",
+          "Why, I plan to buy them from ya, of course! Heck, all the trouble you fellas went through to get them, I couldn't let you leave them without just compensation! It wouldn't be right! And let me congratulate you all on a robbery well done!"
+        ],
+        [
+          "say",
+          "You make your way around the campfire, shaking the bandits' hands and patting them on the backs, and then pay them all the Meat you picked from their pockets. They leave cheerfully."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@*3"
+        ],
+        [
+          "addflag",
+          "bandit6_resolved,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Good."
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Revolver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jelly Bean Thieves' Hideout - Thieves Killed (Hat)"
+        ]
+      ],
       "win": [
         [
           "addstate",
