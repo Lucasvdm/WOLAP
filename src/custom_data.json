@@ -292,19 +292,19 @@
         ],
         [
           "say",
-          "Well, yeah. You got everything you could shake them down for, but what about the stuff they wouldn't give you? They're locked in, and you have a match. Look, I'm just saying it's an option..."
+          "Well, yeah.  You got everything you could shake them down for, but what about the stuff they wouldn't give you?  They're locked in, and you have a match.  Look, I'm just saying it's an option..."
         ],
         [
           "leftsay",
-          "Wow, dark. But wouldn't I get in trouble with the law? Or, I dunno, God?"
+          "Wow, dark. But wouldn't I get in trouble with the law?  Or, I dunno, God?"
         ],
         [
           "say",
-          "Nah. Nobody really knows how to investigate arson yet, and besides, who are they gonna believe? The decent, upstanding <i>fugitive recovery agent</i>? Or the smoldering pile of bad guy ashes?"
+          "Nah.  Nobody really knows how to investigate arson yet, and besides, who are they gonna believe?  The decent, upstanding <i>fugitive recovery agent</i>?  Or the smoldering pile of bad guy ashes?"
         ],
         [
           "say",
-          "As for divine judgment, who knows? Maybe a ghost could tell you more. And Hell is breaking loose already. In any case, the afterlife is a problem for future you."
+          "As for divine judgment, who knows?  Maybe a ghost could tell you more.  And Hell is breaking loose already.  In any case, the afterlife is a problem for future you."
         ],
         [
           "option",
@@ -367,7 +367,7 @@
         ],
         [
           "say",
-          "Wow! Good for you."
+          "Wow!  Good for you."
         ],
         [
           "leftsay",
@@ -383,7 +383,7 @@
         ],
         [
           "leftsay",
-          "Cool! But what about something more tangible, like one of those fancy checks I might've gotten from a less honorable choice?"
+          "Cool!  But what about something more tangible, like one of those fancy checks I might've gotten from a less honorable choice?"
         ],
         [
           "say",
