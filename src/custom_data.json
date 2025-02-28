@@ -474,6 +474,10 @@
           "checklocation,Desert House - Gang Killed"
         ],
         [
+          "customcommand",
+          "misspoint,Desert House - Gang Shakedown"
+        ],
+        [
           "if",
           "itemroll(40) && !hasitem(hat_black)"
         ],
@@ -906,6 +910,14 @@
           "checklocation,Cavern Canyon Spider Cave - Weapens Box"
         ],
         [
+          "customcommand",
+          "misspoint,Cavern Canyon Spider Cave - Medisun Box"
+        ],
+        [
+          "customcommand",
+          "misspoint,Cavern Canyon Spider Cave - Booze Box"
+        ],
+        [
           "say",
           "You hear a sudden chittering coming from that big hole behind you."
         ],
@@ -936,6 +948,14 @@
           "checklocation,Cavern Canyon Spider Cave - Medisun Box"
         ],
         [
+          "customcommand",
+          "misspoint,Cavern Canyon Spider Cave - Weapens Box"
+        ],
+        [
+          "customcommand",
+          "misspoint,Cavern Canyon Spider Cave - Booze Box"
+        ],
+        [
           "say",
           "You hear a sudden chittering coming from that big hole behind you."
         ],
@@ -960,6 +980,14 @@
         [
           "customcommand",
           "checklocation,Cavern Canyon Spider Cave - Booze Box"
+        ],
+        [
+          "customcommand",
+          "misspoint,Cavern Canyon Spider Cave - Weapens Box"
+        ],
+        [
+          "customcommand",
+          "misspoint,Cavern Canyon Spider Cave - Medisun Box"
         ],
         [
           "say",
