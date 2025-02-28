@@ -16100,8 +16100,19 @@
           "...Nah. I reckon I'll just go back to sleep. Ain't right, a dead fella walkin' 'round. Just tell her sorry for me, alright? Here, you can give 'er my pocketwatch, she'll recognize it."
         ],
         [
+          "if",
+          "hasflag(dlc_enabled)"
+        ],
+        [
           "customcommand",
           "checklocation,Desert House - Macready's Grave"
+        ],
+        [
+          "else"
+        ],
+        [
+          "additem",
+          "offhand_macready"
         ],
         [
           "addflag",
