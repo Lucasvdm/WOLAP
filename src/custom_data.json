@@ -11109,6 +11109,37 @@
       ],
       "afterloot": []
     },
+    "food_turnip": {
+      "yes": [
+        [
+          "consume"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You dust off the turnip and eat it."
+        ],
+        [
+          "say",
+          "Now you understand why people don't tend to eat raw turnips."
+        ],
+        [
+          "addeffect",
+          "food_turnip"
+        ],
+        [
+          "option",
+          "done",
+          "Yep"
+        ],
+        [
+          "customcommand",
+          "misspoint,The Silver Plater - Plated the Turnip"
+        ]
+      ]
+    },
     "fort1_generalgob": {
       "win": [
         [
