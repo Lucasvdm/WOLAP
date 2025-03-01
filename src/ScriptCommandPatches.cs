@@ -43,6 +43,11 @@ namespace WOLAP
                         return false;
                     }
                     break;
+                case MCommand.Op.ADDPERMAFLAG:
+                case MCommand.Op.INCPERMAFLAG:
+                case MCommand.Op.DELPERMAFLAG:
+                    if (WolapPlugin.ModDataLoaded) return false; //Disabling these to prevent messing with permanent progression flags/stats during modded play
+                    break;
                 case MCommand.Op.STATESHARE: //customcommand
                     //Could/should maybe use the mod logger instead, but this is consistent with other commands and should show in the log/debug window anyway
                     if (__instance.argCount == 0) __instance.LogError("needs at least a custom command to run, got no arguments.");

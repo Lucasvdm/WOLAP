@@ -14,8 +14,6 @@ namespace WOLAP
     [HarmonyPatch]
     internal class LoadSaveDataPatches
     {
-        private static bool ModDataLoaded = false;
-
         [HarmonyPatch(typeof(SavedGame), "NewGame")]
         [HarmonyPostfix]
         private static void NewGamePatch(string strNameFirst, string strNameLast, string strNameFull, bool fIsCowgirl, int meatReward, string strAnimal, ref string __result)
@@ -47,7 +45,7 @@ namespace WOLAP
 
             if (isModdedSave)
             {
-                if (!ModDataLoaded)
+                if (!WolapPlugin.ModDataLoaded)
                 {
                     LoadWOLAPData();
 
@@ -71,10 +69,10 @@ namespace WOLAP
             {
                 if (WolapPlugin.Archipelago.IsConnected) WolapPlugin.Archipelago.Disconnect();
 
-                if (ModDataLoaded)
+                if (WolapPlugin.ModDataLoaded)
                 {
                     ModelLoader.Instance.LoadLocal();
-                    ModDataLoaded = false;
+                    WolapPlugin.ModDataLoaded = false;
                     WolapPlugin.Log.LogInfo("Reloaded original unmodded JSON data.");
 
                     WolapPlugin.Harmony.Unpatch(trackingLogMethod, trackingLogPrefix);
@@ -98,7 +96,7 @@ namespace WOLAP
                 string fileText = Encoding.UTF8.GetString(fileData);
                 WolapPlugin.Log.LogInfo("Parsing custom JSON data...");
                 ModelManager.Instance.Parse(fileText, true);
-                ModDataLoaded = true;
+                WolapPlugin.ModDataLoaded = true;
                 WolapPlugin.Log.LogInfo("Custom JSON data parsed and merged.");
             }
         }

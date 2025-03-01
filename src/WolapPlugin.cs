@@ -20,6 +20,7 @@ namespace WOLAP
         internal static AssetBundle Assets;
         internal static ArchipelagoClient Archipelago;
         internal static UIManager UIManager;
+        internal static bool ModDataLoaded { get; set; }
 
         private void Awake()
         {
