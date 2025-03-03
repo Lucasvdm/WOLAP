@@ -5521,6 +5521,54 @@
         ]
       ]
     },
+    "clowns_circus_bobchat": {
+      "sellseeds2": [
+        [
+          "addflag",
+          "circus_cowsbaned"
+        ],
+        [
+          "say",
+          "You toss the packet of seeds onto Barnaby Bob's desk."
+        ],
+        [
+          "removeitem",
+          "quest_cowsbaneseeds,999"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Cowsbane seeds. This is probably the only packet you'll ever see -- they're rare as hell."
+        ],
+        [
+          "rightsay",
+          "Hell is a lot more common than you seem to think, @firstname@ @lastname@, but I take your point. And I'll take these seeds, with my undying gratitude."
+        ],
+        [
+          "leftsay",
+          "I'm looking for something a bit more tangible."
+        ],
+        [
+          "say",
+          "Barnaby Bob chuckles and pulls a sack out of his desk."
+        ],
+        [
+          "addmeat",
+          "1000"
+        ],
+        [
+          "goto",
+          "options"
+        ],
+        [
+          "customcommand",
+          "misspoint,Lazy-A Dude Ranch - Cowsbane Harvest"
+        ]
+      ]
+    },
     "clowns_circus_destroyedsafe": {
       "open": [
         [
