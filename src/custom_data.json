@@ -12887,6 +12887,78 @@
         ]
       ]
     },
+    "fort5_privatebowlegs": {
+      "contract": [
+        [
+          "removeitem",
+          "quest_mulecontract"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Yep, here's your contract. They said they'll send the mule directly to pick you up."
+        ],
+        [
+          "rightsay",
+          "Well, that's a load off a whole assortment of my limbs. Thanks, friend."
+        ],
+        [
+          "say",
+          "He takes the contract and slowly moseys outside to wait for his mule."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addflag",
+          "fort5_privatebowlegs"
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Hey, wait! You owe me 1500 Meat! Dammit!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
+        ]
+      ],
+      "bend": [
+        [
+          "leftsay",
+          "You don't need a mule, this is fixable. Hold still a minute."
+        ],
+        [
+          "rightsay",
+          "Huh? Well, I uh... okay..."
+        ],
+        [
+          "say",
+          "With some grunts (from you) and some cries of pain (from him) you normalize his legs."
+        ],
+        [
+          "rightsay",
+          "Ow! Great jumpin' jiminy, @man@!"
+        ],
+        [
+          "sayoption",
+          "bend2",
+          "Oh, don't be a baby. Look, they're much straighter now."
+        ],
+        [
+          "customcommand",
+          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
+        ]
+      ]
+    },
     "fort5_timerift": {
       "grab": [
         [
