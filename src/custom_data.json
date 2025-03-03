@@ -16183,6 +16183,186 @@
         ]
       ]
     },
+    "house_ghost_lardest": {
+      "win": [
+        [
+          "if",
+          "!house_ghost_lardest_knowquest"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gun Manor Cellar - Box of Photos"
+        ],
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "addflag",
+          "house_ghost_lardest"
+        ],
+        [
+          "addflag",
+          "house_ghost_lardest_nophoto"
+        ],
+        [
+          "if",
+          "hasitem(quest_lardestphoto)"
+        ],
+        [
+          "removeitem",
+          "quest_lardestphoto"
+        ],
+        [
+          "incflag",
+          "house_ghosts,-1"
+        ],
+        [
+          "incflag",
+          "house_ghosts_violent,1"
+        ],
+        [
+          "say",
+          "He was L'Ardest, but you were harder."
+        ],
+        [
+          "addxp",
+          "@xpreward_w@"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "house_ghost_lawyer": {
       "givehat4": [
         [
