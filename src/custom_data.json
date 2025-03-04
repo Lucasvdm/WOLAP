@@ -17376,6 +17376,285 @@
       ]
     },
     "house_mrsgunfinal2": {
+      "start": [
+        [
+          "if",
+          "hasflag(house_mrsgun_talked)"
+        ],
+        [
+          "goto",
+          "repeat"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Er... Hello, Mrs. Gun."
+        ],
+        [
+          "rightportrait",
+          "mrsgun"
+        ],
+        [
+          "rightsay",
+          "Hello -- @firstname@, was it? Thank you so much for getting rid of all those ghosts for me."
+        ],
+        [
+          "leftsay",
+          "Yeah... about that. Turns out there's one left."
+        ],
+        [
+          "rightsay",
+          "Oh dear. Well, I'll need you to take care of it before I can pay you."
+        ],
+        [
+          "sayoption",
+          "fight",
+          "Oh don't worry, I intend to. [Fight]"
+        ],
+        [
+          "sayoption",
+          "two",
+          "Mrs. Gun, I've got some bad news for you."
+        ]
+      ],
+      "three": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Well, I haven't had any appetite for months. Nearly a year, in fact. They keep sending food up from the kitchen in the dumbwaiter, but I've just been dropping it out the window and sending the empty plates back so the chef won't have her feelings hurt."
+        ],
+        [
+          "leftsay",
+          "There's also the fact that you're, well, translucent."
+        ],
+        [
+          "rightsay",
+          "Yes! I thought it was just cataracts."
+        ],
+        [
+          "leftsay",
+          "Mrs. Gun, this prompts a question, you know."
+        ],
+        [
+          "rightsay",
+          "Oh? What's that?"
+        ],
+        [
+          "sayoption",
+          "fight",
+          "What do you want on your tombstone? [Fight]"
+        ],
+        [
+          "sayoption",
+          "four",
+          "Why are you a ghost?"
+        ]
+      ],
+      "four": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Well, I'm sure I don't know. You're the expert, perhaps you can tell me?"
+        ],
+        [
+          "leftportrait",
+          "ghostbuster"
+        ],
+        [
+          "leftsay",
+          "<i>Ahem.</i> Actually, that's me. I'm the expert."
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Do you have some kind of unfinished business? Something that's tying you to this place?"
+        ],
+        [
+          "rightsay",
+          "Well... now that you mention it, yes, I suppose I do."
+        ],
+        [
+          "sayoption",
+          "fight",
+          "Honestly, I'm not interested. Let's just fight. [Fight]"
+        ],
+        [
+          "sayoption",
+          "five",
+          "Do you mind telling me about it?"
+        ]
+      ],
+      "nine": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "What do you mean?"
+        ],
+        [
+          "leftportrait",
+          "ghostbuster"
+        ],
+        [
+          "leftsay",
+          "You did contract me for thirteen ghosts, ma'am. You're the thirteenth."
+        ],
+        [
+          "rightsay",
+          "Oh. Yes. Obviously, I could simply renegotiate the number with you, but... perhaps you should go ahead and exorcise me, or whatever you do."
+        ],
+        [
+          "sayoption",
+          "fight",
+          "Okay. Let's do it. [Fight]"
+        ],
+        [
+          "sayoption",
+          "flokill",
+          "Flo, you wanna handle this?"
+        ],
+        [
+          "sayoption",
+          "ten",
+          "I'd rather find a more peaceful solution."
+        ]
+      ],
+      "flokill2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "leftportrait",
+          "ghostbuster"
+        ],
+        [
+          "leftsay",
+          "First things first -- there's the matter of my fee, Mrs. Gun."
+        ],
+        [
+          "rightportrait",
+          "mrsgun"
+        ],
+        [
+          "rightsay",
+          "Oh yes, of course."
+        ],
+        [
+          "say",
+          "Mrs. Gun takes a check out of her desk and hands it to Florence."
+        ],
+        [
+          "leftsay",
+          "Thanks, ma'am. I'd give you the usual spiel about contacting me again if you have any further ghost problems, but that's not gonna be a thing."
+        ],
+        [
+          "say",
+          "Florence blasts Mrs. Gun with the science rifle, vaporizing her in a burst of eerie light."
+        ],
+        [
+          "addflag",
+          "house_mrsgunfinal"
+        ],
+        [
+          "addflag",
+          "house_mrsgun_killed"
+        ],
+        [
+          "incflag",
+          "house_ghosts,-1"
+        ],
+        [
+          "incflag",
+          "house_ghosts_violent,1"
+        ],
+        [
+          "if",
+          "hasflag(house_ghosts_violent)==13"
+        ],
+        [
+          "giveachievement",
+          "ach_manorviolent"
+        ],
+        [
+          "if",
+          "!hasflag(house_chet_met)"
+        ],
+        [
+          "sayoption",
+          "flokill3",
+          "Bye, Mrs. Gun"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "sayoption",
+          "walkaway",
+          "Bye, Mrs. Gun."
+        ],
+        [
+          "customcommand",
+          "misspoint,Mrs. Gun's Room - Peaceful Solution"
+        ]
+      ],
+      "repeat": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hi, Mrs. Gun."
+        ],
+        [
+          "rightportrait",
+          "mrsgun"
+        ],
+        [
+          "rightsay",
+          "Hello again. Have you managed to find anything out?"
+        ],
+        [
+          "sayoption",
+          "fight",
+          "No, I decided to just fight you instead. [Fight]"
+        ],
+        [
+          "sayoption",
+          "flokillb",
+          "No, I decided to let Flo handle this instead."
+        ],
+        [
+          "if",
+          "hasflag(house_chet_family)"
+        ],
+        [
+          "sayoption",
+          "family",
+          "Yeah... I have good news and bad news."
+        ],
+        [
+          "sayoption",
+          "walkaway",
+          "Not yet, but hopefully soon."
+        ]
+      ],
       "family2": [
         [
           "leftsay",
@@ -17411,12 +17690,190 @@
         ],
         [
           "customcommand",
-          "checklocation,Mrs. Gun's Room - All Ghosts Settled Peacefully"
+          "checklocation,Mrs. Gun's Room - Peaceful Solution"
         ],
         [
           "option",
           "walkaway",
           "Alrighty"
+        ]
+      ],
+      "win": [
+        [
+          "customcommand",
+          "misspoint,Mrs. Gun's Room - Peaceful Solution"
+        ],
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Well, that was easy."
+        ],
+        [
+          "addflag",
+          "house_mrsgunfinal"
+        ],
+        [
+          "addflag",
+          "house_mrsgun_killed"
+        ],
+        [
+          "incflag",
+          "house_ghosts,-1"
+        ],
+        [
+          "incflag",
+          "house_ghosts_violent,1"
+        ],
+        [
+          "if",
+          "hasflag(house_ghosts_violent)==13"
+        ],
+        [
+          "giveachievement",
+          "ach_manorviolent"
+        ],
+        [
+          "addstate",
+          "winbutton,So it goes."
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
         ]
       ]
     },
