@@ -29914,6 +29914,84 @@
           "Cool"
         ]
       ],
+      "intim": [
+        [
+          "say",
+          "You wave your arms wildly and shout at the goblin."
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hey! Hey! What are you doing down there? Are you rustling? Knock off that rustling! Get out of here! Yaaaah! Woooooo!"
+        ],
+        [
+          "say",
+          "The goblin slowly backs away with its eyes wide, then runs off muttering something."
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "rightsay",
+          "It saying \"Holy craps, this human is terrible brain having!\""
+        ],
+        [
+          "addxp",
+          "@xpreward_a@"
+        ],
+        [
+          "option",
+          "done",
+          "Alright!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Moxious Goblin"
+        ]
+      ],
+      "outfox": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Excuse me! You know there's a rustling tax levied on this gorge, right? You can't rustle for free here, bud."
+        ],
+        [
+          "if",
+          "!gary"
+        ],
+        [
+          "say",
+          "The goblin doesn't seem to understand, so you take a few minutes to communicate the concept with elaborate gestures. Eventually the goblin pays you just to make you go away."
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "rightsay",
+          "Gary translates, and after some back-and-forth the goblin rolls its eyes at you and throws you a small pouch of Meat."
+        ],
+        [
+          "addmeat",
+          "rand(30,40),1"
+        ],
+        [
+          "option",
+          "done",
+          "Great!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Moxious Goblin"
+        ]
+      ],
       "hornswoggle": [
         [
           "leftportrait",
@@ -29943,6 +30021,21 @@
           "option",
           "done",
           "Score!"
+        ]
+      ],
+      "runaway": [
+        [
+          "say",
+          "You decide to ride away before this situation turns into a serious diplomatic issue."
+        ],
+        [
+          "option",
+          "done",
+          "Good"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Moxious Goblin"
         ]
       ],
       "win": [
@@ -30109,6 +30202,212 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "giveup": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Moxious Goblin"
+        ],
+        [
+          "say",
+          "You put your hands up, and the goblin makes you repeatedly hit yourself with them."
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
+        ]
+      ],
+      "lose": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Moxious Goblin"
+        ],
+        [
+          "say",
+          "You lost. The goblin rustled your custards."
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
         ]
       ]
     },
