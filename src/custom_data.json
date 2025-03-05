@@ -26617,6 +26617,139 @@
           "goto",
           "aftersusie"
         ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Grizzled Skinner (Pants)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Grizzled Skinner (Varmint Knife)"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Grizzled Skinner (Pants)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Grizzled Skinner (Varmint Knife)"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Grizzled Skinner (Pants)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Grizzled Skinner (Varmint Knife)"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
+        ]
       ]
     },
     "re_banditc2": {
@@ -26870,6 +27003,139 @@
           "goto",
           "aftersusie"
         ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Backwoods Butcher (Cleaver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Backwoods Butcher (Steak)"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Backwoods Butcher (Cleaver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Backwoods Butcher (Steak)"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Backwoods Butcher (Cleaver)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Backwoods Butcher (Steak)"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
+        ]
       ]
     },
     "re_banditc3": {
@@ -27021,6 +27287,127 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Clown Hunter"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Clown Hunter"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Clown Hunter"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
         ]
       ]
     },
@@ -31942,8 +32329,128 @@
           "goto",
           "aftersusie"
         ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Jackbooted Gulch Goblin"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Jackbooted Gulch Goblin"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Jackbooted Gulch Goblin"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
+        ]
       ]
-
     },
     "re_goblinc2": {
       "hornswoggle": [
@@ -32129,6 +32636,127 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Juggler"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Juggler"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Juggler"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
         ]
       ]
     },
@@ -32592,6 +33220,163 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Nail Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Glass Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Lead Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Magic Ring)"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Nail Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Glass Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Lead Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Magic Ring)"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Nail Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Glass Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Lead Ring)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Gulch Goblin Jeweler (Magic Ring)"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
         ]
       ]
     },
@@ -38934,6 +39719,127 @@
           "goto",
           "aftersusie"
         ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Skeletal Cavalryman"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Skeletal Cavalryman"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Skeletal Cavalryman"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
+        ]
       ]
     },
     "re_skeletonc2": {
@@ -39117,6 +40023,127 @@
           "goto",
           "aftersusie"
         ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Deformed Skeleton"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Deformed Skeleton"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Deformed Skeleton"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
+        ]
       ]
     },
     "re_skeletonc3": {
@@ -39272,6 +40299,127 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "done": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Skeleton of an Old Hunter"
+        ],
+        [
+          "runscript",
+          "randomencounterdone"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "sleef": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Skeleton of an Old Hunter"
+        ],
+        [
+          "adddailyflag",
+          "beatenup"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "sleep"
+        ],
+        [
+          "exit",
+          "close:map"
+        ]
+      ],
+      "losedone": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region C) - Skeleton of an Old Hunter"
+        ],
+        [
+          "if",
+          "crazyhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_crazyhorse"
+        ],
+        [
+          "if",
+          "normalhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_normalhorse"
+        ],
+        [
+          "if",
+          "palehorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_palehorse"
+        ],
+        [
+          "if",
+          "darkhorse"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_darkhorse"
+        ],
+        [
+          "if",
+          "pardner && rand(1,2)==1"
+        ],
+        [
+          "addstate",
+          "bucket,recontinue_pardner"
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardnername,Pete"
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardnername,Doc Alice"
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardnername,Susie"
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardnername,Gary"
+        ],
+        [
+          "say",
+          "%$bucket$%"
+        ],
+        [
+          "option",
+          "done",
+          "Continue"
         ]
       ]
     },
