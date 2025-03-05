@@ -24964,6 +24964,56 @@
       ]
     },
     "re_banditambush": {
+      "intimtwo": [
+        [
+          "leftsay",
+          "Well, I'd have to shoot that barrel full of explosives that the three of you are standing right next to."
+        ],
+        [
+          "say",
+          "The bandits look at your pistol, then at the barrel, then at each other, and then at you. You give them your best crazy-eyed grin."
+        ],
+        [
+          "say",
+          "They pull out their wallets."
+        ],
+        [
+          "addmeat",
+          "50,1"
+        ],
+        [
+          "option",
+          "done",
+          "Alright!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Sharpshootin' Bandits"
+        ]
+      ],
+      "outfoxtwo": [
+        [
+          "leftsay",
+          "So I'd recommend you get it to your destination as quick as you can. Maybe take a shortcut over that rocky and bumpy trail over there?"
+        ],
+        [
+          "say",
+          "The bandits shrug and start rolling the barrel off in that direction. After a couple of minutes, you hear a loud <i>BOOM</i> in the distance."
+        ],
+        [
+          "addxp",
+          "@xpreward_a@*3"
+        ],
+        [
+          "option",
+          "done",
+          "Excellent"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Sharpshootin' Bandits"
+        ]
+      ],
       "hornstwo": [
         [
           "leftsay",
@@ -24993,6 +25043,21 @@
           "option",
           "done",
           "Nice"
+        ]
+      ],
+      "banditambushrun": [
+        [
+          "say",
+          "Your horse is even less willing to stand near a barrel of gunpowder than you are, and is already galloping away."
+        ],
+        [
+          "option",
+          "done",
+          "Yee-haw!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Sharpshootin' Bandits"
         ]
       ],
       "win": [
@@ -25167,6 +25232,212 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "giveup": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Sharpshootin' Bandits"
+        ],
+        [
+          "say",
+          "The bandits are kind enough to beat you only halfway to death."
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
+        ]
+      ],
+      "lose": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Sharpshootin' Bandits"
+        ],
+        [
+          "say",
+          "You got beaten up and/or blown up by those bandits but good."
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
         ]
       ]
     },
