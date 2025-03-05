@@ -36369,6 +36369,60 @@
       ]
     },
     "re_skeletonambush": {
+      "intim": [
+        [
+          "say",
+          "You pick up a large stick, and break it over one knee. \"See that?\" you growl at the skeleton. \"That's <i>you.</i>\" The skeleton pauses and watches you snap the halves of the stick into smaller sticks. \"Crunch! Snap! Gonna turn you into toothpicks, skeleton! What do you think of <i>that</i>, huh? Snap those bones like little twigs!\""
+        ],
+        [
+          "say",
+          "The skeleton starts to back away, then turns to run."
+        ],
+        [
+          "say",
+          "\"Hey!\" you shout after it. \"You got any Meat? Snap snap!\""
+        ],
+        [
+          "say",
+          "It throws an old pouch behind it as it clatters away."
+        ],
+        [
+          "addmeat",
+          "rand(30,40),1"
+        ],
+        [
+          "option",
+          "done",
+          "Nice!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Skeleton of a Beanslinger"
+        ]
+      ],
+      "outfox2": [
+        [
+          "leftsay",
+          "Oh geez. You can't use these! These are full of nitrates and sulfur dioxides. Do you know what that stuff does to your bones?"
+        ],
+        [
+          "say",
+          "The skeleton looks aghast, and shuffles off to research some healthier bean options."
+        ],
+        [
+          "addxp",
+          "20"
+        ],
+        [
+          "option",
+          "done",
+          "Good for him."
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Skeleton of a Beanslinger"
+        ]
+      ],
       "hornswoggle": [
         [
           "leftportrait",
@@ -36398,6 +36452,21 @@
           "sayoption",
           "done",
           "<i>Much</i> better!"
+        ]
+      ],
+      "runaway": [
+        [
+          "say",
+          "You ride away before the skeleton can turn your kidneys into a different sort of kidneys."
+        ],
+        [
+          "option",
+          "done",
+          "Whew!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Skeleton of a Beanslinger"
         ]
       ],
       "win": [
@@ -36568,6 +36637,212 @@
         [
           "goto",
           "aftersusie"
+        ]
+      ],
+      "giveup": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Skeleton of a Beanslinger"
+        ],
+        [
+          "say",
+          "The skeleton doesn't accept the terms of your surrender, and opts to beat you senseless."
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
+        ]
+      ],
+      "lose": [
+        [
+          "customcommand",
+          "misspoint,Random Encounter (Region A) - Skeleton of a Beanslinger"
+        ],
+        [
+          "say",
+          "The skeleton beat you up, but only the fleshy parts of you."
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
         ]
       ]
     },
