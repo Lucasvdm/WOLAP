@@ -5569,6 +5569,91 @@
         ]
       ]
     },
+    "clowns_circus_bobconvo": {
+      "oof": [
+        [
+          "waa",
+          "clowns"
+        ],
+        [
+          "say",
+          "You wake up some time later, thoroughly bruised and battered. You've been dumped in a heap outside the circus, next to your horse. I guess it's pretty lucky that you woke up at all; Barnaby Bob must either really like you, or hold you in such contempt that he doesn't think you're even worth the trouble of murdering. No prizes for guessing which is true."
+        ],
+        [
+          "addflag",
+          "clowns_ejected,1"
+        ],
+        [
+          "option",
+          "leave",
+          "Stand up"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Ticket Booth"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your ____ (Ticket Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Might (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Might (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Mind (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Mind (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Aim (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Aim (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Balloon Vendor"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 1"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 2"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 3"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 4"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Stole the Slide Whistle"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Slide Whistle Reward"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Kid - Lucky Cap Trade"
+        ]
+      ]
+    },
     "clowns_circus_destroyedsafe": {
       "open": [
         [
@@ -6610,6 +6695,213 @@
           "option",
           "leave",
           "Leave"
+        ]
+      ]
+    },
+    "clowns_circus_onenter": {
+      "start": [
+        [
+          "if",
+          "hasflag(fort2_deploy)==1 && hasflag(fort2_deployed)<@day@ && !hasflag(clowns_circus_destroyed)"
+        ],
+        [
+          "goto",
+          "ruins"
+        ],
+        [
+          "if",
+          "hasflag(clowns_circusstartsaw)>0"
+        ],
+        [
+          "goto",
+          "done"
+        ],
+        [
+          "if",
+          "hasflag(clowns_metcamp)>0"
+        ],
+        [
+          "goto",
+          "foundit"
+        ],
+        [
+          "goto",
+          "unknown"
+        ]
+      ],
+      "ruins": [
+        [
+          "addflag",
+          "clowns_circus_destroyed,1"
+        ],
+        [
+          "say",
+          "Wow, the skeletons sure did a real number on this place. There's pretty much nothing left."
+        ],
+        [
+          "refreshwaa"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Geez!"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Ticket Booth"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your ____ (Ticket Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Might (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Might (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Mind (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Mind (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Aim (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Aim (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Balloon Vendor"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 1"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 2"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 3"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 4"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Stole the Slide Whistle"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Slide Whistle Reward"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Kid - Lucky Cap Trade"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Survived the Main Act"
+        ]
+      ]
+    },
+    "clowns_circus_showguardtalk": {
+      "oof": [
+        [
+          "waa",
+          "clowns"
+        ],
+        [
+          "say",
+          "You wake up some time later, thoroughly bruised and battered. You've been dumped in a heap outside the circus, next to your horse. I guess it's pretty lucky that you woke up at all -- I guess the clowns decided outright murdering a patron wouldn't be good for business."
+        ],
+        [
+          "addflag",
+          "clowns_ejected,1"
+        ],
+        [
+          "option",
+          "leave",
+          "Stand up"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Ticket Booth"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your ____ (Ticket Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Might (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Might (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Mind (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Mind (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Aim (Large Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Test Your Aim (Small Prize)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Balloon Vendor"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 1"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 2"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 3"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Lost & Found - Item 4"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Stole the Slide Whistle"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Slide Whistle Reward"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus Kid - Lucky Cap Trade"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Survived the Main Act"
         ]
       ]
     },
@@ -12433,6 +12725,45 @@
         [
           "customcommand",
           "misspoint,Gustavson Gulch Destroyed - Dynamite Crate"
+        ]
+      ],
+      "gulch": [
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "goto",
+          "nogulch"
+        ],
+        [
+          "tracking",
+          "side_nukegulch"
+        ],
+        [
+          "say",
+          "You put the toy skeletons on the little Gulch.  Tomorrow is gonna be a big day for the Gulch Goblins!"
+        ],
+        [
+          "removeitem",
+          "quest_toyskeletons"
+        ],
+        [
+          "addflag",
+          "fort2_deploy,2"
+        ],
+        [
+          "addflag",
+          "fort2_deployed,@day@"
+        ],
+        [
+          "option",
+          "done",
+          "Okay"
+        ],
+        [
+          "customcommand",
+          "misspoint,Circus - Barnaby Bob's Safe"
         ]
       ]
     },
