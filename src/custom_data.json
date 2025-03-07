@@ -12403,6 +12403,39 @@
         ]
       ]
     },
+    "fort2_deployforces": {
+      "circus": [
+        [
+          "say",
+          "You put the toy skeletons around the little circus tent. Barnaby Bob's going to get quite a surprise tomorrow."
+        ],
+        [
+          "tracking",
+          "side_nukecircus"
+        ],
+        [
+          "removeitem",
+          "quest_toyskeletons"
+        ],
+        [
+          "addflag",
+          "fort2_deploy,1"
+        ],
+        [
+          "addflag",
+          "fort2_deployed,@day@"
+        ],
+        [
+          "option",
+          "done",
+          "Heck yeah"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Destroyed - Dynamite Crate"
+        ]
+      ]
+    },
     "fort2_footlocker1": {
       "open": [
         [
@@ -15233,6 +15266,78 @@
         ]
       ]
     },
+    "goblin1_init": {
+      "ruins": [
+        [
+          "addflag",
+          "goblin1_destroyed"
+        ],
+        [
+          "refreshwaa"
+        ],
+        [
+          "say",
+          "Whoa, the skeletons from Fort Alldead really did a number on this place!"
+        ],
+        [
+          "say",
+          "You almost feel bad for the gulch goblins."
+        ],
+        [
+          "option",
+          "done",
+          "Yeah.  Almost."
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch - Deli Hut"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Storage Hut - Random Item"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Storage Hut - More Random Item"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Storage Hut - Even Randomer Item"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Storage Hut - Randomest Item (Eureka)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Storage Hut - Secret Item"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch - Theatre Combat"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch - Cafe Hut"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch - Guard Barracks"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Treasure Cave - Bottom Chest (Item 1)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Treasure Cave - Bottom Chest (Item 2)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Treasure Cave - Middle Chest"
+        ]
+      ]
+    },
     "goblin1_maptable": {
       "look": [
         [
@@ -15249,6 +15354,10 @@
         [
           "customcommand",
           "checklocation,Gustavson Gulch Treasure Cave - Middle Chest"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gustavson Gulch Destroyed - Dynamite Crate"
         ],
         [
           "exit"
