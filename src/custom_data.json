@@ -7385,6 +7385,73 @@
           "rescued",
           "Well, I took care of the clowns and the cows..."
         ]
+      ],
+      "dirtwater": [
+        [
+          "addflag",
+          "clowns_tanhiding,1"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "There's an empty lot in Dirtwater you could probably use."
+        ],
+        [
+          "rightsay",
+          "Great! I'll head right there. Thanks a million, pardner, I owe you one."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addstate",
+          "whichstore,tanner"
+        ],
+        [
+          "if",
+          "!hasflag(dirtwater_npcstores)"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "incflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "if",
+          "dirtwater_npcstores==6"
+        ],
+        [
+          "customcommand",
+          "misspoint,Dirtwater (Grady's Fine Leather Goods) - Bonus Item"
+        ],
+        [
+          "addstate",
+          "pos,@dirtwater_npcstores@"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstore_$whichstore$,$pos$"
+        ],
+        [
+          "addproperty",
+          "dirtwater_npcstore$pos$,$whichstore$"
+        ],
+        [
+          "sayoption",
+          "done",
+          "No problem."
+        ]
       ]
     },
     "clowns_tannery_invis1.6": {
@@ -13387,6 +13454,83 @@
         [
           "addflag",
           "fort6_bookshelf"
+        ]
+      ]
+    },
+    "fort6_bootsguy": {
+      "giveguns": [
+        [
+          "removeitem",
+          "quest_tinyguns"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Wow. Wow, what? Look at all these tiny little guns!"
+        ],
+        [
+          "leftsay",
+          "See, with these the elves'll be able to defend themselves on the road to Dirtwater."
+        ],
+        [
+          "rightsay",
+          "Oh man. That's so weird. Okay. Okay, yeah! Cool!"
+        ],
+        [
+          "say",
+          "He packs his boots and tools together and heads out of the tent. It'll be kind of amazing if he actually makes it to Dirtwater, but stranger things have happened."
+        ],
+        [
+          "addflag",
+          "fort6_bootguyleft"
+        ],
+        [
+          "addstate",
+          "whichstore,boots"
+        ],
+        [
+          "if",
+          "!hasflag(dirtwater_npcstores)"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "incflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "if",
+          "dirtwater_npcstores==6"
+        ],
+        [
+          "customcommand",
+          "misspoint,Dirtwater (Tony's Boots) - Bonus Item"
+        ],
+        [
+          "addstate",
+          "pos,@dirtwater_npcstores@"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstore_$whichstore$,$pos$"
+        ],
+        [
+          "addproperty",
+          "dirtwater_npcstore$pos$,$whichstore$"
+        ],
+        [
+          "option",
+          "done",
+          "Leave"
         ]
       ]
     },
@@ -20381,6 +20525,71 @@
         ]
       ]
     },
+    "mine3_murray": {
+      "dirtwater": [
+        [
+          "leftsay",
+          "I've been staying in a town called Dirtwater, to the south. You could probably do  some good business purveying mysteries there."
+        ],
+        [
+          "rightsay",
+          "A capital idea! Then I shall see you there!"
+        ],
+        [
+          "say",
+          "He hefts his pack onto his shoulder and leaves with a wave."
+        ],
+        [
+          "addflag",
+          "mine3_murray,2"
+        ],
+        [
+          "addstate",
+          "whichstore,curiosity"
+        ],
+        [
+          "if",
+          "!hasflag(dirtwater_npcstores)"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "incflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "if",
+          "dirtwater_npcstores==6"
+        ],
+        [
+          "customcommand",
+          "misspoint,Dirtwater (Murray's Curiosity & Bean) - Bonus Item"
+        ],
+        [
+          "addstate",
+          "pos,@dirtwater_npcstores@"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstore_$whichstore$,$pos$"
+        ],
+        [
+          "addproperty",
+          "dirtwater_npcstore$pos$,$whichstore$"
+        ],
+        [
+          "sayoption",
+          "done",
+          "See ya later Murray!"
+        ]
+      ]
+    },
     "mine3_sluice": {
       "e": [
         [
@@ -22849,6 +23058,83 @@
         ],
         [
           "markused"
+        ]
+      ]
+    },
+    "ranch4_alexandria": {
+      "dirtwater": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Sounds charming."
+        ],
+        [
+          "leftsay",
+          "There's plenty of space there, and they could use a library or bookstore or something."
+        ],
+        [
+          "rightsay",
+          "Mmm. Okay. I suppose it's better than living in a crater. And some of these volumes look salvageable. <i>sigh.</i> All right, I'll head there directly."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addflag",
+          "ranch4_alexleft"
+        ],
+        [
+          "addstate",
+          "whichstore,books"
+        ],
+        [
+          "if",
+          "!hasflag(dirtwater_npcstores)"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "incflag",
+          "dirtwater_npcstores,1"
+        ],
+        [
+          "if",
+          "dirtwater_npcstores==6"
+        ],
+        [
+          "customcommand",
+          "misspoint,Dirtwater (Alexandria's Bookstore) - Bonus Item"
+        ],
+        [
+          "addstate",
+          "pos,@dirtwater_npcstores@"
+        ],
+        [
+          "addflag",
+          "dirtwater_npcstore_$whichstore$,$pos$"
+        ],
+        [
+          "addproperty",
+          "dirtwater_npcstore$pos$,$whichstore$"
+        ],
+        [
+          "sayoption",
+          "done",
+          "See you later."
         ]
       ]
     },
