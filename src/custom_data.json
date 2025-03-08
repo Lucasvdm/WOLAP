@@ -6906,194 +6906,64 @@
       ]
     },
     "clowns_circus_ticketbooth": {
-      "handstamp": [
+      "popup": [
         [
           "if",
-          "hasflag(clowns_suspicion)<=1"
-        ],
-        [
-          "say",
-          "The ticket booth clown recognizes you and waves you toward the circus entrance."
-        ],
-        [
-          "if",
-          "hasflag(clowns_suspicion)==2"
-        ],
-        [
-          "say",
-          "The ticket booth clown eyes you warily and waves you through the circus entrance."
-        ],
-        [
-          "if",
-          "hasflag(clowns_suspicion)==3"
-        ],
-        [
-          "say",
-          "The ticket booth clown kind of gives you the stink-eye, but he waves you through the circus entrance anyway."
-        ],
-        [
-          "if",
-          "hasflag(clowns_suspicion)>3"
-        ],
-        [
-          "say",
-          "The ticket booth clown just sort of glares at you."
-        ],
-        [
-          "if",
-          "!hasflag(circus_ticketbooth_gotcheck) && !hasflag(circus_ticketbooth_checkintro)"
-        ],
-        [
-          "sayoption",
-          "buycheckintro",
-          "I'd like to buy another ticket."
-        ],
-        [
-          "if",
-          "!hasflag(circus_ticketbooth_gotcheck) && hasflag(circus_ticketbooth_checkintro)"
-        ],
-        [
-          "sayoption",
-          "buycheckretry",
-          "I wanna buy that thing."
-        ],
-        [
-          "sayoption",
-          "done",
-          "Leave him alone"
-        ]
-      ],
-      "buycheckintro": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftsay",
-          "I'd like to buy another ticket."
-        ],
-        [
-          "say",
-          "The clown cocks an eyebrow and looks back and forth between you and @pardnername@."
-        ],
-        [
-          "rightportrait",
-          "clown"
-        ],
-        [
-          "rightsay",
-          "Only one ticket per person, and I already told you pardners get in free."
-        ],
-        [
-          "leftsay",
-          "Okay, but like, you must have something else I can buy?  I really need to buy something here."
-        ],
-        [
-          "rightsay",
-          "...@Sir@, this is a ticket booth."
-        ],
-        [
-          "say",
-          "He glances around his stand before bending over, grabbing something from beneath the booth."
-        ],
-        [
-          "rightsay",
-          "Alright look, you could buy this thing?  No idea where it came from or who it belongs to.  You could have it for... let's say 1,000 Meat?"
-        ],
-        [
-          "addflag",
-          "circus_ticketbooth_checkintro"
+          "hasflag(clowns_handstamp)>0 && circus_ticketbooth_gotcheck"
         ],
         [
           "goto",
-          "buyopts"
-        ]
-      ],
-      "buycheckretry": [
-        [
-          "leftportrait",
-          "player"
-        ],
-        [
-          "leftsay",
-          "I wanna buy that thing."
+          "handstamp"
         ],
         [
           "say",
-          "The clown shrugs."
-        ],
-        [
-          "rightportrait",
-          "clown"
-        ],
-        [
-          "rightsay",
-          "Sure, it's your money."
-        ],
-        [
-          "goto",
-          "buyopts"
-        ]
-      ],
-      "buyopts": [
-        [
-          "if",
-          "player.meat>=1000"
+          "As you approach, the clown puts on that basically-cheerful facial expression that retail employees use when the last thing they want to deal with is a customer, but they're not allowed to say so."
         ],
         [
           "option",
-          "buycheck",
-          "Buy the \"thing\" [1,000 Meat]"
-        ],
-        [
-          "else",
-          ""
-        ],
-        [
-          "greyoption",
-          "cantbuy",
-          "Buy the \"thing\" [Requires 1,000 Meat]"
-        ],
-        [
-          "option",
-          "done",
-          "On second thought, maybe later"
-        ]
-      ],
-      "buycheck": [
-        [
-          "say",
-          "You drop the Meat on the booth and he pushes the <i>thing</i> over to you."
-        ],
-        [
-          "rightsay",
-          "Pleasure doing business with you, I guess."
-        ],
-        [
-          "addmeat",
-          "-1000"
-        ],
-        [
-          "customcommand",
-          "checklocation,Circus - Ticket Booth"
-        ],
-        [
-          "addflag",
-          "circus_ticketbooth_gotcheck"
-        ],
-        [
-          "sayoption",
-          "done",
-          "Thanks."
-        ]
-      ],
-      "done": [
-        [
-          "exit"
+          "talk",
+          "Talk to him"
         ]
       ]
     },
     "clowns_circus_tickettalk": {
+      "talk": [
+        [
+          "rightportrait",
+          "clown"
+        ],
+        [
+          "rightsay",
+          "Welcome to Barnaby Bob's Perfectly Normal Traveling Circus Sideshow, @maam@! How can I help you?"
+        ],
+        [
+          "if",
+          "!hasflag(circus_ticketbooth_gotcheck) && haveflag(clowns_handstamp)"
+        ],
+        [
+          "goto",
+          "havestampbutnocheck"
+        ],
+        [
+          "sayoption",
+          "see",
+          "I'd like to see the circus, please."
+        ],
+        [
+          "if",
+          "!hasflag(clowns_triedrunaway)"
+        ],
+        [
+          "sayoption",
+          "runaway",
+          "I'd like to run away with the circus, please."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Er, you can't actually. Never mind."
+        ]
+      ],
       "buyfihun": [
         [
           "addmeat",
@@ -7280,6 +7150,163 @@
           "option",
           "done",
           "Leave the ticket booth"
+        ]
+      ],
+      "havestampbutnocheck": [
+        [
+          "say",
+          "The clown squints at you and glances at the stamp on your hand."
+        ],
+        [
+          "rightsay",
+          "That ticket's still good you know, you can just head right on in."
+        ],
+        [
+          "if",
+          "!hasflag(circus_ticketbooth_gotcheck) && !hasflag(circus_ticketbooth_checkintro)"
+        ],
+        [
+          "sayoption",
+          "buycheckintro",
+          "I'd like to buy another ticket."
+        ],
+        [
+          "if",
+          "!hasflag(circus_ticketbooth_gotcheck) && hasflag(circus_ticketbooth_checkintro)"
+        ],
+        [
+          "sayoption",
+          "buycheckretry",
+          "I wanna buy that thing."
+        ],
+        [
+          "option",
+          "done",
+          "Leave him alone"
+        ]
+      ],
+      "buycheckintro": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "I'd like to buy another ticket."
+        ],
+        [
+          "say",
+          "The clown cocks an eyebrow and looks back and forth between you and @pardnername@."
+        ],
+        [
+          "rightportrait",
+          "clown"
+        ],
+        [
+          "rightsay",
+          "Only one ticket per person, and I already told you pardners get in free."
+        ],
+        [
+          "leftsay",
+          "Okay, but like, you must have something else I can buy?  I really need to buy something here."
+        ],
+        [
+          "rightsay",
+          "...@Sir@, this is a ticket booth."
+        ],
+        [
+          "say",
+          "He glances around his stand before bending over, grabbing something from beneath the booth."
+        ],
+        [
+          "rightsay",
+          "Alright look, you could buy this thing?  No idea where it came from or who it belongs to.  You could have it for... let's say 1,000 Meat?"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_checkintro"
+        ],
+        [
+          "goto",
+          "buyopts"
+        ]
+      ],
+      "buycheckretry": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "I wanna buy that thing."
+        ],
+        [
+          "say",
+          "The clown shrugs."
+        ],
+        [
+          "rightportrait",
+          "clown"
+        ],
+        [
+          "rightsay",
+          "Sure, it's your money."
+        ],
+        [
+          "goto",
+          "buyopts"
+        ]
+      ],
+      "buyopts": [
+        [
+          "if",
+          "player.meat>=1000"
+        ],
+        [
+          "option",
+          "buycheck",
+          "Buy the \"thing\" [1,000 Meat]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "greyoption",
+          "cantbuy",
+          "Buy the \"thing\" [Requires 1,000 Meat]"
+        ],
+        [
+          "option",
+          "done",
+          "On second thought, maybe later"
+        ]
+      ],
+      "buycheck": [
+        [
+          "say",
+          "You drop the Meat on the booth and he pushes the <i>thing</i> over to you."
+        ],
+        [
+          "rightsay",
+          "Pleasure doing business with you, I guess."
+        ],
+        [
+          "addmeat",
+          "-1000"
+        ],
+        [
+          "customcommand",
+          "checklocation,Circus - Ticket Booth"
+        ],
+        [
+          "addflag",
+          "circus_ticketbooth_gotcheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
         ]
       ]
     },
