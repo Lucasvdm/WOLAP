@@ -22437,6 +22437,98 @@
         ]
       ]
     },
+    "railcamp2_bridgebill": {
+      "moveon": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "addflag",
+          "mainquest,30"
+        ],
+        [
+          "rightsay",
+          "Now we just have to lay tracks the rest of the way into Frisco and our work is done -- both mine and yours. See you there, Boss!"
+        ],
+        [
+          "mapunlock",
+          "frisco,Frisco"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "delflag",
+          "map_railcamp2"
+        ],
+        [
+          "addflag",
+          "map_railcamp2_finished"
+        ],
+        [
+          "if",
+          "!hasflag(map_breadwood)"
+        ],
+        [
+          "goto",
+          "latebreadwood"
+        ],
+        [
+          "sayoption",
+          "doneforever",
+          "Seeya!"
+        ]
+      ],
+      "latebreadwood": [
+        [
+          "rightsay",
+          "Oh, one more thing. There's an old mine town up north called Breadwood -- they opened a lumber camp after the mines dried up. I'd meant to point you that way earlier to see if we could make a deal for the materials to build a bridge, but you already handled it."
+        ],
+        [
+          "rightsay",
+          "It's been some time since I was there, but it was a charming little place. You might consider visiting sometime."
+        ],
+        [
+          "say",
+          "Smee marks the location of the Breadwood camp on your map."
+        ],
+        [
+          "mapunlock",
+          "breadwood,Breadwood"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "sayoption",
+          "doneforever",
+          "Great, thanks! Seeya later!"
+        ]
+      ]
+    },
     "ranch1_altar": {
       "getblood": [
         [
