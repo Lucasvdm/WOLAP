@@ -51360,10 +51360,6 @@
         ],
         [
           "addflag",
-          "auto_level,1"
-        ],
-        [
-          "addflag",
           "showcombatgrid,0"
         ],
         [
