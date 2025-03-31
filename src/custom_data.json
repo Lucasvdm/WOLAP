@@ -2829,6 +2829,63 @@
         ]
       ]
     },
+    "book_beanslinger": {
+      "start": [
+        [
+          "nogutters"
+        ],
+        [
+          "if",
+          "!isset(item.skill1)"
+        ],
+        [
+          "goto",
+          "initialize"
+        ],
+        [
+          "goto",
+          "read"
+        ]
+      ]
+    },
+    "book_cowpuncher": {
+      "start": [
+        [
+          "nogutters"
+        ],
+        [
+          "if",
+          "!isset(item.skill1)"
+        ],
+        [
+          "goto",
+          "initialize"
+        ],
+        [
+          "goto",
+          "read"
+        ]
+      ]
+    },
+    "book_snakeoiler": {
+      "start": [
+        [
+          "nogutters"
+        ],
+        [
+          "if",
+          "!isset(item.skill1)"
+        ],
+        [
+          "goto",
+          "initialize"
+        ],
+        [
+          "goto",
+          "read"
+        ]
+      ]
+    },
     "breadwood_hallowaylocker": {
       "picklock": [
         [
