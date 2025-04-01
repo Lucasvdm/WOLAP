@@ -19306,10 +19306,6 @@
         [
           "goto",
           "beanslinger"
-        ],
-        [
-          "say",
-          "This shelf is full of pots and pans, none of which are interesting to you."
         ]
       ],
       "e": [
