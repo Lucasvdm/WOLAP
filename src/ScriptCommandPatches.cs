@@ -175,5 +175,16 @@ namespace WOLAP
             MItem shopItem = MPlayer.instance.stores[check.ShopID].items.Values.Where(item => item.data["description"] == newItem.data["description"]).First(); //There HAS to be a better way to do this
             shopItem.data["description"] += $"\n\nMissed check originally located at <b>{check.Name}</b>";
         }
+
+        [HarmonyPatch(typeof(MPlayer), "NSkillLevel")]
+        [HarmonyPostfix]
+        static void HasPersuasionSkillPatch(MPlayer __instance, ref int __result, string strSkill)
+        {
+            //NSkillLevel normally just returns the base skill level -- calling GetString should return the enchantment-adjusted level, so hasskill(intimidatin/outfoxin/hornswogglin) script calls will be affected by Persuadin' level
+            if (WolapPlugin.ModDataLoaded && (strSkill == "intimidatin" || strSkill == "outfoxin" || strSkill == "hornswogglin"))
+            {
+                if (int.TryParse(__instance.GetString(strSkill), out int adjustedSkill)) __result = adjustedSkill;
+            }
+        }
     }
 }

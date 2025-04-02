@@ -208,6 +208,140 @@
     }
   },
   "scripts": {
+    "aaa_checkpersuasion": {
+      "start": [
+        [
+          "if",
+          "intimidatin == 1"
+        ],
+        [
+          "say",
+          "Intimidatin': 1"
+        ],
+        [
+          "if",
+          "intimidatin == 2"
+        ],
+        [
+          "say",
+          "Intimidatin': 2"
+        ],
+        [
+          "if",
+          "intimidatin == 3"
+        ],
+        [
+          "say",
+          "Intimidatin': 3"
+        ],
+        [
+          "if",
+          "intimidatin == 4"
+        ],
+        [
+          "say",
+          "Intimidatin': 4"
+        ],
+        [
+          "if",
+          "intimidatin == 5"
+        ],
+        [
+          "say",
+          "Intimidatin': 5"
+        ],
+        [
+          "if",
+          "outfoxin == 1"
+        ],
+        [
+          "say",
+          "Outfoxin': 1"
+        ],
+        [
+          "if",
+          "outfoxin == 2"
+        ],
+        [
+          "say",
+          "Outfoxin': 2"
+        ],
+        [
+          "if",
+          "outfoxin == 3"
+        ],
+        [
+          "say",
+          "Outfoxin': 3"
+        ],
+        [
+          "if",
+          "outfoxin == 4"
+        ],
+        [
+          "say",
+          "Outfoxin': 4"
+        ],
+        [
+          "if",
+          "outfoxin == 5"
+        ],
+        [
+          "say",
+          "Outfoxin': 5"
+        ],
+        [
+          "if",
+          "hornswogglin == 1"
+        ],
+        [
+          "say",
+          "Hornswogglin': 1"
+        ],
+        [
+          "if",
+          "hornswogglin == 2"
+        ],
+        [
+          "say",
+          "Hornswogglin': 2"
+        ],
+        [
+          "if",
+          "hornswogglin == 3"
+        ],
+        [
+          "say",
+          "Hornswogglin': 3"
+        ],
+        [
+          "if",
+          "hornswogglin == 4"
+        ],
+        [
+          "say",
+          "Hornswogglin': 4"
+        ],
+        [
+          "if",
+          "hornswogglin == 5"
+        ],
+        [
+          "say",
+          "Hornswogglin': 5"
+        ],
+        [
+          "option",
+          "done",
+          "Done"
+        ]
+      ],
+      "done": [
+        [
+          "exit"
+        ]
+      ]
+    },
     "archipelago_opencheckbox": {
       "invpopup": [
         [
@@ -56193,6 +56327,22 @@
         ],
         [
           "addskill",
+          "persuadin"
+        ],
+        [
+          "addskill",
+          "intimidatin"
+        ],
+        [
+          "addskill",
+          "outfoxin"
+        ],
+        [
+          "addskill",
+          "hornswogglin"
+        ],
+        [
+          "addskill",
           "attack_melee"
         ],
         [
@@ -56746,7 +56896,149 @@
       ]
     }
   },
-  "skills": {},
+  "skills": {
+    "hornswogglin": {
+      "name": "Hornswogglin'",
+      "description": "You're a city slicker and a witty trickster.",
+      "perk": 0.0,
+      "combat": 0.0,
+      "xptype": "mox",
+      "levels": [
+        {
+          "cost": "0",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_hornswogglin",
+            "hornswogglin": "0",
+            "name": "Hornswogglin'"
+          },
+          "level": 1.0
+        }
+      ],
+      "pardner": 0.0,
+      "script": "",
+      "desc_script": "",
+      "notoncharsheet": 1.0
+    },
+    "intimidatin": {
+      "name": "Intimidatin'",
+      "description": "You have a way of getting what you want.",
+      "perk": 0.0,
+      "combat": 0.0,
+      "xptype": "mus",
+      "levels": [
+        {
+          "cost": "0",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_peptalk",
+            "intimidatin": "0",
+            "name": "Intimidatin'"
+          },
+          "level": 1.0
+        }
+      ],
+      "pardner": 0.0,
+      "script": "",
+      "desc_script": "",
+      "notoncharsheet": 1.0
+    },
+    "outfoxin": {
+      "name": "Outfoxin'",
+      "description": "You're smarter than a box of rocks.",
+      "perk": 0.0,
+      "combat": 0.0,
+      "xptype": "mys",
+      "levels": [
+        {
+          "cost": "0",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_outfoxin",
+            "outfoxin": "0",
+            "name": "Outfoxin'"
+          },
+          "level": 1.0
+        }
+      ],
+      "pardner": 0.0,
+      "script": "",
+      "desc_script": "",
+      "notoncharsheet": 1.0
+    },
+    "persuadin": {
+      "name": "Persuadin'",
+      "description": "You're darn good at getting people to do what you want 'em to do, whether that takes mean-mugging, wiles, or charm. <b>(Combines Intimidatin', Outfoxin', and Hornswogglin')</b>",
+      "perk": 0.0,
+      "combat": 0.0,
+      "xptype": "",
+      "levels": [
+        {
+          "cost": "0",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_hornswogglin",
+            "intimidatin": "1",
+            "outfoxin": "1",
+            "hornswogglin": "1",
+            "name": "Persuadin'"
+          },
+          "level": 1.0
+        },
+        {
+          "cost": "15",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_hornswogglin",
+            "intimidatin": "2",
+            "outfoxin": "2",
+            "hornswogglin": "2",
+            "name": "Persuadin'"
+          },
+          "level": 2.0
+        },
+        {
+          "cost": "50",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_hornswogglin",
+            "intimidatin": "3",
+            "outfoxin": "3",
+            "hornswogglin": "3",
+            "name": "Persuadin'"
+          },
+          "level": 3.0
+        },
+        {
+          "cost": "150",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_hornswogglin",
+            "intimidatin": "4",
+            "outfoxin": "4",
+            "hornswogglin": "4",
+            "name": "Persuadin'"
+          },
+          "level": 4.0
+        },
+        {
+          "cost": "500",
+          "enchantments": {
+            "nopreview": 1.0,
+            "icon": "icon_hornswogglin",
+            "intimidatin": "5",
+            "outfoxin": "5",
+            "hornswogglin": "5",
+            "name": "Persuadin'"
+          },
+          "level": 5.0
+        }
+      ],
+      "pardner": 0.0,
+      "script": "",
+      "desc_script": ""
+    }
+  },
   "waas": {
     "beancave_interior": {
       "name": "The Great Garbanzo's Hideout (Inside)",
