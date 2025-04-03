@@ -10014,6 +10014,14 @@
           "misc_snakecase"
         ],
         [
+          "addproperty",
+          "venom,3"
+        ],
+        [
+          "addproperty",
+          "medicine,3"
+        ],
+        [
           "customcommand",
           "checklocation,Your Family's Farm - Father's Gift"
         ],
