@@ -62,6 +62,7 @@ namespace WOLAP
                     //TODO: Special handling, grant goblintongue
                     return true;
                 case "Ghost Coach To Gun Manor":
+                    WolapPlugin.UIManager.RcvItemQueue.Enqueue(new UIManager.ReceivedID(item.IDs[0], 1));
                     WolapPlugin.Log.LogInfo("Enabling Gun Manor coach in Dirtwater.");
                     //Don't actually need to do anything here, can just use the generic received_item_{} flag as a condition for the coach to appear
                     return true;
@@ -680,7 +681,7 @@ namespace WOLAP
             new ArchipelagoItem("Manley's Finest Cotton Candy Schnapps", ["booze_manly"], isDlc: true),
             new ArchipelagoItem("Magic-Infused Salad", ["food_hedge"], isDlc: true),
             new ArchipelagoItem("NE North Central Logging Permit", ["quest_breadwoodpermit"]),
-            new ArchipelagoItem("Ghost Coach To Gun Manor", [], isDlc: true), //TODO: Special handling, a flag or something
+            new ArchipelagoItem("Ghost Coach To Gun Manor", ["ghost_coach_to_gun_manor"], isDlc: true),
             new ArchipelagoItem("English-Goblintongue Dictionary", []), //TODO: Special handling, grant goblintongue -- configure with an option and skip the goblintongue step of the tutskip script if this item is enabled
             new ArchipelagoItem("Can Of Oil", ["oilcan"]),
             new ArchipelagoItem("Packet Of Cowsbane Seeds", ["quest_cowsbaneseeds"]),

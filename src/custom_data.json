@@ -205,6 +205,16 @@
       "sellvalue": 1.0,
       "region": "Various",
       "source": "Archipelago checks in shops"
+    },
+    "ghost_coach_to_gun_manor": {
+      "name": "Ghost coach to Gun Manor",
+      "slot": "nothing",
+      "category": "miscellaneous",
+      "description": "A tragically deceased stagecoach from T. Gun and Co. Ltd., which will let you travel to Gun Manor from Dirtwater.",
+      "icon": "icon_archipelagopow",
+      "sellvalue": 1.0,
+      "region": "Various",
+      "source":  "AP item pool, if the ghost coach is randomized"
     }
   },
   "scripts": {
