@@ -35,7 +35,7 @@ namespace WOLAP
             GameplayState.NAME,
             InventoryState.NAME
         ];
-        private bool slotDataFlagsSet = false;
+        private bool slotDataFlagsSet = false; //TODO: Consider using a separate flag for this or something, to prevent tainting other saves?
 
         public ArchipelagoClient()
         {
@@ -79,7 +79,6 @@ namespace WOLAP
                     slotDataFlagsSet = true;
                 }
                 
-
                 //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
                 if (incomingItems.Count > 0)
                 {
@@ -297,6 +296,7 @@ namespace WOLAP
         private void UpdateFlagsFromSlotData()
         {
             UpdateSlotDataFlag(Constants.DlcEnabledSlotDataFlag);
+            UpdateSlotDataFlag(Constants.RandomizeGhostCoachFlag);
         }
 
         private void UpdateSlotDataFlag(string name)

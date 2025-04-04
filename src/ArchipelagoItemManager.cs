@@ -62,7 +62,8 @@ namespace WOLAP
                     //TODO: Special handling, grant goblintongue
                     return true;
                 case "Ghost Coach To Gun Manor":
-                    //TODO: Special handling, a flag or something
+                    WolapPlugin.Log.LogInfo("Enabling Gun Manor coach in Dirtwater.");
+                    //Don't actually need to do anything here, can just use the generic received_item_{} flag as a condition for the coach to appear
                     return true;
                 default:
                     return GiveItem(item);
@@ -417,7 +418,7 @@ namespace WOLAP
             new ArchipelagoItem("The Best Love Poem Ever Written", ["book_lovepoem"]),
             new ArchipelagoItem("Burned Leatherworking Manual", ["book_leatherworkery"]),
             new ArchipelagoItem("Cannon Loading For Idjits", ["book_cannonloading"]),
-            new ArchipelagoItem("Progressive Nex-Mex Skillbook", []), //TODO: Special handling for progressively granting the 7 books
+            new ArchipelagoItem("Progressive Nex-Mex Skillbook", []),
             new ArchipelagoItem("Desert Eatin' And Drinkin'", ["book_foragin"]),
             new ArchipelagoItem("The Diary Of Alexandria Alexandria", ["book_ranch4diary"]),
             new ArchipelagoItem("Duel Law", ["book_duellaw"], isDlc: true),
@@ -680,7 +681,7 @@ namespace WOLAP
             new ArchipelagoItem("Magic-Infused Salad", ["food_hedge"], isDlc: true),
             new ArchipelagoItem("NE North Central Logging Permit", ["quest_breadwoodpermit"]),
             new ArchipelagoItem("Ghost Coach To Gun Manor", [], isDlc: true), //TODO: Special handling, a flag or something
-            new ArchipelagoItem("English-Goblintongue Dictionary", []), //TODO: Special handling, grant goblintongue
+            new ArchipelagoItem("English-Goblintongue Dictionary", []), //TODO: Special handling, grant goblintongue -- configure with an option and skip the goblintongue step of the tutskip script if this item is enabled
             new ArchipelagoItem("Can Of Oil", ["oilcan"]),
             new ArchipelagoItem("Packet Of Cowsbane Seeds", ["quest_cowsbaneseeds"]),
             new ArchipelagoItem("Lactarius Dirtihippica mushroom x4", ["food_shroom1"], [4]),

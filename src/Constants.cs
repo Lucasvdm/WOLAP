@@ -38,6 +38,7 @@ namespace WOLAP
         public const string APSettingsPasswordFlag = "archipelago_settings_password";
 
         public const string DlcEnabledSlotDataFlag = "dlc_enabled";
+        public const string RandomizeGhostCoachFlag = "randomize_ghost_coach";
 
         public const string GameObjectKnotsPath = "Rope Border/Knots";
     }
