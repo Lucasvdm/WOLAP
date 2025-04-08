@@ -206,6 +206,19 @@
       "region": "Various",
       "source": "Archipelago checks in shops"
     },
+    "book_goblintongue": {
+      "name": "English-Goblintongue Dictionary",
+      "slot": "books",
+      "category": "miscellaneous",
+      "description": "Perhaps the least straightforward \"dictionary\" ever written.",
+      "icon": "icon_book2",
+      "uselink": "Read it",
+      "usescript": "book_goblintongue",
+      "sellvalue": 0.0,
+      "region": "z",
+      "bluetext": "Gives you the ability to speak and understand Goblintongue",
+      "source": "Archipelago item pool"
+    },
     "ghost_coach_to_gun_manor": {
       "name": "Ghost coach to Gun Manor",
       "slot": "nothing",
@@ -214,7 +227,7 @@
       "icon": "icon_archipelagopow",
       "sellvalue": 1.0,
       "region": "Various",
-      "source":  "AP item pool, if the ghost coach is randomized"
+      "source": "AP item pool, if the ghost coach is randomized"
     }
   },
   "scripts": {
@@ -3008,6 +3021,65 @@
         [
           "goto",
           "read"
+        ]
+      ]
+    },
+    "book_goblintongue": {
+      "invpopup": [
+        [
+          "say",
+          "This is less of a dictionary and more of a linguistic textbook, with chapters on Goblintongue vocabulary and grammar accompanied by detailed illustrations, history lessons, and practical exercises."
+        ],
+        [
+          "say",
+          "The author elaborates passionately about Goblin culture and their evolution from common mycelia.  There's also a lengthy preface dedicated to criticizing previous \"overly superficial\" works and grumbling defiantly about how the publisher of this book has given them free rein on the content as long as they hit their page count."
+        ],
+        [
+          "say",
+          "The title must just be for marketing."
+        ],
+        [
+          "say",
+          "You skim through the most useful bits. It's confusing at first, but you eventually get so engrossed that by the time you take a break from reading, several BLURFs have passed, and you also know that BLURF is the Goblin word for \"hour.\""
+        ],
+        [
+          "say",
+          "You have learned to speak Goblin.  Sort of."
+        ],
+        [
+          "addskill",
+          "goblintongue"
+        ],
+        [
+          "playsound",
+          "UI_Level_Up"
+        ],
+        [
+          "option",
+          "getrid",
+          "Hooray, I am guessing...?"
+        ]
+      ],
+      "getrid": [
+        [
+          "cls"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "say",
+          "The author is so dedicated to their craft that as soon as you set the book down, it explodes into spores in true Goblin fashion."
+        ],
+        [
+          "option",
+          "done",
+          "Wow, I wonder how they snuck that past the publisher?"
+        ]
+      ],
+      "done": [
+        [
+          "exit"
         ]
       ]
     },
@@ -10198,11 +10270,11 @@
       "language": [
         [
           "if",
-          "hasflag(goblintongue_option_flag_goes_here)"
+          "hasflag(randomize_goblintongue)"
         ],
         [
           "goto",
-          "temperamenttemp"
+          "nolanguage"
         ],
         [
           "say",
@@ -10219,14 +10291,15 @@
           "Please God no [Can't skip Goblintongue]"
         ]
       ],
-      "temperamenttemp": [
+      "nolanguage": [
         [
           "say",
           "You've opted to not start with Goblintongue, so you'll need to obtain something to be able to translate that."
         ],
         [
-          "goto",
-          "temperament"
+          "option",
+          "temperament",
+          "Okay"
         ]
       ],
       "temperament": [

@@ -13,7 +13,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using static PathMaker;
 
 namespace WOLAP
 {
@@ -27,6 +26,7 @@ namespace WOLAP
         private int port;
         private string password;
         private string slot;
+
         private ConcurrentQueue<ItemInfo> incomingItems;
         private List<string> outgoingLocations;
         private ArchipelagoItemManager itemManager;
@@ -35,7 +35,8 @@ namespace WOLAP
             GameplayState.NAME,
             InventoryState.NAME
         ];
-        private bool slotDataFlagsSet = false; //TODO: Consider using a separate flag for this or something, to prevent tainting other saves?
+
+        private bool slotDataFlagsSet = false;
         private bool shouldLogDisconnect = false;
 
         public ArchipelagoClient()
@@ -318,6 +319,7 @@ namespace WOLAP
         {
             UpdateSlotDataFlag(Constants.DlcEnabledSlotDataFlag);
             UpdateSlotDataFlag(Constants.RandomizeGhostCoachFlag);
+            UpdateSlotDataFlag(Constants.RandomizeGoblintongueFlag);
         }
 
         private void UpdateSlotDataFlag(string name)

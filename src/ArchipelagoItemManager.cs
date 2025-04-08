@@ -58,9 +58,6 @@ namespace WOLAP
                     nexmexFound++;
                     MPlayer.instance.data[Constants.NexmexCountFlag] = nexmexFound.ToString();
                     return result;
-                case "English-Goblintongue Dictionary":
-                    //TODO: Special handling, grant goblintongue
-                    return true;
                 case "Ghost Coach To Gun Manor":
                     WolapPlugin.UIManager.RcvItemQueue.Enqueue(new UIManager.ReceivedID(item.IDs[0], 1));
                     WolapPlugin.Log.LogInfo("Enabling Gun Manor coach in Dirtwater.");
@@ -682,7 +679,7 @@ namespace WOLAP
             new ArchipelagoItem("Magic-Infused Salad", ["food_hedge"], isDlc: true),
             new ArchipelagoItem("NE North Central Logging Permit", ["quest_breadwoodpermit"]),
             new ArchipelagoItem("Ghost Coach To Gun Manor", ["ghost_coach_to_gun_manor"], isDlc: true),
-            new ArchipelagoItem("English-Goblintongue Dictionary", []), //TODO: Special handling, grant goblintongue -- configure with an option and skip the goblintongue step of the tutskip script if this item is enabled
+            new ArchipelagoItem("English-Goblintongue Dictionary", ["book_goblintongue"]), //Custom item, only exists if the Randomize Goblintongue AP option is selected, but granted like any other item
             new ArchipelagoItem("Can Of Oil", ["oilcan"]),
             new ArchipelagoItem("Packet Of Cowsbane Seeds", ["quest_cowsbaneseeds"]),
             new ArchipelagoItem("Lactarius Dirtihippica mushroom x4", ["food_shroom1"], [4]),
