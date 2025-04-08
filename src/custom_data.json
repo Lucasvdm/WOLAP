@@ -3028,19 +3028,11 @@
       "invpopup": [
         [
           "say",
-          "This is less of a dictionary and more of a linguistic textbook, with chapters on Goblintongue vocabulary and grammar accompanied by detailed illustrations, history lessons, and practical exercises."
+          "You skim through the most useful bits.  It's less of a dictionary and more of a textbook, with chapters on not only Goblintongue vocabulary and grammar but also Goblin history, culture, and evolution, accompanied by detailed illustrations and practical exercises."
         ],
         [
           "say",
-          "The author elaborates passionately about Goblin culture and their evolution from common mycelia.  There's also a lengthy preface dedicated to criticizing previous \"overly superficial\" works and grumbling defiantly about how the publisher of this book has given them free rein on the content as long as they hit their page count."
-        ],
-        [
-          "say",
-          "The title must just be for marketing."
-        ],
-        [
-          "say",
-          "You skim through the most useful bits. It's confusing at first, but you eventually get so engrossed that by the time you take a break from reading, several BLURFs have passed, and you also know that BLURF is the Goblin word for \"hour.\""
+          "It's confusing at first, but you eventually get so engrossed that by the time you take a break from reading, several BLURFs have passed, and you also know that BLURF is the Goblin word for \"hour.\""
         ],
         [
           "say",
