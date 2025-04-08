@@ -36,6 +36,7 @@ namespace WOLAP
             InventoryState.NAME
         ];
         private bool slotDataFlagsSet = false; //TODO: Consider using a separate flag for this or something, to prevent tainting other saves?
+        private bool shouldLogDisconnect = false;
 
         public ArchipelagoClient()
         {
@@ -51,7 +52,16 @@ namespace WOLAP
 
         public void Update()
         {
-            if (!IsConnected) return; //TODO: Attempt reconnection?
+            if (!IsConnected)
+            {
+                if (shouldLogDisconnect)
+                {
+                    WolapPlugin.Log.LogWarning("Disconnected from Archipelago server!");
+                    shouldLogDisconnect = false;
+                }
+
+                return;
+            }
 
             if (IsInItemGrantableState())
             {
@@ -175,6 +185,15 @@ namespace WOLAP
             }
         }
 
+        public void TryReconnect()
+        {
+            if (Session == null || slot.IsNullOrWhiteSpace()) return;
+
+            WolapPlugin.Log.LogInfo("Attempting to reconnect to Archipelago...");
+
+            Connect(slot, password);
+        }
+
         public void Disconnect()
         {
             if (!IsConnected) return;
@@ -188,6 +207,7 @@ namespace WOLAP
             ClearConnectionData();
 
             WolapPlugin.Log.LogInfo("Disconnected from Archipelago server.");
+            shouldLogDisconnect = false;
         }
 
         private void ClearConnectionData()
@@ -197,6 +217,7 @@ namespace WOLAP
             outgoingLocations.Clear();
 
             slotDataFlagsSet = false;
+            shouldLogDisconnect = true;
 
             foreach (ShopCheckLocation check in ShopCheckLocations) check.ApItemInfo = null;
         }

@@ -186,5 +186,16 @@ namespace WOLAP
                 if (int.TryParse(__instance.GetString(strSkill), out int adjustedSkill)) __result = adjustedSkill;
             }
         }
+
+        //Runs when a WAA (area) is loaded
+        [HarmonyPatch(typeof(Waa), "RunInitScript")]
+        [HarmonyPostfix]
+        static void TryReconnectToAPOnWaaLoadPatch(Waa __instance)
+        {
+            if (WolapPlugin.ModDataLoaded && !WolapPlugin.Archipelago.IsConnected)
+            {
+                WolapPlugin.Archipelago.TryReconnect();
+            }
+        }
     }
 }
