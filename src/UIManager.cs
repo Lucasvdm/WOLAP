@@ -97,7 +97,7 @@ namespace WOLAP
             rcvItemCard.transform.SetParent(receiptBox.transform, false);
             rcvItemItemCG = rcvItemCard.gameObject.AddComponent<CanvasGroup>();
             var rect = rcvItemCard.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0.3f, 0.05f);
+            rect.anchorMin = new Vector2(0.24f, 0.05f);
             rect.anchorMax = new Vector2(0.95f, 0.95f);
 
             var rcvText = new GameObject("Received Text").AddComponent<WolText>();
@@ -108,7 +108,7 @@ namespace WOLAP
             rcvText.transform.SetParent(receiptBox.transform, false);
             var rcvTextRect = rcvText.GetComponent<RectTransform>();
             rcvTextRect.anchorMin = new Vector2(0.05f, 0.05f);
-            rcvTextRect.anchorMax = new Vector2(0.28f, 0.95f);
+            rcvTextRect.anchorMax = new Vector2(0.22f, 0.95f);
             rcvTextRect.sizeDelta = Vector2.zero;
         }
 
