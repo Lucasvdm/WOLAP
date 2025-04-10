@@ -64,6 +64,8 @@ namespace WOLAP
                 invTraverse.GetValue([ModelManager.GetItem("archipelago_shopitem"), null]);
 
                 if (WolapPlugin.Archipelago.IsConnected) WolapPlugin.Archipelago.AddMissingInitialChecksToShops();
+
+                WolapPlugin.Archipelago.SlotDataFlagsSet = false; //Will set slot data flags on next update
             }
             else
             {

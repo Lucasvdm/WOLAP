@@ -21,6 +21,7 @@ namespace WOLAP
         public ArchipelagoSession Session { get; private set; }
         public Dictionary<string, object> SlotData { get; private set; }
         public bool IsConnected { get { return Session != null && Session.Socket.Connected; } }
+        public bool SlotDataFlagsSet { get; set; }
 
         private string hostname;
         private int port;
@@ -36,7 +37,6 @@ namespace WOLAP
             InventoryState.NAME
         ];
 
-        private bool slotDataFlagsSet = false;
         private bool shouldLogDisconnect = false;
 
         public ArchipelagoClient()
@@ -84,10 +84,10 @@ namespace WOLAP
                     MPlayer.instance.data.Add(Constants.StartingItemsGrantedFlag, "1");
                 }
 
-                if (!slotDataFlagsSet)
+                if (!SlotDataFlagsSet)
                 {
                     UpdateFlagsFromSlotData();
-                    slotDataFlagsSet = true;
+                    SlotDataFlagsSet = true;
                 }
                 
                 //Could handle this whole queue in a separate asynchronous method, but one item per frame should be fine
@@ -217,7 +217,7 @@ namespace WOLAP
             incomingItems.Clear();
             outgoingLocations.Clear();
 
-            slotDataFlagsSet = false;
+            SlotDataFlagsSet = false;
             shouldLogDisconnect = true;
 
             foreach (ShopCheckLocation check in ShopCheckLocations) check.ApItemInfo = null;
