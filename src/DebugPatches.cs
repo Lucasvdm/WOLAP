@@ -58,8 +58,8 @@ namespace WOLAP
             UpdateOverlayToggle();
             ProcessCommandLineControls(__instance);
             Traverse traverse = Traverse.Create(__instance);
-            traverse.Method("UpdateClutterInfo").GetValue(); //Shift + C
-            traverse.Method("UpdateDebugInfo").GetValue(); // Ctrl + Shift + I
+            //traverse.Method("UpdateClutterInfo").GetValue(); //Shift + C
+            //traverse.Method("UpdateDebugInfo").GetValue(); // Ctrl + Shift + I
             traverse.Method("UpdateBugNotification").GetValue();
 
             //traverse.Method("UpdateFpsInfo").GetValue(); // F
