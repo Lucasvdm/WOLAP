@@ -228,6 +228,19 @@
       "sellvalue": 1.0,
       "region": "Various",
       "source": "AP item pool, if the ghost coach is randomized"
+    },
+    "quest_g1visitorid": {
+      "name": "Ghostwood visitor's ID",
+      "slot": "quest",
+      "enchantments": [],
+      "category": "miscellaneous",
+      "description": "This is your identification card for the town of Ghostwood. It says \"@idfirstname2@ @idmiddlename2@ @idlastname2@\" on it, and has a blurry photograph that could maybe be you if you squint.",
+      "icon": "icon_ghostid",
+      "uselink": "",
+      "usescript": "",
+      "sellvalue": 0.0,
+      "region": "d",
+      "source": "ghost town puzzle"
     }
   },
   "scripts": {
@@ -15084,6 +15097,60 @@
       ]
     },
     "ghosttown1_knock1": {
+      "welcome": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Knock, knock."
+        ],
+        [
+          "rightportrait",
+          "ghost1"
+        ],
+        [
+          "rightsay",
+          "Well, howdy! What can I do for you, @mr@ @idlastname2@?"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_whiskey)==5"
+        ],
+        [
+          "goto",
+          "whiskey5"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+        ],
+        [
+          "sayoption",
+          "permit0",
+          "I'm here on behalf of the mayor of Breadwood. He needs a permit..."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==9"
+        ],
+        [
+          "sayoption",
+          "permit9",
+          "Do you have the Department of Records' staple remover?"
+        ],
+        [
+          "sayoption",
+          "booze1",
+          "I need a drink. Immediately."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Umm... I can't think of anything."
+        ]
+      ],
       "permit9": [
         [
           "leftsay",
@@ -15139,6 +15206,330 @@
           "Great."
         ]
       ],
+      "beer1b": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "beer1c",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "beer1c",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "beer1c",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "beer1c",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "beer1c",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "beer1c",
+          "Slapshank"
+        ]
+      ],
+      "beer1c": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidlastname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "sayoption",
+          "beer1d",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "beer1d",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "beer1d",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "beer1d",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "beer1d",
+          "Taint"
+        ],
+        [
+          "sayoption",
+          "beer1d",
+          "Slim"
+        ]
+      ],
+      "beer1d": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidfirstname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Edgelord"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Justine"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "beer1e",
+          "Nondescript"
+        ]
+      ],
+      "beer1e": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidmiddlename,$lastoption$"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+        ],
+        [
+          "goto",
+          "beer1f"
+        ],
+        [
+          "rightsay",
+          "\"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\"? Hmm, sorry @miss@, that doesn't match your visitor ID."
+        ],
+        [
+          "say",
+          "You hear the sound of ghostly paper being torn up."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Sigh."
+        ]
+      ],
+      "whiskey5b": [
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "whiskey5c",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "whiskey5c",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "whiskey5c",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "whiskey5c",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "whiskey5c",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "whiskey5c",
+          "Slapshank"
+        ]
+      ],
+      "whiskey5c": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidlastname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "sayoption",
+          "whiskey5d",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "whiskey5d",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "whiskey5d",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "whiskey5d",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "whiskey5d",
+          "Taint"
+        ],
+        [
+          "sayoption",
+          "whiskey5d",
+          "Slim"
+        ]
+      ],
+      "whiskey5d": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidfirstname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Edgelord"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Justine"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "whiskey5e",
+          "Nondescript"
+        ]
+      ],
+      "whiskey5e": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidmiddlename,$lastoption$"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+        ],
+        [
+          "goto",
+          "whiskey5f"
+        ],
+        [
+          "rightsay",
+          "\"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\"? Hmm, sorry @miss@, that doesn't match your visitor ID."
+        ],
+        [
+          "addflag",
+          "ghosttown1_whiskeyretry,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Sigh."
+        ]
+      ],
       "ordere": [
         [
           "addmeat",
@@ -15179,7 +15570,7 @@
         ],
         [
           "rightsay",
-          "Department of Records. How can I help you, @mr@ @idlastname@?"
+          "Department of Records. How can I help you, @mr@ @idlastname2@?"
         ],
         [
           "if",
@@ -15320,7 +15711,7 @@
         ],
         [
           "rightsay",
-          "@mr@ ...@idlastname@, was it? What can I do for you?"
+          "@mr@ ...@idlastname2@, was it? What can I do for you?"
         ],
         [
           "if",
@@ -15410,6 +15801,269 @@
       ]
     },
     "ghosttown1_knock4": {
+      "tempvisit2": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "tempvisit3",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "tempvisit3",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "tempvisit3",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "tempvisit3",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "tempvisit3",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "tempvisit3",
+          "Slapshank"
+        ]
+      ],
+      "welcome": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Knock, knock."
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Hello. Something I can get for you, @mr@ @idlastname2@?"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+        ],
+        [
+          "sayoption",
+          "permit0",
+          "I'm here on behalf of the mayor of Breadwood. He needs a permit..."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==3"
+        ],
+        [
+          "sayoption",
+          "permit3",
+          "I need to requisition a stapler."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_whiskey)==3"
+        ],
+        [
+          "sayoption",
+          "whiskey3",
+          "I need a form transfer envelope."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_whiskey)==6"
+        ],
+        [
+          "sayoption",
+          "whiskey6",
+          "The bar... I mean Department of Libations is out of whiskey."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Umm... I can't think of anything."
+        ]
+      ],
+      "permit3a": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "permit3b",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "permit3b",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "permit3b",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "permit3b",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "permit3b",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "permit3b",
+          "Slapshank"
+        ]
+      ],
+      "permit3b": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidlastname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "sayoption",
+          "permit3c",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "permit3c",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "permit3c",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "permit3c",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "permit3c",
+          "Taint"
+        ],
+        [
+          "sayoption",
+          "permit3c",
+          "Slim"
+        ]
+      ],
+      "permit3c": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidfirstname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Edgelord"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Justine"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "permit3d",
+          "Nondescript"
+        ]
+      ],
+      "permit3d": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidmiddlename,$lastoption$"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+        ],
+        [
+          "goto",
+          "permit3e"
+        ],
+        [
+          "rightsay",
+          "\"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\"? That isn't the name on your visitor identification!"
+        ],
+        [
+          "say",
+          "You hear the sound of ghostly paper being torn up."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Arrrgh."
+        ]
+      ],
       "permit3i": [
         [
           "rightsay",
@@ -15474,7 +16128,7 @@
         ],
         [
           "if",
-          "hasitem(quest_4pencil)"
+          "hasitem(quest_4pencil) && !hasitem(quest_3pencil)"
         ],
         [
           "goto",
@@ -15482,15 +16136,7 @@
         ],
         [
           "if",
-          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired)"
-        ],
-        [
-          "goto",
-          "hitempexp"
-        ],
-        [
-          "if",
-          "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired)"
+          "hasitem(quest_g1tempvisit)"
         ],
         [
           "goto",
@@ -15530,37 +16176,6 @@
           "oops"
         ]
       ],
-      "hitempexp2": [
-        [
-          "leftsay",
-          "...Yes."
-        ],
-        [
-          "rightsay",
-          "Unfortunately I can't accept an expired pass."
-        ],
-        [
-          "leftsay",
-          "Can I get a new one?"
-        ],
-        [
-          "rightsay",
-          "No."
-        ],
-        [
-          "leftsay",
-          "..."
-        ],
-        [
-          "addflag",
-          "ghostwood_askedaboutexpiredpass"
-        ],
-        [
-          "option",
-          "done",
-          "Better go find that pencil"
-        ]
-      ],
       "newtemp": [
         [
           "leftportrait",
@@ -15568,7 +16183,7 @@
         ],
         [
           "leftsay",
-          "My visitor pass expired. Can I have another one?"
+          "I have this visitor pass, but it seems to be expired. Can I have another one?"
         ],
         [
           "rightportrait",
@@ -15600,6 +16215,193 @@
           "Better go find that pencil"
         ]
       ],
+      "temppermit2": [
+        [
+          "addproperty",
+          "checkidlastname,$lastoption$"
+        ],
+        [
+          "leftsay",
+          "@checkidlastname@."
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "if",
+          "!matchstring(@firstname@,Puddin')"
+        ],
+        [
+          "sayoption",
+          "temppermit3",
+          "Puddin'"
+        ],
+        [
+          "if",
+          "!matchstring(@firstname@,Pico)"
+        ],
+        [
+          "sayoption",
+          "temppermit3",
+          "Pico"
+        ],
+        [
+          "if",
+          "!matchstring(@firstname@,Bobcat)"
+        ],
+        [
+          "sayoption",
+          "temppermit3",
+          "Bobcat"
+        ],
+        [
+          "if",
+          "!matchstring(@firstname@,Taint)"
+        ],
+        [
+          "sayoption",
+          "temppermit3",
+          "Taint"
+        ],
+        [
+          "if",
+          "!matchstring(@firstname@,Slim)"
+        ],
+        [
+          "sayoption",
+          "temppermit3",
+          "Slim"
+        ],
+        [
+          "sayoption",
+          "temppermit3",
+          "@firstname@"
+        ]
+      ],
+      "temppermit3": [
+        [
+          "addproperty",
+          "checkidfirstname,$lastoption$"
+        ],
+        [
+          "leftsay",
+          "@checkidfirstname@."
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "temppermit4",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "temppermit4",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "temppermit4b",
+          "Murder"
+        ],
+        [
+          "sayoption",
+          "temppermit4c",
+          "Justice"
+        ],
+        [
+          "sayoption",
+          "temppermit4",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "temppermit4",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "temppermit4",
+          "Nondescript"
+        ]
+      ],
+      "temppermit4": [
+        [
+          "addproperty",
+          "checkidmiddlename,$lastoption$"
+        ],
+        [
+          "addproperty",
+          "middlename,@checkidmiddlename@"
+        ],
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "rightsay",
+          "Great. Where are you from, @checkidfirstname@ @checkidmiddlename@ @checkidlastname@?"
+        ],
+        [
+          "goto",
+          "temppermit5"
+        ]
+      ],
+      "temppermit4b": [
+        [
+          "addproperty",
+          "checkidmiddlename,Edgelord"
+        ],
+        [
+          "addproperty",
+          "middlename,Edgelord"
+        ],
+        [
+          "leftsay",
+          "Murder."
+        ],
+        [
+          "rightsay",
+          "Great. Where are you from, @checkidfirstname@ @checkidmiddlename@ @checkidlastname@?"
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "goto",
+          "temppermit5"
+        ]
+      ],
+      "temppermit4c": [
+        [
+          "addproperty",
+          "checkidmiddlename,Justine"
+        ],
+        [
+          "addproperty",
+          "middlename,Justine"
+        ],
+        [
+          "leftsay",
+          "Justice."
+        ],
+        [
+          "rightsay",
+          "Great. Where are you from, @checkidfirstname@ @checkidmiddlename@ @checkidlastname@?"
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "goto",
+          "temppermit5"
+        ]
+      ],
       "temppermit6b": [
         [
           "leftsay",
@@ -15607,7 +16409,11 @@
         ],
         [
           "rightsay",
-          "Correct. All right, everything seems to be in order. Here's your temporary visitor pass."
+          "Correct. All right, everything seems to be in order. Unfortunately, we can't actually issue temporary visitor passes at the moment. We're at the limit according to the by-laws, and the expired passes haven't been returned to complete the paperwork."
+        ],
+        [
+          "rightsay",
+          "Please take this instead, as compensation for any inconvenience."
         ],
         [
           "customcommand",
@@ -15627,16 +16433,180 @@
         ],
         [
           "leftsay",
-          "Thanks."
+          "Thanks, but don't I need that pass to be able to do just about anything in this town?"
         ],
         [
           "rightsay",
-          "It expires in eleven seconds."
+          "Oh, yes. That or a visitor <i>identification</i> permit."
         ],
         [
           "sayoption",
           "done",
           "..."
+        ]
+      ],
+      "realpermitgo": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "realpermit2",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "realpermit2",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "realpermit2",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "realpermit2",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "realpermit2",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "realpermit2",
+          "Slapshank"
+        ]
+      ],
+      "realpermit2": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidlastname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "sayoption",
+          "realpermit3",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "realpermit3",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "realpermit3",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "realpermit3",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "realpermit3",
+          "Taint"
+        ],
+        [
+          "sayoption",
+          "realpermit3",
+          "Slim"
+        ]
+      ],
+      "realpermit3": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidfirstname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Edgelord"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Justine"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "realpermit4",
+          "Nondescript"
+        ]
+      ],
+      "realpermit4": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidmiddlename,$lastoption$"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@)"
+        ],
+        [
+          "goto",
+          "realpermit5"
+        ],
+        [
+          "rightsay",
+          "\"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\"? Hmm, that's not what your temporary visitor permit says. I'm sorry, this can't be considered valid unless the names match."
+        ],
+        [
+          "say",
+          "You hear the sound of ghostly paper being torn up."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Arrrgh."
         ]
       ],
       "realpermit7a": [
@@ -15646,7 +16616,19 @@
         ],
         [
           "rightsay",
-          "Correct. All right, everything seems to be in order. Allow me to officially welcome you to the town of Ghostwood. Here's your visitor ID."
+          "Correct. All right, everything seems to be in order. I'd like to officially welcome you to the town of Ghostwood."
+        ],
+        [
+          "rightsay",
+          "Unfortunately, we're <i>also</i> unable to provide visitor identification cards right now."
+        ],
+        [
+          "leftsay",
+          "Of course not."
+        ],
+        [
+          "rightsay",
+          "You can have this, though."
         ],
         [
           "customcommand",
@@ -15662,7 +16644,7 @@
         ],
         [
           "leftsay",
-          "Thank you. Say, was it always called Ghostwood, or..."
+          "Thanks. Say, was it always called Ghostwood, or..."
         ],
         [
           "rightsay",
@@ -15672,6 +16654,269 @@
           "sayoption",
           "done",
           "Huh."
+        ]
+      ],
+      "welcome": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Knock, knock."
+        ],
+        [
+          "rightportrait",
+          "ghost5"
+        ],
+        [
+          "rightsay",
+          "Hello, @mr@ @idlastname2@. How can I be of service?"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+        ],
+        [
+          "sayoption",
+          "permit1",
+          "Jeez, finally. I'm here on behalf of the mayor of Breadwood..."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==6"
+        ],
+        [
+          "sayoption",
+          "permit6",
+          "Okay, I got that file for you."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==11"
+        ],
+        [
+          "sayoption",
+          "permit11",
+          "All right, I'm back with an unstapled Breadwood logging file."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==12"
+        ],
+        [
+          "sayoption",
+          "permit11b",
+          "Let's try that logging permit paperwork again."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==14"
+        ],
+        [
+          "sayoption",
+          "permit14",
+          "Okay. I've got the mayor's signature on this logging permit form."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==15"
+        ],
+        [
+          "sayoption",
+          "permit15",
+          "Is that Breadwood logging permit ready yet?"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_whiskey)==2"
+        ],
+        [
+          "sayoption",
+          "whiskey2",
+          "I need a whiskey requisition form for the bar down the street."
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_whiskey)==4"
+        ],
+        [
+          "sayoption",
+          "whiskey4",
+          "I'm back for that whiskey requisition form. Here's a transfer envelope."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Umm... never mind."
+        ]
+      ],
+      "permit11b": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "permit11c",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "permit11c",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "permit11c",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "permit11c",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "permit11c",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "permit11c",
+          "Slapshank"
+        ]
+      ],
+      "permit11c": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidlastname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "sayoption",
+          "permit11d",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "permit11d",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "permit11d",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "permit11d",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "permit11d",
+          "Taint"
+        ],
+        [
+          "sayoption",
+          "permit11d",
+          "Slim"
+        ]
+      ],
+      "permit11d": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidfirstname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Edgelord"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Justine"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "permit11e",
+          "Nondescript"
+        ]
+      ],
+      "permit11e": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidmiddlename,$lastoption$"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+        ],
+        [
+          "goto",
+          "permit11f"
+        ],
+        [
+          "rightsay",
+          "\"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\"? That isn't the name on your visitor identification!"
+        ],
+        [
+          "say",
+          "You hear the sound of ghostly paper being torn up."
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,12"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Man, if this town weren't already dead..."
         ]
       ],
       "permit11k": [
@@ -56579,6 +57824,30 @@
         [
           "addproperty",
           "statcheck_h,40"
+        ],
+        [
+          "addproperty",
+          "idfirstname,pickone(Puddin',Pico,Bobcat,Taint,Slim)"
+        ],
+        [
+          "addproperty",
+          "idmiddlename,pickone(Danger,Trouble,Sneaky,Edgelord,Justine,Nice,Nondescript)"
+        ],
+        [
+          "addproperty",
+          "idlastname,pickone(Tame,Alvarado,Goldthwait,Shartwright,Slapshank)"
+        ],
+        [
+          "addproperty",
+          "idfirstname2,pickone(Puddin',Pico,Bobcat,Taint,Slim)"
+        ],
+        [
+          "addproperty",
+          "idmiddlename2,pickone(Danger,Trouble,Sneaky,Edgelord,Justine,Nice,Nondescript)"
+        ],
+        [
+          "addproperty",
+          "idlastname2,pickone(Tame,Alvarado,Goldthwait,Shartwright,Slapshank)"
         ],
         [
           "addflag",
