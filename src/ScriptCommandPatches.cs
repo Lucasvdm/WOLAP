@@ -73,22 +73,22 @@ namespace WOLAP
                 //For simplicity's sake in the handler methods, remove the command name argument and leave only that command's actual args so they can be treated the same as any other command
                 string cmdName = cmd.StrArg(0);
                 string cmdArgs = cmd.StrArgRest(1);
-                cmd.ClearArgs();
+                MCommand cmdCopy = new MCommand(cmd.op);
                 foreach (string arg in cmdArgs.Split(','))
                 {
-                    cmd.AddArg(arg);
+                    cmdCopy.AddArg(arg);
                 }
 
                 switch (cmdName)
                 {
                     case "checklocation":
-                        HandleCheckLocationCommand(cmd, __instance);
+                        HandleCheckLocationCommand(cmdCopy, __instance);
                         break;
                     case "addnpcstorecheck":
-                        HandleAddNPCStoreCheckCommand(cmd);
+                        HandleAddNPCStoreCheckCommand(cmdCopy);
                         break;
                     case "misspoint":
-                        HandleMissedCheckCommand(cmd);
+                        HandleMissedCheckCommand(cmdCopy);
                         break;
                 }
 
