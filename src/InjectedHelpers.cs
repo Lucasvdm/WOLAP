@@ -10,9 +10,7 @@ namespace WOLAP
         {
             if (scripts == null || newScript == null) return;
 
-            //Only load modded DLC scripts if the DLC is enabled in the Archipelago options
-            //This object -> string -> int -> boolean conversion is gross, but necessary
-            if (WolapPlugin.Archipelago.SlotData.TryGetValue(Constants.DlcEnabledSlotDataFlag, out object dlcEnabled) && !Convert.ToBoolean(int.Parse(dlcEnabled.ToString())) && newScript.id.StartsWith("house_")) return;
+            if (!LoadSaveDataPatches.ShouldLoadDataWithID(newScript.id)) return;
 
             if (scripts.Keys.Contains(newScript.id))
             {

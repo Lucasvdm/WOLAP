@@ -140,6 +140,39 @@ namespace WOLAP
             return insts;
         }
 
+        [HarmonyPatch(typeof(ModelManager), "ParseWaas")]
+        [HarmonyPrefix]
+        static bool ParseWaasPatch(ModelManager __instance, JSONObject jsWaas)
+        {
+            if (jsWaas == null || jsWaas.type != JSONObject.Type.OBJECT) return false;
+
+            bool m_fOverwriteOk = new Traverse(__instance).Field("m_fOverwriteOk").GetValue<bool>();
+            foreach (string text in jsWaas.keys)
+            {
+                JSONObject jsObject = jsWaas[text];
+                MWaa mwaa = new MWaa(text, jsObject);
+                if (m_fOverwriteOk)
+                {
+                    if (!ShouldLoadDataWithID(text)) continue;
+
+                    __instance.waas[text] = mwaa;
+                }
+                else if (!__instance.waas.ContainsKey(text))
+                {
+                    __instance.waas.Add(text, mwaa);
+                }
+            }
+
+            return false;
+        }
+
+        public static bool ShouldLoadDataWithID(string id)
+        {
+            //Only load modded DLC data objects if the DLC is enabled in the Archipelago options
+            //This object -> string -> int -> boolean conversion is gross, but necessary
+            return !(WolapPlugin.Archipelago.SlotData.TryGetValue(Constants.DlcEnabledSlotDataFlag, out object dlcEnabled) && !Convert.ToBoolean(int.Parse(dlcEnabled.ToString())) && id.StartsWith("house_"));
+        }
+
         //Disable web calls to stats.westofloathing.com for remote logging events -- only applies to modded saves, patch is manually applied/removed on save load
         private static bool DisableTrackingCommandWebCallsPatch(string strFlag, int nValue)
         {
