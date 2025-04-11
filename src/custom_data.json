@@ -10463,12 +10463,44 @@
           "cre_gotsouvenirs"
         ],
         [
+          "if",
+          "hasflag(dlc_enabled)"
+        ],
+        [
           "customcommand",
           "checklocation,Your Family's Farm - Souvenir Shelf (Item 1)"
         ],
         [
+          "else",
+          ""
+        ],
+        [
+          "if",
+          "hasflag(souvenir_shotglass)"
+        ],
+        [
+          "additem",
+          "gunmanorshotglass"
+        ],
+        [
+          "if",
+          "hasflag(dlc_enabled)"
+        ],
+        [
           "customcommand",
           "checklocation,Your Family's Farm - Souvenir Shelf (Item 2)"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "if",
+          "hasflag(souvenir_spiderring)"
+        ],
+        [
+          "additem",
+          "ring_spider"
         ]
       ]
     },

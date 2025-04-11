@@ -164,11 +164,21 @@ namespace WOLAP
             ShopCheckLocation check = new ShopCheckLocation(locationName, "dirtwatergeneral", 1000);
             long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
 
+            bool foundItemInfo = false;
             WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
             {
+                if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
+
                 ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
                 check.ApItemInfo = itemInfo;
+                foundItemInfo = true;
             }).Wait(TimeSpan.FromSeconds(10));
+
+            if (!foundItemInfo)
+            {
+                WolapPlugin.Log.LogInfo($"Tried to generate shop item for missed check [{locationName}], but could not retrieve the item info. This location may be disabled by an AP option.");
+                return;
+            }
 
             WolapPlugin.Log.LogInfo($"Retrieved item info for missed check [{check.Name}].");
             MItem newItem = WolapPlugin.Archipelago.AddCheckToShop(check);

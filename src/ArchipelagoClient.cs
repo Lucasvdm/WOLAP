@@ -44,6 +44,7 @@ namespace WOLAP
             incomingItems = new ConcurrentQueue<ItemInfo>();
             outgoingLocations = new List<string>();
             itemManager = new ArchipelagoItemManager();
+            SlotData = new Dictionary<string, object>();
         }
 
         public ArchipelagoClient(string hostname, int port = 38281) : this()
@@ -216,6 +217,7 @@ namespace WOLAP
             //Resetting/clearing item lists, queues, and other vars for the multiworld slot data
             incomingItems.Clear();
             outgoingLocations.Clear();
+            SlotData.Clear();
 
             SlotDataFlagsSet = false;
             shouldLogDisconnect = true;
@@ -325,6 +327,8 @@ namespace WOLAP
         private void UpdateSlotDataFlag(string name)
         {
             var flags = MPlayer.instance.data;
+
+            WolapPlugin.Log.LogInfo($"Slot data flag [{name}]: {SlotData[name]}");
 
             if (flags.ContainsKey(name)) flags[name] = SlotData[name].ToString();
             else flags.Add(name, SlotData[name].ToString());
