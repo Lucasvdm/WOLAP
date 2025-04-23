@@ -16176,7 +16176,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_tempretry)"
+          "hasflag(ghosttown1_tempretry) && !hasflag(ghostwood_gottemppermitcheck)"
         ],
         [
           "goto",
