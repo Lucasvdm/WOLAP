@@ -14,6 +14,8 @@ This list is subject to change.
   - Hellstrom Ranch is still discoverable normally as well, aside from the "crafting location discovery" event
   - The leatherworkery barn at Hellstrom Ranch is accessible regardless of class
 - All of the class' persuasion skills (Intimidatin', Outfoxin', and Hornswogglin') have been combined and replaced with one new skill, **Persuadin'**.  Levels in Persuadin' count for all of the original skills and allow you to choose those options in dialogue.
+- Note that despite all of these changes, the class you choose is not totally pointless.  There are a few non-breaking differences still, like different starting skills and some unique flavor text or exclusive options in dialogue as long as they're not the only way to get a check.
+  - Plus cow punchers still find more cows when wandering and snake oilers find more snakes, so there's that
 
 ## Global Mechanics
 - Hard mode will be implemented as a toggle in the settings, so you no longer choose that when skipping the tutorial [NOT YET IMPLEMENTED - Hard mode is currently disabled]
@@ -24,11 +26,11 @@ This list is subject to change.
 ## Your Family's Farm (Starting Zone)
 - The gifts you receive from your parents are no longer class-dependent or by choice, they're just one check location each
   - Dad's check is in addition to always receiving the snake briefcase
-- You now have to talk to your Mom (not just your Dad) before leaving the family farm, so you can't miss the check from her - and to not be rude
-  - This also prevents you from missing out on the checks that replace the other "books" you don't get from her.  These would normally be split up between Breadwood Trading Post and Buttonwillow's Store, and wouldn't spawn if you skipped your Mom completely.  They are now guaranteed shop checks.
+- You now have to talk to your Mom (not just your Dad) before leaving the family farm, so you can't miss the check from her - and because it's very rude
+  - This also prevents you from missing out on the checks that replace the other books she offers, the ones you don't choose.  These would normally be split up between Breadwood Trading Post and Buttonwillow's Store, and wouldn't spawn if you skipped your Mom completely.  They are now guaranteed shop checks.
 - You are now forced to skip the Boring Springs tutorial, proceeding directly to Dirtwater.  There have also been several changes to the process of skipping the tutorial:
   - Hard mode is no longer chosen here
-  - The choices you'd normally make when skipping the tutorial (your horse, pardner, etc.) are no longer affected by what you've unlocked in the tutorial in previous playthroughs
+  - The choices you'd normally make when skipping the tutorial (your horse, pardner, etc.) are no longer limited by what you've unlocked in the tutorial in previous playthroughs
   - You can no longer choose Gary as your pardner (he changes a bunch of logic throughout the game, so he's currently unsupported)
   - Your horse/pardner are mostly a cosmetic choice -- the handful of cases where it would lock you out of a check, or be required for one, have been changed
   - You are granted both Honorable and Ruthless, so you're always free to choose either of those options when they appear
@@ -46,7 +48,7 @@ This list is subject to change.
   - You **DO NOT** start with a shovel, crowbar, or skinnin' knife (by default)
   - If you specify a starting inventory in the YAML (from the item pool or otherwise), it will override most of the default starting gear.  Any of the EQUIPPABLE items from the default gear that aren't included in a starting inventory from the pool will be put back into the pool to be randomized -- they're excluded by default.  On top of whatever you specify, you will also start with the dusty turnip (since it's needed for the turnip crown check).
   - You are granted 50 XP
-  - You are considered to have met Cactus Bill and started Curly's quest in the tutorial, but you are *not* considered to have looted the Boring Springs Saloon's spittoon -- inc ase you *really* wanna go for the Spit-Free perk (not currently randomized).
+  - You are considered to have met Cactus Bill and started Curly's quest in the tutorial, but you are *not* considered to have looted the Boring Springs Saloon's spittoon -- in case you *really* wanna go for the Spit-Free perk (not currently randomized).
 
 ## Miscellaneous Location Logic
 - Many cases which previously checked if you have a certain item in your inventory now check for a flag instead
@@ -110,7 +112,7 @@ This list is subject to change.
   - This is normally set when you first visit Gun Manor based on your progress in the main game at that point.  Difficulty 5 normally indicates progress to Region E, so about mid-level.
   - This is necessary to support receiving DLC items from the pool, many of which are enchanted with effects that are scaled based on the difficulty flag
   - This difficulty value also affects the difficulty of stat checks, skill requirements, and some combat in Gun Manor
-  - In the future there may be an Archipelago or in-game option to set or change this difficulty
+  - In the future there may be an Archipelago or in-game option to change this difficulty
 - In the Gun Manor Laboratory, you can get the check for crafting the bismuth bomb even if you've already defeated the GHOST
 - In the Gun Manor Laboratory, you can do the check for crafting a silenter once (as long as you've received the components), but to repeat the process and actually craft another silenter you'll need to receive (and use) the one from the item pool first
 - In the Gun Manor Kitchen, you can get the check for grabbing a bean pan from the shelf even if you're not a beanslinger
