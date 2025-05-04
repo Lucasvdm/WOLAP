@@ -16180,7 +16180,7 @@
         ],
         [
           "if",
-          "hasitem(quest_g1tempvisit)"
+          "hasitem(quest_g1tempvisit) && !hasflag(ghostwood_askedaboutexpiredpass)"
         ],
         [
           "goto",
@@ -16196,7 +16196,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_nopencil)"
+          "hasflag(ghosttown1_nopencil) && !hasflag(ghostwood_gottemppermitcheck)"
         ],
         [
           "goto",
