@@ -15845,6 +15845,116 @@
       ]
     },
     "ghosttown1_knock4": {
+      "start": [
+        [
+          "if",
+          "hasitem(quest_g1visitorid) && hasflag(ghosttown1_metthall) && !hasitem(quest_3pencil) && !hasflag(ghosttown1_nopencilwithid)"
+        ],
+        [
+          "goto",
+          "pencilwithid"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1visitorid)"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired)"
+        ],
+        [
+          "goto",
+          "tempvisit"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_metthall) && !hasitem(quest_3pencil)"
+        ],
+        [
+          "goto",
+          "pencil"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasitem(quest_g1visitorid) && !hasitem(quest_g1tempvisit)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "say",
+          "no result"
+        ],
+        [
+          "option",
+          "done",
+          "oops"
+        ]
+      ],
+      "pencilwithid": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a #3 pencil?"
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Fresh out."
+        ],
+        [
+          "leftsay",
+          "Out of <i>pencils</i>?  The sign on the building says \"Office Supply\"!  There's literally a picture of a pencil on it!"
+        ],
+        [
+          "rightsay",
+          "We're out of <i>ghost</i> pencils.  You wouldn't believe how hard it is to come by ethically sourced pencil ghosts.  And the last fella who got one just went and stuck it in the cactus outside!  The nerve of some people."
+        ],
+        [
+          "leftsay",
+          "Couldn't you just go get it?"
+        ],
+        [
+          "rightsay",
+          "Couldn't <i>you</i>?"
+        ],
+        [
+          "leftsay",
+          "I'm not a ghost."
+        ],
+        [
+          "rightsay",
+          "Not <i>yet</i> maybe, but it's not going anywhere.  Sorry, can't help you, it's out of my purview."
+        ],
+        [
+          "addflag",
+          "ghosttown1_nopencilwithid,1"
+        ],
+        [
+          "option",
+          "done",
+          "Argh."
+        ]
+      ],
       "tempvisit2": [
         [
           "leftsay",
@@ -16203,6 +16313,14 @@
           "nopencil"
         ],
         [
+          "if",
+          "hasflag(ghosttown1_nopencilwithid) && !hasflag(ghostwood_gottemppermitcheck)"
+        ],
+        [
+          "goto",
+          "nopencilwithid"
+        ],
+        [
           "goto",
           "second"
         ],
@@ -16258,6 +16376,37 @@
           "option",
           "done",
           "Better go find that pencil"
+        ]
+      ],
+      "nopencilwithid": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? The General Store doesn't have any pencils to give me."
+        ],
+        [
+          "rightportrait",
+          "ghost5"
+        ],
+        [
+          "rightsay",
+          "Well, good ghost pencils are pretty rare, you know."
+        ],
+        [
+          "leftsay",
+          "...So how am I supposed to get a #3 pencil?"
+        ],
+        [
+          "rightsay",
+          "I suppose I could issue you a temporary visitor permit. You don't need a pencil for that one."
+        ],
+        [
+          "sayoption",
+          "temppermit",
+          "Okay, great."
         ]
       ],
       "temppermit2": [
