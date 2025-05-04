@@ -225,6 +225,11 @@ namespace WOLAP
             foreach (ShopCheckLocation check in ShopCheckLocations) check.ApItemInfo = null;
         }
 
+        public void ResetItemManager()
+        {
+            itemManager.ResetItemCounts();
+        }
+
         private bool IsInItemGrantableState()
         {
             string name = WestOfLoathing.instance.state_machine.state.name;

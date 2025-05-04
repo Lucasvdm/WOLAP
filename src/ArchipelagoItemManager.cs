@@ -23,23 +23,26 @@ namespace WOLAP
         ];
 
         public ArchipelagoItemManager() {
-            nexmexFound = GetNexMexCount();
+            nexmexFound = GetSavedNexMexCount();
         }
 
-        private int GetNexMexCount()
+        private int GetSavedNexMexCount()
         {
-            if (nexmexFound > 0) return nexmexFound;
-
             if (MPlayer.instance.data.TryGetValue(Constants.NexmexCountFlag, out string value))
             {
                 if (Int32.TryParse(value, out int val)) return val;
                 else
                 {
-                    WolapPlugin.Log.LogError("Could not parse the nexmex_books_found flag count to an int.");
+                    WolapPlugin.Log.LogError($"Could not parse the {Constants.NexmexCountFlag} flag count to an int.");
                     return 0;
                 }
             }
             else return 0;
+        }
+
+        public void ResetItemCounts()
+        {
+            nexmexFound = GetSavedNexMexCount();
         }
 
         public bool ProcessItem(string itemName)

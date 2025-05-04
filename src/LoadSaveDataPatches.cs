@@ -66,6 +66,7 @@ namespace WOLAP
                 if (WolapPlugin.Archipelago.IsConnected) WolapPlugin.Archipelago.AddMissingInitialChecksToShops();
 
                 WolapPlugin.Archipelago.SlotDataFlagsSet = false; //Will set slot data flags on next update
+                WolapPlugin.Archipelago.ResetItemManager();
             }
             else
             {
