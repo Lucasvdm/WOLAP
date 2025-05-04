@@ -16203,21 +16203,22 @@
           "nopencil"
         ],
         [
-          "if",
-          "!hasitem(quest_g1visitorid) && !hasitem(quest_g1tempvisit)"
-        ],
-        [
           "goto",
           "second"
         ],
         [
           "say",
-          "no result"
+          "Something has gone wrong, you should never see this.  Please let the mod developer know."
         ],
         [
           "option",
           "done",
           "oops"
+        ],
+        [
+          "option",
+          "done",
+          "oops (derogatory) [Ruthless]"
         ]
       ],
       "newtemp": [
