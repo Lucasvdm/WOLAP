@@ -11563,7 +11563,7 @@
       "start": [
         [
           "if",
-          "hasitem(quest_chefkey)"
+          "hasitem(quest_chefkey) && !hasflag(poboxes_got441check)"
         ],
         [
           "say",
@@ -11571,7 +11571,7 @@
         ],
         [
           "if",
-          "hasitem(quest_fort3key)"
+          "hasitem(quest_fort3key) && !hasflag(poboxes_got114check)"
         ],
         [
           "say",
@@ -11579,7 +11579,7 @@
         ],
         [
           "if",
-          "hasitem(quest_chefkey)"
+          "hasitem(quest_chefkey) && !hasflag(poboxes_got441check)"
         ],
         [
           "option",
@@ -11588,7 +11588,7 @@
         ],
         [
           "if",
-          "hasitem(quest_fort3key)"
+          "hasitem(quest_fort3key) && !hasflag(poboxes_got114check)"
         ],
         [
           "option",
@@ -11611,6 +11611,14 @@
           "You pick it up."
         ],
         [
+          "removeitem",
+          "quest_chefkey"
+        ],
+        [
+          "addflag",
+          "poboxes_got441check"
+        ],
+        [
           "customcommand",
           "checklocation,Dirtwater Post Office - P.O. Box 441"
         ],
@@ -11628,6 +11636,10 @@
         [
           "removeitem",
           "quest_fort3key"
+        ],
+        [
+          "addflag",
+          "poboxes_got114check"
         ],
         [
           "customcommand",
