@@ -127,6 +127,8 @@ namespace WOLAP
                         itemRow.tooltipText = $"Sent to: {itemInfo.Player.Name}";
                         itemRow.icon = SpriteLoader.SpriteForName("icon_archipelagopow");
 
+                        WolapPlugin.Log.LogInfo($"Sent item [{itemInfo.ItemDisplayName}] to player [{itemInfo.Player.Name}]");
+
                         traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
                         traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
                     }
