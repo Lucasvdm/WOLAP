@@ -46,7 +46,15 @@ namespace WOLAP
                 case MCommand.Op.ADDPERMAFLAG:
                 case MCommand.Op.INCPERMAFLAG:
                 case MCommand.Op.DELPERMAFLAG:
-                    if (WolapPlugin.ModDataLoaded) return false; //Disabling these to prevent messing with permanent progression flags/stats during modded play
+                    if (WolapPlugin.ModDataLoaded) //Disabling these to prevent messing with permanent progression flags/stats during modded play
+                    {
+                        __result = true;
+
+                        Traverse traverse = new Traverse(__instance);
+                        traverse.Method("UnresolveArgs").GetValue();
+
+                        return false;
+                    }
                     break;
                 case MCommand.Op.STATESHARE: //customcommand
                     //Could/should maybe use the mod logger instead, but this is consistent with other commands and should show in the log/debug window anyway
