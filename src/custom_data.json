@@ -31984,6 +31984,21 @@
       ]
     },
     "re_banditb3": {
+      "fox2": [
+        [
+          "addmeat",
+          "rand(30,40),1"
+        ],
+        [
+          "addxp",
+          "@xpreward_a@"
+        ],
+        [
+          "option",
+          "done",
+          "Sweet."
+        ]
+      ],
       "horn2": [
         [
           "customcommand",
