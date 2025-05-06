@@ -29,6 +29,7 @@ namespace WOLAP
         private float rcvItemShowTime = 2.5f;
         private bool rcvItemFading;
         private bool rcvQueueInProgress;
+        private Coroutine rcvQueueCoroutine;
 
         private static CanvasGroup apConnectionBox;
         private static WolInputField[] apConnectionInputs = new WolInputField[4];
@@ -51,7 +52,7 @@ namespace WOLAP
             if (isUiModified)
             {
                 //TODO: While this is in progress, hide it when opening the inventory/pause menu/whatever? It currently freezes and correctly resumes when returning to gameplay, those other states must pause the game clock or something.
-                if (RcvItemQueue.Count > 0 && !rcvQueueInProgress) StartCoroutine(DisplayReceivedItemQueue());
+                if (RcvItemQueue.Count > 0 && !rcvQueueInProgress) rcvQueueCoroutine = StartCoroutine(DisplayReceivedItemQueue());
 
                 //Slightly more pleasant behaviour handling this here rather than in OnPush/OnPop patches for TitleStateWAA
                 if (apConnectionBox.isActiveAndEnabled && !WestOfLoathing.instance.state_machine.IsState(TitleStateWaa.NAME)) apConnectionBox.gameObject.SetActive(false);
@@ -343,6 +344,7 @@ namespace WOLAP
         private IEnumerator DisplayReceivedItemQueue()
         {
             rcvQueueInProgress = true;
+            rcvItemItemCG.alpha = 1;
 
             while (RcvItemQueue.Count > 0)
             {
@@ -380,7 +382,7 @@ namespace WOLAP
             rcvItemFading = true;
             while (cg.alpha > 0f)
             {
-                cg.alpha -= Time.deltaTime / fadeTimeInSeconds;
+                cg.alpha -= Time.unscaledDeltaTime / fadeTimeInSeconds;
                 if (cg.alpha < 0f) cg.alpha = 0f;
                 yield return null;
             }
@@ -394,11 +396,22 @@ namespace WOLAP
             cg.gameObject.SetActive(true);
             while (cg.alpha < 1f)
             {
-                cg.alpha += Time.deltaTime / fadeTimeInSeconds;
+                cg.alpha += Time.unscaledDeltaTime / fadeTimeInSeconds;
                 if (cg.alpha > 1f) cg.alpha = 1f;
                 yield return null;
             }
             rcvItemFading = false;
+        }
+
+        public void CloseReceivedItemQueue()
+        {
+            if (rcvQueueInProgress)
+            { 
+                rcvQueueInProgress = false;
+                RcvItemQueue.Clear();
+                if (rcvQueueCoroutine != null) WolapPlugin.UIManager.StopCoroutine(rcvQueueCoroutine);
+                WolapPlugin.UIManager.StartCoroutine(FadeOutCanvasGroup(rcvItemWindowCG, 0.1f));
+            }
         }
 
         //[HarmonyPatch(typeof(TitleStateWaa), "OnPush")]
@@ -490,6 +503,13 @@ namespace WOLAP
 
             MPlayer.instance.permaflags.data[permaflagKey] = __instance.text;
             SavedGame.SavePermaflags();
+        }
+
+        [HarmonyPatch(typeof(OptionsState), "OnMainMenu")]
+        [HarmonyPrefix]
+        private static void CloseReceivedItemsOnMainMenuPatch(OptionsState __instance)
+        {
+            WolapPlugin.UIManager.CloseReceivedItemQueue();
         }
 
         public struct ReceivedID(string id, int quantity)
