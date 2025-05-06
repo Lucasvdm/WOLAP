@@ -30,6 +30,7 @@ namespace WOLAP
         private bool rcvItemFading;
         private bool rcvQueueInProgress;
         private Coroutine rcvQueueCoroutine;
+        private bool hiddenActiveRcvItems;
 
         private static CanvasGroup apConnectionBox;
         private static WolInputField[] apConnectionInputs = new WolInputField[4];
@@ -403,7 +404,7 @@ namespace WOLAP
             rcvItemFading = false;
         }
 
-        public void CloseReceivedItemQueue()
+        public void CloseAndClearReceivedItemQueue()
         {
             if (rcvQueueInProgress)
             { 
@@ -411,6 +412,24 @@ namespace WOLAP
                 RcvItemQueue.Clear();
                 if (rcvQueueCoroutine != null) WolapPlugin.UIManager.StopCoroutine(rcvQueueCoroutine);
                 WolapPlugin.UIManager.StartCoroutine(FadeOutCanvasGroup(rcvItemWindowCG, 0.1f));
+            }
+        }
+
+        public void HideReceivedItemQueue()
+        {
+            if (rcvQueueInProgress)
+            {
+                hiddenActiveRcvItems = true;
+                rcvItemWindowCG.gameObject.SetActive(false);
+            }
+        }
+
+        public void UnhideReceivedItemQueue()
+        {
+            if (hiddenActiveRcvItems)
+            {
+                rcvItemWindowCG.gameObject.SetActive(true);
+                hiddenActiveRcvItems = false;
             }
         }
 
@@ -509,7 +528,21 @@ namespace WOLAP
         [HarmonyPrefix]
         private static void CloseReceivedItemsOnMainMenuPatch(OptionsState __instance)
         {
-            WolapPlugin.UIManager.CloseReceivedItemQueue();
+            WolapPlugin.UIManager.CloseAndClearReceivedItemQueue();
+        }
+
+        [HarmonyPatch(typeof(ClockState), "PushPause")]
+        [HarmonyPostfix]
+        private static void HideReceivedItemsOnClockPausePatch(ClockState.Clock c)
+        {
+            if (c == ClockState.Clock.World) WolapPlugin.UIManager.HideReceivedItemQueue();
+        }
+
+        [HarmonyPatch(typeof(ClockState), "PopPause")]
+        [HarmonyPostfix]
+        private static void UnhideReceivedItemsOnClockUnpausePatch(ClockState.Clock c)
+        {
+            if (c == ClockState.Clock.World) WolapPlugin.UIManager.UnhideReceivedItemQueue();
         }
 
         public struct ReceivedID(string id, int quantity)
