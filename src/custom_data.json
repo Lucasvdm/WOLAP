@@ -8866,6 +8866,126 @@
         ]
       ]
     },
+    "container_loot_medical_2": {
+      "start": [
+        [
+          "incflag",
+          "containers_medicine,1"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "potion_nervepills"
+        ],
+        [
+          "pushrandom",
+          "potion_laudanum"
+        ],
+        [
+          "pushrandom",
+          "potion_bloodtonic"
+        ],
+        [
+          "pushrandom",
+          "combat_smellingsalts"
+        ],
+        [
+          "pushrandom",
+          "combat_antidote"
+        ],
+        [
+          "pushrandom",
+          "booze_surgicalgin"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>=3"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>=7"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "addstate",
+          "quant,1"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)>=5"
+        ],
+        [
+          "incstate",
+          "quant,rand(1,2)"
+        ],
+        [
+          "additem",
+          "poprandom(),$quant$"
+        ],
+        [
+          "if",
+          "itemroll(30)"
+        ],
+        [
+          "additem",
+          "poprandom"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3 || hasflag(containers_medicine)==6 || hasflag(containers_medicine)==9"
+        ],
+        [
+          "say",
+          "Ooh, hey, what's this?"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==3"
+        ],
+        [
+          "customcommand",
+          "checklocation,Progressive Loot - 3rd Medical Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==6"
+        ],
+        [
+          "customcommand",
+          "checklocation,Progressive Loot - 6th Medical Container"
+        ],
+        [
+          "if",
+          "hasflag(containers_medicine)==9"
+        ],
+        [
+          "customcommand",
+          "checklocation,Progressive Loot - 9th Medical Container"
+        ],
+        [
+          "runscript",
+          "$returnscript$,$returnstate$"
+        ]
+      ]
+    },
     "container_loot_mine": {
       "start": [
         [
@@ -46995,7 +47115,7 @@
         ],
         [
           "runscript",
-          "container_loot_medical"
+          "container_loot_medical_2"
         ]
       ],
       "aftermedicalloot2": [
