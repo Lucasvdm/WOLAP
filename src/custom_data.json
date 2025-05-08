@@ -17396,7 +17396,7 @@
         ],
         [
           "if",
-          "hasitem(quest_3pencil) && hasflag(ghostwood_gottemppermitcheck) && !hasflag(ghostwood_gotidcheck)"
+          "hasitem(quest_3pencil) && hasitem(quest_g1tempvisit) && hasflag(ghostwood_gottemppermitcheck) && !hasflag(ghostwood_gotidcheck)"
         ],
         [
           "goto",
@@ -17459,6 +17459,41 @@
           "option",
           "done",
           "oops (derogatory) [Ruthless]"
+        ]
+      ],
+      "second": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Excuse me?"
+        ],
+        [
+          "rightportrait",
+          "ghost5"
+        ],
+        [
+          "rightsay",
+          "Yes?"
+        ],
+        [
+          "leftsay",
+          "I've forgotten what I was supposed to be doing."
+        ],
+        [
+          "rightsay",
+          "I'm sorry @maam@, I can't help you with that.  I wish there was reference documentation for guests to our town, some sort of <b>W</b>ayfarer's <b>I</b>nstitutional <b>K</b>nowledge <b>I</b>ndex."
+        ],
+        [
+          "rightsay",
+          "It really depends on what step of the administrative process you're on, and which official paraphernalia you have."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Ah, right."
         ]
       ],
       "newtemp": [
