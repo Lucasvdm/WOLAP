@@ -85,6 +85,7 @@ This list is subject to change.
   - After shaking down the gang, you're now given the option to still consider burning down the house. You can also choose to fight them at this point now too. Either way you'll get the check for killing them (or you can just arrest them).
 - It's no longer possible to completely miss out on Breadwood by building a bridge before talking to Smee at the second railroad camp, he now unlocks it on your map in that case
 - The coordinates of some map locations around Buffalo Pile have been tweaked to make room for Old Medicine Show, so it's not stacked on top of The Great Garbanzo's Hideout
+- Changed plot 69 in the Military Cemetery from just a treasure plot to a combat plot, so it can drop the 69th Innuendo Div. check, since it's the obvious plot that everyone will try for that
 
 ## Random Encounters
 - You no longer need to have the Pale Horse to get the progressive encounter for a check replacing a Nex-Mex skillbook (13th encounter)
