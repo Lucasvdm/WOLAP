@@ -11837,7 +11837,11 @@
         ],
         [
           "customcommand",
-          "checklocation,The Daveyard - Dave J's Grave"
+          "checklocation,The Daveyard - Dave J's Grave (Chef Quest)"
+        ],
+        [
+          "addflag",
+          "daveyard_dugupdavej"
         ],
         [
           "option",
@@ -12044,7 +12048,7 @@
         ],
         [
           "if",
-          "hasflag(dirtwater_chefquest)==4 && hasitem(shovel)"
+          "hasflag(dirtwater_chefquest)==4 && hasitem(shovel) && !hasflag(daveyard_dugupdavej)"
         ],
         [
           "option",
@@ -12053,7 +12057,7 @@
         ],
         [
           "if",
-          "hasflag(dirtwater_chefquest)==4 && !hasitem(shovel)"
+          "hasflag(dirtwater_chefquest)==4 && !hasitem(shovel) && !hasflag(daveyard_dugupdavej)"
         ],
         [
           "grayoption",
@@ -14202,7 +14206,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Fort Cowardice Mess Hall - Spice Rack"
+          "checklocation,Fort Cowardice Mess Hall - Spice Rack (Chef Quest)"
         ],
         [
           "addflag",
@@ -39390,7 +39394,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Random Encounter (Region A) - Murder Pepper"
+          "checklocation,Random Encounter (Region A) - Murder Pepper (Chef Quest)"
         ],
         [
           "addflag",
