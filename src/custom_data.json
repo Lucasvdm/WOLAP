@@ -2064,6 +2064,63 @@
         ]
       ]
     },
+    "bandit2_cocoons": {
+      "arrest": [
+        [
+          "addflag",
+          "bandit2_resolved,1"
+        ],
+        [
+          "addstate",
+          "pardjoke, like cordwood "
+        ],
+        [
+          "if",
+          "gary"
+        ],
+        [
+          "addstate",
+          "pardjoke,(except for one, which Gary offers to drag) "
+        ],
+        [
+          "if",
+          "susie"
+        ],
+        [
+          "addstate",
+          "pardjoke,(except for one, which Susie carries on her shoulder) "
+        ],
+        [
+          "if",
+          "pete"
+        ],
+        [
+          "addstate",
+          "pardjoke,(except for one, which Pete pushes all the way back to town in a wheelbarrow he found somewhere) "
+        ],
+        [
+          "if",
+          "alice"
+        ],
+        [
+          "addstate",
+          "pardjoke,(except for one, which Alice carries in her medical bag (he was smaller than he looked)) "
+        ],
+        [
+          "say",
+          "You stack the cocoons on the back of your horse $pardjoke$ and head back to the Dirtwater Jail."
+        ],
+        [
+          "option",
+          "town",
+          "Turn 'em in"
+        ],
+        [
+          "customcommand",
+          "misspoint,Cavern Canyon - Stripey Hat Gang Killed"
+        ]
+      ]
+    },
     "bandit2_fighttrigger": {
       "win": [
         [
