@@ -13460,6 +13460,31 @@
         ]
       ]
     },
+    "elvibrato4_terminal": {
+      "doit": [
+        [
+          "addflag",
+          "elvibrato4_gavetoken"
+        ],
+        [
+          "say",
+          "The terminal beeps loudly.  A slot opens below the screen and a small object falls out and clatters to the floor."
+        ],
+        [
+          "say",
+          "Maybe there used to be a table there or something."
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Construction Facility - HOSOM NOAN NOFU"
+        ],
+        [
+          "option",
+          "done",
+          "Whoa"
+        ]
+      ]
+    },
     "elvibrato5_corpseman": {
       "e": [
         [
