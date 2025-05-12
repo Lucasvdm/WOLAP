@@ -28266,6 +28266,48 @@
         ]
       ]
     },
+    "ranch1_grace": {
+      "start": [
+        [
+          "if",
+          "hasflag(ranch1_gracedone)"
+        ],
+        [
+          "goto",
+          "backwithfinal"
+        ],
+        [
+          "if",
+          "hasflag(ranch1_altar)==2"
+        ],
+        [
+          "goto",
+          "backwithsmash"
+        ],
+        [
+          "if",
+          "hasflag(ranch1_gracehelp) && hasitem(quest_gracegoblet)"
+        ],
+        [
+          "goto",
+          "backwithblood"
+        ],
+        [
+          "say",
+          "It's the work of a moment to fix the doll's voicebox."
+        ],
+        [
+          "option",
+          "go",
+          "Pull the string"
+        ],
+        [
+          "option",
+          "done",
+          "No thank you"
+        ]
+      ]
+    },
     "ranch1_hearth": {
       "take": [
         [
