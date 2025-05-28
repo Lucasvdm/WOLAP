@@ -13826,6 +13826,27 @@
         ]
       ]
     },
+    "fort1_cannonball": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Woof, it's heavy!"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "customcommand",
+          "checklocation,Fort Cowardice - Cannonball"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "fort1_generalgob": {
       "win": [
         [
