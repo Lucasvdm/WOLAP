@@ -12052,7 +12052,7 @@
         ],
         [
           "if",
-          "hasflag(dirtwater_chefquest)==4 && hasitem(shovel) && !hasflag(daveyard_dugupdavej)"
+          "hasflag(dirtwater_chefquest)>=4 && hasitem(shovel) && !hasflag(daveyard_dugupdavej)"
         ],
         [
           "option",
@@ -12061,7 +12061,7 @@
         ],
         [
           "if",
-          "hasflag(dirtwater_chefquest)==4 && !hasitem(shovel) && !hasflag(daveyard_dugupdavej)"
+          "hasflag(dirtwater_chefquest)>=4 && !hasitem(shovel) && !hasflag(daveyard_dugupdavej)"
         ],
         [
           "grayoption",
@@ -14197,7 +14197,7 @@
         ],
         [
           "if",
-          "hasflag(dirtwater_chefquest)==1 && !hasflag(fort1_lootedspicerack)"
+          "hasflag(dirtwater_chefquest)>=1 && !hasflag(fort1_lootedspicerack)"
         ],
         [
           "goto",
@@ -14213,7 +14213,7 @@
         ],
         [
           "if",
-          "hasflag(dirtwater_chefquest)>1"
+          "hasflag(dirtwater_chefquest)>1 && hasflag(fort1_lootedspicerack)"
         ],
         [
           "say",
@@ -23907,6 +23907,113 @@
         ]
       ]
     },
+    "mapdiscovery_a": {
+      "start": [
+        [
+          "if",
+          "matchstring(@travelto@,dirtwater) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
+        ],
+        [
+          "goto",
+          "murderpepper"
+        ],
+        [
+          "if",
+          "matchstring(@travelto@,dirtwater_saloon) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
+        ],
+        [
+          "goto",
+          "murderpepper"
+        ],
+        [
+          "if",
+          "matchstring(@travelto@,dirtwater_saloon_kitchen) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
+        ],
+        [
+          "goto",
+          "murderpepper"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "if",
+          "!hasflag(map_shaggydogcave)"
+        ],
+        [
+          "pushrandom",
+          "shaggydogcave"
+        ],
+        [
+          "if",
+          "!hasflag(map_silversmith)"
+        ],
+        [
+          "pushrandom",
+          "silversmith"
+        ],
+        [
+          "if",
+          "!hasflag(map_buttonwillowstore)"
+        ],
+        [
+          "pushrandom",
+          "buttonwillowstore"
+        ],
+        [
+          "if",
+          "!hasflag(map_cemetery1)"
+        ],
+        [
+          "pushrandom",
+          "cemetery1"
+        ],
+        [
+          "if",
+          "!hasflag(map_mine1)"
+        ],
+        [
+          "pushrandom",
+          "mine1"
+        ],
+        [
+          "if",
+          "!hasflag(map_fort1)"
+        ],
+        [
+          "pushrandom",
+          "fort1"
+        ],
+        [
+          "if",
+          "!hasflag(map_ranch1)"
+        ],
+        [
+          "pushrandom",
+          "ranch1"
+        ],
+        [
+          "addstate",
+          "loc,poprandom()"
+        ],
+        [
+          "if",
+          "nodeexists(discover$loc$)"
+        ],
+        [
+          "goto",
+          "discover$loc$"
+        ],
+        [
+          "runscript",
+          "randomevent_a"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "medicineshow_bookshelf": {
       "e": [
         [
@@ -30163,7 +30270,7 @@
         ],
         [
           "if",
-          "matchstring(@travelto@,dirtwater) && hasflag(dirtwater_chefquest)==2 && !re_a_gotchefpeppercheck"
+          "matchstring(@travelto@,dirtwater) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
         ],
         [
           "addstate",
@@ -30171,7 +30278,7 @@
         ],
         [
           "if",
-          "matchstring(@travelto@,dirtwater_saloon) && hasflag(dirtwater_chefquest)==2 && !re_a_gotchefpeppercheck"
+          "matchstring(@travelto@,dirtwater_saloon) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
         ],
         [
           "addstate",
@@ -30179,7 +30286,7 @@
         ],
         [
           "if",
-          "matchstring(@travelto@,dirtwater_saloon_kitchen) && hasflag(dirtwater_chefquest)==2 && !re_a_gotchefpeppercheck"
+          "matchstring(@travelto@,dirtwater_saloon_kitchen) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
         ],
         [
           "addstate",
@@ -30187,7 +30294,7 @@
         ],
         [
           "if",
-          "matchstring(@travelto@,dirtwater_yourroom) && hasflag(dirtwater_chefquest)==2 && !re_a_gotchefpeppercheck"
+          "matchstring(@travelto@,dirtwater_yourroom) && hasflag(dirtwater_chefquest)>=2 && !re_a_gotchefpeppercheck"
         ],
         [
           "addstate",
