@@ -4194,6 +4194,23 @@
         ]
       ]
     },
+    "breadwood_mailmanpop": {
+      "popup": [
+        [
+          "say",
+          "This guy seems very focused on his beard-growing."
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest6)>=1"
+        ],
+        [
+          "option",
+          "talk",
+          "Talk to him"
+        ]
+      ]
+    },
     "breadwood_mayor": {
       "prob5": [
         [
@@ -28304,6 +28321,119 @@
         [
           "goto",
           "another"
+        ]
+      ]
+    },
+    "postalstation_cabinet": {
+      "start": [
+        [
+          "if",
+          "!hasflag(postalstation_cabinetintro)"
+        ],
+        [
+          "goto",
+          "intro"
+        ],
+        [
+          "if",
+          "hasitem(quest_postalcodes) && !hasflag(map_bandit8)"
+        ],
+        [
+          "goto",
+          "getinfo"
+        ],
+        [
+          "if",
+          "hasflag(map_bandit8)"
+        ],
+        [
+          "goto",
+          "nomore"
+        ],
+        [
+          "say",
+          "This cabinet is full of maps, but you have no idea what any of them mean. You'll have to find some way to decode them."
+        ],
+        [
+          "option",
+          "done",
+          "Okay"
+        ]
+      ],
+      "intro": [
+        [
+          "say",
+          "This cabinet is full of maps, but you have no idea what any of them mean."
+        ],
+        [
+          "addflag",
+          "postalstation_needcode"
+        ],
+        [
+          "say",
+          "Maybe you could ask about it at the post office in Dirtwater."
+        ],
+        [
+          "addflag",
+          "postalstation_cabinetintro"
+        ],
+        [
+          "option",
+          "done",
+          "Yeah, maybe"
+        ],
+        [
+          "option",
+          "done",
+          "Or maybe not"
+        ],
+        [
+          "if",
+          "hasitem(quest_postalcodes)"
+        ],
+        [
+          "option",
+          "getinfo",
+          "Wait, didn't I get a postal code sheet at some point?"
+        ]
+      ],
+      "follow": [
+        [
+          "say",
+          "You follow the map, and along the route to Breadwood you find a suspicious-looking house."
+        ],
+        [
+          "removeitem",
+          "quest_postalcodes"
+        ],
+        [
+          "mapunlock",
+          "bandit8,Chuck's House"
+        ],
+        [
+          "addstate",
+          "maplocs,=countflags(map_)"
+        ],
+        [
+          "if",
+          "$maplocs$>36 && $maplocs$<40"
+        ],
+        [
+          "giveachievement",
+          "ach_37maplocs"
+        ],
+        [
+          "if",
+          "hasflag(postalstation_needcode)"
+        ],
+        [
+          "say",
+          "You got everything you need out of those maps, but you can still ask about them in Dirtwater later if you're a nerd."
+        ],
+        [
+          "option",
+          "chuck",
+          "Investigate the house"
         ]
       ]
     },
