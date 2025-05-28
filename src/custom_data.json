@@ -13812,6 +13812,32 @@
       ],
       "afterloot": []
     },
+    "endcredits": {
+      "phase6": [
+        [
+          "if",
+          "!hasflag(house_beenbefore)"
+        ],
+        [
+          "goto",
+          "phase7"
+        ],
+        [
+          "addflag",
+          "endcredits,7"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "endcredits_house"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "food_turnip": {
       "yes": [
         [
