@@ -167,6 +167,15 @@ namespace WOLAP
             return false;
         }
 
+        //Note: This still doesn't let players use DLC content if they don't own the DLC and have its data downloaded, it just overrides the check for the "house_diff" flag that I have to set to support the DLC with Archipelago
+        [HarmonyPatch(typeof(MPlayer), "FCanLoad")]
+        [HarmonyPrefix]
+        static bool OverrideDlcLoadCheckPatch(MPlayer __instance, ref bool __result)
+        {
+            __result = true;
+            return false;
+        }
+
         public static bool ShouldLoadDataWithID(string id)
         {
             //Only load modded DLC data objects if the DLC is enabled in the Archipelago options
