@@ -4559,6 +4559,10 @@
           "cemetery2_saint2"
         ],
         [
+          "addflag",
+          "cemetery2_saint2fightdone"
+        ],
+        [
           "customcommand",
           "checklocation,Old Mission Catacombs - Santa Cortada Defeated (Item 1)"
         ],
@@ -4701,6 +4705,43 @@
       ]
     },
     "cemetery2_saint3": {
+      "start": [
+        [
+          "say",
+          "Saint Pope stands beatifically behind the dais."
+        ],
+        [
+          "say",
+          "He just keeps doing his pope gestures, ignoring you."
+        ],
+        [
+          "say",
+          "How can someone look so smug without even having a face?  The longer you watch him, the more he gets on your nerves."
+        ],
+        [
+          "if",
+          "moxie>9"
+        ],
+        [
+          "option",
+          "open",
+          "Insult him [Moxie: 10]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "beep",
+          "Insult him [Requires Moxie: 10]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave him alone"
+        ]
+      ],
       "win": [
         [
           "addstate",
@@ -4717,6 +4758,10 @@
         [
           "addflag",
           "cemetery2_saint3"
+        ],
+        [
+          "addflag",
+          "cemetery2_saint3fightdone"
         ],
         [
           "customcommand",
@@ -4877,6 +4922,10 @@
         [
           "addflag",
           "cemetery2_saint1"
+        ],
+        [
+          "addflag",
+          "cemetery2_saint1fightdone"
         ],
         [
           "customcommand",
@@ -60622,6 +60671,360 @@
         }
       },
       "parentwaa": "beancave"
+    },
+    "cemetery2_saint1": {
+      "name": "Sub-Mission Catacombs (Tomb 1)",
+      "width": "0.500",
+      "ground": null,
+      "sky": "",
+      "startxy": "200,50",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt2",
+      "foregroundparallax": "foreground_cryptleft2, foreground_cryptmiddle3,foreground_cryptright1",
+      "horizon": "brickwall_tile2,brickwall_tile3,brickwall_tile4,brickwall_tile1",
+      "leftwall": "wallbrick_side1",
+      "rightwall": "wallbrick_side1",
+      "music": "music_cemetery_not_so_spooky",
+      "ambientsound1": "non_desert_room_tone",
+      "camera": "interior",
+      "basewaa": "cemetery2",
+      "elements": {
+        "candles1": {
+          "asset": "candlerow3",
+          "usedasset": null,
+          "x": 57.0,
+          "z": 175.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "candlerow_large",
+          "noshadow": 1.0,
+          "lightsource": "70,90,200"
+        },
+        "candles2": {
+          "asset": "candlerow3",
+          "usedasset": null,
+          "x": 378.0,
+          "z": 175.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "candlerow_large",
+          "noshadow": 1.0,
+          "lightsource": "70,90,200"
+        },
+        "exitdoor": {
+          "asset": "mausoleumdoor",
+          "usedasset": null,
+          "x": 230.0,
+          "z": 0.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__cemetery2_saint1__exitdoor__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 50.0
+        },
+        "sarcophagus": {
+          "asset": "sarcophagus1",
+          "usedasset": null,
+          "x": 187.0,
+          "z": 217.0,
+          "height": 191.0,
+          "width": 528.0,
+          "condition": "!hasflag(cemetery2_saint1fightdone)",
+          "script": "cemetery2_sarcophagus",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "sarcophagus_empty": {
+          "asset": "sarcophagus1",
+          "usedasset": null,
+          "x": 187.0,
+          "z": 217.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(cemetery2_saint1fightdone)",
+          "script": "autoscript__cemetery2_saint1__sarcophagus_empty__popup",
+          "proximity": 0.0
+        }
+      },
+      "parentwaa": "cemetery2"
+    },
+    "cemetery2_saint2": {
+      "name": "Sub-Mission Catacombs (Tomb 2)",
+      "width": "0.500",
+      "ground": null,
+      "sky": "",
+      "startxy": "200,50",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt2",
+      "foregroundparallax": "foreground_cryptleft2, foreground_cryptmiddle3,foreground_cryptright1",
+      "horizon": "brickwall_tile2,brickwall_tile3,brickwall_tile4,brickwall_tile1",
+      "leftwall": "wallbrick_side1",
+      "rightwall": "wallbrick_side1",
+      "music": "music_cemetery_not_so_spooky",
+      "ambientsound1": "non_desert_room_tone",
+      "camera": "interior",
+      "basewaa": "cemetery2",
+      "elements": {
+        "candles1": {
+          "asset": "candlerow3",
+          "usedasset": null,
+          "x": 14.0,
+          "z": 244.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "prefab": "candlerow_large",
+          "noshadow": 1.0,
+          "lightsource": "70,90,200"
+        },
+        "candles2": {
+          "asset": "candlerow3",
+          "usedasset": null,
+          "x": 392.0,
+          "z": 244.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "prefab": "candlerow_large",
+          "noshadow": 1.0,
+          "lightsource": "70,90,200"
+        },
+        "collider": {
+          "asset": "none",
+          "usedasset": null,
+          "x": 66.0,
+          "z": 178.0,
+          "height": 60.0,
+          "width": 425.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "cemetery2_saint2pile",
+          "proximity": 0.0,
+          "noclip": 1.0
+        },
+        "exidtoor": {
+          "asset": "mausoleumdoor",
+          "usedasset": null,
+          "x": 230.0,
+          "z": 0.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "autoscript__cemetery2_saint2__exidtoor__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 50.0
+        },
+        "pile": {
+          "asset": "groundskull2",
+          "usedasset": null,
+          "x": 243.0,
+          "z": 209.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "cemetery2_saint2pile",
+          "proximity": 0.0
+        },
+        "pile2": {
+          "asset": "groundbone",
+          "usedasset": null,
+          "x": 126.0,
+          "z": 177.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "pile3": {
+          "asset": "groundpelvis",
+          "usedasset": null,
+          "x": 170.0,
+          "z": 225.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "pile4": {
+          "asset": "groundbone",
+          "usedasset": null,
+          "x": 336.0,
+          "z": 220.0,
+          "height": 88.0,
+          "width": 132.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "pile5": {
+          "asset": "groundribs",
+          "usedasset": null,
+          "x": 389.0,
+          "z": 176.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "",
+          "proximity": 0.0
+        },
+        "pile6": {
+          "asset": "groundbone",
+          "usedasset": null,
+          "x": 63.0,
+          "z": 213.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "pile7": {
+          "asset": "groundbone",
+          "usedasset": null,
+          "x": 454.0,
+          "z": 185.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(cemetery2_saint2fightdone)",
+          "script": "",
+          "proximity": 0.0
+        }
+      },
+      "parentwaa": "cemetery2"
+    },
+    "cemetery2_saint3": {
+      "name": "Sub-Mission Catacombs (Tomb 3)",
+      "width": "0.500",
+      "ground": null,
+      "sky": "",
+      "startxy": "200,50",
+      "dark": 1.0,
+      "groundtexture": "floor_dirt2",
+      "foregroundparallax": "foreground_cryptleft2, foreground_cryptmiddle3,foreground_cryptright1",
+      "horizon": "brickwall_tile2,brickwall_tile1,brickwall_tile4,brickwall_tile1",
+      "leftwall": "wallbrick_side1",
+      "rightwall": "wallbrick_side1",
+      "music": "music_cemetery_not_so_spooky",
+      "ambientsound1": "non_desert_room_tone",
+      "camera": "interior",
+      "basewaa": "cemetery2",
+      "elements": {
+        "candles1": {
+          "asset": "candlerow3",
+          "usedasset": null,
+          "x": 79.0,
+          "z": 194.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "candlerow_large",
+          "lightsource": "80,50,250",
+          "noshadow": 1.0,
+          "extendback": 1.0
+        },
+        "candles2": {
+          "asset": "candlerow3",
+          "usedasset": null,
+          "x": 352.0,
+          "z": 194.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "candlerow_large",
+          "lightsource": "80,50,250",
+          "noshadow": 1.0,
+          "extendback": 1.0
+        },
+        "dais": {
+          "asset": "dais",
+          "usedasset": null,
+          "x": 219.0,
+          "z": 198.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "cemetery2_saint3",
+          "proximity": 0.0,
+          "noshadow": 1.0,
+          "extendback": 1.0
+        },
+        "exitdoor": {
+          "asset": "mausoleumdoor",
+          "usedasset": null,
+          "x": 230.0,
+          "z": 0.0,
+          "height": 484.0,
+          "width": 301.0,
+          "condition": "",
+          "script": "autoscript__cemetery2_saint3__exitdoor__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 50.0
+        },
+        "graffiti": {
+          "asset": "decal_iamapope",
+          "usedasset": null,
+          "x": 41.0,
+          "z": 333.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "graffiti2": {
+          "asset": "decal_seriously",
+          "usedasset": null,
+          "x": 272.0,
+          "z": 342.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "pope": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 262.0,
+          "z": 218.0,
+          "height": 291.0,
+          "width": 116.0,
+          "condition": "!hasflag(cemetery2_saint3fightdone)",
+          "script": "cemetery2_saint3",
+          "proximity": 0.0,
+          "prefab": "skeleton_template",
+          "idle": "skeleton_pope_rest",
+          "head": "skeleton_head_1",
+          "hat": "hat_pope,44,94",
+          "fronthand": "held_popestick"
+        }
+      },
+      "parentwaa": "cemetery2"
     },
     "cre_livingroom": {
       "name": "Your Living Room",
