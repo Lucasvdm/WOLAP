@@ -324,16 +324,23 @@ namespace WOLAP
 
         private void UpdateFlagsFromSlotData()
         {
-            UpdateSlotDataFlag(Constants.DlcEnabledSlotDataFlag);
-            UpdateSlotDataFlag(Constants.RandomizeGhostCoachFlag);
-            UpdateSlotDataFlag(Constants.RandomizeGoblintongueFlag);
+            foreach (string flag in Constants.SlotDataFlags.Keys)
+            {
+                UpdateSlotDataFlag(flag);
+            }
         }
 
         private void UpdateSlotDataFlag(string name)
         {
-            var flags = MPlayer.instance.data;
+            if (!SlotData.ContainsKey(name))
+            {
+                WolapPlugin.Log.LogWarning($"Slot data does not contain the flag [{name}], your WOLAP client and apworld version may be mismatched. Using the default flag value [{Constants.SlotDataFlags[name]}].");
+                return;
+            }
 
             WolapPlugin.Log.LogInfo($"Slot data flag [{name}]: {SlotData[name]}");
+
+            var flags = MPlayer.instance.data;
 
             if (flags.ContainsKey(name)) flags[name] = SlotData[name].ToString();
             else flags.Add(name, SlotData[name].ToString());

@@ -5981,6 +5981,36 @@
           "markplot"
         ]
       ],
+      "checkshovel": [
+        [
+          "if",
+          "hasflag(unbreakable_tools) || hasflag(shoveldamage)<rand(3,4)"
+        ],
+        [
+          "goto",
+          "markplot"
+        ],
+        [
+          "removeitem",
+          "shovel"
+        ],
+        [
+          "delflag",
+          "shoveldamage"
+        ],
+        [
+          "playsound",
+          "ceramic_break_01"
+        ],
+        [
+          "say",
+          "Your shovel finally gives up the ghost, so to speak."
+        ],
+        [
+          "goto",
+          "markplot"
+        ]
+      ],
       "postpuzz7": [
         [
           "if",
@@ -48935,6 +48965,60 @@
           "option",
           "done",
           "Continue on"
+        ]
+      ]
+    },
+    "re_meateor": {
+      "meateor3": [
+        [
+          "playsound",
+          "Player_Use_Pickaxe"
+        ],
+        [
+          "say",
+          "You pull out your pick and make short work (and small rocks) of the meateor."
+        ],
+        [
+          "addmeat",
+          "rand(1400,1600)"
+        ],
+        [
+          "additem",
+          "potion_stardust"
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "Unfortunately, your pick melts from the heat of the meateor.  The... heateor."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "pick"
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "option",
+          "done",
+          "Ah well."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "done",
+          "Ooh, shiny!"
         ]
       ]
     },
