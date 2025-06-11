@@ -66,6 +66,10 @@ namespace WOLAP
                     WolapPlugin.Log.LogInfo("Enabling Gun Manor coach in Dirtwater.");
                     //Don't actually need to do anything here, can just use the generic received_item_{} flag as a condition for the coach to appear
                     return true;
+                case "Pickaxe":
+                case "Shovel":
+                    Store.AddStockItem("dirtwatergeneral", ModelManager.GetItem(item.IDs[0]), -1, 1000);
+                    goto default;
                 default:
                     return GiveItem(item);
             }
