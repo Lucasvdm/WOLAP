@@ -4429,10 +4429,6 @@
           "buttonwillow,pickone(lock,soap,nails,oilcan,rope),1"
         ],
         [
-          "addnpcstoreitem",
-          "buttonwillow,pickone(crowbar,shovel),1"
-        ],
-        [
           "say",
           "The woman behind the counter stares at you with a huge grin on her face."
         ],
@@ -12612,6 +12608,43 @@
         [
           "exit"
         ]
+      ],
+      "addaday": [
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,combat_dynamite,rand(1,2)"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,pickone(lock,soap,nails,oilcan),1"
+        ],
+        [
+          "if",
+          "divisible(hasflag(store_dirtwatergeneral),4)"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,binoculars,1"
+        ],
+        [
+          "incflag",
+          "store_dirtwatergeneral"
+        ],
+        [
+          "if",
+          "hasflag(store_dirtwatergeneral)<@day@"
+        ],
+        [
+          "goto",
+          "addaday"
+        ],
+        [
+          "goto",
+          "openstore"
+        ],
+        [
+          "exit"
+        ]
       ]
     },
     "dirtwater_leatherman": {
@@ -19695,14 +19728,6 @@
         [
           "addnpcstoreitem",
           "halloway,needle,rand(5,7)"
-        ],
-        [
-          "addnpcstoreitem",
-          "halloway,pick,-1"
-        ],
-        [
-          "addnpcstoreitem",
-          "halloway,shovel,-1"
         ],
         [
           "goto",
@@ -58639,6 +58664,190 @@
         ]
       ]
     },
+    "re_undeadg2": {
+      "win": [
+        [
+          "addstate",
+          "winbutton,Hooray!"
+        ],
+        [
+          "say",
+          "You destroy the skeleton and take your pick of his possessions."
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "clearrandom",
+          ""
+        ],
+        [
+          "pushrandom",
+          "bone"
+        ],
+        [
+          "pushrandom",
+          "skullchips"
+        ],
+        [
+          "pushrandom",
+          "looseteeth"
+        ],
+        [
+          "additem",
+          "poprandom(),rand(2,3)"
+        ],
+        [
+          "additem",
+          "poprandom(),rand(2,3)"
+        ],
+        [
+          "if",
+          "itemroll(50)"
+        ],
+        [
+          "additem",
+          "sell_meatnugget"
+        ],
+        [
+          "addstate",
+          "winbutton,Nice job"
+        ],
+        [
+          "incflag",
+          "ending_fightswon"
+        ],
+        [
+          "if",
+          "hasflag(cowfight)"
+        ],
+        [
+          "incflag",
+          "ending_cowskilled,hasflag(cowfight)"
+        ],
+        [
+          "if",
+          "hasflag(undeadfight)"
+        ],
+        [
+          "incflag",
+          "ending_undeadkilled,hasflag(undeadfight)"
+        ],
+        [
+          "if",
+          "!susie"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "if",
+          "!hasflag(cowfight)"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "susie_xp,hasflag(cowfight)"
+        ],
+        [
+          "addstate",
+          "rankup,0"
+        ],
+        [
+          "say",
+          "%pardner_susienotch%"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=1 && hasflag(pardnerrank)<2"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=4 && hasflag(pardnerrank)<3"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=8 && hasflag(pardnerrank)<4"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=15 && hasflag(pardnerrank)<5"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=25 && hasflag(pardnerrank)<6"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=40 && hasflag(pardnerrank)<7"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "hasflag(susie_xp)>=60 && hasflag(pardnerrank)<8"
+        ],
+        [
+          "addstate",
+          "rankup,1"
+        ],
+        [
+          "if",
+          "$rankup$==0"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ],
+        [
+          "incflag",
+          "pardnerrank,1"
+        ],
+        [
+          "say",
+          "Cow-hate flashes in her eyes.  Her resolve intensifies."
+        ],
+        [
+          "say",
+          "<b>Susie has become stronger!</b>"
+        ],
+        [
+          "addstate",
+          "winbutton,Way to go!"
+        ],
+        [
+          "goto",
+          "aftersusie"
+        ]
+      ]
+    },
     "re_undeadh1": {
       "win": [
         [
@@ -59014,6 +59223,28 @@
         [
           "customcommand",
           "addnpcstorecheck,Wanderin' Sally's Camp - Item 13"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ],
+      "init_sally_4": [
+        [
+          "addnpcstoreitem",
+          "sally,combat_dynamite,rand(4,5)"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,pickone(lock,soap,needle)"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,pickone(lock,soap,needle)"
+        ],
+        [
+          "addnpcstoreitem",
+          "sally,pickone(lock,soap,needle)"
         ],
         [
           "goto",

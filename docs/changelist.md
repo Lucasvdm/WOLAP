@@ -86,6 +86,9 @@ This list is subject to change.
 - It's no longer possible to completely miss out on Breadwood by building a bridge before talking to Smee at the second railroad camp, he now unlocks it on your map in that case
 - The coordinates of some map locations around Buffalo Pile have been tweaked to make room for Old Medicine Show, so it's not stacked on top of The Great Garbanzo's Hideout
 - Changed plot 69 in the Military Cemetery from just a treasure plot to a combat plot, so it can drop the 69th Innuendo Div. check, since it's the obvious plot that everyone will try for that
+- Various ways of getting tools such as a pickaxe, shovel, hammer, etc. that weren't randomized/turned into a check location have been removed to force you to receive those tools from the item pool
+  - These were mostly shop items, especially cases where some shops would randomly add one of a selection of tools to their inventory on subsequent days/visits
+  - Once you receive a breakable tool from the item pool (i.e. a pickaxe or shovel), it will also become available for purchase from Dirtwater Mercantile, so if you don't have Unbreakable Tools enabled you can get another one there if necessary
 
 ## Random Encounters
 - You no longer need to have the Pale Horse to get the progressive encounter for a check replacing a Nex-Mex skillbook (13th encounter)
