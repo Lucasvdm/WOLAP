@@ -23245,7 +23245,7 @@
         ],
         [
           "if",
-          "!hasflag(bro_crafting)"
+          "!hasflag(bro_gotgift1check)"
         ],
         [
           "goto",
@@ -23253,7 +23253,7 @@
         ],
         [
           "if",
-          "!hasflag(bro_skillbook)"
+          "!hasflag(bro_gotgift2check)"
         ],
         [
           "goto",
@@ -23261,7 +23261,7 @@
         ],
         [
           "if",
-          "!hasflag(bro_ring)"
+          "!hasflag(bro_gotgift3check)"
         ],
         [
           "goto",
@@ -23269,7 +23269,7 @@
         ],
         [
           "if",
-          "!hasflag(cre_gothat)"
+          "!hasflag(bro_gotgift4check)"
         ],
         [
           "goto",
@@ -23306,16 +23306,16 @@
       ],
       "skillbook": [
         [
-          "addflag",
-          "bro_skillbook"
-        ],
-        [
           "say",
           "Dear @bro@, I found this and thought it might help you not die."
         ],
         [
           "customcommand",
           "checklocation,Rufus' Gifts - Gift 2"
+        ],
+        [
+          "addflag",
+          "bro_gotgift2check"
         ],
         [
           "option",
@@ -23334,7 +23334,7 @@
         ],
         [
           "addflag",
-          "bro_ring"
+          "bro_gotgift3check"
         ],
         [
           "option",
@@ -23353,7 +23353,7 @@
         ],
         [
           "addflag",
-          "cre_gothat"
+          "bro_gotgift4check"
         ],
         [
           "option",
