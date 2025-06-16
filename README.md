@@ -37,6 +37,10 @@ The following extra Archipelago options have been implemented to configure the r
   - Name in YAML file: `randomize_goblintongue`
   - This randomizes the ability to speak Goblintongue into the item pool
   - This is enabled by default.  If this is disabled, you will be able to speak Goblintongue from the start of the game.
+- Unbreakable Tools
+  - Name in YAML file: `unbreakable_tools`
+  - This removes the possibility of breaking some tools - the shovel when digging up treasure in the Military Cemetery, and the pickaxe when mining a meateor - so you don't need to buy a replacement if they break.
+  - This is disabled by default.  Once you receive one of these tools from the item pool, you'll then be able to purchase that tool infinitely from Dirtwater Mercantile.
 - Start Inventory From Pool
   - Name in YAML file: `start_inventory_from_pool`
   - This allows you to specify items you will start with that then *won't* be included in the item pool -- as opposed to `start_inventory`, which lets you start with copies of items from the pool
