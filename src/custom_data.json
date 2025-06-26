@@ -8916,6 +8916,75 @@
           "done",
           "Thanks."
         ]
+      ],
+      "haggle": [
+        [
+          "leftsay",
+          "You know, you aren't doing a very good job of selling me on this."
+        ],
+        [
+          "rightsay",
+          "Why, whatever do you mean?"
+        ],
+        [
+          "sayoption",
+          "nevermind",
+          "Er... never mind."
+        ],
+        [
+          "if",
+          "hasskill(intimidatin)>1"
+        ],
+        [
+          "option",
+          "intimidate2",
+          "Attempt to intimidate the clown [Intimidatin' 2]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "intimidate2",
+          "Intimidate the clown [Requires Intimidatin' 2]"
+        ],
+        [
+          "if",
+          "hasskill(outfoxin)>1"
+        ],
+        [
+          "option",
+          "outfox2",
+          "Attempt to outfox the clown [Outfoxin' 2]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "outfox2",
+          "Attempt to outfox the clown [Requires Outfoxin' 2]"
+        ],
+        [
+          "if",
+          "hasskill(hornswogglin)>1"
+        ],
+        [
+          "option",
+          "hornswoggle2",
+          "Attempt to hornswoggle the clown [Hornswogglin' 2]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "grayoption",
+          "hornswoggle2",
+          "Hornswoggle the clown [Requires Hornswogglin' 2]"
+        ]
       ]
     },
     "clowns_crimescene_knapsack": {
