@@ -4262,6 +4262,53 @@
           "done",
           "Okay, off I go."
         ]
+      ],
+      "finishquest4": [
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "removeitem",
+          "quest_breadwoodpermit"
+        ],
+        [
+          "rightsay",
+          "Well, that is definitely going to improve the situation around here. Thank you!"
+        ],
+        [
+          "addflag",
+          "breadwood_quest4,2"
+        ],
+        [
+          "incflag",
+          "breadwood_problemssolved"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_problemssolved)==7"
+        ],
+        [
+          "giveachievement",
+          "ach_noproblem"
+        ],
+        [
+          "addxp",
+          "xpreward_d*3"
+        ],
+        [
+          "sayoption",
+          "afterquest4check",
+          "I just hope to never see another form again."
+        ]
       ]
     },
     "breadwood_questyjones": {
@@ -16636,7 +16683,7 @@
         ],
         [
           "if",
-          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit)"
         ],
         [
           "sayoption",
@@ -17086,7 +17133,7 @@
         ],
         [
           "if",
-          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit)"
         ],
         [
           "sayoption",
@@ -17227,7 +17274,7 @@
         ],
         [
           "if",
-          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit)"
         ],
         [
           "sayoption",
@@ -17482,7 +17529,7 @@
         ],
         [
           "if",
-          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit)"
         ],
         [
           "sayoption",
@@ -18372,7 +18419,7 @@
         ],
         [
           "if",
-          "hasflag(breadwood_quest4)==1 && !hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit)"
         ],
         [
           "sayoption",

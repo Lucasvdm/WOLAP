@@ -20,7 +20,7 @@ This list is subject to change.
 ## Global Mechanics
 - Hard mode will be implemented as a toggle in the settings, so you no longer choose that when skipping the tutorial [NOT YET IMPLEMENTED - Hard mode is currently disabled]
 - Auto-levelling has been disabled by default (it can still be toggled on in the settings)
-- In the base game there are many, many item drops that can easily be missed and permanently locked out of.  Where possible these have been tweaked to be *less* missable, but it's not reasonable to make it impossible in all cases. A system has been implemented so that completely missed checks can later be purchased from a shop.
+- In the base game there are many, many item drops that can easily be missed and permanently locked out of.  Where possible these have been tweaked to be *less* missable, but it's not reasonable to make it impossible in all cases.  A system has been implemented so that completely missed checks can later be purchased from a shop.
   - The plan is to create a new custom shop for this in the future, but for now these checks are just sent to Dirtwater Mercantile
 
 ## Your Family's Farm (Starting Zone)
@@ -69,6 +69,7 @@ This list is subject to change.
 - You can now get the check for the ticket prize from the circus games even if the performance is already over
 - If you are ejected from the circus, they no longer take your coupon for a year's supply of dynamite (if you have one)
 - The Ghostwood temporary visitor's permit still expires in 11 seconds, but you can no longer get a new one (as long as you've already gone through the process once for the check).  You'll just have to find that pencil.
+- You can still participate in Ghostwood's wonderful bureaucracy after receiving the final logging permit from the item pool and turning it in to the Breadwood mayor
 - Can now buy the "mushroom pliers" check from Irene in Fort of Darkness even if you've already received the pliers from the item pool
 - The vending machines in the Curious Abandoned Well and Madness Maw Mine El Vibrato facilities can now produce each of their options once (with each giving a check), they are no longer repeatable
 - You can now get both checks for the Kellogg Grain Flakes recipe even if you've already gotten the other one or received the item from the pool
