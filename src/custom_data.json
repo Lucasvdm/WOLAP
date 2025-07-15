@@ -19830,6 +19830,22 @@
           "Aha. Well, since you came all this way just to return my pin, I guess you're the trustworthy sort Curly was lookin' for. Here ya go, this is the other half a' that map."
         ],
         [
+          "if",
+          "hasitem(quest_curlymap)"
+        ],
+        [
+          "leftspeak",
+          "Other... half?  But I already found two halves and put them together."
+        ],
+        [
+          "if",
+          "hasitem(quest_curlymap)"
+        ],
+        [
+          "say",
+          "As if he didn't hear you, he slides something across the counter without a word."
+        ],
+        [
           "customcommand",
           "checklocation,Halloway's Hideaway - Half of Curly's Map"
         ],
@@ -19882,12 +19898,21 @@
         ],
         [
           "if",
-          "hasflag(curly_mapread) && !hasflag(hallowaystore_stoppin)"
+          "hasflag(curly_mapread) && !hasitem(quest_curlymap) && !hasflag(hallowaystore_stoppin)"
         ],
         [
           "sayoption",
           "mapask2",
           "You know a fella name of Curly? I found part of a map..."
+        ],
+        [
+          "if",
+          "hasitem(quest_curlymap) && !hasflag(hallowaystore_stoppin)"
+        ],
+        [
+          "sayoption",
+          "mapask2",
+          "You know a fella name of Curly? I found this map..."
         ],
         [
           "sayoption",
