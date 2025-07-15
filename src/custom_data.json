@@ -20812,6 +20812,40 @@
       ]
     },
     "house_ghost_glutton": {
+      "deadchili": [
+        [
+          "removeitem",
+          "quest_gunlesschilighost"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "addflag",
+          "house_livechili"
+        ],
+        [
+          "leftsay",
+          "Okay, I've euthanized your chili. Here you go."
+        ],
+        [
+          "say",
+          "You hand the ghost the ghostly bowl of chili, and he immediately gobbles it up. With a long, finally-satisfied sigh, he dissipates."
+        ],
+        [
+          "addxp",
+          "@xpreward_w@*3"
+        ],
+        [
+          "playsound",
+          "house_ghostquest_complete"
+        ],
+        [
+          "goto",
+          "resolution"
+        ]
+      ],
       "win": [
         [
           "if",
