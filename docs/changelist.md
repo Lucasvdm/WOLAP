@@ -56,6 +56,7 @@ This list is subject to change.
 - Smashing the goblet/altar at Stearns Ranch still grants the check, even though you normally only get an item from taking the goblet
 - Feeding the Stripey Hat Gang to the giant spider (with Ruthless) will still grant a check, even though the stripey hat the check replaces is normally only granted from fighting them
 - The checks for General Gob's hat and pistol are both available from any persuasion check, even though Intimidatin' normally only gives his hat and Hornswogglin' normally only gives his gun
+- You can enter the Fort Cowardice toilet tent even if you have Goblintongue to read the sign
 - The "Fort Cowardice Goblin Caves - First Victory" check replaces the Goblin Spyglass drop from the infinite goblin combat there, and it is guaranteed the first time you beat them (unlike the spyglass, which is normally a random chance if you don't have it already)
 - In Gustavson Gulch, in the theatre tent, you can now fight Goblet even if you listen from backstage first… if you're a jerk
 - You can get the remaining Gustavson Gulch treasure cave key even if you've already unlocked it

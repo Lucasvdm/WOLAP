@@ -14637,6 +14637,17 @@
       ],
       "afterloot": []
     },
+    "fort1_tent3door": {
+      "popup": [
+        [
+          "waa",
+          "fort1_tent3"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
     "fort1_triangle": {
       "win": [
         [
