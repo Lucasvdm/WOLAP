@@ -59631,6 +59631,38 @@
         ]
       ]
     },
+    "shroomcave_bonespile": {
+      "getloot": [
+        [
+          "additem",
+          "bone,rand(1,3)"
+        ],
+        [
+          "additem",
+          "skullchips,rand(1,3)"
+        ],
+        [
+          "additem",
+          "looseteeth,rand(1,3)"
+        ],
+        [
+          "additem",
+          "humanash"
+        ],
+        [
+          "customcommand",
+          "checklocation,Shroomcave - Sleeping Cultist (Item 1)"
+        ],
+        [
+          "customcommand",
+          "checklocation,Shroomcave - Sleeping Cultist (Item 2)"
+        ],
+        [
+          "goto",
+          "tokencontinue"
+        ]
+      ]
+    },
     "shroomcave_cultist2": {
       "getloot": [
         [
