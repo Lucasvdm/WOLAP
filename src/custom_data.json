@@ -6864,6 +6864,147 @@
         ]
       ]
     },
+    "clowns_camp_fightlose": {
+      "start": [
+        [
+          "say",
+          "You slowly regain consciousness and discover that... well, that you're still alive, barely. The clowns tied you spread-eagled to stakes and left you to die in the hot summer sun, but fortunately the stakes were not very long (or high), and you wiggle loose pretty quickly. By the time you make it back to their campsite, though, they've long since vacated the premises."
+        ],
+        [
+          "say",
+          "Great. As if cows weren't bad enough, now there's a pack of demonic clowns running around loose."
+        ],
+        [
+          "say",
+          "On the ground you find a crumpled note that the clowns must have conveniently dropped in their haste to skedaddle. It seems to be orders to check out an abandoned tannery not far from Dirtwater. It's probably a bad idea to let these guys wander around near town, so maybe you should investigate."
+        ],
+        [
+          "if",
+          "!hasflag(map_tannery)"
+        ],
+        [
+          "mapunlock",
+          "tannery,Danny's Tannery"
+        ],
+        [
+          "delflag",
+          "map_clowncamp"
+        ],
+        [
+          "addflag",
+          "clowns_campcleared,1"
+        ],
+        [
+          "addflag",
+          "clowns_knowsclowns,2"
+        ],
+        [
+          "addflag",
+          "clowns_suspicion,3"
+        ],
+        [
+          "incflag",
+          "ending_fightslost"
+        ],
+        [
+          "delflag",
+          "cowfight"
+        ],
+        [
+          "delflag",
+          "undeadfight"
+        ],
+        [
+          "delflag",
+          "housefight"
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-2"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "incflag",
+          "combatslost,1"
+        ],
+        [
+          "if",
+          "hasflag(combatslost)>10 && !hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addskill",
+          "gluttonforpunishment"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addstate",
+          "region,@regionto@"
+        ],
+        [
+          "if",
+          "hasskill(gluttonforpunishment) && !hasflag(gaveup)"
+        ],
+        [
+          "addxp",
+          "@xpreward_$region$@/2"
+        ],
+        [
+          "delflag",
+          "gaveup"
+        ],
+        [
+          "if",
+          "haseffect(angry)<@toughness@"
+        ],
+        [
+          "goto",
+          "dontexplode"
+        ],
+        [
+          "addeffect",
+          "angry"
+        ],
+        [
+          "say",
+          "You get so angry about losing that fight that you pass out."
+        ],
+        [
+          "incflag",
+          "winstreak_region@regionto@,-3"
+        ],
+        [
+          "if",
+          "hasflag(winstreak_region@regionto@)<0"
+        ],
+        [
+          "addflag",
+          "winstreak_region@regionto@,0"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
+        ],
+        [
+          "customcommand",
+          "misspoint,Clown Campsite - Clowns Killed (Item 1)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Clown Campsite - Clowns Killed (Item 2)"
+        ]
+      ]
+    },
     "clowns_camp_fightwin": {
       "dig": [
         [

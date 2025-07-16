@@ -64,6 +64,7 @@ This list is subject to change.
 - In Fort Alldead, you can get the check for grabbing the skeleton spoor out of the toilet even if you don't have Doc Alice or the idea to poison the skeletons, and doing so will give you the idea to poison them if you don't have it already
 - You can now only buy one "item" (check) from the herbal remedy hippy at Lazy-A Dude Ranch, it's not repeatable
 - In the Abandoned Pickle Factory, you can now get the checks for the ghosts' unique loot (Ghost Cowboy Hat / Ghost Pistol / Cursed Pants) from solving the puzzles peacefully in addition to beating them in combat
+- You can now unlock Danny's Tannery whether you win or lose the fight at the clown campsite to avoid the tannery being missable entirely (and the knock-on effects, such as Grady's shop becoming unavailable)
 - Technically the ticket booth at the circus doesn't normally grant an item -- paying for a ticket (or finding one elsewhere and bringing it) just gives you access to the circus.  A check has been added there for "buying a ticket" (or talking your way into one for free), and you'll need to receive the Circus Ticket item from the item pool to get in.
   - If you receive the ticket before you've bought the check, you'll still be able to buy it after you've turned in the ticket
 - You can now get the check for the ticket prize from the circus games even if the performance is already over
