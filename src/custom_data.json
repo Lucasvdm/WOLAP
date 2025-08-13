@@ -7830,21 +7830,21 @@
         ],
         [
           "if",
-          "player.meat<300 && !hasitem(quest_slidewhistle) && hasflag(clowns_whistlebox)<1"
-        ],
-        [
-          "graysayoption",
-          "buy",
-          "I'll take one. [Requires 300 Meat]"
-        ],
-        [
-          "if",
-          "player.meat<300 && hasflag(clowns_whistlebox)==1"
+          "player.meat<300 && !hasitem(quest_slidewhistle)"
         ],
         [
           "graysayoption",
           "buy",
           "I'll take one. [Requires 300 Meat or slide-whistle]"
+        ],
+        [
+          "if",
+          "player.meat<300 && (hasitem(quest_slidewhistle) && !hasflag(circus_stolewhistle))"
+        ],
+        [
+          "graysayoption",
+          "buy",
+          "I'll take one. [Requires 300 Meat or a need for a slide-whistle]"
         ],
         [
           "if",
@@ -7902,7 +7902,7 @@
         ],
         [
           "if",
-          "player.meat>=300 && hasflag(clowns_stealwhistle)==1 && hasflag(clowns_wantcottonsecret)==1"
+          "player.meat>=300 && !hasflag(circus_stolewhistle) && hasflag(clowns_stealwhistle)>=1 && hasflag(clowns_wantcottonsecret)==1"
         ],
         [
           "sayoption",
