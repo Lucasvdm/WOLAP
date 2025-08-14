@@ -10773,7 +10773,7 @@
       "iron2": [
         [
           "if",
-          "crafting_cookery_gotspatulacheck && crafting_cookery_gotskilletcheck && crafting_cookery_gotbadgecheck"
+          "crafting_cookery_gotladlecheck && crafting_cookery_gotsaucepancheck && crafting_cookery_gotcollandercheck"
         ],
         [
           "goto",
@@ -10892,7 +10892,7 @@
       "iron3": [
         [
           "if",
-          "crafting_cookery_gotspatulacheck && crafting_cookery_gotskilletcheck && crafting_cookery_gotbadgecheck"
+          "crafting_cookery_gotwhiskcheck && crafting_cookery_gotkettlecheck && crafting_cookery_gotpistolcheck"
         ],
         [
           "goto",
