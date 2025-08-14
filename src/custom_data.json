@@ -12107,6 +12107,33 @@
           "say",
           "You should talk to your mom before leaving."
         ]
+      ],
+      "gototut": [
+        [
+          "closepopup"
+        ],
+        [
+          "addflag",
+          "lefthome"
+        ],
+        [
+          "addproperty",
+          "map,map_boringsprings"
+        ],
+        [
+          "addflag",
+          "map_bsmain"
+        ],
+        [
+          "queue"
+        ],
+        [
+          "runscript",
+          "cre_skiptut"
+        ],
+        [
+          "exit"
+        ]
       ]
     },
     "cre_yourbooks": {
