@@ -25671,8 +25671,8 @@
           "Pretty much everything inside has crumbled into dust, except for a waxed-paper sandwich bag and some raisins that probably weren't intended to become raisins."
         ],
         [
-          "Jumbleneck Mine (Left Tunnel) - Lunchbox",
-          "quest_baggie"
+          "customcommand",
+          "checklocation,Jumbleneck Mine (Left Tunnel) - Lunchbox"
         ],
         [
           "additem",
