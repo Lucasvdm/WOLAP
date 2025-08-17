@@ -25795,6 +25795,55 @@
         ]
       ]
     },
+    "mine4_top_aliceskull": {
+      "start": [
+        [
+          "say",
+          "You poke through the rocks and turn up a human skull."
+        ],
+        [
+          "customcommand",
+          "checklocation,Jumbleneck Mine - Rock Pile By Elevator"
+        ],
+        [
+          "addflag",
+          "mine4_skullfind,1"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Whoa... that's a little ominous. What do you think, Doc?"
+        ],
+        [
+          "rightpicture",
+          "portrait_alice"
+        ],
+        [
+          "rightsay",
+          "I agree."
+        ],
+        [
+          "leftsay",
+          "I meant like from a medical standpoint."
+        ],
+        [
+          "rightsay",
+          "Oh. Well, hand it over."
+        ],
+        [
+          "rightsay",
+          "Nice silver tooth. ...Hmm."
+        ],
+        [
+          "sayoption",
+          "what",
+          "What?"
+        ]
+      ]
+    },
     "mine4_top_barrel": {
       "take": [
         [
