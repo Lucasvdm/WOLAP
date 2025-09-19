@@ -68,6 +68,7 @@ namespace WOLAP
                     return true;
                 case "Pickaxe":
                 case "Shovel":
+                case "El Vibrato Headband":
                     Store.AddStockItem("dirtwatergeneral", ModelManager.GetItem(item.IDs[0]), -1, 1000);
                     goto default;
                 default:

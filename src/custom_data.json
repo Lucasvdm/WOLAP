@@ -26344,6 +26344,71 @@
         ]
       ]
     },
+    "mine6_cultistguard": {
+      "headband": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hold still a second, I just wanna put this thing on your head."
+        ],
+        [
+          "rightsay",
+          "Huh? Wha..."
+        ],
+        [
+          "rightsay",
+          "Oh, jeez... what happened? I feel like I overslept, but like for a whole week. Bleah."
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "Now that her mind is clear, you take back the headband."
+        ],
+        [
+          "leftsay",
+          "So, what's going on in this mine?"
+        ],
+        [
+          "rightsay",
+          "Mine? What are you talking about? Look, I need to go find an aspirin. See you later."
+        ],
+        [
+          "say",
+          "She wanders off into the desert."
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued,1"
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addflag",
+          "mine6_guardgone"
+        ],
+        [
+          "option",
+          "done",
+          "Okay then"
+        ]
+      ]
+    },
     "mine6_curlynightstand": {
       "e": [
         [
@@ -26681,15 +26746,43 @@
         ]
       ]
     },
-    "mine6_talkcultist7": {
-      "headband2": [
+    "mine6_talkcultist1": {
+      "headband": [
         [
-          "leftsay",
-          "Instructions to do what, exactly?"
+          "say",
+          "You whip out the El Vibrato headband and put it on the guy before he can react."
         ],
         [
           "rightsay",
-          "To dig. To free him. To... excuse me, I have to go freak out now."
+          "Wha--"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "I can't... I can't hear him... I can't hear the Master! What did you do??"
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "He runs out of the mine, the headband falling off in his panic. You pick it back up."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "He runs out of the mine in a panic."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
         ],
         [
           "removeitem",
@@ -26710,6 +26803,384 @@
         [
           "addflag",
           "mine6_cultist$cultist$gone"
+        ],
+        [
+          "option",
+          "done",
+          "Presumably he'll be fine."
+        ]
+      ]
+    },
+    "mine6_talkcultist2": {
+      "headband": [
+        [
+          "say",
+          "You quickly put the El Vibrato headband on her before she has time to react."
+        ],
+        [
+          "rightsay",
+          "Hey!"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "Where... am I? Oh my god, what's going on?"
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "You slip the headband back off her head and she looks at you in confusion."
+        ],
+        [
+          "leftsay",
+          "Funny you should use that phrase. You should probably get out of here."
+        ],
+        [
+          "say",
+          "She scampers out of the mine without any further questions."
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "option",
+          "done",
+          "Hope she'll be all right."
+        ]
+      ]
+    },
+    "mine6_talkcultist3": {
+      "headband": [
+        [
+          "say",
+          "You whip an El Vibrato headband out of your pocket and onto her head."
+        ],
+        [
+          "rightsay",
+          "Wha--"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "What... happened to me? What have I done? That... that wasn't me!"
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "She staggers away in a daze, the headband tumbling onto the ground as she rubs her head."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "She staggers away in a daze."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "option",
+          "done",
+          "I'm sure she'll be fine."
+        ]
+      ]
+    },
+    "mine6_talkcultist4": {
+      "headband": [
+        [
+          "say",
+          "You pull out the El Vibrato headband and yank it down over his head."
+        ],
+        [
+          "rightsay",
+          "Hey--"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "What... who... where..."
+        ],
+        [
+          "leftsay",
+          "Leave first, ask questions later."
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "leftsay",
+          "Oh, and gimme that back."
+        ],
+        [
+          "say",
+          "He does as you say and staggers away, limping."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "option",
+          "done",
+          "Hope he finds some medical attention."
+        ]
+      ]
+    },
+    "mine6_talkcultist5": {
+      "headband": [
+        [
+          "say",
+          "You whip out the El Vibrato headband and put it on her."
+        ],
+        [
+          "rightsay",
+          "Hey, what--"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "I uh. I gotta go."
+        ],
+        [
+          "say",
+          "She books it out of the mine, eyes wider than the eyeholes in her mask."
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "The new mask must not fit quite right, because the headband bounces off as she runs."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "option",
+          "done",
+          "So much for that!"
+        ]
+      ]
+    },
+    "mine6_talkcultist6": {
+      "headband": [
+        [
+          "say",
+          "You take out the El Vibrato headband and get it on the guy's head before he can stop you."
+        ],
+        [
+          "rightsay",
+          "Wha--"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "I can't hear him. What happened, I can't hear him! What do I... Why..."
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "leftsay",
+          "Why don't you give me that evil headband and go get some air."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "leftsay",
+          "Why don't you go outside and get some air."
+        ],
+        [
+          "say",
+          "He stumbles away, confused."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "option",
+          "done",
+          "He'll be fine once he gets over the shock."
+        ]
+      ]
+    },
+    "mine6_talkcultist7": {
+      "headband2": [
+        [
+          "leftsay",
+          "Instructions to do what, exactly?"
+        ],
+        [
+          "rightsay",
+          "To dig. To free him. To... excuse me, I have to go freak out now."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
+        ],
+        [
+          "removeitem",
+          "hat_elvheadband"
+        ],
+        [
+          "addxp",
+          "@xpreward_f@"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "incflag",
+          "robertocultistsrescued"
+        ],
+        [
+          "addflag",
+          "mine6_cultist$cultist$gone"
+        ],
+        [
+          "if",
+          "hasflag(unbreakable_tools)"
+        ],
+        [
+          "say",
+          "He drops his mask and the El Vibrato headband on the ground and runs away."
+        ],
+        [
+          "if",
+          "!hasflag(unbreakable_tools)"
         ],
         [
           "say",
