@@ -19404,31 +19404,6 @@
           "aftersusie"
         ]
       ],
-      "speakstart": [
-        [
-          "say",
-          "You press your ear to the door and hear somebody delivering what sound like lines from Hamlet, except in Goblintongue."
-        ],
-        [
-          "say",
-          "From this vantage point, you also notice a sign next to the door reading \"Backstage Entrance Here It Being!\" with an arrow pointing to the back of the building."
-        ],
-        [
-          "option",
-          "fight",
-          "Go in and break a leg [Fight]"
-        ],
-        [
-          "option",
-          "backstage",
-          "Head backstage"
-        ],
-        [
-          "option",
-          "done",
-          "Take off"
-        ]
-      ],
       "back2": [
         [
           "say",
@@ -19437,10 +19412,6 @@
         [
           "addflag",
           "goblin1_secret1"
-        ],
-        [
-          "addflag",
-          "goblin1_house7"
         ],
         [
           "addxp",
