@@ -30131,7 +30131,7 @@
         ],
         [
           "if",
-          "hasflag(breadwood_quest3)==1 && !alexandriaranch_gotbookpilecheck"
+          "hasflag(breadwood_quest3)>=1 && !alexandriaranch_gotbookpilecheck"
         ],
         [
           "goto",
