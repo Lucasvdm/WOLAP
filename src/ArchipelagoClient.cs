@@ -175,6 +175,9 @@ namespace WOLAP
             }
             else
             {
+                shouldLogDisconnect = false;
+                Session = null;
+
                 LoginFailure failure = (LoginFailure)result;
 
                 WolapPlugin.Log.LogError("Failed to connect to Archipelago server.");
