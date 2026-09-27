@@ -6970,6 +6970,234 @@
         ]
       ]
     },
+    "clowns_camp_conversation": {
+      "farcircus3": [
+        [
+          "leftsay",
+          "What I mean is, why are you guys camping all the way down here, so far from home?"
+        ],
+        [
+          "rightsay",
+          "Oh. Well, we're on break, so we decided to take in the sights."
+        ],
+        [
+          "leftsay",
+          "What sights? This is the middle of nowhere."
+        ],
+        [
+          "rightsay",
+          "Nonsense! Check out those cactuses over there. And those mountains. And... well, all this sand! Plenty of things to see!"
+        ],
+        [
+          "if",
+          "!hasflag(clowns_handstamp) && !hasflag(circusinfocheck)"
+        ],
+        [
+          "sayoption",
+          "tellme",
+          "Can you tell me a bit about your circus?"
+        ],
+        [
+          "sayoption",
+          "farcircus4",
+          "Wait a minute..."
+        ]
+      ],
+      "tellintim2": [
+        [
+          "leftsay",
+          "TELL ME ABOUT YOUR CIRCUS, CIRCUS CLOWN"
+        ],
+        [
+          "rightsay",
+          "Look, damnit, you are really tryin' my patience. Here's a free ticket. Go see it for yourself and leave me alone!"
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "telloutfox2": [
+        [
+          "leftsay",
+          "I tell you what, I'm doing a lot of traveling, I'd be happy to help advertise your circus..."
+        ],
+        [
+          "say",
+          "The clown with the meat haunch makes some kind of gesture, but you didn't quite catch it."
+        ],
+        [
+          "rightsay",
+          "No no, that won't be necessary. Won't be necessary for you to advertise for us, I mean. See, we... haven't decided on a travel schedule yet, and we don't want to spoil the surprise for the towns down south."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket."
+        ],
+        [
+          "rightsay",
+          "I do appreciate the thought, though. Here, your admission is on the house, just... keep it on the down-low, okay?"
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "tellhswog2": [
+        [
+          "leftsay",
+          "Hmm, I don't know... that's an awful long way to travel and then pay my own money to see a two-foot-high trapeze act."
+        ],
+        [
+          "say",
+          "The clown clenches his jaw -- you can hear his teeth grinding."
+        ],
+        [
+          "rightsay",
+          "You're gonna eat those words when you see <i>our</i> show, buddy."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket and practically throws it at you."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "whereintim4": [
+        [
+          "leftsay",
+          "Thanks. And since we're such good friends now and all, how about a little discount on the price of admission?"
+        ],
+        [
+          "say",
+          "The clown's smile curls ever-so-slightly into a sneer, and he pulls a brightly-colored slip of paper from his pocket."
+        ],
+        [
+          "rightsay",
+          "For you, <i>friend</i>, it's on the house."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "whereoutfox4": [
+        [
+          "leftsay",
+          "Thanks. And you know, it occurs to me that as I travel that long distance, I'll have plenty of opportunities to advertise for you, so --"
+        ],
+        [
+          "say",
+          "The clown with the meat haunch makes some kind of gesture, but you didn't quite catch it."
+        ],
+        [
+          "rightsay",
+          "No, that won't be necessary. Won't be necessary for you to advertise for us, I mean. See, we... haven't decided on a travel schedule yet, and we don't want to spoil the surprise for the towns down south."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket."
+        ],
+        [
+          "rightsay",
+          "I do appreciate the thought, though. Here, your admission is on the house."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "wherehswog4": [
+        [
+          "leftsay",
+          "Hmm, I don't know... that's an awful long way to travel and then pay my own money to see a two-foot-high trapeze act."
+        ],
+        [
+          "say",
+          "The clown clenches his jaw -- you can hear his teeth grinding."
+        ],
+        [
+          "rightsay",
+          "You're gonna eat those words when you see <i>our</i> show, buddy."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket and practically throws it at you."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ]
+    },
     "clowns_camp_fightlose": {
       "start": [
         [
@@ -7097,17 +7325,21 @@
           "winstreak_region@regionto@,0"
         ],
         [
-          "option",
-          "sleef",
-          "Zzzzz"
-        ],
-        [
           "customcommand",
           "misspoint,Clown Campsite - Clowns Killed (Item 1)"
         ],
         [
           "customcommand",
           "misspoint,Clown Campsite - Clowns Killed (Item 2)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Clown Campsite - Circus Information"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
         ]
       ]
     },
@@ -7124,6 +7356,10 @@
         [
           "customcommand",
           "checklocation,Clown Campsite - Clowns Killed (Item 2)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Clown Campsite - Circus Information"
         ],
         [
           "say",
@@ -7574,7 +7810,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Circus - Barnaby Bob's Safe"
+          "checklocation,Circus Destroyed - Barnaby Bob's Safe"
         ],
         [
           "exit"
@@ -8861,6 +9097,37 @@
       ]
     },
     "clowns_circus_tickettalk": {
+      "haveticket": [
+        [
+          "leftsay",
+          "I just so happen to have one."
+        ],
+        [
+          "say",
+          "The clown looks very surprised."
+        ],
+        [
+          "rightsay",
+          "What? How did you... er, well, great! Good for you, @maam@! I'll just take that and stamp your hand for re-entry... there we go. Enjoy the show!"
+        ],
+        [
+          "leftsay",
+          "What about my pardner?"
+        ],
+        [
+          "rightsay",
+          "Pardners get in free."
+        ],
+        [
+          "removeitem",
+          "quest_circusticket"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
+        ]
+      ],
       "talk": [
         [
           "rightportrait",
@@ -11614,7 +11881,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Leatherworkery Crafting - Level 3 (Mallet)"
+          "checklocation,Leatherworkery Crafting - Level 3 (Cowrruption) (Mallet)"
         ],
         [
           "addflag",
@@ -16424,7 +16691,7 @@
         ],
         [
           "customcommand",
-          "misspoint,Circus - Barnaby Bob's Safe"
+          "misspoint,Circus Destroyed - Barnaby Bob's Safe"
         ]
       ]
     },
@@ -52429,7 +52696,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Random Encounter (Region E) - 13th Cowrrupted Encounter"
+          "checklocation,Random Encounter (Region E) - 13th Encounter (Cowrruption)"
         ],
         [
           "addflag",
