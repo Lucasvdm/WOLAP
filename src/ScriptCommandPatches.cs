@@ -101,6 +101,9 @@ namespace WOLAP
                     case "misspoint":
                         HandleMissedCheckCommand(cmdCopy);
                         break;
+                    case "misspointturnip":
+                        HandleMissedTurnipCheckCommand(cmdCopy);
+                        break;
                     case "progressiveshophinting":
                         HandleShopHintingCommand(cmdCopy);
                         break;
@@ -166,6 +169,62 @@ namespace WOLAP
 
             WolapPlugin.Archipelago.PopulateShopCheckItemInfo([check]);
             WolapPlugin.Archipelago.AddCheckToShop(check);
+        }
+
+        private static void HandleMissedTurnipCheckCommand(MCommand cmd) 
+        { //this is specifically to go around the player skipping the price on the silver plating the turnip. It will be set the same price as in the silver plater in the missed shop
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var locationName = cmd.StrArg(0);
+            if (flags.ContainsKey(Constants.GotCheckFlagPrefix + locationName.Replace(" ", "")) || flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + locationName.Replace(" ", ""))) return;
+
+            ShopCheckLocation check = new ShopCheckLocation(locationName, "dirtwaterbartender", 5000);
+            long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
+
+            bool foundItemInfo = false;
+            for(int attempt = 0; attempt < 2; attempt++)
+            {
+                WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
+                {
+                if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
+
+                ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
+                check.ApItemInfo = itemInfo;
+                foundItemInfo = true;
+                }).Wait(TimeSpan.FromSeconds(10));
+
+                if (foundItemInfo || attempt ==1)
+                {
+                    break;
+                }
+                if (!foundItemInfo)
+                {
+                    WolapPlugin.Log.LogInfo($"Tried to generate shop item for missed check [{locationName}], but could not retireve the item info. Retrying once");
+                }
+            }
+
+            if (!foundItemInfo)
+            {
+                WolapPlugin.Log.LogWarning($"Tried to generate shop item for missed check [{locationName}], but could not retrieve the item info. This location may be disabled by an AP option.");
+                return;
+            }
+
+            WolapPlugin.Log.LogInfo($"Retrieved item info for missed check [{check.Name}].");
+            MItem newItem = WolapPlugin.Archipelago.AddCheckToShop(check);
+            flags.Add(Constants.MissedForwardedFlagPrefix + check.Name.Replace(" ", "*"), "1");
+            ArchipelagoClient.MissedCheckLocations.Add(check);
+            MItem shopItem = MPlayer.instance.stores[check.ShopID].items.Values.Where(item => item.data["description"] == newItem.data["description"]).First(); //There HAS to be a better way to do this
+            shopItem.data["description"] += $"\n\nMissed check originally located at <b>{check.Name}</b>";
+
+            // As soon as the player gets 1 missed check, this flag gets applied. This indicates to the missed check to change from vanilla dirtwater bartender to the different shop ui.
+            if (!flags.ContainsKey("anymissedcheck")) {flags.Add("anymissedcheck", "1");}
+            // This gives the player a flag specifically for the missed shop to indicate when it needs to hint the items out
+            if (!flags.ContainsKey("lloydshophinting")) {flags.Add("lloydshophinting", "1");}
         }
 
         private static void HandleMissedCheckCommand(MCommand cmd)
