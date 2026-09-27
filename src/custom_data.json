@@ -17925,7 +17925,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Ruin - Cylinder"
+          "checklocation,El Vibrato Ruin (Lost Dutch Oven Mine) - Cylinder"
         ]
       ]
     },
@@ -18160,7 +18160,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Construction Facility - BUGAANZEVE"
+          "checklocation,El Vibrato Construction Facility (Curious Copse) - BUGAANZEVE"
         ],
         [
           "markused"
@@ -18183,7 +18183,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Construction Facility - HOSOM NOAN NOFU"
+          "checklocation,El Vibrato Construction Facility (Curious Copse) - HOSOM NOAN NOFU"
         ],
         [
           "option",
@@ -18535,7 +18535,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Control Center - El Vibrato Quest Completion"
+          "checklocation,El Vibrato Control Center (Deepest Delve Mine) - El Vibrato Quest Completion"
         ]
       ]
     },
@@ -33466,11 +33466,11 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Storage Room - Card Table (Item 1)"
+          "checklocation,El Vibrato Storage Room (Abandoned Mine) - Card Table (Item 1)"
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Storage Room - Card Table (Item 2)"
+          "checklocation,El Vibrato Storage Room (Abandoned Mine) - Card Table (Item 2)"
         ]
       ]
     },
@@ -33556,7 +33556,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Storage Room - Cylinder"
+          "checklocation,El Vibrato Storage Room (Abandoned Mine) - Cylinder"
         ]
       ]
     },

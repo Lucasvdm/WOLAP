@@ -36,3 +36,4 @@
 * Updated **El Vibrato Quest Completion** logic to require all three location-specific cylinders along with its existing progression requirements.
 * Reclassified **The Worst Gun** from `useful` to `filler`.
 * Restored Vanilla name scheme `Kaye Ridge Mine` from `Kole Ridge Mine` due to the location being named after the developers friend and they changed their name so the developer changed the locations name to match.
+* Renamed several **El Vibrato locations** to include the corresponding overworld entrance/location in the check name, making it easier to tell which ruin, storage room, construction facility, or control center a check belongs to.
