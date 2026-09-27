@@ -29646,6 +29646,54 @@
         ]
       ]
     },
+    "item_dynamite": {
+      "invpopup": [
+        [
+          "say",
+          "You examine the dynamite."
+        ],
+        [
+          "if",
+          "hasflag(mainquest)==3 && !hasflag(YSODcraftcheck)"
+        ],
+        [
+          "goto",
+          "makeyear"
+        ],
+        [
+          "say",
+          "It's got an end you light, and an end that blows up."
+        ],
+        [
+          "option",
+          "done",
+          "Okay, just checking"
+        ]
+      ],
+      "cratem": [
+        [
+          "say",
+          "You find a crate and carefully fill it up with dynamite."
+        ],
+        [
+          "customcommand",
+          "checklocation,Year Supply of Dynamite Crafted - 52 Dynamite"
+        ],
+        [
+          "removeitem",
+          "combat_dynamite,52"
+        ],
+        [
+          "addflag",
+          "YSODcraftcheck"
+        ],
+        [
+          "option",
+          "done",
+          "That'll do!"
+        ]
+      ]
+    },
     "item_hedgeleaf_assembly": {
       "start": [
         [
@@ -37113,6 +37161,20 @@
         [
           "customcommand",
           "checklocation,Hellstrom Ranch (Barn) - Bookshelf"
+        ]
+      ]
+    },
+    "ranch6_horseshoe": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "customcommand",
+          "checklocation,Hellstrom Ranch - Lucky Horseshoe"
         ]
       ]
     },
