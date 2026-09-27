@@ -18617,13 +18617,13 @@
           "food_turnip"
         ],
         [
+          "customcommand",
+          "misspointturnip,The Silver Plater - Plated the Turnip"
+        ],
+        [
           "option",
           "done",
           "Yep"
-        ],
-        [
-          "customcommand",
-          "misspoint,The Silver Plater - Plated the Turnip"
         ]
       ]
     },

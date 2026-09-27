@@ -18,6 +18,7 @@
 * Fixed a missed check that can occure when you collect the `x marks the spot` location without talking to halloway about his half of the map first
 * Added a prevention from being able to eat the Honeyed Jellybean unless you currently have the `AntEyeVirus` flag (and thus have a need to eat it)
 * Fixed a bug where the Purchase of the Honeyed Jellybean can become unpurchasable if you eat the Jellybean or progress the main quest too far, it should now be available from the point you talk to Norton and he gives you the `AntEyeVirus` or if you give him a crown.
+* Fixed bypass of price for eating the turnip
 
 ## AP Logic Changes
 * Added a new **`Clown Campsite - Circus Information`** location for the alternate free Circus Ticket route.
