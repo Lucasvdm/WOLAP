@@ -35,3 +35,4 @@
   * Curious False Mountain Chronokey fabrication now requires the **Curious False Mountain** cylinder.
 * Updated **El Vibrato Quest Completion** logic to require all three location-specific cylinders along with its existing progression requirements.
 * Reclassified **The Worst Gun** from `useful` to `filler`.
+* Restored Vanilla name scheme `Kaye Ridge Mine` from `Kole Ridge Mine` due to the location being named after the developers friend and they changed their name so the developer changed the locations name to match.

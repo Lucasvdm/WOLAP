@@ -113,7 +113,7 @@
       "clowncrimescene: 4500,1860,clowncrimescene,mapicon_destroyedcamp,Destroyed Campsite,b",
       "clowncamp: 4260,2070,clowncamp,mapicon_campsite,Clown Campsite,b",
       "ranch3: 4660,2700,ranch3,mapicon_ranch,Butterfield Ranch,b",
-      "mine2: 4230,2620,mine2,mapicon_mine,Kole Ridge Mine,b",
+      "mine2: 4230,2620,mine2,mapicon_mine,Kaye Ridge Mine,b",
       "professor: 5600,3250,professor,mapicon_house2,The Perfessor's House,b",
       "bigapple: 5110,1840,bigapple,mapicon_bigapple,The Big Apple,b",
       "snakespring: 5700,2550,snakespring,mapicon_spring,Snake Spring,b",
@@ -31222,7 +31222,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine (Level 2) - Bean-Iron Deposit"
+          "checklocation,Kaye Ridge Mine (Level 2) - Bean-Iron Deposit"
         ]
       ]
     },
@@ -31236,7 +31236,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine (Level 3) - Pick-Head"
+          "checklocation,Kaye Ridge Mine (Level 3) - Pick-Head"
         ]
       ]
     },
@@ -31255,7 +31255,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine (Level 2) - Triangular Stones"
+          "checklocation,Kaye Ridge Mine (Level 2) - Triangular Stones"
         ],
         [
           "markused"
@@ -31274,11 +31274,11 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine - First Locker (Item 1)"
+          "checklocation,Kaye Ridge Mine - First Locker (Item 1)"
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine - First Locker (Item 2)"
+          "checklocation,Kaye Ridge Mine - First Locker (Item 2)"
         ],
         [
           "option",
