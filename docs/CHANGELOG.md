@@ -40,3 +40,4 @@
 * Renamed several **El Vibrato locations** to include the corresponding overworld entrance/location in the check name, making it easier to tell which ruin, storage room, construction facility, or control center a check belongs to.
 * Added new check for crafting the year supply of dynamite 
 * Added check location for hellstrom ranch Lucky horseshoe.
+* Updated several classifactions on items to allow for more flexability on location exclusions.
