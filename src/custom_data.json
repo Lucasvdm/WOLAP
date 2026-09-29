@@ -20271,6 +20271,55 @@
         ]
       ]
     },
+    "fort5_blindman": {
+      "binoc": [
+        [
+          "removeitem",
+          "binoculars"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jeweler's Cabin - Spectacles"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addflag",
+          "fort5_privateblindman"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "He takes the binoculars, and peers at you through them."
+        ],
+        [
+          "rightsay",
+          "Well, I'll be! That ain't half bad."
+        ],
+        [
+          "say",
+          "He climbs up to the top of the watchtower and looks around."
+        ],
+        [
+          "rightsay",
+          "They work! I can see a dang thing! Hooray!"
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "option",
+          "done",
+          "Great!"
+        ]
+      ]
+    },
     "fort5_generaldesk": {
       "inv": [
         [
@@ -30133,6 +30182,85 @@
       ]
     },
     "jewelrystore_shop": {
+      "intro2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightportrait",
+          "gobbo"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "rightsay",
+          "%goblin_paragraph%"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "You betting your britches, @sonny@! And not forgetting it!"
+        ],
+        [
+          "rightportrait",
+          "clerk"
+        ],
+        [
+          "rightsay",
+          "He says that's right, the finest jeweler in the territory!"
+        ],
+        [
+          "leftsay",
+          "Well, what do you know. I don't see anything on display, though?"
+        ],
+        [
+          "rightsay",
+          "Master Gerald only does bespoke work. If you bring in a sufficiently valuable gemstone, he'll craft it into a fine ring for you, for a fee."
+        ],
+        [
+          "rightportrait",
+          "gobbo"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "rightsay",
+          "%goblin_paragraph%"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "No trash rocks!"
+        ],
+        [
+          "addflag",
+          "jewelrystore_intro"
+        ],
+        [
+          "if",
+          "hasflag(fort5_glassesquest)>0 && !hasflag(gotglassescheck) && !hasflag(missed_check_forwarded_Jeweler's*Cabin*-*Spectacles)"
+        ],
+        [
+          "goto",
+          "glasses"
+        ],
+        [
+          "sayoption",
+          "optstemp",
+          "Well, here's what I've got..."
+        ]
+      ],
       "buyglasses": [
         [
           "leftspeak",
@@ -30189,6 +30317,10 @@
         [
           "customcommand",
           "checklocation,Jeweler's Cabin - Spectacles"
+        ],
+        [
+          "addflag",
+          "gotglassescheck"
         ],
         [
           "addmeat",
