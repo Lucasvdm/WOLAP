@@ -29711,7 +29711,7 @@
         ],
         [
           "if",
-          "hasflag(mainquest)==3 && !hasflag(YSODcraftcheck)"
+          "hasflag(mainquest)>2 && !hasflag(YSODcraftcheck)"
         ],
         [
           "goto",
