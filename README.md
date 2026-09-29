@@ -136,7 +136,7 @@ To completely remove the manual BepInEx installation:
 2. Download the latest stable release of [BepInEx](https://github.com/BepInEx/BepInEx/releases) (the x64 version)
 3. Extract the contents of the downloaded .zip into the West of Loathing directory
 4. Launch West of Loathing once.  Close it once it reaches the title screen, this is just to finish installing BepInEx.
-5. Download the latest [WOLAP release](https://github.com/Lucasvdm/WOLAP/releases) and extract its contents
+5. Download the latest [WOLAP release](https://github.com/TylerJG92/WOLAP/releases) and extract its contents
 6. From the MonoMod folder, copy the MonoMod.Backports and MonoMod.ILHelpers .dll files into BepInEx\core
 7. There are now 2 methods for this instruction, choose **1** of the following options:
   * From the Patcher folder, copy WOLAP.DependencyPatcher.dll and Newtonsoft.Json.dll into BepInEx\patchers
