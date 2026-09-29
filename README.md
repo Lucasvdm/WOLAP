@@ -40,7 +40,95 @@ The modded version of West of Loathing can be launched at any time using the `(p
 
 Installing WOLAP through r2modman should not interfere with the vanilla game files. You can continue launching the vanilla game normally through Steam or by selecting the dropdown next to `(play) Start modded` and then selecting the option `(play) Start vanilla` within r2modman.
 
-### Manual Installation (Windows/Linux/macOS)
+### Manual Installation (Linux)
+
+These instructions are for the native Linux version of West of Loathing running through Steam.
+
+1. Locate your West of Loathing directory.
+   - In Steam, right-click `West of Loathing` > `Properties` > `Installed Files` > `Browse`.
+
+2. Download the latest stable Linux/macOS build of [BepInEx](https://github.com/BepInEx/BepInEx/releases).
+   - Download the archive marked `nix`.
+   - Unlike the Windows releases, the `nix` archive supports both 32-bit and 64-bit executables.
+
+3. Extract the contents of the BepInEx archive directly into the West of Loathing directory.
+
+4. Open a terminal in the West of Loathing directory and give the BepInEx launch script permission to run:
+
+   ```bash
+   chmod u+x run_bepinex.sh
+   ```
+
+5. In Steam, right-click `West of Loathing` > `Properties` and enter the following under `Launch Options`:
+
+   ```text
+   ./run_bepinex.sh %command%
+   ```
+
+6. Launch West of Loathing normally through Steam once. Close the game after reaching the title screen.
+   - This allows BepInEx to finish its initial setup and create its required folders and files.
+
+7. Download the latest [WOLAP release](https://github.com/TylerJG92/WOLAP/releases) and extract its contents.
+
+8. From the `MonoMod` folder included with WOLAP, copy:
+   - `MonoMod.Backports.dll`
+   - `MonoMod.ILHelpers.dll`
+
+   into:
+
+   ```text
+   BepInEx/core
+   ```
+
+9. From the `Patcher` folder included with WOLAP, copy:
+   - `WOLAP.DependencyPatcher.dll`
+   - `Newtonsoft.Json.dll`
+
+   into:
+
+   ```text
+   BepInEx/patchers
+   ```
+
+10. Copy the `WOLAP` folder containing `WOLAP.dll` and `Archipelago.MultiClient.Net.dll` into:
+
+    ```text
+    BepInEx/plugins
+    ```
+
+11. Launch West of Loathing normally through Steam. Steam should now launch the game through BepInEx and load WOLAP.
+
+#### Uninstalling the Linux Manual Installation
+
+To uninstall WOLAP while keeping BepInEx installed:
+
+- Delete the `WOLAP` folder from:
+
+  ```text
+  BepInEx/plugins
+  ```
+
+- Delete the following files from:
+
+  ```text
+  BepInEx/patchers
+  ```
+
+  - `WOLAP.DependencyPatcher.dll`
+  - `Newtonsoft.Json.dll`
+
+To completely remove the manual BepInEx installation:
+
+- Delete the BepInEx files and folders that were added to the West of Loathing directory.
+- Remove the following from the game's Steam `Launch Options`:
+
+  ```text
+  ./run_bepinex.sh %command%
+  ```
+
+- Verify the game's files through Steam if necessary.
+
+### Manual Installation (Windows/macOS)
 
 **NOTE** The new BepInEx\patchers option on step 7 has **NOT** been tested on Linux or macOS, If you would like to test those yourself, feel free to ping @TylerJG92 in the West of Loathing Archipelago thread [Here](https://discord.com/channels/731205301247803413/1273856413327822950), post a copy of your BepInEx log file if it fails to work or any unexpected errors show up and I will look at it when I can. This should work in theory but if it dosent I would like to see why.
 
