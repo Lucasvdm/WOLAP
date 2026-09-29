@@ -27,7 +27,7 @@
 ## AP Logic Changes
 * Added a new **`Clown Campsite - Circus Information`** location for the alternate free Circus Ticket route.
 * Updated **Tony’s Boots** access logic so the shop can be unlocked with either normal Fort of Darkness access **or the Mushroom Map**, without placing the rest of Fort of Darkness into logic early.
-* Added the missing **Shovel requirement** to `Desert House - Macready's Grave`.
+* Added the missing **Shovel requirement** and **Can reach `Gun Manor Art Gallery` to `Desert House - Macready's Grave`.
 * Added the **Lucky Cap requirement** to `Circus Kid - Lucky Cap Trade`.
 * Updated **Curious Flat Plain - Explorer Skeleton** logic to require the **El Vibrato Transponder**.
 * Split the three generic **El Vibrato Cylinders** into three location-specific progression items:
