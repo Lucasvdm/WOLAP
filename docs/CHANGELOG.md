@@ -19,6 +19,9 @@
 * Added a prevention from being able to eat the Honeyed Jellybean unless you currently have the `AntEyeVirus` flag (and thus have a need to eat it)
 * Fixed a bug where the Purchase of the Honeyed Jellybean can become unpurchasable if you eat the Jellybean or progress the main quest too far, it should now be available from the point you talk to Norton and he gives you the `AntEyeVirus` or if you give him a crown.
 * Fixed bypass of price for eating the turnip
+* Added Misspoint for `Jewelry Shop - Specticals` if binocs are given to the blindman
+    * Made the `Jewelry Shop - Specticals` check not lock out once specticals are given to the Blindman
+* Added misspoint for `The Daveyard Mausoleum - The Skeleton of Dave B. Defeated` if all 4 human ashes are used from the pool for xp.
 
 ## AP Logic Changes
 * Added a new **`Clown Campsite - Circus Information`** location for the alternate free Circus Ticket route.
@@ -41,3 +44,5 @@
 * Added new check for crafting the year supply of dynamite 
 * Added check location for hellstrom ranch Lucky horseshoe.
 * Updated several classifactions on items to allow for more flexability on location exclusions.
+* Updated check location name for `Deepest Delve Mine (Level 2) - Bracelet` to `Deepest Delve Mine (Level 3) - Bracelet`
+* Changed `Human Ashes X2` from 1 bunch in pool and many more possibly in pool as needed to fill in extra space to 2 bunches in the pool to allow for missed check forwarding.

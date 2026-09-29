@@ -29918,6 +29918,74 @@
         ]
       ]
     },
+    "item_humanash": {
+      "scatter": [
+        [
+          "cls"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "incflag",
+          "usedashes,1"
+        ],
+        [
+          "if",
+          "hasflag(usedashes)==4"
+        ],
+        [
+          "customcommand",
+          "misspoint,The Daveyard Mausoleum - The Skeleton of Dave B. Defeated"
+        ],
+        [
+          "say",
+          "You find a pleasant-looking vista and toss the ashes into the air.  That's... probably what that person would've wanted, you guess."
+        ],
+        [
+          "addxp",
+          "10"
+        ],
+        [
+          "option",
+          "done",
+          "Rest in peace, ashes"
+        ]
+      ],
+      "eat": [
+        [
+          "cls"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "say",
+          "You swallow the ashes and absorb their death essence.  You're always thinking about things like \"death essence\" now."
+        ],
+        [
+          "incflag",
+          "usedashes,1"
+        ],
+        [
+          "if",
+          "hasflag(usedashes)==4"
+        ],
+        [
+          "customcommand",
+          "misspoint,The Daveyard Mausoleum - The Skeleton of Dave B. Defeated"
+        ],
+        [
+          "addxp",
+          "100"
+        ],
+        [
+          "option",
+          "done",
+          "Muahahaha"
+        ]
+      ]
+    },
     "item_jethrolocket": {
       "open": [
         [
