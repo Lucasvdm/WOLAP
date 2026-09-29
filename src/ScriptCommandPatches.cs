@@ -187,26 +187,14 @@ namespace WOLAP
             long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
 
             bool foundItemInfo = false;
-            for(int attempt = 0; attempt < 2; attempt++)
+            WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
             {
-                WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
-                {
-                if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
+            if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
 
-                ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
-                check.ApItemInfo = itemInfo;
-                foundItemInfo = true;
-                }).Wait(TimeSpan.FromSeconds(10));
-
-                if (foundItemInfo || attempt ==1)
-                {
-                    break;
-                }
-                if (!foundItemInfo)
-                {
-                    WolapPlugin.Log.LogInfo($"Tried to generate shop item for missed check [{locationName}], but could not retireve the item info. Retrying once");
-                }
-            }
+            ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
+            check.ApItemInfo = itemInfo;
+            foundItemInfo = true;
+            }).Wait(TimeSpan.FromSeconds(20));
 
             if (!foundItemInfo)
             {
@@ -331,6 +319,12 @@ namespace WOLAP
             List<ShopCheckLocation> shopItems = ArchipelagoClient.MissedCheckLocations.FindAll(check => check.ShopID == shopID);
             foreach(ShopCheckLocation item in shopItems)
             {
+                if(item.ApItemInfo == null)
+                {
+                    WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
+                    //add new recheck flag here so opening another time will re-run this command.
+                    continue;
+                }
                 var apFlags = item.ApItemInfo.Flags;
                 bool progressive = apFlags.HasFlag(ItemFlags.Advancement);
                 if(!flags.ContainsKey(Constants.GotHintFlagPrefix + item.Name.Replace(" ", "")))
