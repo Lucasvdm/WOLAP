@@ -27482,6 +27482,14 @@
           "misspoint,Gun Manor Art Gallery - Lawyer Quest Completion"
         ],
         [
+          "if",
+          "!hasflag(house_ghost_lawyer_search)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Desert House - Macready's Grave"
+        ],
+        [
           "addstate",
           "winbutton,Hooray!"
         ],

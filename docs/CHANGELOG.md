@@ -22,6 +22,7 @@
 * Added Misspoint for `Jewelry Shop - Specticals` if binocs are given to the blindman
     * Made the `Jewelry Shop - Specticals` check not lock out once specticals are given to the Blindman
 * Added misspoint for `The Daveyard Mausoleum - The Skeleton of Dave B. Defeated` if all 4 human ashes are used from the pool for xp.
+* Added Misspoint for `Desert House - Macready's Grave` if the lawyer ghost in gun mannor is killed before being sent to search for the grave.
 
 ## AP Logic Changes
 * Added a new **`Clown Campsite - Circus Information`** location for the alternate free Circus Ticket route.
