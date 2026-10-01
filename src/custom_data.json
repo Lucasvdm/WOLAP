@@ -16975,6 +16975,10 @@
           "dirtwatergeneral,binoculars,1"
         ],
         [
+          "addnpcstoreitem",
+          "dirtwatergeneral,oilcan,2"
+        ],
+        [
           "if",
           "gary"
         ],
@@ -17010,6 +17014,10 @@
         [
           "addnpcstoreitem",
           "dirtwatergeneral,binoculars,1"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwatergeneral,oilcan,1"
         ],
         [
           "incflag",
