@@ -7037,6 +7037,29 @@
       ]
     },
     "beancave_beaniron1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean-iron."
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [Pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you don't have a pickaxe..."
+        ]
+      ],
       "pickit": [
         [
           "cls"
