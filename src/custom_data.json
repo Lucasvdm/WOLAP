@@ -7528,7 +7528,7 @@
         [
           "addflag",
           "breadwoodshophinting"
-        ] ,
+        ],
         [
           "npcstore",
           "breadwood,900,-10"
@@ -16749,7 +16749,7 @@
         ],
         [
           "if",
-          "hasflag(tonyshophinting) | hasflag(tonyshophintupdate)"
+          "hasflag(tonyshophint) | hasflag(tonyshophintupdate)"
         ],
         [
           "customcommand",
