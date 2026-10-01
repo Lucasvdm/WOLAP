@@ -21176,6 +21176,179 @@
         ]
       ]
     },
+    "frisco_norton": {
+      "start": [
+        [
+          "if",
+          "hasflag(canbuyhoneybean) && !hasitem(hat_teethcrown) | hasflag(canbuyhoneybean) && !hasitem(hat_necrocrown) | hasflag(canbuyhoneybean) && !hasitem(hat_silverturnip) | hasflag(canbuyhoneybean) && !hasitem(hat_elvcrown) | hasflag(canbuyhoneybean) && !hasitem(quest_honeybean)"
+        ],
+        [
+          "goto",
+          "done"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Who the heck are you?"
+        ],
+        [
+          "rightportrait",
+          "norton"
+        ],
+        [
+          "rightsay",
+          "I'm Emperor Norton! I'm in charge of this city, and you can't build any train tracks here without my permission!"
+        ],
+        [
+          "leftsay",
+          "An emperor? Where's your crown, then?"
+        ],
+        [
+          "rightsay",
+          "As it happens, I lost my dang crown. Fool thing didn't fit right anyway. But without it, I can't issue any official permits, and that means no rails for you! Unless, of course... you were to give me a <i>new</i> crown. A <i>properly-fitting</i> one."
+        ],
+        [
+          "sayoption",
+          "notready",
+          "I still need a few things first, can I go past into town and leave the train here?"
+        ],
+        [
+          "if",
+          "hasitem(hat_teethcrown)"
+        ],
+        [
+          "sayoption",
+          "crown1",
+          "I've got this gold crown. [Give gold tooth crown]"
+        ],
+        [
+          "if",
+          "hasitem(hat_necrocrown)"
+        ],
+        [
+          "sayoption",
+          "crown2",
+          "I've got this creepy crown. [Give necromancer crown]"
+        ],
+        [
+          "if",
+          "hasitem(hat_silverturnip)"
+        ],
+        [
+          "sayoption",
+          "crown3",
+          "I've got this... silver crown. [Give turnip crown]"
+        ],
+        [
+          "if",
+          "hasitem(hat_elvcrown)"
+        ],
+        [
+          "sayoption",
+          "crown4",
+          "I've got this weird crown. [Give El Vibrato crown]"
+        ],
+        [
+          "if",
+          "!hasitem(hat_teethcrown) && !hasitem(hat_necrocrown) && !hasitem(hat_silverturnip) && !hasitem(hat_elvcrown)"
+        ],
+        [
+          "sayoption",
+          "nocrowna",
+          "I don't have any crowns, sorry."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "sayoption",
+          "nocrowna",
+          "Hmm, I don't think I want to give you a crown. Sorry."
+        ]
+      ],
+      "nocrown": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Well! I guess that just tears it, don't it? So not only do you not get that permit, but also..."
+        ],
+        [
+          "say",
+          "He reaches into his pocket and grabs a handful of powder, which he throws in your face. Your eyes burn."
+        ],
+        [
+          "rightsay",
+          "Hah! Have a taste of my famous ant-eye virus, sucker!"
+        ],
+        [
+          "say",
+          "Your vision goes all weird and you pass out..."
+        ],
+        [
+          "addflag",
+          "anteyevirus"
+        ],
+        [
+          "addflag",
+          "mainquest,31"
+        ],
+        [
+          "option",
+          "trainnapping",
+          "What was <i>that</i>!?"
+        ]
+      ],
+      "nocrowna": [
+        [
+          "if",
+          "!hasitem(quest_honeybean)"
+        ],
+        [
+          "say",
+          "Norton looks at you confused"
+        ],
+        [
+          "if",
+          "!hasitem(quest_honeybean)"
+        ],
+        [
+          "sayoption",
+          "notready",
+          "I still need a few things first, can I go past into town and leave the train here?"
+        ],
+        [
+          "sayoption",
+          "nocrown",
+          "I don't believe you are the emperor! I'll just have Smee build the tracks without your permission."
+        ]
+      ],
+      "notready": [
+        [
+          "addflag",
+          "canbuyhoneybean"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "Into town? Hmph. Fine, I suppose. But that train stays right where it is! No tracks in my city until I get a proper crown."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Fair enough."
+        ]
+      ]
+    },
     "geocave_rock": {
       "giverock": [
         [
@@ -66625,7 +66798,7 @@
         ],
         [
           "if",
-          "hasflag(mainquest)>31 && !hasflag(honeybeanpurchased)"
+          "hasflag(mainquest)>31 && !hasflag(honeybeanpurchased) | hasflag(canbuyhoneybean) && !hasflag(honeybeanpurchased)"
         ],
         [
           "goto",
@@ -66647,7 +66820,7 @@
       "buy0": [
         [
           "if",
-          "!hasflag(mainquest)>34"
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
         ],
         [
           "addflag",
@@ -66678,7 +66851,7 @@
       "buy1": [
         [
           "if",
-          "!hasflag(mainquest)>34"
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
         ],
         [
           "addflag",
@@ -66709,7 +66882,7 @@
       "buy2": [
         [
           "if",
-          "!hasflag(mainquest)>34"
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
         ],
         [
           "addflag",
@@ -66740,7 +66913,7 @@
       "buy3": [
         [
           "if",
-          "!hasflag(mainquest)>34"
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
         ],
         [
           "addflag",

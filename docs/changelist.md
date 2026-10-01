@@ -22,6 +22,7 @@ This list is subject to change.
 - Auto-levelling has been disabled by default (it can still be toggled on in the settings)
 - In the base game there are many, many item drops that can easily be missed and permanently locked out of.  Where possible these have been tweaked to be *less* missable, but it's not reasonable to make it impossible in all cases.  A system has been implemented so that completely missed checks can later be purchased from a shop.
   - The checks that are missed are now sent to the Dirtwater Bartender in **The Jewel Saloon**
+- Emperor Norton can now be skipped over in the event you are not ready to face him or counter the ant-eye virus.
 
 ## Your Family's Farm (Starting Zone)
 - The gifts you receive from your parents are no longer class-dependent or by choice, they're just one check location each
