@@ -32205,6 +32205,92 @@
         ]
       ]
     },
+    "mine5_elvvending": {
+      "refund": [
+        [
+          "say",
+          "You press the button and the machine ejects the pentagon you just put in it."
+        ],
+        [
+          "say",
+          "What? It didnt give back the fluid..?"
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ TASTA STAZAK"
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "food": [
+        [
+          "say",
+          "A featureless brown cube drops into the aperture... or should have... what is this thing??"
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ CHOTAZAK"
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "booze": [
+        [
+          "say",
+          "A ceramic cylinder filled with liquid clatters into the aperture."
+        ],
+        [
+          "say",
+          "It then fades away and is replaced by something else... Strange..."
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ GACHAKUZ"
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "potion": [
+        [
+          "say",
+          "A glass tube filled with bubbling fluid clinks into the aperture."
+        ],
+        [
+          "say",
+          "It then fades away and is replaced by something else... Why??"
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ NOHONOKSTA"
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ]
+    },
     "mine5_knapsack": {
       "dig": [
         [

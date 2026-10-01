@@ -713,7 +713,9 @@ namespace WOLAP
             new ArchipelagoItem("Can Of Oil", ["oilcan"]),
             new ArchipelagoItem("Packet Of Cowsbane Seeds", ["quest_cowsbaneseeds"]),
             new ArchipelagoItem("Lactarius Dirtihippica mushroom x4", ["food_shroom1"], [4]),
-            new ArchipelagoItem("Silver-Toothed Skull", ["quest_mine4skull"])
+            new ArchipelagoItem("Silver-Toothed Skull", ["quest_mine4skull"]),
+            new ArchipelagoItem("El Vibrato Food Cube", ["food_elv"]),
+            new ArchipelagoItem("El Vibrato Rum x3",["booze_elv"], [3])
         };
     }
 }
