@@ -20370,6 +20370,14 @@
           "fort5_privatebowlegs"
         ],
         [
+          "customcommand",
+          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
+        ],
+        [
+          "mapunlock",
+          "fort7,Alamo Rent-A-Mule"
+        ],
+        [
           "addxp",
           "@xpreward_g@"
         ],
@@ -20377,10 +20385,6 @@
           "sayoption",
           "done",
           "Hey, wait! You owe me 1500 Meat! Dammit!"
-        ],
-        [
-          "customcommand",
-          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
         ]
       ],
       "bend": [
@@ -20401,13 +20405,17 @@
           "Ow! Great jumpin' jiminy, @man@!"
         ],
         [
+          "customcommand",
+          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
+        ],
+        [
+          "mapunlock",
+          "fort7,Alamo Rent-A-Mule"
+        ],
+        [
           "sayoption",
           "bend2",
           "Oh, don't be a baby. Look, they're much straighter now."
-        ],
-        [
-          "customcommand",
-          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
         ]
       ]
     },
