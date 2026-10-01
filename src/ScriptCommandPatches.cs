@@ -110,6 +110,9 @@ namespace WOLAP
                     case "progressiveshophintingmissed":
                         HandleMissedShopHintingCommand(cmdCopy);
                         break;
+                    case "sallyshophinting":
+                        HandleSallyShopHintingCommand(cmdCopy);
+                        break;
                 }
 
                 __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught before this patch
@@ -287,6 +290,12 @@ namespace WOLAP
             {
                 var apFlags = item.ApItemInfo.Flags;
                 bool progressive = apFlags.HasFlag(ItemFlags.Advancement);
+                if(item.ApItemInfo == null)
+                {
+                    WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
+                    //So far from testing this happens when forwarded checks that have already been hinted get hinted again.. not sure why but it dosent really do anything.
+                    continue;
+                }
                 if(!flags.ContainsKey(Constants.GotHintFlagPrefix + item.Name.Replace(" ", "")))
                 {
                     WolapPlugin.Log.LogInfo($"Checking if item [{item.Name}] found at [{item.ShopID}] that is AP flag: [{apFlags}] should be hinted.");
@@ -322,7 +331,7 @@ namespace WOLAP
                 if(item.ApItemInfo == null)
                 {
                     WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
-                    //add new recheck flag here so opening another time will re-run this command.
+                    //So far from testing this happens when forwarded checks that have already been hinted get hinted again.. not sure why but it dosent really do anything.
                     continue;
                 }
                 var apFlags = item.ApItemInfo.Flags;
@@ -342,6 +351,96 @@ namespace WOLAP
                     long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, item.Name);
                     HintStatus hintStatus = HintStatus.Unspecified; //needs to be unspecified to work
                     WolapPlugin.Archipelago.Session.Hints.CreateHints(hintStatus,checkID);
+                }
+            }
+        }
+
+        private static void HandleSallyShopHintingCommand(MCommand cmd)
+        {
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var shopID = cmd.StrArg(0);
+            flags.TryGetValue("sallytimes", out var sallyTimes);
+            int.TryParse(sallyTimes, out int sallyVisit);
+            List<ShopCheckLocation> shopItems = ArchipelagoClient.ShopCheckLocations.FindAll(check => check.ShopID == shopID);
+            foreach(ShopCheckLocation item in shopItems)
+            {
+                var sallyShopStart = "Wanderin' Sally's Camp - Item";
+                int.TryParse(item.Name.Replace(sallyShopStart, ""), out int itemNumber);
+                if(item.ApItemInfo == null)
+                {
+                    WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
+                    //So far from testing this happens when forwarded checks that have already been hinted get hinted again.. not sure why but it dosent really do anything.
+                    continue;
+                }
+                var apFlags = item.ApItemInfo.Flags;
+                bool progressive = apFlags.HasFlag(ItemFlags.Advancement);
+                if(flags.ContainsKey("sallytimes"))
+                {
+                    switch (sallyVisit)
+                    {
+                        case 1:
+                            if(itemNumber is >= 1 && itemNumber <= 8)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case 2:
+                            if(itemNumber is >= 9 && itemNumber <= 10)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case 3:
+                            if(itemNumber is >= 11 && itemNumber <= 13)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case 6:
+                            if(itemNumber == 14)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case -1:
+                            if(!flags.ContainsKey(Constants.GotHintFlagPrefix + item.Name.Replace(" ", "")))
+                            {
+                                WolapPlugin.Log.LogInfo($"Checking if item [{item.Name}] found at [{item.ShopID}] that is AP flag: [{apFlags}] should be hinted.");
+                                flags.Add(Constants.GotHintFlagPrefix + item.Name.Replace(" ", ""), "1");                        
+                            }
+                            if(progressive == false)
+                            {
+                                WolapPlugin.Log.LogInfo($"Item [{item.Name}] is not Progressive, skipping hint.");
+                                continue;
+                            }
+                            else
+                            {
+                                long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, item.Name);
+                                HintStatus hintStatus = HintStatus.Unspecified; //needs to be unspecified to work
+                                WolapPlugin.Archipelago.Session.Hints.CreateHints(hintStatus,checkID);
+                            }
+                            goto default;
+                        default:
+                            continue;
+                    }
                 }
             }
         }
