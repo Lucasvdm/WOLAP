@@ -147,7 +147,7 @@ namespace WOLAP
                         traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
                         traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
                     }
-                }).Wait(TimeSpan.FromSeconds(3));
+                }).Wait(TimeSpan.FromSeconds(10));
             }
         }
 
@@ -197,7 +197,7 @@ namespace WOLAP
             ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
             check.ApItemInfo = itemInfo;
             foundItemInfo = true;
-            }).Wait(TimeSpan.FromSeconds(20));
+            }).Wait(TimeSpan.FromSeconds(13));
 
             if (!foundItemInfo)
             {
@@ -235,26 +235,14 @@ namespace WOLAP
             long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
 
             bool foundItemInfo = false;
-            for(int attempt = 0; attempt < 2; attempt++)
+            WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
             {
-                WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
-                {
-                if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
+            if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
 
-                ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
-                check.ApItemInfo = itemInfo;
-                foundItemInfo = true;
-                }).Wait(TimeSpan.FromSeconds(10));
-
-                if (foundItemInfo || attempt ==1)
-                {
-                    break;
-                }
-                if (!foundItemInfo)
-                {
-                    WolapPlugin.Log.LogInfo($"Tried to generate shop item for missed check [{locationName}], but could not retireve the item info. Retrying once");
-                }
-            }
+            ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
+            check.ApItemInfo = itemInfo;
+            foundItemInfo = true;
+            }).Wait(TimeSpan.FromSeconds(13));
 
             if (!foundItemInfo)
             {
@@ -274,7 +262,6 @@ namespace WOLAP
             // This gives the player a flag specifically for the missed shop to indicate when it needs to hint the items out
             if (!flags.ContainsKey("lloydshophinting")) {flags.Add("lloydshophinting", "1");}
         }
-
         private static void HandleShopHintingCommand(MCommand cmd)
         {
             if (cmd.argCount != 1)
