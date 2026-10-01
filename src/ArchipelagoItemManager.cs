@@ -513,7 +513,9 @@ namespace WOLAP
             new ArchipelagoItem("Dining Car Key", ["quest_trainkey3"]),
             new ArchipelagoItem("Discipline Slip", ["quest_necrotoken4"]),
             new ArchipelagoItem("El Vibrato Cross", ["quest_elvcross"]),
-            new ArchipelagoItem("El Vibrato Cylinder", ["elv_fuse"]),
+            new ArchipelagoItem("El Vibrato Cylinder (Lost Dutch Oven Mine)", ["elv_fuse"]),
+            new ArchipelagoItem("El Vibrato Cylinder (Curious Flat Plain)", ["elv_fuse2"]),
+            new ArchipelagoItem("El Vibrato Cylinder (Curious False Mountain)", ["elv_fuse3"]),
             new ArchipelagoItem("El Vibrato Device", ["elv_batterybox"]),
             new ArchipelagoItem("El Vibrato Model Bridge", ["elv_bridgebeacon"]),
             new ArchipelagoItem("El Vibrato Rod", ["elv_detector"]),
@@ -711,7 +713,9 @@ namespace WOLAP
             new ArchipelagoItem("Can Of Oil", ["oilcan"]),
             new ArchipelagoItem("Packet Of Cowsbane Seeds", ["quest_cowsbaneseeds"]),
             new ArchipelagoItem("Lactarius Dirtihippica mushroom x4", ["food_shroom1"], [4]),
-            new ArchipelagoItem("Silver-Toothed Skull", ["quest_mine4skull"])
+            new ArchipelagoItem("Silver-Toothed Skull", ["quest_mine4skull"]),
+            new ArchipelagoItem("El Vibrato Food Cube", ["food_elv"]),
+            new ArchipelagoItem("El Vibrato Rum x3",["booze_elv"], [3])
         };
     }
 }
