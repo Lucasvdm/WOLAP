@@ -32497,6 +32497,14 @@
           "mine5_gotvendchecks"
         ],
         [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
+        ],
+        [
           "say",
           "The screen flickers back to:"
         ],
@@ -32537,6 +32545,14 @@
         [
           "addflag",
           "mine5_gotvendchecks"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
         ],
         [
           "say",
@@ -32585,6 +32601,14 @@
           "mine5_gotvendchecks"
         ],
         [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
+        ],
+        [
           "say",
           "The screen flickers back to:"
         ],
@@ -32629,6 +32653,14 @@
         [
           "addflag",
           "mine5_gotvendchecks"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
         ],
         [
           "say",
