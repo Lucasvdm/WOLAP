@@ -21,7 +21,8 @@ This list is subject to change.
 - Hard mode will be implemented as a toggle in the settings, so you no longer choose that when skipping the tutorial [NOT YET IMPLEMENTED - Hard mode is currently disabled]
 - Auto-levelling has been disabled by default (it can still be toggled on in the settings)
 - In the base game there are many, many item drops that can easily be missed and permanently locked out of.  Where possible these have been tweaked to be *less* missable, but it's not reasonable to make it impossible in all cases.  A system has been implemented so that completely missed checks can later be purchased from a shop.
-  - The plan is to create a new custom shop for this in the future, but for now these checks are just sent to Dirtwater Mercantile
+  - The checks that are missed are now sent to the Dirtwater Bartender in **The Jewel Saloon**
+- Emperor Norton can now be skipped over in the event you are not ready to face him or counter the ant-eye virus.
 
 ## Your Family's Farm (Starting Zone)
 - The gifts you receive from your parents are no longer class-dependent or by choice, they're just one check location each
@@ -58,7 +59,7 @@ This list is subject to change.
 - The checks for General Gob's hat and pistol are both available from any persuasion check, even though Intimidatin' normally only gives his hat and Hornswogglin' normally only gives his gun
 - You can enter the Fort Cowardice toilet tent even if you have Goblintongue to read the sign
 - The "Fort Cowardice Goblin Caves - First Victory" check replaces the Goblin Spyglass drop from the infinite goblin combat there, and it is guaranteed the first time you beat them (unlike the spyglass, which is normally a random chance if you don't have it already)
-- In Gustavson Gulch, in the theatre tent, you can now fight Goblet even if you listen from backstage first… if you're a jerk
+- In Gustavson Gulch, in the theatre tent, you can now fight Goblet even if you listen from backstage firstï¿½ if you're a jerk
 - You can get the remaining Gustavson Gulch treasure cave key even if you've already unlocked it
 - You can get the check for picking up an interesting rock in Railroad Camp (East) or The West Pole even if you've already gotten the other, as long as you've reached that step in Dr. Morton's quest
 - In Fort Alldead, you can get the check for grabbing the skeleton spoor out of the toilet even if you don't have Doc Alice or the idea to poison the skeletons, and doing so will give you the idea to poison them if you don't have it already
@@ -80,7 +81,7 @@ This list is subject to change.
 - Simplified progressive logic for Rufus' gift checks
   - Normally, if you've gotten your class' crafting skill, your next gift from Rufus will always be the relevant crafting bench.  This means that it's theoretically possible to miss that gift if you use all 5 postcards before getting the skill.  The animal hat gift can also be missed in vanilla if you don't shoot a stuffed animal during character creation to choose your favorite.  In WOLAP the gifts are all just given in sequential order, one check each, with the check replacing the crafting bench given first.
 - The logic and increments for some progressive container loot/checks have been tweaked
-  - Example: The logic for grave container loot seems like it may have been intended to give incremental items starting with the 3rd or 4th container, but since the flag was incremented at the end of the script it actually started with the 5th (5, 8, 11…).  In keeping with the pattern of 3, it's been changed to start with the 3rd container.
+  - Example: The logic for grave container loot seems like it may have been intended to give incremental items starting with the 3rd or 4th container, but since the flag was incremented at the end of the script it actually started with the 5th (5, 8, 11ï¿½).  In keeping with the pattern of 3, it's been changed to start with the 3rd container.
   - Also, you would normally always be given an old wedding ring if you didn't have one, unless you were also eligible for an incremental item -- in which case you'd randomly be given one of the two and would get the other from the next container.  Now, you'll just get both at once.
 - For the House-in-the-Desert Gang:
   - After locking them in and talking to them, you are now given another chance to shake them down after choosing the "hands up" or "we've got you surrounded" options

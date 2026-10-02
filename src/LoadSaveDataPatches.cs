@@ -67,6 +67,9 @@ namespace WOLAP
 
                 WolapPlugin.Archipelago.SlotDataFlagsSet = false; //Will set slot data flags on next update
                 WolapPlugin.Archipelago.ResetItemManager();
+
+                //Clear and rebuild the List for missed shop items that were forwarded
+                WolapPlugin.Archipelago.RebuildMissedCheckLocations();
             }
             else
             {

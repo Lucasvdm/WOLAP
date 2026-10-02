@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using Archipelago.MultiClient.Net.Models;
+using Archipelago.MultiClient.Net.Enums;
+using Archipelago.MultiClient.Net.Helpers;
 using HarmonyLib;
 using UnityEngine;
 using static System.Collections.Specialized.BitVector32;
@@ -98,6 +101,18 @@ namespace WOLAP
                     case "misspoint":
                         HandleMissedCheckCommand(cmdCopy);
                         break;
+                    case "misspointturnip":
+                        HandleMissedTurnipCheckCommand(cmdCopy);
+                        break;
+                    case "progressiveshophinting":
+                        HandleShopHintingCommand(cmdCopy);
+                        break;
+                    case "progressiveshophintingmissed":
+                        HandleMissedShopHintingCommand(cmdCopy);
+                        break;
+                    case "sallyshophinting":
+                        HandleSallyShopHintingCommand(cmdCopy);
+                        break;
                 }
 
                 __result = true; //Usually true by default, gets set to false by some dialog-closing commands or errors, but most Ops skip an assignment to false at the end of the method that will get caught before this patch
@@ -132,7 +147,7 @@ namespace WOLAP
                         traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
                         traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
                     }
-                }).Wait(TimeSpan.FromSeconds(3));
+                }).Wait(TimeSpan.FromSeconds(5));
             }
         }
 
@@ -159,6 +174,50 @@ namespace WOLAP
             WolapPlugin.Archipelago.AddCheckToShop(check);
         }
 
+        private static void HandleMissedTurnipCheckCommand(MCommand cmd) 
+        { //this is specifically to go around the player skipping the price on the silver plating the turnip. It will be set the same price as in the silver plater in the missed shop
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var locationName = cmd.StrArg(0);
+            if (flags.ContainsKey(Constants.GotCheckFlagPrefix + locationName.Replace(" ", "")) || flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + locationName.Replace(" ", ""))) return;
+
+            ShopCheckLocation check = new ShopCheckLocation(locationName, "dirtwaterbartender", 5000);
+            long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
+
+            bool foundItemInfo = false;
+            WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
+            {
+            if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
+
+            ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
+            check.ApItemInfo = itemInfo;
+            foundItemInfo = true;
+            }).Wait(TimeSpan.FromSeconds(13));
+
+            if (!foundItemInfo)
+            {
+                WolapPlugin.Log.LogWarning($"Tried to generate shop item for missed check [{locationName}], but could not retrieve the item info. This location may be disabled by an AP option.");
+                return;
+            }
+
+            WolapPlugin.Log.LogInfo($"Retrieved item info for missed check [{check.Name}].");
+            MItem newItem = WolapPlugin.Archipelago.AddCheckToShop(check);
+            flags.Add(Constants.MissedForwardedFlagPrefix + check.Name.Replace(" ", "*"), "1");
+            ArchipelagoClient.MissedCheckLocations.Add(check);
+            MItem shopItem = MPlayer.instance.stores[check.ShopID].items.Values.Where(item => item.data["description"] == newItem.data["description"]).First(); //There HAS to be a better way to do this
+            shopItem.data["description"] += $"\n\nMissed check originally located at <b>{check.Name}</b>";
+
+            // As soon as the player gets 1 missed check, this flag gets applied. This indicates to the missed check to change from vanilla dirtwater bartender to the different shop ui.
+            if (!flags.ContainsKey("anymissedcheck")) {flags.Add("anymissedcheck", "1");}
+            // This gives the player a flag specifically for the missed shop to indicate when it needs to hint the items out
+            if (!flags.ContainsKey("lloydshophinting")) {flags.Add("lloydshophinting", "1");}
+        }
+
         private static void HandleMissedCheckCommand(MCommand cmd)
         {
             if (cmd.argCount != 1)
@@ -171,29 +230,206 @@ namespace WOLAP
             var locationName = cmd.StrArg(0);
             if (flags.ContainsKey(Constants.GotCheckFlagPrefix + locationName.Replace(" ", "")) || flags.ContainsKey(Constants.AddedShopCheckFlagPrefix + locationName.Replace(" ", ""))) return;
 
-            ShopCheckLocation check = new ShopCheckLocation(locationName, "dirtwatergeneral", 1000);
+            int price = UnityEngine.Random.Range(100, 1251);
+            ShopCheckLocation check = new ShopCheckLocation(locationName, "dirtwaterbartender", price);
             long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, check.Name);
 
             bool foundItemInfo = false;
             WolapPlugin.Archipelago.Session.Locations.ScoutLocationsAsync([checkID]).ContinueWith(locationInfoPacket =>
             {
-                if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
+            if (locationInfoPacket.Result == null || locationInfoPacket.Result.Values.Count == 0) return;
 
-                ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
-                check.ApItemInfo = itemInfo;
-                foundItemInfo = true;
-            }).Wait(TimeSpan.FromSeconds(10));
+            ItemInfo itemInfo = locationInfoPacket.Result.Values.First();
+            check.ApItemInfo = itemInfo;
+            foundItemInfo = true;
+            }).Wait(TimeSpan.FromSeconds(13));
 
             if (!foundItemInfo)
             {
-                WolapPlugin.Log.LogInfo($"Tried to generate shop item for missed check [{locationName}], but could not retrieve the item info. This location may be disabled by an AP option.");
+                WolapPlugin.Log.LogWarning($"Tried to generate shop item for missed check [{locationName}], but could not retrieve the item info. This location may be disabled by an AP option.");
                 return;
             }
 
             WolapPlugin.Log.LogInfo($"Retrieved item info for missed check [{check.Name}].");
             MItem newItem = WolapPlugin.Archipelago.AddCheckToShop(check);
+            flags.Add(Constants.MissedForwardedFlagPrefix + check.Name.Replace(" ", "*"), "1");
+            ArchipelagoClient.MissedCheckLocations.Add(check);
             MItem shopItem = MPlayer.instance.stores[check.ShopID].items.Values.Where(item => item.data["description"] == newItem.data["description"]).First(); //There HAS to be a better way to do this
             shopItem.data["description"] += $"\n\nMissed check originally located at <b>{check.Name}</b>";
+
+            // As soon as the player gets 1 missed check, this flag gets applied. This indicates to the missed check to change from vanilla dirtwater bartender to the different shop ui.
+            if (!flags.ContainsKey("anymissedcheck")) {flags.Add("anymissedcheck", "1");}
+            // This gives the player a flag specifically for the missed shop to indicate when it needs to hint the items out
+            if (!flags.ContainsKey("lloydshophinting")) {flags.Add("lloydshophinting", "1");}
+        }
+        private static void HandleShopHintingCommand(MCommand cmd)
+        {
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var shopID = cmd.StrArg(0);
+            List<ShopCheckLocation> shopItems = ArchipelagoClient.ShopCheckLocations.FindAll(check => check.ShopID == shopID);
+            foreach(ShopCheckLocation item in shopItems)
+            {
+                var apFlags = item.ApItemInfo.Flags;
+                bool progressive = apFlags.HasFlag(ItemFlags.Advancement);
+                if(item.ApItemInfo == null)
+                {
+                    WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
+                    //So far from testing this happens when forwarded checks that have already been hinted get hinted again.. not sure why but it dosent really do anything.
+                    continue;
+                }
+                if(!flags.ContainsKey(Constants.GotHintFlagPrefix + item.Name.Replace(" ", "")))
+                {
+                    WolapPlugin.Log.LogInfo($"Checking if item [{item.Name}] found at [{item.ShopID}] that is AP flag: [{apFlags}] should be hinted.");
+                    flags.Add(Constants.GotHintFlagPrefix + item.Name.Replace(" ", ""), "1");
+                }
+                if(progressive == false)
+                {
+                    WolapPlugin.Log.LogInfo($"Item [{item.Name}] is not Progressive, skipping hint.");
+                    continue;
+                }
+                else
+                {
+                    long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, item.Name);
+                    HintStatus hintStatus = HintStatus.Unspecified; //Needs to be Unspecified per documentation on APServer implamentation multiworld.py to be allowed to work.
+                    WolapPlugin.Archipelago.Session.Hints.CreateHints(hintStatus,checkID);
+                }
+            }
+        }
+
+        private static void HandleMissedShopHintingCommand(MCommand cmd)
+        {
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var shopID = cmd.StrArg(0);
+            List<ShopCheckLocation> shopItems = ArchipelagoClient.MissedCheckLocations.FindAll(check => check.ShopID == shopID);
+            foreach(ShopCheckLocation item in shopItems)
+            {
+                if(item.ApItemInfo == null)
+                {
+                    WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
+                    //So far from testing this happens when forwarded checks that have already been hinted get hinted again.. not sure why but it dosent really do anything.
+                    continue;
+                }
+                var apFlags = item.ApItemInfo.Flags;
+                bool progressive = apFlags.HasFlag(ItemFlags.Advancement);
+                if(!flags.ContainsKey(Constants.GotHintFlagPrefix + item.Name.Replace(" ", "")))
+                {
+                    WolapPlugin.Log.LogInfo($"Checking if item [{item.Name}] found at [{item.ShopID}] that is AP flag: [{apFlags}] should be hinted.");
+                    flags.Add(Constants.GotHintFlagPrefix + item.Name.Replace(" ", ""), "1");
+                }
+                if(progressive == false)
+                {
+                    WolapPlugin.Log.LogInfo($"Item [{item.Name}] is not Progressive, skipping hint.");
+                    continue;
+                }
+                else
+                {
+                    long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, item.Name);
+                    HintStatus hintStatus = HintStatus.Unspecified; //needs to be unspecified to work
+                    WolapPlugin.Archipelago.Session.Hints.CreateHints(hintStatus,checkID);
+                }
+            }
+        }
+
+        private static void HandleSallyShopHintingCommand(MCommand cmd)
+        {
+            if (cmd.argCount != 1)
+            {
+                cmd.LogError("only expects a check location name, but got " + cmd.argChunk);
+                return;
+            }
+
+            var flags = MPlayer.instance.data;
+            var shopID = cmd.StrArg(0);
+            flags.TryGetValue("sallytimes", out var sallyTimes);
+            int.TryParse(sallyTimes, out int sallyVisit);
+            List<ShopCheckLocation> shopItems = ArchipelagoClient.ShopCheckLocations.FindAll(check => check.ShopID == shopID);
+            foreach(ShopCheckLocation item in shopItems)
+            {
+                var sallyShopStart = "Wanderin' Sally's Camp - Item";
+                int.TryParse(item.Name.Replace(sallyShopStart, ""), out int itemNumber);
+                if(item.ApItemInfo == null)
+                {
+                    WolapPlugin.Log.LogWarning($"AP Item Missed check [{item.Name}] is not finished scouting yet skipping hint");
+                    //So far from testing this happens when forwarded checks that have already been hinted get hinted again.. not sure why but it dosent really do anything.
+                    continue;
+                }
+                var apFlags = item.ApItemInfo.Flags;
+                bool progressive = apFlags.HasFlag(ItemFlags.Advancement);
+                if(flags.ContainsKey("sallytimes"))
+                {
+                    switch (sallyVisit)
+                    {
+                        case 1:
+                            if(itemNumber is >= 1 && itemNumber <= 8)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case 2:
+                            if(itemNumber is >= 9 && itemNumber <= 10)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case 3:
+                            if(itemNumber is >= 11 && itemNumber <= 13)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case 6:
+                            if(itemNumber == 14)
+                            {
+                                goto case -1;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        case -1:
+                            if(!flags.ContainsKey(Constants.GotHintFlagPrefix + item.Name.Replace(" ", "")))
+                            {
+                                WolapPlugin.Log.LogInfo($"Checking if item [{item.Name}] found at [{item.ShopID}] that is AP flag: [{apFlags}] should be hinted.");
+                                flags.Add(Constants.GotHintFlagPrefix + item.Name.Replace(" ", ""), "1");                        
+                            }
+                            if(progressive == false)
+                            {
+                                WolapPlugin.Log.LogInfo($"Item [{item.Name}] is not Progressive, skipping hint.");
+                                continue;
+                            }
+                            else
+                            {
+                                long checkID = WolapPlugin.Archipelago.Session.Locations.GetLocationIdFromName(Constants.GameName, item.Name);
+                                HintStatus hintStatus = HintStatus.Unspecified; //needs to be unspecified to work
+                                WolapPlugin.Archipelago.Session.Hints.CreateHints(hintStatus,checkID);
+                            }
+                            goto default;
+                        default:
+                            continue;
+                    }
+                }
+            }
         }
 
         [HarmonyPatch(typeof(MPlayer), "NSkillLevel")]

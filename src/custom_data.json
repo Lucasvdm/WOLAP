@@ -113,7 +113,7 @@
       "clowncrimescene: 4500,1860,clowncrimescene,mapicon_destroyedcamp,Destroyed Campsite,b",
       "clowncamp: 4260,2070,clowncamp,mapicon_campsite,Clown Campsite,b",
       "ranch3: 4660,2700,ranch3,mapicon_ranch,Butterfield Ranch,b",
-      "mine2: 4230,2620,mine2,mapicon_mine,Kole Ridge Mine,b",
+      "mine2: 4230,2620,mine2,mapicon_mine,Kaye Ridge Mine,b",
       "professor: 5600,3250,professor,mapicon_house2,The Perfessor's House,b",
       "bigapple: 5110,1840,bigapple,mapicon_bigapple,The Big Apple,b",
       "snakespring: 5700,2550,snakespring,mapicon_spring,Snake Spring,b",
@@ -1221,6 +1221,48 @@
       "bluetext": "Gives you the ability to speak and understand Goblintongue",
       "source": "Archipelago item pool"
     },
+    "elv_fuse": {
+      "name": "El Vibrato cylinder (Lost Dutch Oven Mine)",
+      "slot": "quest",
+      "enchantments": [],
+      "category": "miscellaneous",
+      "description": "This is a very heavy, two-foot long cylinder of El Vibrato material. To be used in the Ruins found within the Lost Dutch Oven Mine.",
+      "icon": "icon_elvfuse",
+      "uselink": "",
+      "usescript": "",
+      "sellvalue": 0.0,
+      "region": "d",
+      "source": "fixed number in various deep places",
+      "stackable": 1.0
+    },
+    "elv_fuse2": {
+      "name": "El Vibrato cylinder (Curious Flat Plain)",
+      "slot": "quest",
+      "enchantments": [],
+      "category": "miscellaneous",
+      "description": "This is a very heavy, two-foot long cylinder of El Vibrato material. To be used in the Curious Flat Plain.",
+      "icon": "icon_elvfuse",
+      "uselink": "",
+      "usescript": "",
+      "sellvalue": 0.0,
+      "region": "d",
+      "source": "fixed number in various deep places",
+      "stackable": 1.0
+    },
+    "elv_fuse3": {
+      "name": "El Vibrato cylinder (Curious False Mountain)",
+      "slot": "quest",
+      "enchantments": [],
+      "category": "miscellaneous",
+      "description": "This is a very heavy, two-foot long cylinder of El Vibrato material. To be used in the Curous False Mountain.",
+      "icon": "icon_elvfuse",
+      "uselink": "",
+      "usescript": "",
+      "sellvalue": 0.0,
+      "region": "d",
+      "source": "fixed number in various deep places",
+      "stackable": 1.0
+    },
     "ghost_coach_to_gun_manor": {
       "name": "Ghost coach to Gun Manor",
       "slot": "nothing",
@@ -1236,7 +1278,7 @@
       "slot": "quest",
       "enchantments": [],
       "category": "miscellaneous",
-      "description": "This is your identification card for the town of Ghostwood. It says \"@idfirstname2@ @idmiddlename2@ @idlastname2@\" on it, and has a blurry photograph that could maybe be you if you squint.",
+      "description": "This is your identification card for the town of Ghostwood. It says \"@idfirstname@ @idmiddlename@ @idlastname@\" on it, and has a blurry photograph that could maybe be you if you squint.",
       "icon": "icon_ghostid",
       "uselink": "",
       "usescript": "",
@@ -1377,6 +1419,3007 @@
       "done": [
         [
           "exit"
+        ]
+      ]
+    },
+    "aaa_combatitems": {
+      "everything": [
+        [
+          "additem",
+          "allpurposebeans"
+        ],
+        [
+          "additem",
+          "aug_bootpolish"
+        ],
+        [
+          "additem",
+          "aug_bootstraps"
+        ],
+        [
+          "additem",
+          "aug_magicthread"
+        ],
+        [
+          "additem",
+          "aug_strop"
+        ],
+        [
+          "additem",
+          "beaniron1"
+        ],
+        [
+          "additem",
+          "beaniron2"
+        ],
+        [
+          "additem",
+          "beaniron3"
+        ],
+        [
+          "additem",
+          "binoculars"
+        ],
+        [
+          "additem",
+          "blastingcap"
+        ],
+        [
+          "additem",
+          "bone"
+        ],
+        [
+          "additem",
+          "book_beanslinger"
+        ],
+        [
+          "additem",
+          "book_cannonloading"
+        ],
+        [
+          "additem",
+          "book_cookery"
+        ],
+        [
+          "additem",
+          "book_cowpuncher"
+        ],
+        [
+          "additem",
+          "book_dickerin"
+        ],
+        [
+          "additem",
+          "book_foragin"
+        ],
+        [
+          "additem",
+          "book_leatherworkery"
+        ],
+        [
+          "additem",
+          "book_lockpickin"
+        ],
+        [
+          "additem",
+          "book_lovepoem"
+        ],
+        [
+          "additem",
+          "book_mycology"
+        ],
+        [
+          "additem",
+          "book_nexmex1"
+        ],
+        [
+          "additem",
+          "book_nexmex2"
+        ],
+        [
+          "additem",
+          "book_nexmex3"
+        ],
+        [
+          "additem",
+          "book_nexmex4"
+        ],
+        [
+          "additem",
+          "book_nexmex5"
+        ],
+        [
+          "additem",
+          "book_nexmex6"
+        ],
+        [
+          "additem",
+          "book_nexmex7"
+        ],
+        [
+          "additem",
+          "book_percussive"
+        ],
+        [
+          "additem",
+          "book_pokercheatin"
+        ],
+        [
+          "additem",
+          "book_potionery"
+        ],
+        [
+          "additem",
+          "book_ranch4diary"
+        ],
+        [
+          "additem",
+          "book_richvein"
+        ],
+        [
+          "additem",
+          "book_safecrackin"
+        ],
+        [
+          "additem",
+          "book_silversmithin"
+        ],
+        [
+          "additem",
+          "book_snakeoiler"
+        ],
+        [
+          "additem",
+          "book_store_boots"
+        ],
+        [
+          "additem",
+          "book_store_brewery"
+        ],
+        [
+          "additem",
+          "book_store_cook"
+        ],
+        [
+          "additem",
+          "book_store_curiosity"
+        ],
+        [
+          "additem",
+          "book_store_tanner"
+        ],
+        [
+          "additem",
+          "book_walkingstupid"
+        ],
+        [
+          "additem",
+          "boots_barnaby"
+        ],
+        [
+          "additem",
+          "boots_black"
+        ],
+        [
+          "additem",
+          "boots_dave"
+        ],
+        [
+          "additem",
+          "boots_elv"
+        ],
+        [
+          "additem",
+          "boots_extralarge"
+        ],
+        [
+          "additem",
+          "boots_flashy"
+        ],
+        [
+          "additem",
+          "boots_furry"
+        ],
+        [
+          "additem",
+          "boots_hide"
+        ],
+        [
+          "additem",
+          "boots_hightailin"
+        ],
+        [
+          "additem",
+          "boots_jack"
+        ],
+        [
+          "additem",
+          "boots_leather1"
+        ],
+        [
+          "additem",
+          "boots_leather2"
+        ],
+        [
+          "additem",
+          "boots_leather3"
+        ],
+        [
+          "additem",
+          "boots_medical"
+        ],
+        [
+          "additem",
+          "boots_nerd"
+        ],
+        [
+          "additem",
+          "boots_nun"
+        ],
+        [
+          "additem",
+          "boots_riding"
+        ],
+        [
+          "additem",
+          "boots_running"
+        ],
+        [
+          "additem",
+          "boots_spanish"
+        ],
+        [
+          "additem",
+          "boots_spittoon"
+        ],
+        [
+          "additem",
+          "boots_supertanned"
+        ],
+        [
+          "additem",
+          "boots_tony1"
+        ],
+        [
+          "additem",
+          "boots_tony2"
+        ],
+        [
+          "additem",
+          "boots_tony3"
+        ],
+        [
+          "additem",
+          "boots_tony_books"
+        ],
+        [
+          "additem",
+          "boots_tony_brewery"
+        ],
+        [
+          "additem",
+          "boots_tony_cook"
+        ],
+        [
+          "additem",
+          "boots_tony_curiosity"
+        ],
+        [
+          "additem",
+          "boots_tony_tanner"
+        ],
+        [
+          "additem",
+          "boots_wet"
+        ],
+        [
+          "additem",
+          "boots_work"
+        ],
+        [
+          "additem",
+          "booze_armywhiskey"
+        ],
+        [
+          "additem",
+          "booze_blossomgin"
+        ],
+        [
+          "additem",
+          "booze_breadwood"
+        ],
+        [
+          "additem",
+          "booze_cactusbeer"
+        ],
+        [
+          "additem",
+          "booze_cheaptequila"
+        ],
+        [
+          "additem",
+          "booze_cheapwhiskey"
+        ],
+        [
+          "additem",
+          "booze_cheapwine"
+        ],
+        [
+          "additem",
+          "booze_cocktail1"
+        ],
+        [
+          "additem",
+          "booze_cocktail2"
+        ],
+        [
+          "additem",
+          "booze_cocktail3"
+        ],
+        [
+          "additem",
+          "booze_decenttequila"
+        ],
+        [
+          "additem",
+          "booze_decentwhiskey"
+        ],
+        [
+          "additem",
+          "booze_decentwine"
+        ],
+        [
+          "additem",
+          "booze_dirtwaterbourbon"
+        ],
+        [
+          "additem",
+          "booze_elv"
+        ],
+        [
+          "additem",
+          "booze_finewine"
+        ],
+        [
+          "additem",
+          "booze_ghostbeer"
+        ],
+        [
+          "additem",
+          "booze_ghostwhiskey"
+        ],
+        [
+          "additem",
+          "booze_goblinabsinthe"
+        ],
+        [
+          "additem",
+          "booze_goblincider"
+        ],
+        [
+          "additem",
+          "booze_goblinmescal"
+        ],
+        [
+          "additem",
+          "booze_grave"
+        ],
+        [
+          "additem",
+          "booze_grave2"
+        ],
+        [
+          "additem",
+          "booze_hagar"
+        ],
+        [
+          "additem",
+          "booze_hardsarsaparilla"
+        ],
+        [
+          "additem",
+          "booze_mead"
+        ],
+        [
+          "additem",
+          "booze_micro1"
+        ],
+        [
+          "additem",
+          "booze_micro2"
+        ],
+        [
+          "additem",
+          "booze_micro3"
+        ],
+        [
+          "additem",
+          "booze_micro_books"
+        ],
+        [
+          "additem",
+          "booze_micro_boots"
+        ],
+        [
+          "additem",
+          "booze_micro_cook"
+        ],
+        [
+          "additem",
+          "booze_micro_curiosity"
+        ],
+        [
+          "additem",
+          "booze_micro_tanner"
+        ],
+        [
+          "additem",
+          "booze_minerscoffee"
+        ],
+        [
+          "additem",
+          "booze_moonshine"
+        ],
+        [
+          "additem",
+          "booze_oiler1"
+        ],
+        [
+          "additem",
+          "booze_oiler1a"
+        ],
+        [
+          "additem",
+          "booze_oiler1b"
+        ],
+        [
+          "additem",
+          "booze_oiler2"
+        ],
+        [
+          "additem",
+          "booze_oiler2a"
+        ],
+        [
+          "additem",
+          "booze_oiler2b"
+        ],
+        [
+          "additem",
+          "booze_rancher"
+        ],
+        [
+          "additem",
+          "booze_schmaltz"
+        ],
+        [
+          "additem",
+          "booze_surgicalgin"
+        ],
+        [
+          "additem",
+          "breadcrumb_cemetery2"
+        ],
+        [
+          "additem",
+          "breadcrumb_cemetery4"
+        ],
+        [
+          "additem",
+          "breadcrumb_fort2"
+        ],
+        [
+          "additem",
+          "breadcrumb_mine"
+        ],
+        [
+          "additem",
+          "bropackage"
+        ],
+        [
+          "additem",
+          "cannonball"
+        ],
+        [
+          "additem",
+          "combat_antidote"
+        ],
+        [
+          "additem",
+          "combat_armyfirstaid"
+        ],
+        [
+          "additem",
+          "combat_basicmedicine"
+        ],
+        [
+          "additem",
+          "combat_basicvenom"
+        ],
+        [
+          "additem",
+          "combat_bulletfire"
+        ],
+        [
+          "additem",
+          "combat_bulletpoison"
+        ],
+        [
+          "additem",
+          "combat_bulletsilver"
+        ],
+        [
+          "additem",
+          "combat_canteen"
+        ],
+        [
+          "additem",
+          "combat_dynamite"
+        ],
+        [
+          "additem",
+          "combat_elvdrone"
+        ],
+        [
+          "additem",
+          "combat_elvdrone2"
+        ],
+        [
+          "additem",
+          "combat_elvgrenade"
+        ],
+        [
+          "additem",
+          "combat_elvteleporter"
+        ],
+        [
+          "additem",
+          "combat_fungicide1"
+        ],
+        [
+          "additem",
+          "combat_kerosene"
+        ],
+        [
+          "additem",
+          "combat_lasso"
+        ],
+        [
+          "additem",
+          "combat_locoweed"
+        ],
+        [
+          "additem",
+          "combat_match"
+        ],
+        [
+          "additem",
+          "combat_oiler1"
+        ],
+        [
+          "additem",
+          "combat_oiler1a"
+        ],
+        [
+          "additem",
+          "combat_oiler1b"
+        ],
+        [
+          "additem",
+          "combat_oiler2"
+        ],
+        [
+          "additem",
+          "combat_oiler2a"
+        ],
+        [
+          "additem",
+          "combat_oiler2b"
+        ],
+        [
+          "additem",
+          "combat_olddynamite"
+        ],
+        [
+          "additem",
+          "combat_ropeleather1"
+        ],
+        [
+          "additem",
+          "combat_ropeleather2"
+        ],
+        [
+          "additem",
+          "combat_ropeleather3"
+        ],
+        [
+          "additem",
+          "combat_skeleton1"
+        ],
+        [
+          "additem",
+          "combat_skeleton2"
+        ],
+        [
+          "additem",
+          "combat_skeleton3"
+        ],
+        [
+          "additem",
+          "combat_smellingsalts"
+        ],
+        [
+          "additem",
+          "combat_snakeliver"
+        ],
+        [
+          "additem",
+          "combat_snakespleen"
+        ],
+        [
+          "additem",
+          "combat_superdynamite"
+        ],
+        [
+          "additem",
+          "combat_venom"
+        ],
+        [
+          "additem",
+          "cowfangs"
+        ],
+        [
+          "additem",
+          "cowspirit"
+        ],
+        [
+          "additem",
+          "crowbar"
+        ],
+        [
+          "additem",
+          "curiosity_portrait"
+        ],
+        [
+          "additem",
+          "curiosity_puzzlebox"
+        ],
+        [
+          "additem",
+          "elv_batterybox"
+        ],
+        [
+          "additem",
+          "elv_bridgebeacon"
+        ],
+        [
+          "additem",
+          "elv_combatitemfab"
+        ],
+        [
+          "additem",
+          "elv_detector"
+        ],
+        [
+          "additem",
+          "elv_fuse"
+        ],
+        [
+          "additem",
+          "elv_fuse2"
+        ],
+        [
+          "additem",
+          "elv_fuse3"
+        ],
+        [
+          "additem",
+          "elv_headband_pre"
+        ],
+        [
+          "additem",
+          "elv_introitem"
+        ],
+        [
+          "additem",
+          "elv_key"
+        ],
+        [
+          "additem",
+          "elv_powersphere"
+        ],
+        [
+          "additem",
+          "elv_punchcard1"
+        ],
+        [
+          "additem",
+          "elv_punchcard2"
+        ],
+        [
+          "additem",
+          "elv_scrap"
+        ],
+        [
+          "additem",
+          "elv_sludge"
+        ],
+        [
+          "additem",
+          "elv_timekey"
+        ],
+        [
+          "additem",
+          "elv_transponder"
+        ],
+        [
+          "additem",
+          "food_apple"
+        ],
+        [
+          "additem",
+          "food_applepie"
+        ],
+        [
+          "additem",
+          "food_banana"
+        ],
+        [
+          "additem",
+          "food_beans1"
+        ],
+        [
+          "additem",
+          "food_beans2"
+        ],
+        [
+          "additem",
+          "food_beans3"
+        ],
+        [
+          "additem",
+          "food_beans4"
+        ],
+        [
+          "additem",
+          "food_beans5"
+        ],
+        [
+          "additem",
+          "food_beans6"
+        ],
+        [
+          "additem",
+          "food_beans7"
+        ],
+        [
+          "additem",
+          "food_beans8"
+        ],
+        [
+          "additem",
+          "food_beans9"
+        ],
+        [
+          "additem",
+          "food_blackbeans"
+        ],
+        [
+          "additem",
+          "food_bloodsausage"
+        ],
+        [
+          "additem",
+          "food_brainpie"
+        ],
+        [
+          "additem",
+          "food_butterpie"
+        ],
+        [
+          "additem",
+          "food_cactusbits"
+        ],
+        [
+          "additem",
+          "food_carrot"
+        ],
+        [
+          "additem",
+          "food_clownsausage"
+        ],
+        [
+          "additem",
+          "food_cottoncandy"
+        ],
+        [
+          "additem",
+          "food_cowsteak"
+        ],
+        [
+          "additem",
+          "food_cowtongue"
+        ],
+        [
+          "additem",
+          "food_custard1"
+        ],
+        [
+          "additem",
+          "food_custard2"
+        ],
+        [
+          "additem",
+          "food_custard3"
+        ],
+        [
+          "additem",
+          "food_elv"
+        ],
+        [
+          "additem",
+          "food_fudge"
+        ],
+        [
+          "additem",
+          "food_ghostpickle"
+        ],
+        [
+          "additem",
+          "food_goatsteak"
+        ],
+        [
+          "additem",
+          "food_goblinbrat"
+        ],
+        [
+          "additem",
+          "food_goblinflapjacks"
+        ],
+        [
+          "additem",
+          "food_goblinloaf"
+        ],
+        [
+          "additem",
+          "food_goblinsandwich"
+        ],
+        [
+          "additem",
+          "food_goblinstew"
+        ],
+        [
+          "additem",
+          "food_guffin"
+        ],
+        [
+          "additem",
+          "food_hardtack"
+        ],
+        [
+          "additem",
+          "food_hotdog1"
+        ],
+        [
+          "additem",
+          "food_hotdog2"
+        ],
+        [
+          "additem",
+          "food_hotdog3"
+        ],
+        [
+          "additem",
+          "food_hotdog_books"
+        ],
+        [
+          "additem",
+          "food_hotdog_boots"
+        ],
+        [
+          "additem",
+          "food_hotdog_brewery"
+        ],
+        [
+          "additem",
+          "food_hotdog_curiosity"
+        ],
+        [
+          "additem",
+          "food_hotdog_tanner"
+        ],
+        [
+          "additem",
+          "food_instantgrits"
+        ],
+        [
+          "additem",
+          "food_jelliedescargot"
+        ],
+        [
+          "additem",
+          "food_jerky"
+        ],
+        [
+          "additem",
+          "food_kelloggflakes"
+        ],
+        [
+          "additem",
+          "food_leadpie"
+        ],
+        [
+          "additem",
+          "food_meatpie"
+        ],
+        [
+          "additem",
+          "food_menudo"
+        ],
+        [
+          "additem",
+          "food_peanutbutter"
+        ],
+        [
+          "additem",
+          "food_pizza"
+        ],
+        [
+          "additem",
+          "food_plumpudding"
+        ],
+        [
+          "additem",
+          "food_pottedmeat"
+        ],
+        [
+          "additem",
+          "food_raisins"
+        ],
+        [
+          "additem",
+          "food_shroom1"
+        ],
+        [
+          "additem",
+          "food_slop"
+        ],
+        [
+          "additem",
+          "food_sodacrackers"
+        ],
+        [
+          "additem",
+          "food_stewedsnake"
+        ],
+        [
+          "additem",
+          "food_tuna"
+        ],
+        [
+          "additem",
+          "food_turnip"
+        ],
+        [
+          "additem",
+          "fungusbomb"
+        ],
+        [
+          "additem",
+          "hammer"
+        ],
+        [
+          "additem",
+          "hat_4gallon"
+        ],
+        [
+          "additem",
+          "hat_barelyenchanted"
+        ],
+        [
+          "additem",
+          "hat_bean"
+        ],
+        [
+          "additem",
+          "hat_bear"
+        ],
+        [
+          "additem",
+          "hat_black"
+        ],
+        [
+          "additem",
+          "hat_black2"
+        ],
+        [
+          "additem",
+          "hat_blackhood"
+        ],
+        [
+          "additem",
+          "hat_buffaloskull"
+        ],
+        [
+          "additem",
+          "hat_burning"
+        ],
+        [
+          "additem",
+          "hat_cactus"
+        ],
+        [
+          "additem",
+          "hat_cat"
+        ],
+        [
+          "additem",
+          "hat_cavalry"
+        ],
+        [
+          "additem",
+          "hat_chef"
+        ],
+        [
+          "additem",
+          "hat_colorful"
+        ],
+        [
+          "additem",
+          "hat_cowboy_nice"
+        ],
+        [
+          "additem",
+          "hat_crackerjack"
+        ],
+        [
+          "additem",
+          "hat_curiosity_boots"
+        ],
+        [
+          "additem",
+          "hat_driftwood"
+        ],
+        [
+          "additem",
+          "hat_electric"
+        ],
+        [
+          "additem",
+          "hat_elv"
+        ],
+        [
+          "additem",
+          "hat_elvcrown"
+        ],
+        [
+          "additem",
+          "hat_elvheadband"
+        ],
+        [
+          "additem",
+          "hat_eyelessmask"
+        ],
+        [
+          "additem",
+          "hat_fakepope"
+        ],
+        [
+          "additem",
+          "hat_floppyderby"
+        ],
+        [
+          "additem",
+          "hat_gasmask"
+        ],
+        [
+          "additem",
+          "hat_generalgob"
+        ],
+        [
+          "additem",
+          "hat_ghosthat"
+        ],
+        [
+          "additem",
+          "hat_ghostskin"
+        ],
+        [
+          "additem",
+          "hat_goblin"
+        ],
+        [
+          "additem",
+          "hat_goblin1"
+        ],
+        [
+          "additem",
+          "hat_grave"
+        ],
+        [
+          "additem",
+          "hat_hard"
+        ],
+        [
+          "additem",
+          "hat_hippy"
+        ],
+        [
+          "additem",
+          "hat_kurtzfit"
+        ],
+        [
+          "additem",
+          "hat_leather1"
+        ],
+        [
+          "additem",
+          "hat_leather2"
+        ],
+        [
+          "additem",
+          "hat_leather3"
+        ],
+        [
+          "additem",
+          "hat_marmotskin"
+        ],
+        [
+          "additem",
+          "hat_mining"
+        ],
+        [
+          "additem",
+          "hat_necrocrown"
+        ],
+        [
+          "additem",
+          "hat_oldmilitary"
+        ],
+        [
+          "additem",
+          "hat_oldtophat"
+        ],
+        [
+          "additem",
+          "hat_oldwiz"
+        ],
+        [
+          "additem",
+          "hat_owl"
+        ],
+        [
+          "additem",
+          "hat_prototype"
+        ],
+        [
+          "additem",
+          "hat_riflehelmet"
+        ],
+        [
+          "additem",
+          "hat_robertoleader"
+        ],
+        [
+          "additem",
+          "hat_robertomask"
+        ],
+        [
+          "additem",
+          "hat_silverturnip"
+        ],
+        [
+          "additem",
+          "hat_skin"
+        ],
+        [
+          "additem",
+          "hat_sloppychef"
+        ],
+        [
+          "additem",
+          "hat_sloppycowboy"
+        ],
+        [
+          "additem",
+          "hat_sloppytophat"
+        ],
+        [
+          "additem",
+          "hat_spittoon"
+        ],
+        [
+          "additem",
+          "hat_stripey"
+        ],
+        [
+          "additem",
+          "hat_teethcrown"
+        ],
+        [
+          "additem",
+          "hat_teethtiara"
+        ],
+        [
+          "additem",
+          "hat_viking"
+        ],
+        [
+          "additem",
+          "hat_yeasty"
+        ],
+        [
+          "additem",
+          "herbalremedy"
+        ],
+        [
+          "additem",
+          "homingoats"
+        ],
+        [
+          "additem",
+          "humanash"
+        ],
+        [
+          "additem",
+          "jawharp"
+        ],
+        [
+          "additem",
+          "lapel_abalone"
+        ],
+        [
+          "additem",
+          "lapel_adequacy"
+        ],
+        [
+          "additem",
+          "lapel_bean"
+        ],
+        [
+          "additem",
+          "lapel_blackcameo"
+        ],
+        [
+          "additem",
+          "lapel_buffalobandolier"
+        ],
+        [
+          "additem",
+          "lapel_cavpin"
+        ],
+        [
+          "additem",
+          "lapel_debug"
+        ],
+        [
+          "additem",
+          "lapel_elv"
+        ],
+        [
+          "additem",
+          "lapel_gildedlily"
+        ],
+        [
+          "additem",
+          "lapel_granny"
+        ],
+        [
+          "additem",
+          "lapel_grave1"
+        ],
+        [
+          "additem",
+          "lapel_grave2"
+        ],
+        [
+          "additem",
+          "lapel_grave3"
+        ],
+        [
+          "additem",
+          "lapel_grave4"
+        ],
+        [
+          "additem",
+          "lapel_grave5"
+        ],
+        [
+          "additem",
+          "lapel_hotflower"
+        ],
+        [
+          "additem",
+          "lapel_ihatenecro"
+        ],
+        [
+          "additem",
+          "lapel_luckyflower"
+        ],
+        [
+          "additem",
+          "lapel_medals"
+        ],
+        [
+          "additem",
+          "lapel_mraccessory"
+        ],
+        [
+          "additem",
+          "lapel_nastybrooch"
+        ],
+        [
+          "additem",
+          "lapel_purplebrain"
+        ],
+        [
+          "additem",
+          "lapel_roberto"
+        ],
+        [
+          "additem",
+          "lapel_rustybadge"
+        ],
+        [
+          "additem",
+          "lapel_scarab"
+        ],
+        [
+          "additem",
+          "lapel_sherfbadge"
+        ],
+        [
+          "additem",
+          "lapel_tanner"
+        ],
+        [
+          "additem",
+          "lapel_tanner_cook"
+        ],
+        [
+          "additem",
+          "lapel_tanner_curiosity"
+        ],
+        [
+          "additem",
+          "lapel_texasranger"
+        ],
+        [
+          "additem",
+          "lapel_weirdbone"
+        ],
+        [
+          "additem",
+          "lavalamp"
+        ],
+        [
+          "additem",
+          "leather1"
+        ],
+        [
+          "additem",
+          "leather2"
+        ],
+        [
+          "additem",
+          "leather3"
+        ],
+        [
+          "additem",
+          "lock"
+        ],
+        [
+          "additem",
+          "looseteeth"
+        ],
+        [
+          "additem",
+          "militarylockbox"
+        ],
+        [
+          "additem",
+          "misc_autograph"
+        ],
+        [
+          "additem",
+          "misc_balloon"
+        ],
+        [
+          "additem",
+          "misc_hanky"
+        ],
+        [
+          "additem",
+          "misc_minipiano"
+        ],
+        [
+          "additem",
+          "misc_pocketknife"
+        ],
+        [
+          "additem",
+          "misc_snakecase"
+        ],
+        [
+          "additem",
+          "moonbits"
+        ],
+        [
+          "additem",
+          "nails"
+        ],
+        [
+          "additem",
+          "needle"
+        ],
+        [
+          "additem",
+          "offhand_ancientbeans"
+        ],
+        [
+          "additem",
+          "offhand_bean1"
+        ],
+        [
+          "additem",
+          "offhand_bean2"
+        ],
+        [
+          "additem",
+          "offhand_bean3"
+        ],
+        [
+          "additem",
+          "offhand_beans1"
+        ],
+        [
+          "additem",
+          "offhand_breadwoodbook"
+        ],
+        [
+          "additem",
+          "offhand_censer"
+        ],
+        [
+          "additem",
+          "offhand_driftwoodshield"
+        ],
+        [
+          "additem",
+          "offhand_elv"
+        ],
+        [
+          "additem",
+          "offhand_filthcow"
+        ],
+        [
+          "additem",
+          "offhand_ghostflower"
+        ],
+        [
+          "additem",
+          "offhand_glasssphere"
+        ],
+        [
+          "additem",
+          "offhand_goblinbag"
+        ],
+        [
+          "additem",
+          "offhand_goblinspyglass"
+        ],
+        [
+          "additem",
+          "offhand_iphone"
+        ],
+        [
+          "additem",
+          "offhand_largebear"
+        ],
+        [
+          "additem",
+          "offhand_largekitty"
+        ],
+        [
+          "additem",
+          "offhand_largeowl"
+        ],
+        [
+          "additem",
+          "offhand_leather1"
+        ],
+        [
+          "additem",
+          "offhand_leather2"
+        ],
+        [
+          "additem",
+          "offhand_leather3"
+        ],
+        [
+          "additem",
+          "offhand_luckyhorseshoe"
+        ],
+        [
+          "additem",
+          "offhand_mining"
+        ],
+        [
+          "additem",
+          "offhand_ranch"
+        ],
+        [
+          "additem",
+          "offhand_rangefinder"
+        ],
+        [
+          "additem",
+          "offhand_scapula"
+        ],
+        [
+          "additem",
+          "offhand_seaskull"
+        ],
+        [
+          "additem",
+          "offhand_shinyball"
+        ],
+        [
+          "additem",
+          "offhand_smallbear"
+        ],
+        [
+          "additem",
+          "offhand_smallkitty"
+        ],
+        [
+          "additem",
+          "offhand_smallowl"
+        ],
+        [
+          "additem",
+          "offhand_souvenirspoon"
+        ],
+        [
+          "additem",
+          "offhand_stovedoor"
+        ],
+        [
+          "additem",
+          "offhand_sweetbouquet"
+        ],
+        [
+          "additem",
+          "offhand_worrystone"
+        ],
+        [
+          "additem",
+          "offhand_yorick"
+        ],
+        [
+          "additem",
+          "oilcan"
+        ],
+        [
+          "additem",
+          "pants_beanstained"
+        ],
+        [
+          "additem",
+          "pants_bearskin"
+        ],
+        [
+          "additem",
+          "pants_black"
+        ],
+        [
+          "additem",
+          "pants_buffalo"
+        ],
+        [
+          "additem",
+          "pants_cargojeans"
+        ],
+        [
+          "additem",
+          "pants_chastity"
+        ],
+        [
+          "additem",
+          "pants_coffeestained"
+        ],
+        [
+          "additem",
+          "pants_elv"
+        ],
+        [
+          "additem",
+          "pants_ghostpants"
+        ],
+        [
+          "additem",
+          "pants_goblin"
+        ],
+        [
+          "additem",
+          "pants_goblinshorts"
+        ],
+        [
+          "additem",
+          "pants_grave"
+        ],
+        [
+          "additem",
+          "pants_kitchen"
+        ],
+        [
+          "additem",
+          "pants_kneeling"
+        ],
+        [
+          "additem",
+          "pants_kurtzfit"
+        ],
+        [
+          "additem",
+          "pants_leather1"
+        ],
+        [
+          "additem",
+          "pants_leather2"
+        ],
+        [
+          "additem",
+          "pants_leather3"
+        ],
+        [
+          "additem",
+          "pants_magician"
+        ],
+        [
+          "additem",
+          "pants_medical"
+        ],
+        [
+          "additem",
+          "pants_miner"
+        ],
+        [
+          "additem",
+          "pants_quilted"
+        ],
+        [
+          "additem",
+          "pants_skin"
+        ],
+        [
+          "additem",
+          "pants_spittoon"
+        ],
+        [
+          "additem",
+          "pants_tanner1"
+        ],
+        [
+          "additem",
+          "pants_tanner2"
+        ],
+        [
+          "additem",
+          "pants_tanner_books"
+        ],
+        [
+          "additem",
+          "pants_tanner_brewery"
+        ],
+        [
+          "additem",
+          "pants_thickchaps"
+        ],
+        [
+          "additem",
+          "pick"
+        ],
+        [
+          "additem",
+          "pinecone"
+        ],
+        [
+          "additem",
+          "pistol_army"
+        ],
+        [
+          "additem",
+          "pistol_automatic"
+        ],
+        [
+          "additem",
+          "pistol_bandit"
+        ],
+        [
+          "additem",
+          "pistol_bandit1"
+        ],
+        [
+          "additem",
+          "pistol_bandit2"
+        ],
+        [
+          "additem",
+          "pistol_bean"
+        ],
+        [
+          "additem",
+          "pistol_cooking"
+        ],
+        [
+          "additem",
+          "pistol_deputy"
+        ],
+        [
+          "additem",
+          "pistol_elv"
+        ],
+        [
+          "additem",
+          "pistol_generalgob"
+        ],
+        [
+          "additem",
+          "pistol_ghostpistol"
+        ],
+        [
+          "additem",
+          "pistol_goblin"
+        ],
+        [
+          "additem",
+          "pistol_intimidating"
+        ],
+        [
+          "additem",
+          "pistol_medical"
+        ],
+        [
+          "additem",
+          "pistol_muckyblunderbuss"
+        ],
+        [
+          "additem",
+          "pistol_ranch"
+        ],
+        [
+          "additem",
+          "pistol_redhot"
+        ],
+        [
+          "additem",
+          "pistol_sigiled"
+        ],
+        [
+          "additem",
+          "pistol_silver"
+        ],
+        [
+          "additem",
+          "pistol_smoking"
+        ],
+        [
+          "additem",
+          "pistol_spittoon"
+        ],
+        [
+          "additem",
+          "pistol_toilet"
+        ],
+        [
+          "additem",
+          "plunger"
+        ],
+        [
+          "additem",
+          "portable_alchemistry"
+        ],
+        [
+          "additem",
+          "portable_arcaneoven"
+        ],
+        [
+          "additem",
+          "portable_leatherbench"
+        ],
+        [
+          "additem",
+          "postcard"
+        ],
+        [
+          "additem",
+          "potion_bitoectoplasm"
+        ],
+        [
+          "additem",
+          "potion_bloodtonic"
+        ],
+        [
+          "additem",
+          "potion_candy1"
+        ],
+        [
+          "additem",
+          "potion_candy2"
+        ],
+        [
+          "additem",
+          "potion_candy3"
+        ],
+        [
+          "additem",
+          "potion_candy4"
+        ],
+        [
+          "additem",
+          "potion_candy5"
+        ],
+        [
+          "additem",
+          "potion_clownwort"
+        ],
+        [
+          "additem",
+          "potion_coffee"
+        ],
+        [
+          "additem",
+          "potion_cologne"
+        ],
+        [
+          "additem",
+          "potion_cowbile"
+        ],
+        [
+          "additem",
+          "potion_cowblood"
+        ],
+        [
+          "additem",
+          "potion_cowbutter"
+        ],
+        [
+          "additem",
+          "potion_cowmilk"
+        ],
+        [
+          "additem",
+          "potion_elv"
+        ],
+        [
+          "additem",
+          "potion_fancycoffee"
+        ],
+        [
+          "additem",
+          "potion_friscopoppy"
+        ],
+        [
+          "additem",
+          "potion_gingerbeer"
+        ],
+        [
+          "additem",
+          "potion_goblinchicory"
+        ],
+        [
+          "additem",
+          "potion_goblincoffee"
+        ],
+        [
+          "additem",
+          "potion_goblinlollipop"
+        ],
+        [
+          "additem",
+          "potion_goblinmusselmilk"
+        ],
+        [
+          "additem",
+          "potion_grave"
+        ],
+        [
+          "additem",
+          "potion_gravedirt"
+        ],
+        [
+          "additem",
+          "potion_hogoil"
+        ],
+        [
+          "additem",
+          "potion_laudanum"
+        ],
+        [
+          "additem",
+          "potion_lemonade"
+        ],
+        [
+          "additem",
+          "potion_moustachesap"
+        ],
+        [
+          "additem",
+          "potion_nervepills"
+        ],
+        [
+          "additem",
+          "potion_oiler1"
+        ],
+        [
+          "additem",
+          "potion_oiler1a"
+        ],
+        [
+          "additem",
+          "potion_oiler1b"
+        ],
+        [
+          "additem",
+          "potion_oiler2"
+        ],
+        [
+          "additem",
+          "potion_oiler2a"
+        ],
+        [
+          "additem",
+          "potion_oiler2b"
+        ],
+        [
+          "additem",
+          "potion_perfectcoffee"
+        ],
+        [
+          "additem",
+          "potion_rancher"
+        ],
+        [
+          "additem",
+          "potion_rancher2"
+        ],
+        [
+          "additem",
+          "potion_rootbeer"
+        ],
+        [
+          "additem",
+          "potion_sarsaparilla"
+        ],
+        [
+          "additem",
+          "potion_shockweed"
+        ],
+        [
+          "additem",
+          "potion_shroom1"
+        ],
+        [
+          "additem",
+          "potion_stardust"
+        ],
+        [
+          "additem",
+          "potion_toothpowder"
+        ],
+        [
+          "additem",
+          "quest_3pencil"
+        ],
+        [
+          "additem",
+          "quest_4pencil"
+        ],
+        [
+          "additem",
+          "quest_animalskeleton1"
+        ],
+        [
+          "additem",
+          "quest_animalskeleton2"
+        ],
+        [
+          "additem",
+          "quest_animalskeleton3"
+        ],
+        [
+          "additem",
+          "quest_baggie"
+        ],
+        [
+          "additem",
+          "quest_ballisticschart"
+        ],
+        [
+          "additem",
+          "quest_bandit1remainsburn"
+        ],
+        [
+          "additem",
+          "quest_bandit1remainskill"
+        ],
+        [
+          "additem",
+          "quest_bandit2remains"
+        ],
+        [
+          "additem",
+          "quest_bandit3remains"
+        ],
+        [
+          "additem",
+          "quest_bandit4remains"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains1"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains2"
+        ],
+        [
+          "additem",
+          "quest_bandit5remains3"
+        ],
+        [
+          "additem",
+          "quest_barbedwire"
+        ],
+        [
+          "additem",
+          "quest_beaker"
+        ],
+        [
+          "additem",
+          "quest_billhelmet"
+        ],
+        [
+          "additem",
+          "quest_bobticket"
+        ],
+        [
+          "additem",
+          "quest_bread"
+        ],
+        [
+          "additem",
+          "quest_breadbowl"
+        ],
+        [
+          "additem",
+          "quest_breadsoup"
+        ],
+        [
+          "additem",
+          "quest_breadwoodbook"
+        ],
+        [
+          "additem",
+          "quest_breadwoodmail"
+        ],
+        [
+          "additem",
+          "quest_breadwoodpermit"
+        ],
+        [
+          "additem",
+          "quest_buffaloelixir"
+        ],
+        [
+          "additem",
+          "quest_buffout"
+        ],
+        [
+          "additem",
+          "quest_cemetery5bones"
+        ],
+        [
+          "additem",
+          "quest_cemetery5diagram"
+        ],
+        [
+          "additem",
+          "quest_cemetery5key"
+        ],
+        [
+          "additem",
+          "quest_cemetery6buffalolist"
+        ],
+        [
+          "additem",
+          "quest_chefkey"
+        ],
+        [
+          "additem",
+          "quest_chefpepper"
+        ],
+        [
+          "additem",
+          "quest_chuckskey"
+        ],
+        [
+          "additem",
+          "quest_circusticket"
+        ],
+        [
+          "additem",
+          "quest_cliponbowtie"
+        ],
+        [
+          "additem",
+          "quest_coupon1"
+        ],
+        [
+          "additem",
+          "quest_cowsbane"
+        ],
+        [
+          "additem",
+          "quest_cowsbaneseeds"
+        ],
+        [
+          "additem",
+          "quest_creampie"
+        ],
+        [
+          "additem",
+          "quest_curlycompass"
+        ],
+        [
+          "additem",
+          "quest_curlymachine"
+        ],
+        [
+          "additem",
+          "quest_curlymap"
+        ],
+        [
+          "additem",
+          "quest_curlymap1"
+        ],
+        [
+          "additem",
+          "quest_curlymap2"
+        ],
+        [
+          "additem",
+          "quest_curlysbox"
+        ],
+        [
+          "additem",
+          "quest_curlysnote"
+        ],
+        [
+          "additem",
+          "quest_daveyardrecipe"
+        ],
+        [
+          "additem",
+          "quest_dynamitecoupon"
+        ],
+        [
+          "additem",
+          "quest_dynamiteyear"
+        ],
+        [
+          "additem",
+          "quest_elvcross"
+        ],
+        [
+          "additem",
+          "quest_fort3diary1"
+        ],
+        [
+          "additem",
+          "quest_fort3diary2"
+        ],
+        [
+          "additem",
+          "quest_fort3key"
+        ],
+        [
+          "additem",
+          "quest_fort7bracelet"
+        ],
+        [
+          "additem",
+          "quest_g1tempvisit"
+        ],
+        [
+          "additem",
+          "quest_g1visitorid"
+        ],
+        [
+          "additem",
+          "quest_ghostbottle"
+        ],
+        [
+          "additem",
+          "quest_goblin1key"
+        ],
+        [
+          "additem",
+          "quest_goblin1sparekey"
+        ],
+        [
+          "additem",
+          "quest_goblin3elixir"
+        ],
+        [
+          "additem",
+          "quest_goblin3syrup"
+        ],
+        [
+          "additem",
+          "quest_goblin3tap"
+        ],
+        [
+          "additem",
+          "quest_gracegoblet"
+        ],
+        [
+          "additem",
+          "quest_greasebag"
+        ],
+        [
+          "additem",
+          "quest_hallowaykeepsake"
+        ],
+        [
+          "additem",
+          "quest_honeybean"
+        ],
+        [
+          "additem",
+          "quest_infernalmallet"
+        ],
+        [
+          "additem",
+          "quest_jellybeans1"
+        ],
+        [
+          "additem",
+          "quest_jellybeans2"
+        ],
+        [
+          "additem",
+          "quest_jellybeans3"
+        ],
+        [
+          "additem",
+          "quest_jethrolocket"
+        ],
+        [
+          "additem",
+          "quest_kelloggbrochure"
+        ],
+        [
+          "additem",
+          "quest_kelloggdough"
+        ],
+        [
+          "additem",
+          "quest_kelloggdough2"
+        ],
+        [
+          "additem",
+          "quest_kellogggrain"
+        ],
+        [
+          "additem",
+          "quest_kelloggkeys"
+        ],
+        [
+          "additem",
+          "quest_kelloggrecipe"
+        ],
+        [
+          "additem",
+          "quest_kelloggregimen"
+        ],
+        [
+          "additem",
+          "quest_legpills"
+        ],
+        [
+          "additem",
+          "quest_leydiagram"
+        ],
+        [
+          "additem",
+          "quest_loggingrep"
+        ],
+        [
+          "additem",
+          "quest_logrepfolder"
+        ],
+        [
+          "additem",
+          "quest_luckycap"
+        ],
+        [
+          "additem",
+          "quest_mailbag"
+        ],
+        [
+          "additem",
+          "quest_mainmap"
+        ],
+        [
+          "additem",
+          "quest_marydiary"
+        ],
+        [
+          "additem",
+          "quest_marypicture"
+        ],
+        [
+          "additem",
+          "quest_mayorform"
+        ],
+        [
+          "additem",
+          "quest_mine3diary"
+        ],
+        [
+          "additem",
+          "quest_mine4idol"
+        ],
+        [
+          "additem",
+          "quest_mine4key"
+        ],
+        [
+          "additem",
+          "quest_mine4map"
+        ],
+        [
+          "additem",
+          "quest_mine4skull"
+        ],
+        [
+          "additem",
+          "quest_mine8part"
+        ],
+        [
+          "additem",
+          "quest_mulecontract"
+        ],
+        [
+          "additem",
+          "quest_necrojournal"
+        ],
+        [
+          "additem",
+          "quest_necrotoken1"
+        ],
+        [
+          "additem",
+          "quest_necrotoken2"
+        ],
+        [
+          "additem",
+          "quest_necrotoken3"
+        ],
+        [
+          "additem",
+          "quest_necrotoken4"
+        ],
+        [
+          "additem",
+          "quest_necrotoken5"
+        ],
+        [
+          "additem",
+          "quest_olddynamite"
+        ],
+        [
+          "additem",
+          "quest_owlcamera"
+        ],
+        [
+          "additem",
+          "quest_perfticket"
+        ],
+        [
+          "additem",
+          "quest_postalcodes"
+        ],
+        [
+          "additem",
+          "quest_purplegrass"
+        ],
+        [
+          "additem",
+          "quest_redenvelope"
+        ],
+        [
+          "additem",
+          "quest_redenvfull"
+        ],
+        [
+          "additem",
+          "quest_riddlekey"
+        ],
+        [
+          "additem",
+          "quest_royletter"
+        ],
+        [
+          "additem",
+          "quest_saint1relic"
+        ],
+        [
+          "additem",
+          "quest_saint2relic"
+        ],
+        [
+          "additem",
+          "quest_saint3relic"
+        ],
+        [
+          "additem",
+          "quest_saltpeter"
+        ],
+        [
+          "additem",
+          "quest_sauteeknife"
+        ],
+        [
+          "additem",
+          "quest_secretsauce"
+        ],
+        [
+          "additem",
+          "quest_shroommap"
+        ],
+        [
+          "additem",
+          "quest_shroomplucker"
+        ],
+        [
+          "additem",
+          "quest_signedform"
+        ],
+        [
+          "additem",
+          "quest_silverfence"
+        ],
+        [
+          "additem",
+          "quest_skeletonpoop"
+        ],
+        [
+          "additem",
+          "quest_slidewhistle"
+        ],
+        [
+          "additem",
+          "quest_stapler"
+        ],
+        [
+          "additem",
+          "quest_tannerybackdoorkey"
+        ],
+        [
+          "additem",
+          "quest_tanneryshedkey"
+        ],
+        [
+          "additem",
+          "quest_targetingflare"
+        ],
+        [
+          "additem",
+          "quest_thickglasses"
+        ],
+        [
+          "additem",
+          "quest_tinyguns"
+        ],
+        [
+          "additem",
+          "quest_tontinekey"
+        ],
+        [
+          "additem",
+          "quest_tontinekey1"
+        ],
+        [
+          "additem",
+          "quest_tontinekey2"
+        ],
+        [
+          "additem",
+          "quest_tontinekey3"
+        ],
+        [
+          "additem",
+          "quest_tontinetreasure"
+        ],
+        [
+          "additem",
+          "quest_toyskeletons"
+        ],
+        [
+          "additem",
+          "quest_trainkey1"
+        ],
+        [
+          "additem",
+          "quest_trainkey2"
+        ],
+        [
+          "additem",
+          "quest_trainkey3"
+        ],
+        [
+          "additem",
+          "quest_unstapler"
+        ],
+        [
+          "additem",
+          "quest_wascoflier"
+        ],
+        [
+          "additem",
+          "quest_whisperstone"
+        ],
+        [
+          "additem",
+          "quest_yeast"
+        ],
+        [
+          "additem",
+          "ring_armor"
+        ],
+        [
+          "additem",
+          "ring_army"
+        ],
+        [
+          "additem",
+          "ring_coalgem"
+        ],
+        [
+          "additem",
+          "ring_coccyx"
+        ],
+        [
+          "additem",
+          "ring_cowgem"
+        ],
+        [
+          "additem",
+          "ring_cows"
+        ],
+        [
+          "additem",
+          "ring_curiosity_cook"
+        ],
+        [
+          "additem",
+          "ring_diamondgem"
+        ],
+        [
+          "additem",
+          "ring_elv"
+        ],
+        [
+          "additem",
+          "ring_fivepile"
+        ],
+        [
+          "additem",
+          "ring_foragin"
+        ],
+        [
+          "additem",
+          "ring_ghost"
+        ],
+        [
+          "additem",
+          "ring_glowing"
+        ],
+        [
+          "additem",
+          "ring_goblin1"
+        ],
+        [
+          "additem",
+          "ring_goblin2"
+        ],
+        [
+          "additem",
+          "ring_goblin3"
+        ],
+        [
+          "additem",
+          "ring_goblin4"
+        ],
+        [
+          "additem",
+          "ring_grave"
+        ],
+        [
+          "additem",
+          "ring_grave2"
+        ],
+        [
+          "additem",
+          "ring_magic"
+        ],
+        [
+          "additem",
+          "ring_mining"
+        ],
+        [
+          "additem",
+          "ring_moonstone"
+        ],
+        [
+          "additem",
+          "ring_nasty"
+        ],
+        [
+          "additem",
+          "ring_nores"
+        ],
+        [
+          "additem",
+          "ring_ranch"
+        ],
+        [
+          "additem",
+          "ring_saint2"
+        ],
+        [
+          "additem",
+          "ring_sandalwood"
+        ],
+        [
+          "additem",
+          "ring_sapphiregem"
+        ],
+        [
+          "additem",
+          "ring_silicongem"
+        ],
+        [
+          "additem",
+          "ring_skeletons"
+        ],
+        [
+          "additem",
+          "ring_smart"
+        ],
+        [
+          "additem",
+          "ring_snakes"
+        ],
+        [
+          "additem",
+          "ring_stealth"
+        ],
+        [
+          "additem",
+          "ring_stinkgem"
+        ],
+        [
+          "additem",
+          "ring_strength"
+        ],
+        [
+          "additem",
+          "ring_tontinegem"
+        ],
+        [
+          "additem",
+          "rope"
+        ],
+        [
+          "additem",
+          "rubix"
+        ],
+        [
+          "additem",
+          "sell_brassring"
+        ],
+        [
+          "additem",
+          "sell_coalgem"
+        ],
+        [
+          "additem",
+          "sell_cowgem"
+        ],
+        [
+          "additem",
+          "sell_diamondgem"
+        ],
+        [
+          "additem",
+          "sell_goldtooth"
+        ],
+        [
+          "additem",
+          "sell_graveskull"
+        ],
+        [
+          "additem",
+          "sell_meatnugget"
+        ],
+        [
+          "additem",
+          "sell_nuggetsack"
+        ],
+        [
+          "additem",
+          "sell_oldcoins"
+        ],
+        [
+          "additem",
+          "sell_pocketwatch"
+        ],
+        [
+          "additem",
+          "sell_sapphiregem"
+        ],
+        [
+          "additem",
+          "sell_shinyrock"
+        ],
+        [
+          "additem",
+          "sell_silicongem"
+        ],
+        [
+          "additem",
+          "sell_silvercufflinks"
+        ],
+        [
+          "additem",
+          "sell_silvernugget"
+        ],
+        [
+          "additem",
+          "sell_stinkgem"
+        ],
+        [
+          "additem",
+          "sell_stockcert"
+        ],
+        [
+          "additem",
+          "sell_tontinegem"
+        ],
+        [
+          "additem",
+          "shovel"
+        ],
+        [
+          "additem",
+          "shroomgro"
+        ],
+        [
+          "additem",
+          "skinningknife"
+        ],
+        [
+          "additem",
+          "skin_coalsnake"
+        ],
+        [
+          "additem",
+          "skin_electric"
+        ],
+        [
+          "additem",
+          "skin_firesnake"
+        ],
+        [
+          "additem",
+          "skin_friscoviper"
+        ],
+        [
+          "additem",
+          "skin_rattler"
+        ],
+        [
+          "additem",
+          "skin_sickpython"
+        ],
+        [
+          "additem",
+          "skullchips"
+        ],
+        [
+          "additem",
+          "soap"
+        ],
+        [
+          "additem",
+          "tut_bsmug"
+        ],
+        [
+          "additem",
+          "tut_newspaper"
+        ],
+        [
+          "additem",
+          "tut_sherfdoor"
+        ],
+        [
+          "additem",
+          "tut_susierifle"
+        ],
+        [
+          "additem",
+          "tut_whiskey"
+        ],
+        [
+          "additem",
+          "ungulithhorn"
+        ],
+        [
+          "additem",
+          "vinegar"
+        ],
+        [
+          "additem",
+          "weapon_armysaber"
+        ],
+        [
+          "additem",
+          "weapon_axe"
+        ],
+        [
+          "additem",
+          "weapon_barryknife"
+        ],
+        [
+          "additem",
+          "weapon_bean1"
+        ],
+        [
+          "additem",
+          "weapon_bean2"
+        ],
+        [
+          "additem",
+          "weapon_bean3"
+        ],
+        [
+          "additem",
+          "weapon_beefybone"
+        ],
+        [
+          "additem",
+          "weapon_board"
+        ],
+        [
+          "additem",
+          "weapon_bonesword"
+        ],
+        [
+          "additem",
+          "weapon_brassknucks"
+        ],
+        [
+          "additem",
+          "weapon_cactusclub"
+        ],
+        [
+          "additem",
+          "weapon_cavalrysaber"
+        ],
+        [
+          "additem",
+          "weapon_cleaver"
+        ],
+        [
+          "additem",
+          "weapon_clownknife"
+        ],
+        [
+          "additem",
+          "weapon_driftwood"
+        ],
+        [
+          "additem",
+          "weapon_elv"
+        ],
+        [
+          "additem",
+          "weapon_fancyknife"
+        ],
+        [
+          "additem",
+          "weapon_goblinbat"
+        ],
+        [
+          "additem",
+          "weapon_hardloaf"
+        ],
+        [
+          "additem",
+          "weapon_hotpoker"
+        ],
+        [
+          "additem",
+          "weapon_leather1"
+        ],
+        [
+          "additem",
+          "weapon_leather2"
+        ],
+        [
+          "additem",
+          "weapon_leather3"
+        ],
+        [
+          "additem",
+          "weapon_leathershears"
+        ],
+        [
+          "additem",
+          "weapon_mining"
+        ],
+        [
+          "additem",
+          "weapon_oldpickaxe"
+        ],
+        [
+          "additem",
+          "weapon_plunger"
+        ],
+        [
+          "additem",
+          "weapon_poisondagger"
+        ],
+        [
+          "additem",
+          "weapon_shroombone"
+        ],
+        [
+          "additem",
+          "weapon_sledgehammer"
+        ],
+        [
+          "additem",
+          "weapon_spatula"
+        ],
+        [
+          "additem",
+          "weapon_sweetsword"
+        ],
+        [
+          "additem",
+          "weapon_sword_spittoon"
+        ],
+        [
+          "additem",
+          "weapon_tunafork"
+        ],
+        [
+          "additem",
+          "weapon_weirdknife"
+        ],
+        [
+          "additem",
+          "wrench"
+        ],
+        [
+          "option",
+          "done",
+          "Wowee zowee"
         ]
       ]
     },
@@ -3994,6 +7037,29 @@
       ]
     },
     "beancave_beaniron1": {
+      "popup": [
+        [
+          "say",
+          "You sense a deposit of bean-iron."
+        ],
+        [
+          "if",
+          "hasitem(pick)"
+        ],
+        [
+          "option",
+          "pickit",
+          "Mine it [Pickaxe]"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "say",
+          "Unfortunately, you don't have a pickaxe..."
+        ]
+      ],
       "pickit": [
         [
           "cls"
@@ -4212,6 +7278,48 @@
       ]
     },
     "breadwood_mayor": {
+      "start": [
+        [
+          "teleportplayer",
+          "225,70"
+        ],
+        [
+          "if",
+          "!hasflag(breadwood_mayorintro)"
+        ],
+        [
+          "goto",
+          "intro"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_permit)==13 && hasitem(quest_mayorform) && hasflag(gwloggingquestprogression)==5"
+        ],
+        [
+          "goto",
+          "signform1"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_mayorpencil)"
+        ],
+        [
+          "goto",
+          "pencilback"
+        ],
+        [
+          "if",
+          "hasflag(breadwood_quest1)==1"
+        ],
+        [
+          "goto",
+          "checkquest1"
+        ],
+        [
+          "goto",
+          "afterquest1check"
+        ]
+      ],
       "prob5": [
         [
           "addflag",
@@ -4429,6 +7537,22 @@
           "player"
         ],
         [
+          "if",
+          "!hasflag(breadwoodshophinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, breadwood" 
+        ],
+        [
+          "if",
+          "!hasflag(breadwoodshophinting)"
+        ],
+        [
+          "addflag",
+          "breadwoodshophinting"
+        ],
+        [
           "npcstore",
           "breadwood,900,-10"
         ],
@@ -4442,6 +7566,10 @@
         [
           "addflag",
           "store_buttonwillow,1"
+        ],
+        [
+          "addflag",
+          "buttonwillowstorestatichinting"
         ],
         [
           "addnpcstoreitem",
@@ -4492,6 +7620,43 @@
           "option",
           "done",
           "Take a step backwards"
+        ]
+      ],
+      "launch": [
+        [
+          "teleportplayer",
+          "45,200"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "shopman"
+        ],
+        [
+          "if",
+          "hasflag(buttonwillowstorestatichinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, buttonwillow"
+        ],
+        [
+          "if",
+          "hasflag(buttonwillowstorestatichinting)"
+        ],
+        [
+          "delflag",
+          "buttonwillowstorestatichinting"
+        ],
+        [
+          "npcstore",
+          "buttonwillow,70,0"
+        ],
+        [
+          "exit"
         ]
       ]
     },
@@ -4749,6 +7914,13 @@
     },
     "cemetery2_saint3": {
       "start": [
+        [
+          "if",
+          "hasflag(cemetery2_saint3fightdone)"
+        ],
+        [
+          "exit"
+        ],
         [
           "say",
           "Saint Pope stands beatifically behind the dais."
@@ -6864,6 +10036,234 @@
         ]
       ]
     },
+    "clowns_camp_conversation": {
+      "farcircus3": [
+        [
+          "leftsay",
+          "What I mean is, why are you guys camping all the way down here, so far from home?"
+        ],
+        [
+          "rightsay",
+          "Oh. Well, we're on break, so we decided to take in the sights."
+        ],
+        [
+          "leftsay",
+          "What sights? This is the middle of nowhere."
+        ],
+        [
+          "rightsay",
+          "Nonsense! Check out those cactuses over there. And those mountains. And... well, all this sand! Plenty of things to see!"
+        ],
+        [
+          "if",
+          "!hasflag(clowns_handstamp) && !hasflag(circusinfocheck)"
+        ],
+        [
+          "sayoption",
+          "tellme",
+          "Can you tell me a bit about your circus?"
+        ],
+        [
+          "sayoption",
+          "farcircus4",
+          "Wait a minute..."
+        ]
+      ],
+      "tellintim2": [
+        [
+          "leftsay",
+          "TELL ME ABOUT YOUR CIRCUS, CIRCUS CLOWN"
+        ],
+        [
+          "rightsay",
+          "Look, damnit, you are really tryin' my patience. Here's a free ticket. Go see it for yourself and leave me alone!"
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "telloutfox2": [
+        [
+          "leftsay",
+          "I tell you what, I'm doing a lot of traveling, I'd be happy to help advertise your circus..."
+        ],
+        [
+          "say",
+          "The clown with the meat haunch makes some kind of gesture, but you didn't quite catch it."
+        ],
+        [
+          "rightsay",
+          "No no, that won't be necessary. Won't be necessary for you to advertise for us, I mean. See, we... haven't decided on a travel schedule yet, and we don't want to spoil the surprise for the towns down south."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket."
+        ],
+        [
+          "rightsay",
+          "I do appreciate the thought, though. Here, your admission is on the house, just... keep it on the down-low, okay?"
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "tellhswog2": [
+        [
+          "leftsay",
+          "Hmm, I don't know... that's an awful long way to travel and then pay my own money to see a two-foot-high trapeze act."
+        ],
+        [
+          "say",
+          "The clown clenches his jaw -- you can hear his teeth grinding."
+        ],
+        [
+          "rightsay",
+          "You're gonna eat those words when you see <i>our</i> show, buddy."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket and practically throws it at you."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "whereintim4": [
+        [
+          "leftsay",
+          "Thanks. And since we're such good friends now and all, how about a little discount on the price of admission?"
+        ],
+        [
+          "say",
+          "The clown's smile curls ever-so-slightly into a sneer, and he pulls a brightly-colored slip of paper from his pocket."
+        ],
+        [
+          "rightsay",
+          "For you, <i>friend</i>, it's on the house."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "whereoutfox4": [
+        [
+          "leftsay",
+          "Thanks. And you know, it occurs to me that as I travel that long distance, I'll have plenty of opportunities to advertise for you, so --"
+        ],
+        [
+          "say",
+          "The clown with the meat haunch makes some kind of gesture, but you didn't quite catch it."
+        ],
+        [
+          "rightsay",
+          "No, that won't be necessary. Won't be necessary for you to advertise for us, I mean. See, we... haven't decided on a travel schedule yet, and we don't want to spoil the surprise for the towns down south."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket."
+        ],
+        [
+          "rightsay",
+          "I do appreciate the thought, though. Here, your admission is on the house."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ],
+      "wherehswog4": [
+        [
+          "leftsay",
+          "Hmm, I don't know... that's an awful long way to travel and then pay my own money to see a two-foot-high trapeze act."
+        ],
+        [
+          "say",
+          "The clown clenches his jaw -- you can hear his teeth grinding."
+        ],
+        [
+          "rightsay",
+          "You're gonna eat those words when you see <i>our</i> show, buddy."
+        ],
+        [
+          "say",
+          "The clown pulls a brightly-colored slip of paper from his pocket and practically throws it at you."
+        ],
+        [
+          "customcommand",
+          "checklocation,Clown Campsite - Circus Information"
+        ],
+        [
+          "addflag",
+          "circusinfocheck"
+        ],
+        [
+          "incflag",
+          "clowns_suspicion,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Why thank you, that's quite gracious of you."
+        ]
+      ]
+    },
     "clowns_camp_fightlose": {
       "start": [
         [
@@ -6991,17 +10391,21 @@
           "winstreak_region@regionto@,0"
         ],
         [
-          "option",
-          "sleef",
-          "Zzzzz"
-        ],
-        [
           "customcommand",
           "misspoint,Clown Campsite - Clowns Killed (Item 1)"
         ],
         [
           "customcommand",
           "misspoint,Clown Campsite - Clowns Killed (Item 2)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Clown Campsite - Circus Information"
+        ],
+        [
+          "option",
+          "sleef",
+          "Zzzzz"
         ]
       ]
     },
@@ -7018,6 +10422,10 @@
         [
           "customcommand",
           "checklocation,Clown Campsite - Clowns Killed (Item 2)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Clown Campsite - Circus Information"
         ],
         [
           "say",
@@ -7356,12 +10764,12 @@
           "1000"
         ],
         [
-          "goto",
-          "options"
-        ],
-        [
           "customcommand",
           "misspoint,Lazy-A Dude Ranch - Cowsbane Harvest"
+        ],
+        [
+          "goto",
+          "options"
         ]
       ]
     },
@@ -7468,7 +10876,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Circus - Barnaby Bob's Safe"
+          "checklocation,Circus Destroyed - Barnaby Bob's Safe"
         ],
         [
           "exit"
@@ -7494,6 +10902,14 @@
           "No problem, @maam@."
         ],
         [
+          "if",
+          "hasflag(clowns_capsearch)==2 && hasflag(clowns_tookhanky)==1 && hasflag(clowns_tooksalts)==1 && hasflag(clowns_tookknife)==1 && !hasflag(clowns_whistlebox)"
+        ],
+        [
+          "customcommand",
+          "misspoint, Circus - Slide Whistle Reward"
+        ],
+        [
           "option",
           "leave",
           "Leave"
@@ -7515,6 +10931,14 @@
         [
           "rightsay",
           "Sure, no problem."
+        ],
+        [
+          "if",
+          "hasflag(clowns_capsearch)==2 && hasflag(clowns_tookhanky)==1 && hasflag(clowns_tooksalts)==1 && hasflag(clowns_tookknife)==1 && !hasflag(clowns_whistlebox)"
+        ],
+        [
+          "customcommand",
+          "misspoint, Circus - Slide Whistle Reward"
         ],
         [
           "option",
@@ -7540,6 +10964,14 @@
           "Sure, no problem."
         ],
         [
+          "if",
+          "hasflag(clowns_capsearch)==2 && hasflag(clowns_tookhanky)==1 && hasflag(clowns_tooksalts)==1 && hasflag(clowns_tookknife)==1 && !hasflag(clowns_whistlebox)"
+        ],
+        [
+          "customcommand",
+          "misspoint, Circus - Slide Whistle Reward"
+        ],
+        [
           "option",
           "leave",
           "Leave"
@@ -7561,6 +10993,14 @@
         [
           "rightsay",
           "Sure, no problem."
+        ],
+        [
+          "if",
+          "hasflag(clowns_capsearch)==2 && hasflag(clowns_tookhanky)==1 && hasflag(clowns_tooksalts)==1 && hasflag(clowns_tookknife)==1 && !hasflag(clowns_whistlebox)"
+        ],
+        [
+          "customcommand",
+          "misspoint, Circus - Slide Whistle Reward"
         ],
         [
           "option",
@@ -8723,6 +12163,37 @@
       ]
     },
     "clowns_circus_tickettalk": {
+      "haveticket": [
+        [
+          "leftsay",
+          "I just so happen to have one."
+        ],
+        [
+          "say",
+          "The clown looks very surprised."
+        ],
+        [
+          "rightsay",
+          "What? How did you... er, well, great! Good for you, @maam@! I'll just take that and stamp your hand for re-entry... there we go. Enjoy the show!"
+        ],
+        [
+          "leftsay",
+          "What about my pardner?"
+        ],
+        [
+          "rightsay",
+          "Pardners get in free."
+        ],
+        [
+          "removeitem",
+          "quest_circusticket"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks."
+        ]
+      ],
       "talk": [
         [
           "rightportrait",
@@ -9811,7 +13282,7 @@
         ],
         [
           "if",
-          "hasflag(containers_elvibrato)==5 || hasflag(containers_elvibrato)==7 || hasflag(containers_elvibrato)==11 || hasflag(containers_elvibrato)==13 || hasflag(containers_elvibrato)==15"
+          "hasflag(containers_elvibrato)==5 || hasflag(containers_elvibrato)==7 || hasflag(containers_elvibrato)==9 || hasflag(containers_elvibrato)==11 || hasflag(containers_elvibrato)==13 || hasflag(containers_elvibrato)==15"
         ],
         [
           "goto",
@@ -11476,7 +14947,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Leatherworkery Crafting - Level 3 (Mallet)"
+          "checklocation,Leatherworkery Crafting - Level 3 (Cowrruption) (Mallet)"
         ],
         [
           "addflag",
@@ -11854,8 +15325,240 @@
         ],
         [
           "option",
-          "finish",
+          "idnameslast",
           "Now that's what I call immersion!"
+        ]
+      ],
+      "idnameslast": [
+        [
+          "say",
+          "A chill runs down your spine as an eager bureaucratic ghost asks you a few more questions before you can start the game."
+        ],
+        [
+          "say",
+          "This is being done to prevent the Ghostwood ID's from being a pain once recieved by the Archipelago Server."
+        ],
+        [
+          "say",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "idnamesfirst",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "idnamesfirst",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "idnamesfirst",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "idnamesfirst",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "idnamesfirst",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "idnamesfirst",
+          "Slapshank"
+        ]
+      ],
+      "idnamesfirst":[
+        [
+          "addproperty",
+          "idlastname,$lastoption$"
+        ],
+        [
+          "say",
+          "First Name"
+        ],
+        [
+          "sayoption",
+          "idnamesmiddle",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "idnamesmiddle",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "idnamesmiddle",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "idnamesmiddle",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "idnamesmiddle",
+          "Slim"
+        ],
+        [
+          "sayoption",
+          "idnamesmiddle",
+          "Taint"
+        ]
+      ],
+      "idnamesmiddle": [
+        [
+          "addproperty",
+          "idfirstname,$lastoption$"
+        ],
+        [
+          "say",
+          "Middle Name?"
+        ],
+        [
+          "sayoption",
+          "idnamesdone",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "idnamesdone",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "idnamesdone",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "idnamesdone2",
+          "Justice"
+        ],
+        [
+          "sayoption",
+          "idnamesdone",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "idnamesdone3",
+          "Murder"
+        ],
+        [
+          "sayoption",
+          "idnamesdone",
+          "Nondescript"
+        ]
+      ],
+      "idnamesdone2": [
+        [
+          "addproperty",
+          "idmiddlename,Justine"
+        ],
+        [
+          "addflag",
+          "middlenamejoke"
+        ],
+        [
+          "goto",
+          "idnamesdone"
+        ]
+      ],
+      "idnamesdone3":[
+        [
+          "addproperty",
+          "idmiddlename,Edgelord"
+        ],
+        [
+          "addflag",
+          "middlenamejoke"
+        ],
+        [
+          "goto",
+          "idnamesdone"
+        ]
+      ],
+      "idnamesdone": [
+        [
+          "if",
+          "!hasflag(middlenamejoke)"
+        ],
+        [
+          "addproperty",
+          "idmiddlename,$lastoption$"
+        ],
+        [
+          "say",
+          "See! That wasnt so hard was it."
+        ],
+        [
+          "if",
+          "hasflag(gottempidearly) && hasflag(gotidearly)"
+        ],
+        [
+          "say",
+          "Oh! Look at that, It would seem both the Temporary Visitor Permit and Visitor ID were sent to you already, here you go!"
+        ],
+        [
+          "if",
+          "hasflag(gottempidearly) && !hasflag(gotidearly)"
+        ],
+        [
+          "say",
+          "Oh! It would look like you have already recieved the Visitor Temporary Permit from someone. Here you go!"
+        ],
+        [
+          "if",
+          "hasflag(gottempidearly)"
+        ],
+        [
+          "additem",
+          "quest_g1tempvisit"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "addflag",
+          "idnamessettemp"
+        ],
+        [
+          "if",
+          "!hasflag(gottempidearly) && hasflag(gotidearly)"
+        ],
+        [
+          "say",
+          "Oh! It would look like you have already recieved the Visitor ID from someone. Here you go!"
+        ],
+        [
+          "if",
+          "hasflag(gotidearly)"
+        ],
+        [
+          "additem",
+          "quest_g1visitorid"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "addflag",
+          "idnamesset"
+        ],
+        [
+          "sayoption",
+          "done",
+          "I guess your right. I hope I wont have to do that again though."
         ]
       ],
       "done": [
@@ -12480,10 +16183,298 @@
       ]
     },
     "dirtwater_bartender": {
+      "shmart": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "if",
+          "!hasflag(room)"
+        ],
+        [
+          "sayoption",
+          "rentroom",
+          "I saw the sign out front, advertising a room?"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_shaggydogstory)==1 && !hasflag(anymissedcheck)"
+        ],
+        [
+          "sayoption",
+          "piano",
+          "I heard you had something interesting back there?"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_shaggydogstory)==1 && hasflag(missedcheckafterinit)"
+        ],
+        [
+          "sayoption",
+          "pianomissedcheck",
+          "I heard you had something interesting back there?"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_pianoquest)==2"
+        ],
+        [
+          "sayoption",
+          "finishpianoquest",
+          "I fixed the piano player for you."
+        ],
+        [
+          "sayoption",
+          "quests",
+          "Need any help with anything?"
+        ],
+        [
+          "if",
+          "meat>=5 && !hasflag(anymissedcheck)"
+        ],
+        [
+          "sayoption",
+          "drink",
+          "I'll have a shot of bourbon. [5 Meat]"
+        ],
+        [
+          "if",
+          "meat<=5 && !hasflag(anymissedcheck)"
+        ],
+        [
+          "grayoption",
+          "drilp",
+          "I'll have a shot of bourbon. [Requires 5 Meat]"
+        ],
+        [
+          "if",
+          "hasflag(anymissedcheck) && hasflag(apmissedcheckstoreissetup)==1"
+        ],
+        [
+          "sayoption",
+          "whyprice",
+          "What's with the random prices?"
+        ],
+        [
+          "if",
+          "hasflag(anymissedcheck) && !hasflag(missedcheckafterinit)"
+        ],
+        [
+          "sayoption",
+          "initstore",
+          "Whats that box there behind you? It looks... Strange..."
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_ellsbury)==1"
+        ],
+        [
+          "sayoption",
+          "ellsb",
+          "Who's that old man by the piano?"
+        ],
+        [
+          "if",
+          "hasflag(dirtwater_dartboard)==1"
+        ],
+        [
+          "sayoption",
+          "darts",
+          "Can I get some darts?"
+        ],
+        [
+          "if",
+          "hasflag(house_ghost_lawyer_search) && !hasflag(house_ghost_lawyer_foundit)"
+        ],
+        [
+          "sayoption",
+          "macready",
+          "Ever hear of a fella named Macready?"
+        ],
+        [
+          "if",
+          "hasflag(missedcheckafterinit)"
+        ],
+        [
+          "sayoption",
+          "launch",
+          "Got anything weird back there for me? [Open Shop]"
+        ],
+        [
+          "sayoption",
+          "done",
+          "See ya llater, Lloyd."
+        ]
+      ],
+      "initstore": [
+        [
+          "addflag",
+          "missedcheckafterinit"
+        ],
+        [
+          "addnpcstoreitem",
+          "dirtwaterbartender,booze_dirtwaterbourbon,-1,5"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "Funny you should ask. Stuff's been turnin' up behind the bar with yer name on it."
+        ],
+        [
+          "leftspeak",
+          "My name? You'd think packages that come for me would go to the post office..."
+        ],
+        [
+          "rightspeak",
+          "Well, not literally. Mostly it's just stuff nobody seems to remember leavin' here, but fer some reason I keep gettin' the impression it belongs to you."
+        ],
+        [
+          "sayoption",
+          "apmissedcheckstoresetup",
+          "That's... Concerning..."
+        ]
+      ],
+      "apmissedcheckstoresetup":[
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "Tell me about it. I'm runnin' a saloon here, not a lost-n-found for the entire frontier!"
+        ],
+        [
+          "leftspeak",
+          "Well I can take it off your hands if you want"
+        ],
+        [
+          "rightspeak",
+          "Yer more than welcome to it, though seein' as I'll be keeping it all safe fer ya till you drop in, I figure a storage fee is in order, seein' as it's takin' up half the space under my bar."
+        ],
+        [
+          "addflag",
+          "apmissedcheckstoreissetup,1"
+        ],
+        [
+          "sayoption",
+          "launch",
+          "Fair Enough."
+        ]
+      ],
+      "whyprice": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Oh, I dont really know what half this junk is, so I'm basing the storage fee on how big it is or how cool it looks."
+        ],
+        [
+          "addflag",
+          "apmissedcheckstoreissetup,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "I guess that makes sense."
+        ]
+      ],
+      "launch": [
+        [
+          "teleportplayer",
+          "500,205"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "bartender"
+        ],
+        [
+          "if",
+          "hasflag(lloydshophinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophintingmissed, dirtwaterbartender"
+        ],
+        [
+          "if",
+          "hasflag(lloydshophinting)"
+        ],
+        [
+          "delflag",
+          "lloydshophinting"
+        ],
+        [
+          "npcstore",
+          "dirtwaterbartender,463,25"
+        ],
+        [
+          "exit"
+        ]
+      ],
+      "pianomissedcheck": [
+        [
+          "addflag",
+          "dirtwater_shaggydogstory,2"
+        ],
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "You mean the ever growing pile of random junk that you said you'd take off my hands?"
+        ],
+        [
+          "sayoption",
+          "piano3",
+          "No, not that..."
+        ]
+      ],
       "piano2": [
         [
           "leftsay",
           "Hmm... Maybe my info's too old. I found a note from some travelers that passed through here about eight years ago."
+        ],
+        [
+          "rightsay",
+          "Ohhh. Yeah, that was the <i>previous</i> bartender. He had a, uh, a little trick he used to offer to show people. It's what got him fired, eventually. That senator's wife wasn't amused."
+        ],
+        [
+          "say",
+          "He rummages around under the bar for a minute, then blows the dust off a tiny piano, about nine inches tall."
+        ],
+        [
+          "rightsay",
+          "Here, you can keep the piano, so long as you don't ask me about the trick."
+        ],
+        [
+          "customcommand",
+          "checklocation,Dirtwater Saloon - Bartender's Mini Piano"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Thanks!"
+        ]
+      ],
+      "piano3": [
+        [
+          "leftsay",
+          "No, not that... I found a note from some travelers that passed through here about eight years ago."
         ],
         [
           "rightsay",
@@ -12515,6 +16506,10 @@
           "dirtwater_intro_books"
         ],
         [
+          "addflag",
+          "alexandriashophint"
+        ],
+        [
           "rightsay",
           "Oh, hello again. Thank you for telling me about this place. The locals have been very welcoming."
         ],
@@ -12543,6 +16538,10 @@
         [
           "addflag",
           "dirtwater_updated_books"
+        ],
+        [
+          "addflag",
+          "alexandriashophintupdate"
         ],
         [
           "addstate",
@@ -12605,6 +16604,51 @@
           "opts",
           "I may well be!"
         ]
+      ],
+      "store": [
+        [
+          "teleportplayer",
+          "205,170"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "alex"
+        ],
+        [
+          "if",
+          "hasflag(alexandriashophint) | hasflag(alexandriashophintupdate)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, bookstore"
+        ],
+        [
+          "if",
+          "hasflag(alexandriashophint)"
+        ],
+        [
+          "delflag",
+          "alexandriashophint"
+        ],
+        [
+          "if",
+          "hasflag(alexandriashophintupdate)"
+        ],
+        [
+          "delflag",
+          "alexandriashophintupdate"
+        ],
+        [
+          "npcstore",
+          "bookstore,235,-10"
+        ],
+        [
+          "exit"
+        ]
       ]
     },
     "dirtwater_bootsman": {
@@ -12612,6 +16656,10 @@
         [
           "addflag",
           "dirtwater_intro_boots"
+        ],
+        [
+          "addflag",
+          "tonyshophint"
         ],
         [
           "rightsay",
@@ -12646,6 +16694,10 @@
         [
           "addflag",
           "dirtwater_updated_boots"
+        ],
+        [
+          "addflag",
+          "tonyshophintupdate"
         ],
         [
           "addstate",
@@ -12703,6 +16755,51 @@
           "option",
           "opts",
           "Interesting!"
+        ]
+      ],
+      "store": [
+        [
+          "teleportplayer",
+          "200,170"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "bootsman"
+        ],
+        [
+          "if",
+          "hasflag(tonyshophint) | hasflag(tonyshophintupdate)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, tonysboots"
+        ],
+        [
+          "if",
+          "hasflag(tonyshophinting)"
+        ],
+        [
+          "delflag",
+          "tonyshophinting"
+        ],
+        [
+          "if",
+          "hasflag(tonyshophintupdate)"
+        ],
+        [
+          "delflag",
+          "tonyshophintupdate"
+        ],
+        [
+          "npcstore",
+          "tonysboots,235,-10"
+        ],
+        [
+          "exit"
         ]
       ]
     },
@@ -12878,12 +16975,20 @@
           "dirtwatergeneral,binoculars,1"
         ],
         [
+          "addnpcstoreitem",
+          "dirtwatergeneral,oilcan,2"
+        ],
+        [
           "if",
           "gary"
         ],
         [
           "addnpcstoreitem",
           "dirtwatergeneral,shroomgro,1,400"
+        ],
+        [
+          "addflag",
+          "dirtwatergeneralstatichinting"
         ],
         [
           "goto",
@@ -12911,6 +17016,10 @@
           "dirtwatergeneral,binoculars,1"
         ],
         [
+          "addnpcstoreitem",
+          "dirtwatergeneral,oilcan,1"
+        ],
+        [
           "incflag",
           "store_dirtwatergeneral"
         ],
@@ -12929,6 +17038,43 @@
         [
           "exit"
         ]
+      ],
+      "openstore": [
+        [
+          "teleportplayer",
+          "175,215"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "shopkeeper"
+        ],
+        [
+          "if",
+          "hasflag(dirtwatergeneralstatichinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, dirtwatergeneral"
+        ],
+        [
+          "if",
+          "hasflag(dirtwatergeneralstatichinting)"
+        ],
+        [
+          "delflag",
+          "dirtwatergeneralstatichinting"
+        ],
+        [
+          "npcstore",
+          "dirtwatergeneral,225,20"
+        ],
+        [
+          "exit"
+        ]
       ]
     },
     "dirtwater_leatherman": {
@@ -12942,10 +17088,53 @@
           "opts"
         ]
       ],
+      "intro": [
+        [
+          "addflag",
+          "dirtwater_intro_tanner"
+        ],
+        [
+          "addflag",
+          "gradyshophint"
+        ],
+        [
+          "rightportrait",
+          "leatherman"
+        ],
+        [
+          "rightsay",
+          "Well hey there, @firstname@! Welcome to my shop!"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Looks like you've gotten yourself set up pretty nicely."
+        ],
+        [
+          "rightsay",
+          "Sure have! Here, let me give you a little something as thanks for helping me out. Have a sharpening strop, on the house."
+        ],
+        [
+          "additem",
+          "aug_strop"
+        ],
+        [
+          "sayoption",
+          "intro2",
+          "Aw, thanks!"
+        ]
+      ],
       "neighbor": [
         [
           "addflag",
           "dirtwater_updated_tanner"
+        ],
+        [
+          "addflag",
+          "gradyshophintupdate"
         ],
         [
           "leftportrait",
@@ -13016,6 +17205,51 @@
           "opttemp",
           "Interesting!"
         ]
+      ],
+      "store": [
+        [
+          "teleportplayer",
+          "260,170"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "leatherman"
+        ],
+        [
+          "if",
+          "hasflag(gradyshophint) | hasflag(gradyshophintupdate)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, tanner"
+        ],
+        [
+          "if",
+          "hasflag(gradyshophint)"
+        ],
+        [
+          "delflag",
+          "gradyshophint"
+        ],
+        [
+          "if",
+          "hasflag(gradyshophintupdate)"
+        ],
+        [
+          "delflag",
+          "gradyshophintupdate"
+        ],
+        [
+          "npcstore",
+          "tanner,280,-10"
+        ],
+        [
+          "exit"
+        ]
       ]
     },
     "dirtwater_murray": {
@@ -13023,6 +17257,10 @@
         [
           "addflag",
           "dirtwater_intro_curiosity"
+        ],
+        [
+          "addflag",
+          "murrayshophint"
         ],
         [
           "rightsay",
@@ -13057,6 +17295,10 @@
         [
           "addflag",
           "dirtwater_updated_curiosity"
+        ],
+        [
+          "addflag",
+          "murrayshophintupdate"
         ],
         [
           "addstate",
@@ -13122,6 +17364,51 @@
           "option",
           "opts",
           "Interesting!"
+        ]
+      ],
+      "store": [
+        [
+          "teleportplayer",
+          "210,170"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "shopkeep"
+        ],
+        [
+          "if",
+          "hasflag(murrayshophint) | hasflag(murrayshophintupdate)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, curiosity"
+        ],
+        [
+          "if",
+          "hasflag(murrayshophint)"
+        ],
+        [
+          "delflag",
+          "murrayshophint"
+        ],
+        [
+          "if",
+          "hasflag(murrayshophintupdate)"
+        ],
+        [
+          "delflag",
+          "murrayshophintupdate"
+        ],
+        [
+          "npcstore",
+          "curiosity,235,-10"
+        ],
+        [
+          "exit"
         ]
       ]
     },
@@ -13327,12 +17614,50 @@
           "store_dynamitedan,1"
         ],
         [
+          "addflag",
+          "danstatichinting"
+        ],
+        [
           "addnpcstoreitem",
           "dynamitedan,combat_dynamite,rand(15,20)"
         ],
         [
           "goto",
           "launch"
+        ]
+      ],
+      "launch": [
+        [
+          "teleportplayer",
+          "340,180"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "dan"
+        ],
+        [
+          "if",
+          "hasflag(danstatichinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, dynamitedan"
+        ],
+        [
+          "if",
+          "hasflag(danstatichinting)"
+        ],
+        [
+          "delflag",
+          "danstatichinting"
+        ],
+        [
+          "npcstore",
+          "dynamitedan,360,0"
         ]
       ]
     },
@@ -13631,7 +17956,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Ruin - Cylinder"
+          "checklocation,El Vibrato Ruin (Lost Dutch Oven Mine) - Cylinder"
         ]
       ]
     },
@@ -13866,7 +18191,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Construction Facility - BUGAANZEVE"
+          "checklocation,El Vibrato Construction Facility (Curious Copse) - BUGAANZEVE"
         ],
         [
           "markused"
@@ -13889,7 +18214,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Construction Facility - HOSOM NOAN NOFU"
+          "checklocation,El Vibrato Construction Facility (Curious Copse) - HOSOM NOAN NOFU"
         ],
         [
           "option",
@@ -13924,6 +18249,40 @@
         ]
       ]
     },
+    "elvibrato5_fusebox": {
+      "popup": [
+        [
+          "say",
+          "There's a piece here that's very obviously broken."
+        ],
+        [
+          "if",
+          "hasitem(elv_fuse2)"
+        ],
+        [
+          "option",
+          "fuseme",
+          "Replace it [El Vibrato cylinder]"
+        ]
+      ],
+      "fuseme": [
+        [
+          "removeitem",
+          "elv_fuse2"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "There we go."
+        ],
+        [
+          "addflag",
+          "elvibrato5_fuse"
+        ]
+      ]
+    },
     "elvibrato5_trashpile": {
       "e": [
         [
@@ -13936,6 +18295,40 @@
         [
           "customcommand",
           "checklocation,Curious Flat Plain - Garbage Return"
+        ]
+      ]
+    },
+    "elvibrato6_fusebox": {
+      "popup": [
+        [
+          "say",
+          "There's a cylindrical piece here that's very obviously broken."
+        ],
+        [
+          "if",
+          "hasitem(elv_fuse3)"
+        ],
+        [
+          "option",
+          "fuseme",
+          "Replace it [El Vibrato cylinder]"
+        ]
+      ],
+      "fuseme": [
+        [
+          "removeitem",
+          "elv_fuse3"
+        ],
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "You pop out the broken cylinder and replace it with the one you found. The machine whirrs to life with a riot of blue lights and weird noises."
+        ],
+        [
+          "addflag",
+          "elvibrato6_fuse"
         ]
       ]
     },
@@ -14173,7 +18566,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Control Center - El Vibrato Quest Completion"
+          "checklocation,El Vibrato Control Center (Deepest Delve Mine) - El Vibrato Quest Completion"
         ]
       ]
     },
@@ -14255,13 +18648,13 @@
           "food_turnip"
         ],
         [
+          "customcommand",
+          "misspointturnip,The Silver Plater - Plated the Turnip"
+        ],
+        [
           "option",
           "done",
           "Yep"
-        ],
-        [
-          "customcommand",
-          "misspoint,The Silver Plater - Plated the Turnip"
         ]
       ]
     },
@@ -14509,6 +18902,29 @@
         [
           "goto",
           "heleaves"
+        ]
+      ],
+      "heleaves": [
+        [
+          "say",
+          "General Gob strides out the door, jaw clenched, eyes resolute with pie-hatred."
+        ],
+        [
+          "addflag",
+          "fort1_generalgob,2"
+        ],
+        [
+          "customcommand",
+          "misspoint,Fort Cowardice Back Office - General Gob's Hat"
+        ],
+        [
+          "customcommand",
+          "misspoint,Fort Cowardice Back Office - General Gob's Pistol"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Well, that was weird. I guess I'm the General now!"
         ]
       ]
     },
@@ -15417,7 +19833,7 @@
         ],
         [
           "customcommand",
-          "misspoint,Circus - Barnaby Bob's Safe"
+          "misspoint,Circus Destroyed - Barnaby Bob's Safe"
         ]
       ]
     },
@@ -15886,6 +20302,55 @@
         ]
       ]
     },
+    "fort5_blindman": {
+      "binoc": [
+        [
+          "removeitem",
+          "binoculars"
+        ],
+        [
+          "customcommand",
+          "misspoint,Jeweler's Cabin - Spectacles"
+        ],
+        [
+          "incflag",
+          "peoplehelped,1"
+        ],
+        [
+          "addflag",
+          "fort5_privateblindman"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "say",
+          "He takes the binoculars, and peers at you through them."
+        ],
+        [
+          "rightsay",
+          "Well, I'll be! That ain't half bad."
+        ],
+        [
+          "say",
+          "He climbs up to the top of the watchtower and looks around."
+        ],
+        [
+          "rightsay",
+          "They work! I can see a dang thing! Hooray!"
+        ],
+        [
+          "addxp",
+          "@xpreward_g@"
+        ],
+        [
+          "option",
+          "done",
+          "Great!"
+        ]
+      ]
+    },
     "fort5_generaldesk": {
       "inv": [
         [
@@ -15936,6 +20401,14 @@
           "fort5_privatebowlegs"
         ],
         [
+          "customcommand",
+          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
+        ],
+        [
+          "mapunlock",
+          "fort7,Alamo Rent-A-Mule"
+        ],
+        [
           "addxp",
           "@xpreward_g@"
         ],
@@ -15943,10 +20416,6 @@
           "sayoption",
           "done",
           "Hey, wait! You owe me 1500 Meat! Dammit!"
-        ],
-        [
-          "customcommand",
-          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
         ]
       ],
       "bend": [
@@ -15967,13 +20436,17 @@
           "Ow! Great jumpin' jiminy, @man@!"
         ],
         [
+          "customcommand",
+          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
+        ],
+        [
+          "mapunlock",
+          "fort7,Alamo Rent-A-Mule"
+        ],
+        [
           "sayoption",
           "bend2",
           "Oh, don't be a baby. Look, they're much straighter now."
-        ],
-        [
-          "customcommand",
-          "misspoint,Alamo Rent-A-Mule - Rented a Mule"
         ]
       ]
     },
@@ -16703,6 +21176,179 @@
         ]
       ]
     },
+    "frisco_norton": {
+      "start": [
+        [
+          "if",
+          "hasflag(canbuyhoneybean) && !hasitem(hat_teethcrown) | hasflag(canbuyhoneybean) && !hasitem(hat_necrocrown) | hasflag(canbuyhoneybean) && !hasitem(hat_silverturnip) | hasflag(canbuyhoneybean) && !hasitem(hat_elvcrown) | hasflag(canbuyhoneybean) && !hasitem(quest_honeybean)"
+        ],
+        [
+          "goto",
+          "done"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Who the heck are you?"
+        ],
+        [
+          "rightportrait",
+          "norton"
+        ],
+        [
+          "rightsay",
+          "I'm Emperor Norton! I'm in charge of this city, and you can't build any train tracks here without my permission!"
+        ],
+        [
+          "leftsay",
+          "An emperor? Where's your crown, then?"
+        ],
+        [
+          "rightsay",
+          "As it happens, I lost my dang crown. Fool thing didn't fit right anyway. But without it, I can't issue any official permits, and that means no rails for you! Unless, of course... you were to give me a <i>new</i> crown. A <i>properly-fitting</i> one."
+        ],
+        [
+          "sayoption",
+          "notready",
+          "I still need a few things first, can I go past into town and leave the train here?"
+        ],
+        [
+          "if",
+          "hasitem(hat_teethcrown)"
+        ],
+        [
+          "sayoption",
+          "crown1",
+          "I've got this gold crown. [Give gold tooth crown]"
+        ],
+        [
+          "if",
+          "hasitem(hat_necrocrown)"
+        ],
+        [
+          "sayoption",
+          "crown2",
+          "I've got this creepy crown. [Give necromancer crown]"
+        ],
+        [
+          "if",
+          "hasitem(hat_silverturnip)"
+        ],
+        [
+          "sayoption",
+          "crown3",
+          "I've got this... silver crown. [Give turnip crown]"
+        ],
+        [
+          "if",
+          "hasitem(hat_elvcrown)"
+        ],
+        [
+          "sayoption",
+          "crown4",
+          "I've got this weird crown. [Give El Vibrato crown]"
+        ],
+        [
+          "if",
+          "!hasitem(hat_teethcrown) && !hasitem(hat_necrocrown) && !hasitem(hat_silverturnip) && !hasitem(hat_elvcrown)"
+        ],
+        [
+          "sayoption",
+          "nocrowna",
+          "I don't have any crowns, sorry."
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "sayoption",
+          "nocrowna",
+          "Hmm, I don't think I want to give you a crown. Sorry."
+        ]
+      ],
+      "nocrown": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Well! I guess that just tears it, don't it? So not only do you not get that permit, but also..."
+        ],
+        [
+          "say",
+          "He reaches into his pocket and grabs a handful of powder, which he throws in your face. Your eyes burn."
+        ],
+        [
+          "rightsay",
+          "Hah! Have a taste of my famous ant-eye virus, sucker!"
+        ],
+        [
+          "say",
+          "Your vision goes all weird and you pass out..."
+        ],
+        [
+          "addflag",
+          "anteyevirus"
+        ],
+        [
+          "addflag",
+          "mainquest,31"
+        ],
+        [
+          "option",
+          "trainnapping",
+          "What was <i>that</i>!?"
+        ]
+      ],
+      "nocrowna": [
+        [
+          "if",
+          "!hasitem(quest_honeybean)"
+        ],
+        [
+          "say",
+          "Norton looks at you confused"
+        ],
+        [
+          "if",
+          "!hasitem(quest_honeybean)"
+        ],
+        [
+          "sayoption",
+          "notready",
+          "I still need a few things first, can I go past into town and leave the train here?"
+        ],
+        [
+          "sayoption",
+          "nocrown",
+          "I don't believe you are the emperor! I'll just have Smee build the tracks without your permission."
+        ]
+      ],
+      "notready": [
+        [
+          "addflag",
+          "canbuyhoneybean"
+        ],
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightspeak",
+          "Into town? Hmph. Fine, I suppose. But that train stays right where it is! No tracks in my city until I get a proper crown."
+        ],
+        [
+          "sayoption",
+          "done",
+          "Fair enough."
+        ]
+      ]
+    },
     "geocave_rock": {
       "giverock": [
         [
@@ -16802,6 +21448,30 @@
       ]
     },
     "ghosttown1_cactusa": {
+      "popup": [
+        [
+          "say",
+          "This is a regular cactus. Well, the ghost of a regular cactus. Well, the ghost of a regular cactus with the ghost of a pencil stabbed into it."
+        ],
+        [
+          "if",
+          "!hasitem(quest_g1tempvisit) || hasflag(gwloggingquestprogression)<2"
+        ],
+        [
+          "option",
+          "nogood",
+          "Take the pencil"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "option",
+          "good",
+          "Take the pencil"
+        ]
+      ],
       "good": [
         [
           "cls"
@@ -16819,11 +21489,94 @@
           "checklocation,Ghostwood - Ghost Cactus"
         ],
         [
+          "if",
+          "!hasflag(ghostwoodooscheck)"
+        ],
+        [
+          "addflag",
+          "ghostwoodooscheck"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "incflag",
+          "ghostwoodooscheck,1"
+        ],
+        [
           "markused"
         ]
       ]
     },
     "ghosttown1_knock1": {
+      "start": [
+        [
+          "if",
+          "hasflag(ghosttown1_whiskey)"
+        ],
+        [
+          "goto",
+          "whiskeycheck"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1visitorid) && hasflag(gwloggingquestprogression)>0"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression<4)"
+        ],
+        [
+          "goto",
+          "tempvisit"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression<4)"
+        ],
+        [
+          "goto",
+          "second"
+        ],
+        [
+          "if",
+          "!hasflag(ghosttown1_metbar)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasflag(gwloggingquestprogression)"
+        ],
+        [
+          "goto",
+          "second"
+        ],
+        [
+          "if",
+          "!hasitem(quest_g1visitorid) && !hasitem(quest_g1tempvisit)"
+        ],
+        [
+          "goto",
+          "second"
+        ],
+        [
+          "say",
+          "ghosttown1_knock1 start: You shouldnt be seeing this. Please send a screenshot to the mod developer."
+        ],
+        [
+          "option",
+          "done",
+          "oops"
+        ]
+      ],
       "welcome": [
         [
           "leftportrait",
@@ -16839,7 +21592,7 @@
         ],
         [
           "rightsay",
-          "Well, howdy! What can I do for you, @mr@ @idlastname2@?"
+          "Well, howdy! What can I do for you, @mr@ @idlastname@?"
         ],
         [
           "if",
@@ -16851,7 +21604,16 @@
         ],
         [
           "if",
-          "!hasflag(ghosttown1_permit)"
+          "hasflag(gwwhiskypencil) && hasflag(ghosttown1_mayorpencil) && hasflag(gwloggingquestprogression)==5 && !hasflag(whiskeypencilafterjoke)"
+        ],
+        [
+          "sayoption",
+          "penciljoke",
+          "Hey, can I borrow that pencil again?"
+        ],
+        [
+          "if",
+          "!hasflag(ghosttown1_permit) && hasflag(gwloggingquestprogression)==4"
         ],
         [
           "sayoption",
@@ -16860,7 +21622,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==9"
+          "hasflag(ghosttown1_permit)==9 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -16876,6 +21638,118 @@
           "sayoption",
           "done",
           "Umm... I can't think of anything."
+        ]
+      ],
+      "penciljoke": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Sure! What form do you need to fill out here?"
+        ],
+        [
+          "leftsay",
+          "Actually I need to borrow it to fill out some forms at Town Hall."
+        ],
+        [
+          "rightsay",
+          "Oh. No."
+        ],
+        [
+          "sayoption",
+          "penciljoke2",
+          "...No?"
+        ]
+      ],
+      "penciljoke2": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Yeah. No."
+        ],
+        [
+          "leftsay",
+          "Why, no?"
+        ],
+        [
+          "rightsay",
+          "I can authorize temporary use of this pencil for use on the premises, but I absolutely cannot allow it to leave the Department of Liberations."
+        ],
+        [
+          "leftsay",
+          "... Is there a form I can fill out?"
+        ],
+        [
+          "rightsay",
+          "Oh yeah! Several."
+        ],
+        [
+          "sayoption",
+          "penciljoke3",
+          "Great. Let's get this over with."
+        ]
+      ],
+      "penciljoke3": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "None that will let you take the pencil from the Department of Libations."
+        ],
+        [
+          "leftsay",
+          "Then what are they for?"
+        ],
+        [
+          "rightsay",
+          "Mostly documenting that I told you no."
+        ],
+        [
+          "sayoption",
+          "penciljoke4",
+          "Can't you just make an exception?"
+        ]
+      ],
+      "penciljoke4": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "These pencils are incredibly rare. If you walked out with it and lost it, no amount of paperwork could replace it."
+        ],
+        [
+          "leftsay",
+          "So there <i>is</i> something paperwork can't fix?"
+        ],
+        [
+          "rightsay",
+          "Sure. A missing pencil."
+        ],
+        [
+          "leftsay",
+          "Breadwood's Mayor still has mine..."
+        ],
+        [
+          "rightsay",
+          "I guess you know where a pencil is then! Best of luck."
+        ],
+        [
+          "addflag",
+          "whiskeypencilafterjoke"
+        ],
+        [
+          "sayoption",
+          "done",
+          "I hate it when bureaucracy makes sense..."
         ]
       ],
       "permit9": [
@@ -17077,7 +21951,7 @@
         ],
         [
           "if",
-          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@)"
         ],
         [
           "goto",
@@ -17095,6 +21969,478 @@
           "sayoption",
           "done",
           "Sigh."
+        ]
+      ],
+      "whiskey5": [
+        [
+          "if",
+          "hasflag(ghosttown1_whiskeyretry)"
+        ],
+        [
+          "goto",
+          "whiskey5a"
+        ],
+        [
+          "if",
+          "hasflag(whiskeypencilretry)"
+        ],
+        [
+          "goto",
+          "whiskeypencilretry"
+        ],
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Here's that whiskey requisition form."
+        ],
+        [
+          "removeitem",
+          "quest_redenvfull"
+        ],
+        [
+          "rightportrait",
+          "ghost1"
+        ],
+        [
+          "rightsay",
+          "Ooh, a red transfer envelope. You must really be thirsty. Okay, let's get this filled out..."
+        ],
+        [
+          "if",
+          "!hasitem(quest_3pencil) && !hasflag(ghosttown1_mayorpencil)"
+        ],
+        [
+          "goto",
+          "whiskey5nopencil1"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_mayorpencil)==1"
+        ],
+        [
+          "goto",
+          "whiskey5nopencil2"
+        ],
+        [
+          "if",
+          "hasitem(quest_3pencil) && !hasflag(ghosttown1_mayorpencil)"
+        ],
+        [
+          "goto",
+          "whiskey5b"
+        ]
+      ],
+      "whiskey5nopencil1": [
+        [
+          "addflag",
+          "ghosttown1_whiskeyretry,1"
+        ],
+        [
+          "leftsay",
+          "There's a problem. I don't have a pencil"
+        ],
+        [
+          "rightsay",
+          "Any pencil?"
+        ],
+        [
+          "leftsay",
+          "None."
+        ],
+        [
+          "rightsay",
+          "Hmm. Well that will be an issue. This form requires a #3 ghost pencil to be completed."
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil1b",
+          "Do you have one I can borrow?"
+        ]
+      ],
+      "whiskey5nopencil1b": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Technically, yes."
+        ],
+        [
+          "leftsay",
+          "Great!"
+        ],
+        [
+          "rightsay",
+          "But I'm not authorized to loan office supplies to anyone who hasn't been previously issued that type of office supply before."
+        ],
+        [
+          "rightsay",
+          "If we loaned pencils to people who didn't have pencils, we'd run out of pencils."
+        ],
+        [
+          "leftsay",
+          "So how am I supposed to get issued one?"
+        ],
+        [
+          "rightsay",
+          "If you haven't yet, you should ask the Department of Requisitions."
+        ],
+        [
+          "sayoption",
+          "done",
+          "<i>Sighhhhh</i>, this is the reason why I wanted a drink."
+        ]
+      ],
+      "whiskeypencilretry": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "I'm here to get that temporary pencil for the use on the whiskey requisition form."
+        ],
+        [
+          "rightportrait",
+          "ghost1"
+        ],
+        [
+          "rightspeak",
+          "Alright, let me grab the first form."
+        ],
+        [
+          "goto",
+          "whiskey5nopencil2c"
+        ]
+      ],
+      "whiskey5nopencil2": [
+        [
+          "rightsay",
+          "Oh. You're gonna need a #3 pencil."
+        ],
+        [
+          "leftsay",
+          "I have a... oh god, I loaned it to the mayor."
+        ],
+        [
+          "rightsay",
+          "Ah, so you were issued a #3 pencil by the Department of Requisitions?"
+        ],
+        [
+          "leftsay",
+          "Kin... YES, yes I was."
+        ],
+        [
+          "rightsay",
+          "In that case, I have one you may borrow."
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2b",
+          "Wonderful!"
+        ]
+      ],
+      "whiskey5nopencil2b": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First thing I will need you to do is fill out this form acknowleding temporary custody of the pencil."
+        ],
+        [
+          "leftsay",
+          "Can I borrow the pencil to fill this form out?"
+        ],
+        [
+          "rightsay",
+          "..."
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "I guess I'll have to fill it out for you"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2c",
+          "At least its something I guess"
+        ]
+      ],
+      "whiskey5nopencil2c": [
+        [
+          "rightsay",
+          "Last name?"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2d",
+          "Tame"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2d",
+          "Alvarado"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2d",
+          "Goldthwait"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2d",
+          "@lastname@"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2d",
+          "Shartwright"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2d",
+          "Slapshank"
+        ]
+      ],
+      "whiskey5nopencil2d": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidlastname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "First name?"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2e",
+          "Puddin'"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2e",
+          "Pico"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2e",
+          "Bobcat"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2e",
+          "@firstname@"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2e",
+          "Taint"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2e",
+          "Slim"
+        ]
+      ],
+      "whiskey5nopencil2e": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "addstate",
+          "tempidfirstname,$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Middle name?"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Danger"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Trouble"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Sneaky"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Edgelord"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Justine"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Nice"
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2f",
+          "Nondescript"
+        ]
+      ],
+      "whiskey5nopencil2f": [
+        [
+          "leftsay",
+          "$lastoption$."
+        ],
+        [
+          "addstate",
+          "tempidmiddlename,$lastoption$"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@) && !hasflag(whiskeypencilforms)"
+        ],
+        [
+          "goto",
+          "whiskey5nopencil2g"
+        ],
+        [
+          "if",
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@) && hasflag(whiskeypencilforms)"
+        ],
+        [
+          "goto",
+          "whiskey5nopencil2h"
+        ],
+        [
+          "rightsay",
+          "\"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\"? Hmm, sorry @miss@, that doesn't match your visitor ID."
+        ],
+        [
+          "addflag",
+          "whiskeypencilretry,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Sigh."
+        ]
+      ],
+      "whiskey5nopencil2g": [
+        [
+          "addflag",
+          "whiskeypencilforms"
+        ],
+        [
+          "rightsay",
+          "Lemme match that against your visitor ID... \"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\" -- Yup, that all looks good."
+        ],
+        [
+          "leftsay",
+          "Can I use the pencil now for the whiskey requisition form?"
+        ],
+        [
+          "rightsay",
+          "Not yet, There is another form you need to fill out. This one authorizes the use of the loaned pencil on the whiskey requisition form."
+        ],
+        [
+          "leftsay",
+          "Can I use the pencil to fill that form out?"
+        ],
+        [
+          "rightsay",
+          "... I'll fill this one out too..."
+        ],
+        [
+          "sayoption",
+          "whiskey5nopencil2c",
+          "Oh boy... I can't wait."
+        ]
+      ],
+      "whiskey5nopencil2h": [
+        [
+          "rightsay",
+          "Lemme match that against your visitor ID... \"$tempidfirstname$ $tempidmiddlename$ $tempidlastname$\" -- Yup, that all looks good."
+        ],
+        [
+          "leftsay",
+          "Now can I use the pencil for the whiskey requisition form?"
+        ],
+        [
+          "rightsay",
+          "Yep. Make sure I get that pencil back with the whiskey requisition form."
+        ],
+        [
+          "addflag",
+          "gwwhiskypencil"
+        ],
+        [
+          "sayoption",
+          "whiskey5b",
+          "If only there were a faster way to have done all this..."
+        ]
+      ],
+      "whiskey5a": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "All right, let me try that whiskey requisition form again."
+        ],
+        [
+          "addflag",
+          "ghosttown1_whiskeyretry,0"
+        ],
+        [
+          "rightportrait",
+          "ghost1"
+        ],
+        [
+          "rightsay",
+          "Sure thing..."
+        ],
+        [
+          "if",
+          "!hasitem(quest_3pencil) && !hasflag(ghosttown1_mayorpencil)"
+        ],
+        [
+          "goto",
+          "whiskey5nopencil1"
+        ],
+        [
+          "if",
+          "hasflag(ghosttown1_mayorpencil)==1"
+        ],
+        [
+          "goto",
+          "whiskey5nopencil2"
+        ],
+        [
+          "if",
+          "hasitem(quest_3pencil) && !hasflag(ghosttown1_mayorpencil)"
+        ],
+        [
+          "goto",
+          "whiskey5b"
         ]
       ],
       "whiskey5b": [
@@ -17237,7 +22583,7 @@
         ],
         [
           "if",
-          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@)"
         ],
         [
           "goto",
@@ -17282,6 +22628,57 @@
       ]
     },
     "ghosttown1_knock2": {
+      "start": [
+        [
+          "if",
+          "hasitem(quest_g1visitorid) && hasflag(gwloggingquestprogression)>0"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression<4)"
+        ],
+        [
+          "goto",
+          "tempvisit"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression<4)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasflag(gwloggingquestprogression)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasitem(quest_g1visitorid) && !hasitem(quest_g1tempvisit)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "say",
+          "ghosttown1_knock2 start: You shouldnt be seeing this, please send a screenshot of this error to the mod developer."
+        ],
+        [
+          "option",
+          "done",
+          "oops"
+        ]
+      ],
       "welcome": [
         [
           "leftportrait",
@@ -17297,11 +22694,11 @@
         ],
         [
           "rightsay",
-          "Department of Records. How can I help you, @mr@ @idlastname2@?"
+          "Department of Records. How can I help you, @mr@ @idlastname@?"
         ],
         [
           "if",
-          "!hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit) && hasflag(gwloggingquestprogression)==4"
         ],
         [
           "sayoption",
@@ -17310,7 +22707,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==1"
+          "hasflag(ghosttown1_permit)==1 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17319,7 +22716,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==5 && hasitem(quest_loggingrep)"
+          "hasflag(ghosttown1_permit)==5 && hasitem(quest_loggingrep) && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17328,7 +22725,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==8"
+          "hasflag(ghosttown1_permit)==8 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17337,7 +22734,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==10 && hasitem(quest_unstapler)"
+          "hasflag(ghosttown1_permit)==10 && hasitem(quest_unstapler) && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17423,6 +22820,57 @@
       ]
     },
     "ghosttown1_knock3": {
+      "start": [
+        [
+          "if",
+          "hasitem(quest_g1visitorid) && hasflag(gwloggingquestprogression)>0"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression<4)"
+        ],
+        [
+          "goto",
+          "tempvisit"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression<4)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasflag(gwloggingquestprogression)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasitem(quest_g1visitorid) && !hasitem(quest_g1tempvisit)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "say",
+          "ghosttown1_knock3 start: You shouldnt be seeing this, please send a screenshot of this to the mod developer."
+        ],
+        [
+          "option",
+          "done",
+          "oops"
+        ]
+      ],
       "welcome": [
         [
           "leftportrait",
@@ -17438,11 +22886,11 @@
         ],
         [
           "rightsay",
-          "@mr@ ...@idlastname2@, was it? What can I do for you?"
+          "@mr@ ...@idlastname@, was it? What can I do for you?"
         ],
         [
           "if",
-          "!hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit) && hasflag(gwloggingquestprogression)==4"
         ],
         [
           "sayoption",
@@ -17451,7 +22899,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==1"
+          "hasflag(ghosttown1_permit)==1 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17460,7 +22908,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==2"
+          "hasflag(ghosttown1_permit)==2 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17469,7 +22917,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==4 && hasitem(quest_stapler)"
+          "hasflag(ghosttown1_permit)==4 && hasitem(quest_stapler) && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17478,7 +22926,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==7"
+          "hasflag(ghosttown1_permit)==7 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17531,31 +22979,63 @@
       "start": [
         [
           "if",
-          "hasitem(quest_g1visitorid) && hasflag(ghosttown1_metthall) && !hasitem(quest_3pencil) && !hasflag(ghosttown1_nopencilwithid)"
+          "hasflag(gwloggingquestprogression)==1 && hasitem(quest_g1visitorid) && hasflag(ghosttown1_metthall)  && !hasflag(ghosttown1_nopencilwithid) && !hasitem(quest_3pencil) && !hasitem(quest_4pencil)"
         ],
         [
           "goto",
-          "pencilwithid"
+          "nopencilwithid"
         ],
         [
           "if",
-          "hasitem(quest_g1visitorid)"
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall) && hasitem(quest_3pencil) && !hasitem(quest_4pencil) && !hasitem(quest_g1visitorid) && !hasflag(pencilwithpencil)"
         ],
         [
           "goto",
-          "welcome"
+          "hasapencila"
         ],
         [
           "if",
-          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired)"
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall) && !hasitem(quest_3pencil) && hasitem(quest_4pencil) && !hasitem(quest_g1visitorid) && !hasflag(pencilwithpencil)"
         ],
         [
           "goto",
-          "tempvisit"
+          "hasapencilb"
         ],
         [
           "if",
-          "hasflag(ghosttown1_metthall) && !hasitem(quest_3pencil)"
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall) && hasitem(quest_3pencil) && hasitem(quest_4pencil) && !hasitem(quest_g1visitorid) && !hasflag(pencilwithpencil)"
+        ],
+        [
+          "goto",
+          "hasapencilc"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall) && hasitem(quest_3pencil) && !hasitem(quest_4pencil) && hasitem(quest_g1visitorid) && !hasflag(pencilwithpencilwithid)"
+        ],
+        [
+          "goto",
+          "hasapencilawithid"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall) && !hasitem(quest_3pencil) && hasitem(quest_4pencil) && hasitem(quest_g1visitorid) && !hasflag(pencilwithpencilwithid)"
+        ],
+        [
+          "goto",
+          "hasapencilbwithid"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall) && hasitem(quest_3pencil) && hasitem(quest_4pencil) && hasitem(quest_g1visitorid) && !hasflag(pencilwithpencilwithid)"
+        ],
+        [
+          "goto",
+          "hasapencilcwithid"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)==1 && hasflag(ghosttown1_metthall)"
         ],
         [
           "goto",
@@ -17563,7 +23043,39 @@
         ],
         [
           "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)==3"
+        ],
+        [
+          "goto",
+          "tempvisit"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1tempvisit) && !hasflag(ghosttown1_tempexpired) && hasflag(gwloggingquestprogression)>0 && hasflag(gwloggingquestprogression)<4"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
+          "hasitem(quest_g1visitorid) && hasflag(gwloggingquestprogression)>3"
+        ],
+        [
+          "goto",
+          "welcome"
+        ],
+        [
+          "if",
           "hasitem(quest_g1tempvisit) && hasflag(ghosttown1_tempexpired)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "!hasflag(gwloggingquestprogression)"
         ],
         [
           "goto",
@@ -17579,7 +23091,7 @@
         ],
         [
           "say",
-          "no result"
+          "ghosttown1_knock4 @ start: You shouldnt be seeing this, send a screenshot to the mod developer"
         ],
         [
           "option",
@@ -17587,7 +23099,317 @@
           "oops"
         ]
       ],
-      "pencilwithid": [
+      "hasapencila": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a..."
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Sorry, can't help you unless you have a visitor ID!"
+        ],
+        [
+          "leftsay",
+          "But I need a pencil for..."
+        ],
+        [
+          "rightsay",
+          "No visitor ID, no... You have a #3 ghost pencil right there!"
+        ],
+        [
+          "addflag",
+          "pencilwithpencil,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Oh. Right."
+        ]
+      ],
+      "hasapencilb": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a..."
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Sorry, can't help you unless you have a visitor ID!"
+        ],
+        [
+          "leftsay",
+          "But I need a pencil for..."
+        ],
+        [
+          "rightsay",
+          "No visitor ID, no... You have a #4 ghost pencil right there."
+        ],
+        [
+          "leftsay",
+          "But I need a #3 Ghost..."
+        ],
+        [
+          "rightsay",
+          "No visitor ID, no supplies!"
+        ],
+        [
+          "addflag",
+          "pencilwithpencil,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Sigh."
+        ]
+      ],
+      "hasapencilc": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a..."
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Sorry, can't help you unless you have a visitor ID!"
+        ],
+        [
+          "leftsay",
+          "But I need a pencil for..."
+        ],
+        [
+          "rightsay",
+          "No visitor ID, no... You have 2 pencils right there, a #3 and #4."
+        ],
+        [
+          "addflag",
+          "pencilwithpencil"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Oh. Right."
+        ]
+      ],
+      "hasapencilawithid": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a #3 pencil?"
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Fresh out."
+        ],
+        [
+          "leftsay",
+          "Out of <i>pencils</i>?  The sign on the building says \"Office Supply\"!  There's literally a picture of a pencil on it!"
+        ],
+        [
+          "rightsay",
+          "We're out of <i>ghost</i> pencils.  You wouldn't believe how hard it is to come by ethically sourced pencil ghosts.  And the last fella who got one just went and stuck it in the cactus outside!  The nerve of some people."
+        ],
+        [
+          "leftsay",
+          "Couldn't you just go get it?"
+        ],
+        [
+          "rightsay",
+          "Couldn't <i>you</i>?"
+        ],
+        [
+          "leftsay",
+          "I'm not a ghost."
+        ],
+        [
+          "rightsay",
+          "Not <i>yet</i> maybe, but it's not going anywhere.  Sorry, can't help you, it's out of my purview."
+        ],
+        [
+          "rightsay",
+          "Besides, you already have a #3 ghost pencil right there."
+        ],
+        [
+          "addflag",
+          "pencilwithpencilwithid,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "option",
+          "done",
+          "Oh. Right."
+        ]
+      ],
+      "hasapencilbwithid": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a #3 pencil?"
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Fresh out."
+        ],
+        [
+          "leftsay",
+          "Out of <i>pencils</i>?  The sign on the building says \"Office Supply\"!  There's literally a picture of a pencil on it!"
+        ],
+        [
+          "rightsay",
+          "We're out of <i>ghost</i> pencils.  You wouldn't believe how hard it is to come by ethically sourced pencil ghosts.  And the last fella who got one just went and stuck it in the cactus outside!  The nerve of some people."
+        ],
+        [
+          "leftsay",
+          "Couldn't you just go get it?"
+        ],
+        [
+          "rightsay",
+          "Couldn't <i>you</i>?"
+        ],
+        [
+          "leftsay",
+          "I'm not a ghost."
+        ],
+        [
+          "rightsay",
+          "Not <i>yet</i> maybe, but it's not going anywhere.  Sorry, can't help you, it's out of my purview."
+        ],
+        [
+          "rightsay",
+          "Besides, you already have a #4 ghost pencil right there."
+        ],
+        [
+          "leftsay",
+          "Yeah but its not a #3..."
+        ],
+        [
+          "rightsay",
+          "Well, I dont have any either."
+        ],
+        [
+          "addflag",
+          "pencilwithpencilwithid,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "option",
+          "done",
+          "Argh."
+        ]
+      ],
+      "hasapencilcwithid": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a #3 pencil?"
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Fresh out."
+        ],
+        [
+          "leftsay",
+          "Out of <i>pencils</i>?  The sign on the building says \"Office Supply\"!  There's literally a picture of a pencil on it!"
+        ],
+        [
+          "rightsay",
+          "We're out of <i>ghost</i> pencils.  You wouldn't believe how hard it is to come by ethically sourced pencil ghosts.  And the last fella who got one just went and stuck it in the cactus outside!  The nerve of some people."
+        ],
+        [
+          "leftsay",
+          "Couldn't you just go get it?"
+        ],
+        [
+          "rightsay",
+          "Couldn't <i>you</i>?"
+        ],
+        [
+          "leftsay",
+          "I'm not a ghost."
+        ],
+        [
+          "rightsay",
+          "Not <i>yet</i> maybe, but it's not going anywhere.  Sorry, can't help you, it's out of my purview."
+        ],
+        [
+          "rightsay",
+          "Besides, you have both a #3 and #4 pencil right there!"
+        ],
+        [
+          "addflag",
+          "pencilwithpencilwithid,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "option",
+          "done",
+          "Oh. Right."
+        ]
+      ],
+      "nopencilwithid": [
         [
           "leftportrait",
           "player"
@@ -17633,9 +23455,52 @@
           "ghosttown1_nopencilwithid,1"
         ],
         [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
           "option",
           "done",
           "Argh."
+        ]
+      ],
+      "pencil": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? Excuse me, I need a..."
+        ],
+        [
+          "rightportrait",
+          "ghost4"
+        ],
+        [
+          "rightsay",
+          "Sorry, can't help you unless you have a visitor ID!"
+        ],
+        [
+          "leftsay",
+          "But I need a pencil for..."
+        ],
+        [
+          "rightsay",
+          "No visitor ID, no supplies!"
+        ],
+        [
+          "addflag",
+          "ghosttown1_nopencil,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,2"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Sigh."
         ]
       ],
       "tempvisit2": [
@@ -17693,11 +23558,11 @@
         ],
         [
           "rightsay",
-          "Hello. Something I can get for you, @mr@ @idlastname2@?"
+          "Hello. Something I can get for you, @mr@ @idlastname@?"
         ],
         [
           "if",
-          "!hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit) && hasflag(gwloggingquestprogression)==4"
         ],
         [
           "sayoption",
@@ -17706,7 +23571,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==3"
+          "hasflag(ghosttown1_permit)==3 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -17881,7 +23746,7 @@
         ],
         [
           "if",
-          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@)"
         ],
         [
           "goto",
@@ -17933,15 +23798,7 @@
       "start": [
         [
           "if",
-          "!hasflag(ghosttown1_metthall)"
-        ],
-        [
-          "goto",
-          "first"
-        ],
-        [
-          "if",
-          "hasflag(ghostwood_gotidcheck) && hasitem(quest_g1visitorid)"
+          "hasflag(ghostwood_gotidcheck) && hasitem(quest_g1visitorid) && hasflag(gwloggingquestprogression)>0"
         ],
         [
           "goto",
@@ -17949,7 +23806,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_retrypermit) && !hasflag(ghostwood_gotidcheck)"
+          "hasflag(ghosttown1_retrypermit) && !hasflag(ghostwood_gotidcheck) && hasflag(gwloggingquestprogression)==3"
         ],
         [
           "goto",
@@ -17957,7 +23814,7 @@
         ],
         [
           "if",
-          "hasitem(quest_3pencil) && hasitem(quest_g1tempvisit) && hasflag(ghostwood_gottemppermitcheck) && !hasflag(ghostwood_gotidcheck)"
+          "hasitem(quest_3pencil) && hasitem(quest_g1tempvisit) && hasflag(ghostwood_gottemppermitcheck) && !hasflag(ghostwood_gotidcheck) && hasflag(gwloggingquestprogression)==3 && hasflag(ghostwoodooscheck)==2"
         ],
         [
           "goto",
@@ -17965,7 +23822,7 @@
         ],
         [
           "if",
-          "hasitem(quest_4pencil) && !hasitem(quest_3pencil)"
+          "hasitem(quest_4pencil) && !hasitem(quest_3pencil) && hasflag(gwloggingquestprogression)>0"
         ],
         [
           "goto",
@@ -17973,7 +23830,7 @@
         ],
         [
           "if",
-          "hasitem(quest_g1tempvisit) && !hasflag(ghostwood_askedaboutexpiredpass)"
+          "hasitem(quest_g1tempvisit) && !hasflag(ghostwood_askedaboutexpiredpass) && hasflag(gwloggingquestprogression)>0"
         ],
         [
           "goto",
@@ -17981,7 +23838,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_tempretry) && !hasflag(ghostwood_gottemppermitcheck)"
+          "hasflag(gwloggingquestprogression)==2 && hasflag(ghosttown1_tempretry) && !hasflag(ghostwood_gottemppermitcheck)"
         ],
         [
           "goto",
@@ -17989,7 +23846,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_nopencil) && !hasflag(ghostwood_gottemppermitcheck)"
+          "hasflag(gwloggingquestprogression)==2 && hasflag(ghosttown1_nopencil) && !hasflag(ghostwood_gottemppermitcheck)"
         ],
         [
           "goto",
@@ -17997,11 +23854,39 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_nopencilwithid) && !hasflag(ghostwood_gottemppermitcheck)"
+          "hasflag(gwloggingquestprogression)==2 && hasflag(ghosttown1_nopencilwithid) && !hasflag(ghostwood_gottemppermitcheck)"
         ],
         [
           "goto",
           "nopencilwithid"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)==2 && hasflag(pencilwithpencil) && !hasflag(ghostwood_gottemppermitcheck)"
+        ],
+        [
+          "goto",
+          "pencilwithpencilflow"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)==2 && hasflag(pencilwithpencilwithid) && !hasflag(ghostwood_gottemppermitcheck)"
+        ],
+        [
+          "goto",
+          "pencilwithpencilflow"
+        ],
+        [
+          "if",
+          "!hasflag(ghosttown1_metthall) || !hasflag(gwloggingquestprogression)"
+        ],
+        [
+          "goto",
+          "first"
+        ],
+        [
+          "if",
+          "hasflag(gwloggingquestprogression)>0"
         ],
         [
           "goto",
@@ -18009,7 +23894,7 @@
         ],
         [
           "say",
-          "Something has gone wrong, you should never see this.  Please let the mod developer know."
+          "ghosttown1_knock5 start: Something has gone wrong, you should never see this.  Please send a screenshot of this error to the mod developer."
         ],
         [
           "option",
@@ -18020,6 +23905,33 @@
           "option",
           "done",
           "oops (derogatory) [Ruthless]"
+        ]
+      ],
+      "firstb": [
+        [
+          "leftsay",
+          "...Well, okay. Where can I get one?"
+        ],
+        [
+          "rightsay",
+          "Try the Department of Requisitions. It's just next door."
+        ],
+        [
+          "leftsay",
+          "You mean the General Store?"
+        ],
+        [
+          "rightsay",
+          "It's a little more specific these days, but yes."
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,1"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Okay, I'll be right back."
         ]
       ],
       "second": [
@@ -18125,6 +24037,92 @@
           "sayoption",
           "temppermit",
           "Okay, great."
+        ]
+      ],
+      "pencilwithpencilflow": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "leftsay",
+          "Hello? The Office supply..."
+        ],
+        [
+          "rightportrait",
+          "ghost5"
+        ],
+        [
+          "rightsay",
+          "Who? Oh you mean the Office of Requisition?"
+        ],
+        [
+          "leftsay",
+          "Yeah... Anyway the clerk wouldn't give me a pencil."
+        ],
+        [
+          "rightsay",
+          "Why not?"
+        ],
+        [
+          "leftsay",
+          "Apparently I already have one."
+        ],
+        [
+          "if",
+          "hasflag(pencilwithpencil)"
+        ],
+        [
+          "sayoption",
+          "pencilwithpencil",
+          "Problem is I still dont have a visitor ID."
+        ],
+        [
+          "if",
+          "hasflag(pencilwithpencilwithid)"
+        ],
+        [
+          "sayoption",
+          "pencilwithpencilwithid",
+          "I also already have a visitor ID..."
+        ]
+      ],
+      "pencilwithpencil": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "Well fortunately I can issue you a temporary visitor permit for now then instead. Apparently there is a bylaw that exists that states a newcomer must still have a premporary visitor permit before they can be issued a full visitor ID."
+        ],
+        [
+          "sayoption",
+          "temppermit",
+          "Why didn't we start with this option then..."
+        ]
+      ],
+      "pencilwithpencilwithid": [
+        [
+          "leftsay",
+          "$lastoption$"
+        ],
+        [
+          "rightsay",
+          "I'm afraid that <i>having</i> a visitor ID and <i>being issued</i> an ID are completely different things."
+        ],
+        [
+          "leftsay",
+          "That sentence should be illegal."
+        ],
+        [
+          "rightsay",
+          "Perfectly legal I assure you. You will need to fill out the proper paperwork for it later."
+        ],
+        [
+          "sayoption",
+          "pencilwithpencil",
+          "What do you mean, can't we just do the paperwork for the ID now?"
         ]
       ],
       "temppermit2": [
@@ -18344,6 +24342,10 @@
           "ghosttown1_tempexpired,0"
         ],
         [
+          "addflag",
+          "gwloggingquestprogression,3"
+        ],
+        [
           "leftsay",
           "Thanks, but don't I need that pass to be able to do just about anything in this town?"
         ],
@@ -18555,6 +24557,10 @@
           "ghostwood_gotidcheck"
         ],
         [
+          "addflag",
+          "gwloggingquestprogression,4"
+        ],
+        [
           "leftsay",
           "Thanks. Say, was it always called Ghostwood, or..."
         ],
@@ -18583,11 +24589,11 @@
         ],
         [
           "rightsay",
-          "Hello, @mr@ @idlastname2@. How can I be of service?"
+          "Hello, @mr@ @idlastname@. How can I be of service?"
         ],
         [
           "if",
-          "!hasflag(ghosttown1_permit)"
+          "!hasflag(ghosttown1_permit) && hasflag(gwloggingquestprogression)==4"
         ],
         [
           "sayoption",
@@ -18596,7 +24602,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==6"
+          "hasflag(ghosttown1_permit)==6 && hasitem(quest_logrepfolder) && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -18605,7 +24611,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==11"
+          "hasflag(ghosttown1_permit)==11 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -18614,7 +24620,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==12"
+          "hasflag(ghosttown1_permit)==12 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -18623,7 +24629,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==14"
+          "hasflag(ghosttown1_permit)==14 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -18632,7 +24638,7 @@
         ],
         [
           "if",
-          "hasflag(ghosttown1_permit)==15"
+          "hasflag(ghosttown1_permit)==15 && hasflag(gwloggingquestprogression)==5"
         ],
         [
           "sayoption",
@@ -18661,6 +24667,37 @@
           "sayoption",
           "done",
           "Umm... never mind."
+        ]
+      ],
+      "permit1": [
+        [
+          "leftsay",
+          "Jeez, finally. I'm here on behalf of the mayor of Breadwood. He needs a permit to do some logging in this area."
+        ],
+        [
+          "rightsay",
+          "I see. Well, that shouldn't be a problem. I'll just need to review the logging records to make sure there are no disqualifying incidents. Go to the Department of Records -- it's two doors down -- and tell them I need the Breadwood file pertaining to logging."
+        ],
+        [
+          "addflag",
+          "ghosttown1_permit,1"
+        ],
+        [
+          "addflag",
+          "gwloggingquestprogression,5"
+        ],
+        [
+          "leftsay",
+          "..."
+        ],
+        [
+          "rightsay",
+          "...Is something wrong?"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Not yet, I'm just steeling myself in anticipation."
         ]
       ],
       "permit11b": [
@@ -18807,7 +24844,7 @@
         ],
         [
           "if",
-          "matchstring($tempidfirstname$,@idfirstname2@) && matchstring($tempidmiddlename$,@idmiddlename2@) && matchstring($tempidlastname$,@idlastname2@)"
+          "matchstring($tempidfirstname$,@idfirstname@) && matchstring($tempidmiddlename$,@idmiddlename@) && matchstring($tempidlastname$,@idlastname@)"
         ],
         [
           "goto",
@@ -18888,6 +24925,10 @@
           "ghosttown1_permit,16"
         ],
         [
+          "addflag",
+          "gwloggingquestprogression,6"
+        ],
+        [
           "leftsay",
           "I don't have to sign anything to collect it?"
         ],
@@ -18911,6 +24952,68 @@
       ]
     },
     "ghosttown1_sharpen": {
+      "pencil": [
+        [
+          "cls"
+        ],
+        [
+          "if",
+          "!hasitem(quest_3pencil) && !hasitem(quest_4pencil)"
+        ],
+        [
+          "say",
+          "You haven't got any pencils to sharpen."
+        ],
+        [
+          "if",
+          "hasitem(quest_4pencil) && !hasitem(quest_3pencil)"
+        ],
+        [
+          "goto",
+          "4pencil"
+        ],
+        [
+          "if",
+          "hasitem(quest_3pencil) && !hasitem(quest_4pencil)"
+        ],
+        [
+          "say",
+          "Your #3 pencil is already sharp enough, and if you grind it all the way down to a #2 it might cause a problem."
+        ],
+        [
+          "if",
+          "hasitem(quest_3pencil) && hasitem(quest_4pencil)"
+        ],
+        [
+          "goto",
+          "bothpencil"
+        ]
+      ],
+      "bothpencil": [
+        [
+          "say",
+          "You have 2 pencils with you, which do you want to sharpen?"
+        ],
+        [
+          "option",
+          "4pencil",
+          "The #4 pencil"
+        ],
+        [
+          "option",
+          "3pencil",
+          "The #3 pencil."
+        ]
+      ],
+      "3pencil": [
+        [
+          "cls"
+        ],
+        [
+          "say",
+          "Your #3 pencil is already sharp enough, and if you grind it all the way down to a #2 it might cause a problem."
+        ]
+      ],
       "4pencil": [
         [
           "cls"
@@ -18922,6 +25025,22 @@
         [
           "removeitem",
           "quest_4pencil"
+        ],
+        [
+          "if",
+          "!hasflag(ghostwoodooscheck)"
+        ],
+        [
+          "addflag",
+          "ghostwoodooscheck"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "incflag",
+          "ghostwoodooscheck,1"
         ],
         [
           "customcommand",
@@ -19945,6 +26064,10 @@
           "curly_treasuregot"
         ],
         [
+          "customcommand",
+          "misspoint, Halloway's Hideaway - Half of Curly's Map"
+        ],
+        [
           "removeitem",
           "quest_curlymap"
         ]
@@ -20002,6 +26125,10 @@
         [
           "addflag",
           "store_halloway,1"
+        ],
+        [
+          "addflag",
+          "hallowaystatichinting"
         ],
         [
           "addnpcstoreitem",
@@ -20062,6 +26189,43 @@
           "sayoption",
           "done",
           "Well, see you later."
+        ]
+      ],
+      "launch": [
+        [
+          "teleportplayer",
+          "170,180"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "halloway"
+        ],
+        [
+          "if",
+          "hasflag(hallowaystatichinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, halloway"
+        ],
+        [
+          "if",
+          "hasflag(hallowaystatichinting)"
+        ],
+        [
+          "delflag",
+          "hallowaystatichinting"
+        ],
+        [
+          "npcstore",
+          "halloway,200,0"
+        ],
+        [
+          "exit"
         ]
       ]
     },
@@ -20951,6 +27115,40 @@
       ]
     },
     "house_ghost_glutton": {
+      "stomp": [
+        [
+          "removeitem",
+          "quest_gunlesschili"
+        ],
+        [
+          "customcommand",
+          "misspoint,Gun Manor Parlor - Sofa Cushions (Murdered Chili)"
+        ],
+        [
+          "say",
+          "You put the bowl of chili on the floor, and stomp it remorselessly."
+        ],
+        [
+          "leftsay",
+          "Eat <i>this,</i> chili!"
+        ],
+        [
+          "say",
+          "After a few stomps, the chili dies and a hazy outline of the bowl coalesces in the shattered fragments and glop. You pick it up and give it to the ghost."
+        ],
+        [
+          "leftsay",
+          "Eat this chili."
+        ],
+        [
+          "say",
+          "The ghost gobbles up the ghostly chili, and dissipates with a long, finally-satisfied sigh."
+        ],
+        [
+          "goto",
+          "resolution"
+        ]
+      ],
       "deadchili": [
         [
           "removeitem",
@@ -21494,6 +27692,14 @@
         [
           "customcommand",
           "misspoint,Gun Manor Art Gallery - Lawyer Quest Completion"
+        ],
+        [
+          "if",
+          "!hasflag(house_ghost_lawyer_search)"
+        ],
+        [
+          "customcommand",
+          "misspoint,Desert House - Macready's Grave"
         ],
         [
           "addstate",
@@ -23709,6 +29915,54 @@
         ]
       ]
     },
+    "item_dynamite": {
+      "invpopup": [
+        [
+          "say",
+          "You examine the dynamite."
+        ],
+        [
+          "if",
+          "hasflag(mainquest)>2 && !hasflag(YSODcraftcheck)"
+        ],
+        [
+          "goto",
+          "makeyear"
+        ],
+        [
+          "say",
+          "It's got an end you light, and an end that blows up."
+        ],
+        [
+          "option",
+          "done",
+          "Okay, just checking"
+        ]
+      ],
+      "cratem": [
+        [
+          "say",
+          "You find a crate and carefully fill it up with dynamite."
+        ],
+        [
+          "customcommand",
+          "checklocation,Year Supply of Dynamite Crafted - 52 Dynamite"
+        ],
+        [
+          "removeitem",
+          "combat_dynamite,52"
+        ],
+        [
+          "addflag",
+          "YSODcraftcheck"
+        ],
+        [
+          "option",
+          "done",
+          "That'll do!"
+        ]
+      ]
+    },
     "item_hedgeleaf_assembly": {
       "start": [
         [
@@ -23881,6 +30135,74 @@
         [
           "goto",
           "start"
+        ]
+      ]
+    },
+    "item_humanash": {
+      "scatter": [
+        [
+          "cls"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "incflag",
+          "usedashes,1"
+        ],
+        [
+          "if",
+          "hasflag(usedashes)==4"
+        ],
+        [
+          "customcommand",
+          "misspoint,The Daveyard Mausoleum - The Skeleton of Dave B. Defeated"
+        ],
+        [
+          "say",
+          "You find a pleasant-looking vista and toss the ashes into the air.  That's... probably what that person would've wanted, you guess."
+        ],
+        [
+          "addxp",
+          "10"
+        ],
+        [
+          "option",
+          "done",
+          "Rest in peace, ashes"
+        ]
+      ],
+      "eat": [
+        [
+          "cls"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "say",
+          "You swallow the ashes and absorb their death essence.  You're always thinking about things like \"death essence\" now."
+        ],
+        [
+          "incflag",
+          "usedashes,1"
+        ],
+        [
+          "if",
+          "hasflag(usedashes)==4"
+        ],
+        [
+          "customcommand",
+          "misspoint,The Daveyard Mausoleum - The Skeleton of Dave B. Defeated"
+        ],
+        [
+          "addxp",
+          "100"
+        ],
+        [
+          "option",
+          "done",
+          "Muahahaha"
         ]
       ]
     },
@@ -24148,6 +30470,85 @@
       ]
     },
     "jewelrystore_shop": {
+      "intro2": [
+        [
+          "leftspeak",
+          "$lastoption$"
+        ],
+        [
+          "rightportrait",
+          "gobbo"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "rightsay",
+          "%goblin_paragraph%"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "You betting your britches, @sonny@! And not forgetting it!"
+        ],
+        [
+          "rightportrait",
+          "clerk"
+        ],
+        [
+          "rightsay",
+          "He says that's right, the finest jeweler in the territory!"
+        ],
+        [
+          "leftsay",
+          "Well, what do you know. I don't see anything on display, though?"
+        ],
+        [
+          "rightsay",
+          "Master Gerald only does bespoke work. If you bring in a sufficiently valuable gemstone, he'll craft it into a fine ring for you, for a fee."
+        ],
+        [
+          "rightportrait",
+          "gobbo"
+        ],
+        [
+          "if",
+          "!hasskill(goblintongue)"
+        ],
+        [
+          "rightsay",
+          "%goblin_paragraph%"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "rightsay",
+          "No trash rocks!"
+        ],
+        [
+          "addflag",
+          "jewelrystore_intro"
+        ],
+        [
+          "if",
+          "hasflag(fort5_glassesquest)>0 && !hasflag(gotglassescheck) && !hasflag(missed_check_forwarded_Jeweler's*Cabin*-*Spectacles)"
+        ],
+        [
+          "goto",
+          "glasses"
+        ],
+        [
+          "sayoption",
+          "optstemp",
+          "Well, here's what I've got..."
+        ]
+      ],
       "buyglasses": [
         [
           "leftspeak",
@@ -24204,6 +30605,10 @@
         [
           "customcommand",
           "checklocation,Jeweler's Cabin - Spectacles"
+        ],
+        [
+          "addflag",
+          "gotglassescheck"
         ],
         [
           "addmeat",
@@ -25285,7 +31690,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine (Level 2) - Bean-Iron Deposit"
+          "checklocation,Kaye Ridge Mine (Level 2) - Bean-Iron Deposit"
         ]
       ]
     },
@@ -25299,7 +31704,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine (Level 3) - Pick-Head"
+          "checklocation,Kaye Ridge Mine (Level 3) - Pick-Head"
         ]
       ]
     },
@@ -25318,7 +31723,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine (Level 2) - Triangular Stones"
+          "checklocation,Kaye Ridge Mine (Level 2) - Triangular Stones"
         ],
         [
           "markused"
@@ -25337,11 +31742,11 @@
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine - First Locker (Item 1)"
+          "checklocation,Kaye Ridge Mine - First Locker (Item 1)"
         ],
         [
           "customcommand",
-          "checklocation,Kole Ridge Mine - First Locker (Item 2)"
+          "checklocation,Kaye Ridge Mine - First Locker (Item 2)"
         ],
         [
           "option",
@@ -25881,6 +32286,35 @@
         ]
       ]
     },
+    "mine4_throwpit": {
+      "gobletthrow": [
+        [
+          "say",
+          "You pitch the gross thing into the hole. Good riddance."
+        ],
+        [
+          "removeitem",
+          "quest_gracegoblet"
+        ],
+        [
+          "addflag",
+          "ranch1_altar,2"
+        ],
+        [
+          "customcommand",
+          "misspoint, Stearns Ranch Cellar - Blood Altar"
+        ],
+        [
+          "addxp",
+          "@xpreward_e@"
+        ],
+        [
+          "option",
+          "done",
+          "Yuck."
+        ]
+      ]
+    },
     "mine5_beaniron2": {
       "popup": [
         [
@@ -25941,6 +32375,312 @@
         [
           "customcommand",
           "checklocation,El Vibrato Chamber (Soupstock Lode) - Chest"
+        ]
+      ]
+    },
+    "mine5_elvvending": {
+      "start": [
+        [
+          "say",
+          "The screen on this machine says:"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "goto",
+          "opts2"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "opts2": [
+        [
+          "say",
+          "\"^MUNICIPAL ORGANIC FLUID PIPELINE OFFLINE -- INSERT ORGANIC FLUID^translate_elvibrato^.\""
+        ],
+        [
+          "say",
+          "Light pulses in a pentagonal aperture on the side of the machine."
+        ],
+        [
+          "if",
+          "hasitem(elv_sludge)"
+        ],
+        [
+          "option",
+          "insert2",
+          "Insert fluid [El Vibrato fluid]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave the machine"
+        ]
+      ],
+      "insert2": [
+        [
+          "removeitem",
+          "elv_sludge"
+        ],
+        [
+          "say",
+          "The screen seems to glitch for a moment then some options appear."
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotfoodcheck)"
+        ],
+        [
+          "option",
+          "food2",
+          "^ORGANIC SUSTENANCE^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotboozecheck)"
+        ],
+        [
+          "option",
+          "booze2",
+          "^ORGANIC SEDATIVE^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotpotioncheck)"
+        ],
+        [
+          "option",
+          "potion2",
+          "^ORGANIC REFRESHMENT^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "option",
+          "refund2",
+          "^ORGANIC FLUID RETURN^translate_elvibrato^"
+        ]
+      ],
+      "refund2": [
+        [
+          "say",
+          "You press the button and the machine ejects the pentagon you just put in it."
+        ],
+        [
+          "say",
+          "What? It didnt give back the fluid..?"
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ TASTA STAZAK"
+        ],
+        [
+          "addflag",
+          "mine5_gotrefundcheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "goto",
+          "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
+        ]
+      ],
+      "food2": [
+        [
+          "say",
+          "A featureless brown cube drops into the aperture... or should have... what is this thing??"
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ CHOTAZAK"
+        ],
+        [
+          "addflag",
+          "mine5_gotfoodcheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "goto",
+          "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
+        ]
+      ],
+      "booze2": [
+        [
+          "say",
+          "A ceramic cylinder filled with liquid clatters into the aperture."
+        ],
+        [
+          "say",
+          "It then fades away and is replaced by something else... Strange..."
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ GACHAKUZ"
+        ],
+        [
+          "addflag",
+          "mine5_gotboozecheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "goto",
+          "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
+        ]
+      ],
+      "potion2": [
+        [
+          "say",
+          "A glass tube filled with bubbling fluid clinks into the aperture."
+        ],
+        [
+          "say",
+          "It then fades away and is replaced by something else... Why??"
+        ],
+        [
+          "customcommand",
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ NOHONOKSTA"
+        ],
+        [
+          "addflag",
+          "mine5_gotpotioncheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "say",
+          "The screen blinks and stops glitching. Some uninteligable words scroll on the screen really fast then it turns off and back on again."
+        ],
+        [
+          "say",
+          "The screen flickers back to:"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "goto",
+          "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
         ]
       ]
     },
@@ -27500,11 +34240,11 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Storage Room - Card Table (Item 1)"
+          "checklocation,El Vibrato Storage Room (Abandoned Mine) - Card Table (Item 1)"
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Storage Room - Card Table (Item 2)"
+          "checklocation,El Vibrato Storage Room (Abandoned Mine) - Card Table (Item 2)"
         ]
       ]
     },
@@ -27590,7 +34330,7 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Storage Room - Cylinder"
+          "checklocation,El Vibrato Storage Room (Abandoned Mine) - Cylinder"
         ]
       ]
     },
@@ -27801,6 +34541,22 @@
         [
           "resetanimation",
           "nun1"
+        ],
+        [
+          "if",
+          "!hasflag(nunshophinting)"
+        ],
+        [
+          "customcommand",
+          "progressiveshophinting, mission1" 
+        ],
+        [
+          "if",
+          "!hasflag(nunshophinting)"
+        ],
+        [
+          "addflag",
+          "nunshophinting"
         ],
         [
           "npcstore",
@@ -31131,6 +37887,20 @@
         [
           "customcommand",
           "checklocation,Hellstrom Ranch (Barn) - Bookshelf"
+        ]
+      ]
+    },
+    "ranch6_horseshoe": {
+      "get": [
+        [
+          "cls"
+        ],
+        [
+          "markused"
+        ],
+        [
+          "customcommand",
+          "checklocation,Hellstrom Ranch - Lucky Horseshoe"
         ]
       ]
     },
@@ -49825,7 +56595,7 @@
         ],
         [
           "customcommand",
-          "checklocation,Random Encounter (Region E) - 13th Cowrrupted Encounter"
+          "checklocation,Random Encounter (Region E) - 13th Encounter (Cowrruption)"
         ],
         [
           "addflag",
@@ -60012,6 +66782,32 @@
       ]
     },
     "re_wanderinsally": {
+      "start": [
+        [
+          "incflag",
+          "sallytimes,1"
+        ],
+        [
+          "if",
+          "hasflag(sallytimes)==4 | hasflag(sallytimes)==5"
+        ],
+        [
+          "addflag",
+          "nosallyhint"
+        ],
+        [
+          "if",
+          "sallytimes<7"
+        ],
+        [
+          "goto",
+          "init_sally_@sallytimes@"
+        ],
+        [
+          "goto",
+          "launch"
+        ]
+      ],
       "init_sally_1": [
         [
           "addnpcstoreitem",
@@ -60123,11 +66919,144 @@
         ]
       ]
     },
+    "npc_sally": {
+      "start": [
+        [
+          "teleportplayer",
+          "390,115"
+        ],
+        [
+          "resetanimation",
+          "player"
+        ],
+        [
+          "resetanimation",
+          "sally"
+        ],
+        [
+          "if",
+          "hasflag(sallytimes)<7 && !hasflag(nosallyhint)"
+        ],
+        [
+          "customcommand",
+          "sallyshophinting, sally"
+        ],
+        [
+          "if",
+          "hasflag(nosallyhint)"
+        ],
+        [
+          "delflag",
+          "nosallyhint"
+        ],
+        [
+          "npcstore",
+          "sally,420,-65"
+        ],
+        [
+          "exit"
+        ]
+      ]
+    },
+    "quest_honeybean": {
+      "invpopup": [
+        [
+          "if",
+          "!hasflag(anteyevirus)"
+        ],
+        [
+          "goto",
+          "anteyenopopup"
+        ],
+        [
+          "consume"
+        ],
+        [
+          "addflag",
+          "mainquest,35"
+        ],
+        [
+          "delflag",
+          "anteyevirus"
+        ],
+        [
+          "say",
+          "You eat the jelly bean, and your vision immediately clears.  Modern medicine is really amazing!"
+        ]
+      ],
+      "anteyenopopup": [
+        [
+          "say",
+          "You'd rather not eat such a beautiful (and expencive) jelly bean. Maybe hold onto it incase you need it for something else later."
+        ]
+      ]
+    },
     "roybean_honeybean": {
+      "start": [
+        [
+          "if",
+          "hasflag(honeybeanpurchased)"
+        ],
+        [
+          "exit"
+        ],
+        [
+          "say",
+          "There's a single yellow jellybean in this case, with a sign that says:"
+        ],
+        [
+          "say",
+          "PARAGUAYAN MURDERBEE HONEY JELLYBEAN"
+        ],
+        [
+          "say",
+          "VERY RARE"
+        ],
+        [
+          "say",
+          "6,000 MEAT"
+        ],
+        [
+          "if",
+          "hasflag(canbuyhoneybean) && !hasflag(honeybeanpurchased)"
+        ],
+        [
+          "goto",
+          "buyit"
+        ],
+        [
+          "if",
+          "hasflag(mainquest)>31 && !hasflag(honeybeanpurchased)"
+        ],
+        [
+          "goto",
+          "buyit"
+        ],
+        [
+          "say"
+        ],
+        [
+          "say",
+          "What kind of lunatic would pay 6,000 Meat for a single jellybean?"
+        ],
+        [
+          "option",
+          "done",
+          "Not this kind, that's for sure"
+        ]
+      ],
       "buy0": [
+        [
+          "if",
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
+        ],
         [
           "addflag",
           "mainquest,34"
+        ],
+        [
+          "addflag",
+          "honeybeanpurchased"
         ],
         [
           "addmeat",
@@ -60149,8 +67078,16 @@
       ],
       "buy1": [
         [
+          "if",
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
+        ],
+        [
           "addflag",
           "mainquest,34"
+        ],
+        [
+          "addflag",
+          "honeybeanpurchased"
         ],
         [
           "addmeat",
@@ -60172,8 +67109,16 @@
       ],
       "buy2": [
         [
+          "if",
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
+        ],
+        [
           "addflag",
           "mainquest,34"
+        ],
+        [
+          "addflag",
+          "honeybeanpurchased"
         ],
         [
           "addmeat",
@@ -60195,8 +67140,16 @@
       ],
       "buy3": [
         [
+          "if",
+          "!hasflag(mainquest)>34 && !hasflag(mainquest)<31"
+        ],
+        [
           "addflag",
           "mainquest,34"
+        ],
+        [
+          "addflag",
+          "honeybeanpurchased"
         ],
         [
           "addmeat",
@@ -61202,30 +68155,6 @@
         [
           "addproperty",
           "statcheck_h,40"
-        ],
-        [
-          "addproperty",
-          "idfirstname,pickone(Puddin',Pico,Bobcat,Taint,Slim)"
-        ],
-        [
-          "addproperty",
-          "idmiddlename,pickone(Danger,Trouble,Sneaky,Edgelord,Justine,Nice,Nondescript)"
-        ],
-        [
-          "addproperty",
-          "idlastname,pickone(Tame,Alvarado,Goldthwait,Shartwright,Slapshank)"
-        ],
-        [
-          "addproperty",
-          "idfirstname2,pickone(Puddin',Pico,Bobcat,Taint,Slim)"
-        ],
-        [
-          "addproperty",
-          "idmiddlename2,pickone(Danger,Trouble,Sneaky,Edgelord,Justine,Nice,Nondescript)"
-        ],
-        [
-          "addproperty",
-          "idlastname2,pickone(Tame,Alvarado,Goldthwait,Shartwright,Slapshank)"
         ],
         [
           "addflag",
@@ -68140,6 +75069,273 @@
         }
       },
       "parentwaa": "ranch6"
+    },
+"roybean_interior": {
+      "name": "Roy Bean's (Inside)",
+      "width": "0.750",
+      "ground": null,
+      "sky": "",
+      "startxy": "560,85",
+      "horizon": "wallwood3tile1, wallwood3tile2, wallwood3tile3",
+      "camera": "interior",
+      "groundtexture": "floortest1",
+      "foregroundparallax": "woodceiling1_fixed",
+      "foregroundparallaxoffset": -20.0,
+      "leftwall": "wallwood2_side",
+      "rightwall": "wallwood2_side",
+      "music": "music_moseyin",
+      "ambientsound1": "ambience_room_tone",
+      "basewaa": "roybean",
+      "elements": {
+        "beans1_gone": {
+          "asset": "beanpedestal_empty",
+          "usedasset": null,
+          "x": 36.0,
+          "z": 252.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(roybean_quest)<2",
+          "script": "autoscript__roybean_interior__beans1_gone__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "beans1_there": {
+          "asset": "beanpedestal_beans",
+          "usedasset": null,
+          "x": 36.0,
+          "z": 252.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(roybean_quest)>=2",
+          "script": "autoscript__roybean_interior__beans1_there__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "beans2_gone": {
+          "asset": "beanpedestal_empty",
+          "usedasset": null,
+          "x": 139.0,
+          "z": 248.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(roybean_quest)<4",
+          "script": "autoscript__roybean_interior__beans2_gone__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "beans2_there": {
+          "asset": "beanpedestal_beans",
+          "usedasset": null,
+          "x": 139.0,
+          "z": 248.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(roybean_quest)>=4",
+          "script": "autoscript__roybean_interior__beans2_there__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "beans3_gone": {
+          "asset": "beanpedestal_empty",
+          "usedasset": null,
+          "x": 237.0,
+          "z": 249.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(roybean_quest)<6",
+          "script": "autoscript__roybean_interior__beans3_gone__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "beans3_there": {
+          "asset": "beanpedestal_beans",
+          "usedasset": null,
+          "x": 237.0,
+          "z": 249.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(roybean_quest)>=6",
+          "script": "autoscript__roybean_interior__beans3_there__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "bed": {
+          "asset": "bed2",
+          "usedasset": null,
+          "x": 6.0,
+          "z": 66.0,
+          "height": 218.0,
+          "width": 366.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "exit": {
+          "asset": "alicedoor_interior",
+          "usedasset": null,
+          "x": 547.0,
+          "z": 0.0,
+          "height": 410.0,
+          "width": 248.0,
+          "condition": "",
+          "script": "autoscript__roybean_interior__exit__exec",
+          "proximity": 0.0,
+          "alpha": ".5",
+          "crop": 50.0
+        },
+        "fs": {
+          "asset": "forsale",
+          "usedasset": null,
+          "x": 633.0,
+          "z": 334.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "hearth": {
+          "asset": "hearth_unlit",
+          "usedasset": null,
+          "x": 306.0,
+          "z": 237.0,
+          "height": 794.0,
+          "width": 365.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "prefab": "hearth",
+          "extendback": 1.0,
+          "ambientsound": "Player_Home_Fireplace, 200",
+          "ambientvolume": ".5"
+        },
+        "honeybean": {
+          "asset": "honebean",
+          "usedasset": null,
+          "x": 638.0,
+          "z": 246.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "!hasflag(honeybeanpurchased)",
+          "script": "roybean_honeybean",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "honeybean_sold": {
+          "asset": "honeybean_sold",
+          "usedasset": null,
+          "x": 638.0,
+          "z": 246.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "hasflag(honeybeanpurchased)",
+          "script": "autoscript__roybean_interior__honeybean_sold__popup",
+          "proximity": 0.0,
+          "extendback": 1.0
+        },
+        "nfs1": {
+          "asset": "notforsale1",
+          "usedasset": null,
+          "x": 29.0,
+          "z": 350.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "nfs2": {
+          "asset": "notforsale1",
+          "usedasset": null,
+          "x": 231.0,
+          "z": 350.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "nfs3": {
+          "asset": "notforsale2",
+          "usedasset": null,
+          "x": 132.0,
+          "z": 349.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "nightstand": {
+          "asset": "nightstand",
+          "usedasset": null,
+          "x": 28.0,
+          "z": 22.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0
+        },
+        "pardner": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 693.0,
+          "z": 58.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "pardner",
+          "proximity": 0.0,
+          "flip": 1.0
+        },
+        "pistolhook": {
+          "asset": "pistolhook",
+          "usedasset": null,
+          "x": 501.0,
+          "z": 350.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "",
+          "proximity": 0.0,
+          "notilt": 1.0
+        },
+        "roy": {
+          "asset": "person",
+          "usedasset": null,
+          "x": 423.0,
+          "z": 177.0,
+          "height": 0.0,
+          "width": 0.0,
+          "condition": "",
+          "script": "roybean_talk",
+          "proximity": 0.0,
+          "extendback": 1.0,
+          "prefab": "human_template",
+          "head": "head_roybean",
+          "hat": "hat_bigwhite,75,62",
+          "idle": "human_pipe_rest",
+          "fronthand": "held_pipe"
+        },
+        "spittoon": {
+          "asset": "spittoon",
+          "usedasset": "spittoon",
+          "x": 500.0,
+          "z": 243.0,
+          "height": 100.0,
+          "width": 118.0,
+          "condition": "",
+          "script": "roybean_spittoon",
+          "proximity": 0.0,
+          "extendback": 1.0
+        }
+      },
+      "parentwaa": "roybean"
     },
     "shaggydogcave_interior": {
       "name": "Shaggy Dog Cave (Inside)",

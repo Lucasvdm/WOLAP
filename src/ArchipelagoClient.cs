@@ -233,6 +233,23 @@ namespace WOLAP
             itemManager.ResetItemCounts();
         }
 
+        public void RebuildMissedCheckLocations()
+        {
+            Dictionary<string, string> flags = MPlayer.instance.data;
+
+            MissedCheckLocations.Clear();
+            foreach (var fullName in flags.Keys)
+            {
+                if (fullName.StartsWith(Constants.MissedForwardedFlagPrefix))
+                {
+                    var needReconstruct = fullName.Replace(Constants.MissedForwardedFlagPrefix, "");
+                    var name = needReconstruct.Replace("*", " ");
+                    ShopCheckLocation final = new ShopCheckLocation(name, "dirtwaterbartender", 1);
+                    MissedCheckLocations.Add(final);
+                }
+            }
+        }
+
         private bool IsInItemGrantableState()
         {
             string name = WestOfLoathing.instance.state_machine.state.name;
@@ -486,6 +503,12 @@ namespace WOLAP
             new ShopCheckLocation("Wanderin' Sally's Camp - Item 12", "sally", 1500, false),
             new ShopCheckLocation("Wanderin' Sally's Camp - Item 13", "sally", 100, false),
             new ShopCheckLocation("Wanderin' Sally's Camp - Item 14", "sally", 1000, false)
+        };
+
+        //this is a list that has been created just for the missedchecks to be placed to make the hint handler be able to use it better.
+        public static readonly List<ShopCheckLocation> MissedCheckLocations = new List<ShopCheckLocation> 
+        {
+            
         };
     }
 }

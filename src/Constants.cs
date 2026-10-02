@@ -14,14 +14,16 @@ namespace WOLAP
         public const string PluginGuid = "lucasvdm.westofloathing.aprandomizer";
         public const string PluginName = "West of Loathing Archipelago Randomizer";
         public const string PluginNameShort = "WOLAP";
-        public const string PluginVersion = "0.2.4";
+        public const string PluginVersion = "0.3.0";
         public const string PluginAssetsPath = "assets/wolap_assets";
 
         public const string ItemReceivedFlagPrefix = "received_item_";
         public const string GotCheckFlagPrefix = "got_check_";
+        public const string GotHintFlagPrefix = "got_hint_";
 
         public const string UnlockedShopCheckFlagPrefix = "unlocked_shop_check_";
         public const string AddedShopCheckFlagPrefix = "added_shop_check_";
+        public const string MissedForwardedFlagPrefix = "missed_check_forwarded_";
         public const string ShopCheckItemID = "archipelago_shopitem";
 
         public const string ModdedSaveProperty = "archipelago_save";
