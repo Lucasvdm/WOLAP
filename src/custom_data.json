@@ -32379,7 +32379,99 @@
       ]
     },
     "mine5_elvvending": {
-      "refund": [
+      "start": [
+        [
+          "say",
+          "The screen on this machine says:"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotvendchecks)"
+        ],
+        [
+          "goto",
+          "opts2"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts"
+        ]
+      ],
+      "opts2": [
+        [
+          "say",
+          "\"^MUNICIPAL ORGANIC FLUID PIPELINE OFFLINE -- INSERT ORGANIC FLUID^translate_elvibrato^.\""
+        ],
+        [
+          "say",
+          "Light pulses in a pentagonal aperture on the side of the machine."
+        ],
+        [
+          "if",
+          "hasitem(elv_sludge)"
+        ],
+        [
+          "option",
+          "insert2",
+          "Insert fluid [El Vibrato fluid]"
+        ],
+        [
+          "option",
+          "done",
+          "Leave the machine"
+        ]
+      ],
+      "insert2": [
+        [
+          "removeitem",
+          "elv_sludge"
+        ],
+        [
+          "say",
+          "The screen seems to glitch for a moment then some options appear."
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotfoodcheck)"
+        ],
+        [
+          "option",
+          "food2",
+          "^ORGANIC SUSTENANCE^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotboozecheck)"
+        ],
+        [
+          "option",
+          "booze2",
+          "^ORGANIC SEDATIVE^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotpotioncheck)"
+        ],
+        [
+          "option",
+          "potion2",
+          "^ORGANIC REFRESHMENT^translate_elvibrato^"
+        ],
+        [
+          "if",
+          "!hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "option",
+          "refund2",
+          "^ORGANIC FLUID RETURN^translate_elvibrato^"
+        ]
+      ],
+      "refund2": [
         [
           "say",
           "You press the button and the machine ejects the pentagon you just put in it."
@@ -32390,36 +32482,84 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ TASTA STAZAK"
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ TASTA STAZAK"
+        ],
+        [
+          "addflag",
+          "mine5_gotrefundcheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
         ],
         [
           "say",
           "The screen flickers back to:"
         ],
         [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
           "goto",
           "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
         ]
       ],
-      "food": [
+      "food2": [
         [
           "say",
           "A featureless brown cube drops into the aperture... or should have... what is this thing??"
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ CHOTAZAK"
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ CHOTAZAK"
+        ],
+        [
+          "addflag",
+          "mine5_gotfoodcheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
         ],
         [
           "say",
           "The screen flickers back to:"
         ],
         [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
           "goto",
           "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
         ]
       ],
-      "booze": [
+      "booze2": [
         [
           "say",
           "A ceramic cylinder filled with liquid clatters into the aperture."
@@ -32430,18 +32570,42 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ GACHAKUZ"
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ GACHAKUZ"
+        ],
+        [
+          "addflag",
+          "mine5_gotboozecheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
         ],
         [
           "say",
           "The screen flickers back to:"
         ],
         [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
           "goto",
           "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
         ]
       ],
-      "potion": [
+      "potion2": [
         [
           "say",
           "A glass tube filled with bubbling fluid clinks into the aperture."
@@ -32452,15 +32616,39 @@
         ],
         [
           "customcommand",
-          "checklocation,El Vibrato Vending Machine (Soupstock Lode) - KROKUZ NOHONOKSTA"
+          "checklocation,El Vibrato Chamber (Soupstock Lode) - Vending Machine KROKUZ NOHONOKSTA"
+        ],
+        [
+          "addflag",
+          "mine5_gotpotioncheck"
+        ],
+        [
+          "if",
+          "hasflag(mine5_gotboozecheck) && hasflag(mine5_gotfoodcheck) && hasflag(mine5_gotpotioncheck) && hasflag(mine5_gotrefundcheck)"
+        ],
+        [
+          "addflag",
+          "mine5_gotvendchecks"
         ],
         [
           "say",
           "The screen flickers back to:"
         ],
         [
+          "if",
+          "hasflag(mine5_gotvendchecks)"
+        ],
+        [
           "goto",
           "opts"
+        ],
+        [
+          "else",
+          ""
+        ],
+        [
+          "goto",
+          "opts2"
         ]
       ]
     },
