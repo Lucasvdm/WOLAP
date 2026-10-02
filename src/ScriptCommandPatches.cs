@@ -147,7 +147,7 @@ namespace WOLAP
                         traverse.Method("AddContent", [typeof(Component), typeof(OptionsContentBlock.Side)]).GetValue([itemRow, OptionsContentBlock.Side.None]);
                         traverse.Method("CompAddStuff", [typeof(Component)]).GetValue<Component>([itemRow]);
                     }
-                }).Wait(TimeSpan.FromSeconds(10));
+                }).Wait(TimeSpan.FromSeconds(5));
             }
         }
 

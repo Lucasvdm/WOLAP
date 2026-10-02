@@ -16353,7 +16353,7 @@
         ],
         [
           "leftspeak",
-          "Well I can take it off your hands for you if you want"
+          "Well I can take it off your hands if you want"
         ],
         [
           "rightspeak",
@@ -66798,7 +66798,15 @@
         ],
         [
           "if",
-          "hasflag(mainquest)>31 && !hasflag(honeybeanpurchased) | hasflag(canbuyhoneybean) && !hasflag(honeybeanpurchased)"
+          "hasflag(canbuyhoneybean) && !hasflag(honeybeanpurchased)"
+        ],
+        [
+          "goto",
+          "buyit"
+        ],
+        [
+          "if",
+          "hasflag(mainquest)>31 && !hasflag(honeybeanpurchased)"
         ],
         [
           "goto",
