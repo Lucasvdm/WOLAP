@@ -292,32 +292,129 @@ foreach ($stagedFile in $stagedRequiredFiles) {
 
 Write-Host "Thunderstore staging structure successfully validated"
 
-Write-Host "Creating final Thunderstore .Zip package"
+# ---------------------------------------------------------------------------
+# Create final release packages
+# ---------------------------------------------------------------------------
 
-# Reads the staged manifest so the final .Zip name matches the package name and version
+Write-Host "Creating final release packages"
+
+# Read the staged manifest so package names use the current configured version
 $stagedManifestPath = Join-Path $stagingRoot "manifest.json"
 $manifestData = Get-Content -Path $stagedManifestPath -Raw | ConvertFrom-Json
 
 $packageName = $manifestData.name
 $packageVersion = $manifestData.version_number
 
-# Creates the final .Zip filename from the manifest information
-$finalZipName = "$packageName-$packageVersion.zip"
-$finalZipPath = Join-Path $outputRoot $finalZipName
+# Each release gets its own folder under output
+$releaseOutputRoot = Join-Path $outputRoot "WOLAP_v$packageVersion"
 
-# If this exact version was already packaged, remove the old copy before creating the new one
+if (-not (Test-Path $releaseOutputRoot)) {
+    Write-Host "Creating release output folder WOLAP_v$packageVersion"
+    New-Item -ItemType Directory -Path $releaseOutputRoot | Out-Null
+}
+
+# ---------------------------------------------------------------------------
+# Thunderstore package
+# ---------------------------------------------------------------------------
+
+Write-Host "Creating Thunderstore .Zip package"
+
+$finalZipName = "$packageName-$packageVersion.zip"
+$finalZipPath = Join-Path $releaseOutputRoot $finalZipName
+
 if (Test-Path $finalZipPath) {
     Write-Host "$finalZipName already exists, replacing old package"
     Remove-Item -Path $finalZipPath -Force
 }
 
 # Compress the CONTENTS of staging, not the staging folder itself
-Compress-Archive -Path (Join-Path $stagingRoot "*") -DestinationPath $finalZipPath -CompressionLevel Optimal
+Compress-Archive `
+    -Path (Join-Path $stagingRoot "*") `
+    -DestinationPath $finalZipPath `
+    -CompressionLevel Optimal
 
-# Make sure the final package was actually created
 if (-not (Test-Path $finalZipPath)) {
-    throw "Final Thunderstore package was not created at $finalZipPath"
+    throw "Thunderstore package was not created at $finalZipPath"
 }
 
 Write-Host "Thunderstore package successfully created at:"
 Write-Host $finalZipPath
+
+
+# ---------------------------------------------------------------------------
+# Manual-install WOLAP_Mod.zip
+# ---------------------------------------------------------------------------
+
+Write-Host "Creating manual-install WOLAP_Mod.zip"
+
+# Temporary staging folder for the manual package
+$manualStageRoot = Join-Path $tempRoot "WOLAP_Mod"
+
+$manualMonoModRoot = Join-Path $manualStageRoot "MonoMod"
+$manualPatchersRoot = Join-Path $manualStageRoot "Patchers"
+$manualWOLAPRoot = Join-Path $manualStageRoot "WOLAP"
+
+$manualZipPath = Join-Path $releaseOutputRoot "WOLAP_Mod.zip"
+
+# Clear old manual staging data
+if (Test-Path $manualStageRoot) {
+    Remove-Item -Path $manualStageRoot -Recurse -Force
+}
+
+# Create manual package folders
+New-Item -ItemType Directory -Path $manualMonoModRoot -Force | Out-Null
+New-Item -ItemType Directory -Path $manualPatchersRoot -Force | Out-Null
+New-Item -ItemType Directory -Path $manualWOLAPRoot -Force | Out-Null
+
+Write-Host "Copying files into manual-install package"
+
+# MonoMod folder
+Copy-Item -Path $mMBPPath -Destination $manualMonoModRoot -Force
+Copy-Item -Path $mMILHPath -Destination $manualMonoModRoot -Force
+
+# Patchers folder
+Copy-Item -Path $nSoftPath -Destination $manualPatchersRoot -Force
+Copy-Item -Path $paWORelPath -Destination $manualPatchersRoot -Force
+
+# WOLAP folder
+Copy-Item -Path $apPath -Destination $manualWOLAPRoot -Force
+Copy-Item -Path $mMWORelPath -Destination $manualWOLAPRoot -Force
+
+# Validate manual package contents
+$manualRequiredFiles = @(
+    (Join-Path $manualMonoModRoot "MonoMod.Backports.dll")
+    (Join-Path $manualMonoModRoot "MonoMod.ILHelpers.dll")
+
+    (Join-Path $manualPatchersRoot "Newtonsoft.Json.dll")
+    (Join-Path $manualPatchersRoot "WOLAP.DependencyPatcher.dll")
+
+    (Join-Path $manualWOLAPRoot "Archipelago.MultiClient.Net.dll")
+    (Join-Path $manualWOLAPRoot "WOLAP.dll")
+)
+
+foreach ($manualFile in $manualRequiredFiles) {
+    if (-not (Test-Path $manualFile)) {
+        throw "Required manual-install file was not found at $manualFile"
+    }
+}
+
+if (Test-Path $manualZipPath) {
+    Write-Host "WOLAP_Mod.zip already exists, replacing old package"
+    Remove-Item -Path $manualZipPath -Force
+}
+
+Compress-Archive `
+    -Path (Join-Path $manualStageRoot "*") `
+    -DestinationPath $manualZipPath `
+    -CompressionLevel Optimal
+
+if (-not (Test-Path $manualZipPath)) {
+    throw "Manual-install package was not created at $manualZipPath"
+}
+
+Write-Host "Manual-install package successfully created at:"
+Write-Host $manualZipPath
+
+Write-Host ""
+Write-Host "Release v$packageVersion successfully packaged in:"
+Write-Host $releaseOutputRoot
