@@ -21180,11 +21180,11 @@
       "start": [
         [
           "if",
-          "hasflag(canbuyhoneybean) && !hasitem(hat_teethcrown) | hasflag(canbuyhoneybean) && !hasitem(hat_necrocrown) | hasflag(canbuyhoneybean) && !hasitem(hat_silverturnip) | hasflag(canbuyhoneybean) && !hasitem(hat_elvcrown) | hasflag(canbuyhoneybean) && !hasitem(quest_honeybean)"
+          "hasflag(canbuyhoneybean) && !hasitem(hat_teethcrown) && !hasitem(hat_necrocrown) && !hasitem(hat_silverturnip) && !hasitem(hat_elvcrown) && !hasitem(quest_honeybean)"
         ],
         [
           "goto",
-          "done"
+          "youdonthavewhatyouneed"
         ],
         [
           "leftportrait",
@@ -21270,6 +21270,33 @@
           "Hmm, I don't think I want to give you a crown. Sorry."
         ]
       ],
+      "youdonthavewhatyouneed": [
+        [
+          "leftportrait",
+          "player"
+        ],
+        [
+          "rightportrait",
+          "norton"
+        ],
+        [
+          "rightsay",
+          "I'm Emperor Norton! I'm in charge of this city, and you can't build any train tracks here without my permission!"
+        ],
+        [
+          "leftsay",
+          "I know. Im just passing by again."
+        ],
+        [
+          "rightsay",
+          "Oh right. Ok but that train is begining to look... Unsightly in my city. You had better hurry up with that crown!"
+        ],
+        [
+          "sayoption",
+          "done",
+          "Will do."
+        ]
+      ],
       "nocrown": [
         [
           "leftspeak",
@@ -21326,7 +21353,7 @@
         [
           "sayoption",
           "nocrown",
-          "I don't believe you are the emperor! I'll just have Smee build the tracks without your permission."
+          "I don't believe you are the emperor! I'll just have Smee build the tracks without your permission. [Get Ant-Eye Virus]"
         ]
       ],
       "notready": [

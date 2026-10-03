@@ -1,5 +1,16 @@
 # Changelog
 
+# v0.3.1
+
+All save files and AP Worlds Generated with v0.3.0 will be fine to upgrade to v0.3.1 without causing the game to break. No regeneration needed.
+
+## Client Mod Changes
+
+- Fixed a bug where the player can accidentally be locked out of the Norton dialog until they have all the crowns and the honey jellybean
+  - Intended design and what it was fixed now to do is to re-unlock the dialog with Norton once the player gets ANY of the crowns or the Honey Jellybean.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## v0.3.0
 
 > **Important:** v0.3.0 contains generation-breaking AP World changes, including new locations, renamed locations, and changed item identities. A new v0.3.0 AP World and a newly generated seed are required to use the new world logic and content.
