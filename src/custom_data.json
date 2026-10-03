@@ -21180,7 +21180,7 @@
       "start": [
         [
           "if",
-          "hasflag(canbuyhoneybean) && !hasitem(hat_teethcrown) | hasflag(canbuyhoneybean) && !hasitem(hat_necrocrown) | hasflag(canbuyhoneybean) && !hasitem(hat_silverturnip) | hasflag(canbuyhoneybean) && !hasitem(hat_elvcrown) | hasflag(canbuyhoneybean) && !hasitem(quest_honeybean)"
+          "hasflag(canbuyhoneybean) && !hasitem(hat_teethcrown) && !hasitem(hat_necrocrown) && !hasitem(hat_silverturnip) && !hasitem(hat_elvcrown) && !hasitem(quest_honeybean)"
         ],
         [
           "goto",
