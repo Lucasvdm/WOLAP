@@ -1,6 +1,6 @@
 # Changelog
 
-## Changelog for v0.3.0
+## v0.3.0
 
 > **Important:** v0.3.0 contains generation-breaking AP World changes, including new locations, renamed locations, and changed item identities. A new v0.3.0 AP World and a newly generated seed are required to use the new world logic and content.
 
