@@ -136,8 +136,8 @@ if ($LASTEXITCODE) {
 Write-Host "NuGet dependencies successfully restored"
 
 # Paths to the DLL files inside NuGet's generated package folders
-$apNugetPath = Join-Path $nugetPackagesRoot "archipelago.multiclient.net\6.6.1\lib\netstandard2.0\Archipelago.MultiClient.Net.dll"
-$nSoftNugetPath = Join-Path $nugetPackagesRoot "archipelago.multiclient.net\6.6.1\lib\netstandard2.0\Newtonsoft.Json.dll"
+$apNugetPath = Join-Path $nugetPackagesRoot "archipelago.multiclient.net\6.7.1\lib\netstandard2.0\Archipelago.MultiClient.Net.dll"
+$nSoftNugetPath = Join-Path $nugetPackagesRoot "archipelago.multiclient.net\6.7.1\lib\netstandard2.0\Newtonsoft.Json.dll"
 $mMBPNugetPath = Join-Path $nugetPackagesRoot "monomod.backports\1.1.2\lib\netstandard2.0\MonoMod.Backports.dll"
 $mMILHNugetPath = Join-Path $nugetPackagesRoot "monomod.ilhelpers\1.1.0\lib\netstandard2.0\MonoMod.ILHelpers.dll"
 

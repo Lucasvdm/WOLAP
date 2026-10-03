@@ -191,5 +191,5 @@ This mod uses AI very minimally, Useage is as follows:
   - In response to being asked on 8/4/26 if they used AI for the ap world: "Nope. In the interest of full, 100% honest disclosure, I used chatgpt exactly twice through development to try asking it about a couple of weird bugs that had me stuck. It basically just confirmed for me both times that the code I was looking at was fine so I went and manually found the bug elsewhere. None of the code (in the main games mod) is AI-generated" (https://discord.com/channels/731205301247803413/1273856413327822950/1534239231168479242)
 - TylerJG92:
   - I do use ChatGPT as a development assistant to help me keep track of tasks, issues, long questlines/flags, and to explain code or help troubleshoot when I get stuck. I use strict working rules so it acts as a tutor and debugging assistant rather than writing the mod for me.
-    - ChatGPT is in no way use for generating Gameplay and/or Mod code.
+    - ChatGPT is in no way used for generating Gameplay and/or Mod code.
   - A small amount of AI-generated code has been used in internal packaging tools only. Those tools are not part of the code that runs in-game.
